@@ -1,0 +1,1022 @@
+statement_id,text,text_en,conclusions,author
+83,Soll in Deutschland ökologische Landwirtschaft oder konventionelle Landwirtschaft finanziell stärker von der Politik unterstützt werden,Should in Germany organic agriculture or conventional agriculture receive more financial support from politicians?,,UPEKI
+84,"Ökologische Landwirtschaft sollte stärker gefördert werden, weil das nachhaltiger ist",Organic farming should be promoted more because it is more sustainable,83(+),UPEKI
+85,"Wenn ökologische Landwirtschaft stärker gefördert wird, produzieren auch mehr Bauern ökologisch","If organic farming is promoted more, more farmers will also produce organic","83(+),96(-),324(+)",UPEKI
+86,Ökologische Landwirtschaft stößt weniger Treibhausgase aus,Organic farming emits fewer greenhouse gases,83(+),UPEKI
+87,"Wenn konventionelle Landwirtschaft stärker gefördert wird, ändert sich in der Landwirtschaft nichts zum Besseren","If conventional agriculture is promoted more, nothing will change in agriculture for the better","83(+),119(+),101(+),95(+)",UPEKI
+88,"Deutschland sollte Vorreiter in ökologischer Landwirtschaft werden, damit andere Länder nachziehen",Germany should become a pioneer in organic agriculture so that other countries can follow suit,83(+),UPEKI
+89,Ökologische Landwirtschaft behandelt Tiere besser,Organic farming treats animals better,83(+),UPEKI
+90,Alle Tiere sollten an die frische Luft kommen dürfen,All animals should be allowed to get into the fresh air,83(+),UPEKI
+91,Durch ökologische Landwirtschaft wird die ökologische Vielfalt erhalten,Ecological agriculture preserves ecological diversity,83(+),UPEKI
+92,Konventionelle Landwirtschaft wurde lange genug finanziell unterstützt,Conventional agriculture has received financial support long enough,83(+),UPEKI
+93,"Ökologische Landwirtschaft sollte stärker gefördert werden, weil das für die Tiere besser ist",Organic farming should be promoted more because it is better for the animals,83(+),UPEKI
+94,Konventionelle Landwirtschaft versorgt die Menschen in Deutschland,Conventional agriculture supplies the people in Germany,83(-),UPEKI
+95,Durch konventionelle Landwirtschaft wird die Kulturlandschaft gepflegt,The cultural landscape is maintained through conventional agriculture,83(-),UPEKI
+96,"Ohne die Förderung konventioneller Landwirtschaft, könnten die Bauern weniger ernten","Without the promotion of conventional agriculture, farmers would be able to harvest less","83(-),324(-)",UPEKI
+97,"Wenn konventionelle Landwirtschaft nicht gefördert wird, müssten mehr Lebensmittel importiert werden, was nicht gut für das Klima ist","If conventional agriculture is not promoted, more food would have to be imported, which is not good for the climate",83(-),UPEKI
+98,Konventionelle Landwirtschaft verbraucht weniger Fläche,Conventional agriculture uses less land,83(-),UPEKI
+99,"Längst nicht alles, was als ökologische Landwirtschaft bezeichnet wird, ist auch ökologisch",Not everything that is described as ecological agriculture is also ecological,"83(-),189(+)",UPEKI
+100,Ökologische Produkte sollten sich bei guter Qualität auch ohne staatliche Förderung am Markt durchsetzen,"With good quality, ecological products should assert themselves on the market even without government funding",83(-),UPEKI
+101,"Wenn konventionelle Landwirtschaft nicht mehr so stark gefördert wird, werden viele Bauern arbeitslos","When conventional agriculture is no longer so strongly promoted, many farmers become unemployed","83(-),328(+)",UPEKI
+102,"Konventionelle Landwirtschaft ist nicht so schlimm, wie immer gesagt wird",Conventional farming isn't as bad as is always said,83(-),UPEKI
+103,"Die Politik sollte konventionelle Landwirtschaft stärker fördern, um im internationalen Wettbewerb bestehen zu können",Politicians should promote conventional agriculture more in order to survive in international competition,83(-),UPEKI
+112,Ökologische Landwirtschaft hat langfristig bessere Wettbewerschancen,Organic agriculture has better competitive chances in the long term,"103(-),349(-)",user1046
+117,"Was für den Anbau von lebensmitteln gilt, sollte auch für die Tierhaltung gelten. Wer dies erkennt, geht auch verantwortungsbewusster mit den Tieren um",What applies to growing food should also apply to animal husbandry. Those who recognize this also treat the animals more responsibly,"89(+),381(-)",user551
+123,die aussage so stimmt,the statement is correct,"99(+),91(+)",user148
+131,ökologische Landwirtschaft ist viel gesünder,organic farming is much healthier,"83(+),381(-)",user829
+132,"es sollte sich mehr für eine artgerechtere Haltung der Tiere eingesetzt werden, auch wenn daduch der Preis für Fleisch steigen würde","More should be done for a more appropriate keeping of the animals, even if this would increase the price of meat",83(+),user524
+133,Bessere Lebensbedingungen für Nutztiere,Better living conditions for farm animals,90(+),user524
+134,biodiversität geht verloren,biodiversity is being lost,83(+),user26
+135,Misstrauen gegen Labels,Distrust of labels,99(+),user41
+136,Ernte heißt Gewinn. Wer gewinnt? Wer verdient mehr? Die Bauern oder andere,Harvest means profit. Who wins? Who deserves more? The farmers or others,96(+),user41
+138,Der Einsatz weniger Pestizide ist für die Gesundheit aller gut,Using fewer pesticides is good for everyone's health,"83(+),350(+)",user542
+139,"Weil wir schon so viele Zusatzstoffe zu uns nehmen, da wäre es doch schön wenn beim Prozess der Entstehung der Zutat wenigstens nicht noch was mitzugegeben wird","Because we already consume so many additives, it would be nice if at least something wasn't added during the process of creating the ingredient","138(+),84(+)",user542
+140,klingt logisch,sounds logical,85(+),user1052
+141,"Konventionelle Landwirtschaft ist die beste Lösung, um die wachsende Bevölkerung zu ernähren",Conventional farming is the best solution to feed the growing population,102(+),user58
+142,"Es muss weniger/kein Antibiotika gefüttert werden, da die Tiere mehr Platz haben, was auch für uns Menschen besser ist","Less/no antibiotics have to be fed, as the animals have more space, which is also better for us humans",83(+),user567
+143,"Die Bauern haben dann das Gefühl, dass ihre Mühen sich lohnen und ihre Arbeit wertgeschätzt wird",The farmers then have the feeling that their efforts are worthwhile and that their work is valued,85(+),user567
+144,Bio für alle ist aus Effifzienz- und Flächengründen unmöglich,"For reasons of efficiency and space, organic for everyone is impossible",102(+),user71
+145,In der Bio-Landwirtschaft gibt es mehr Ausschuss und durch die Schädlingsbekämpfung sterben auch Tiere,"There is more waste in organic farming, and pest control also kills animals",99(+),user71
+146,Dasselbe Argument wie zuvor: Bio-Landwirtschaft überall ist aus Kosten- und Effizienzgründen unmöglich,The same argument as before: organic farming everywhere is impossible for reasons of cost and efficiency,94(+),user71
+147,Ökologische Landwirtschaft dient dem Tierwohl,Organic agriculture serves animal welfare,83(+),user597
+148,Keine Massentierhaltung,No factory farming,"91(+),381(+)",user597
+149,Weil es nicht weniger Tierhaltung geben wird,Because there won't be less animal husbandry,86(-),user597
+150,"Liegt auf der Hand,Importe sind nicht gut für das Klima","Obviously, imports are not good for the climate","97(+),357(+)",user99
+151,Abschaffung der Massentierhaltung,Abolition of factory farming,83(+),user1106
+152,mehr ökologische landwirtschaft macht die produkte preiswerter und steigert die abnahme,more ecological agriculture makes the products cheaper and increases the purchase,84(+),user608
+153,Tierwohl und Boden und Gewässerschutz,Animal welfare and soil and water protection,151(+),user1106
+154,Artenvielfalt,biodiversity,84(+),user617
+155,"weniger Tiere,Tiere werden besser behandelt","fewer animals, animals are treated better",89(+),user617
+156,Es ist ethischer hier Vorreiter zu sein,It is more ethical to be a pioneer here,"88(+),193(+)",user617
+157,Vermeidung von Insektiziden vermeidet auch die Ausrottung von Insekten,Avoiding insecticides also avoids the extermination of insects,"91(+),363(+)",user1134
+158,"Herkömmliche Landwirtschaft ist so industriell organisiert, dass sie kostengünstig große Mengen produzieren kann",Conventional agriculture is organized so industrially that it can produce large quantities inexpensively,94(+),user1134
+159,Bauern wollen auch ihre Einkommenssituation stabilisieren und langffristig absichern,Farmers also want to stabilize their income situation and secure it over the long term,85(+),user1134
+160,bessre lebensmittel bessre gesundheit,"better food, better health",84(+),user1138
+161,"Weil es um Lebewesen geht, so wie wir Menschen auch","Because it's about living beings, just like us humans",93(+),user1146
+162,Nachhaltiger soll es auf alle fälle sein,"In any case, it should be more sustainable","84(+),392(+)",user640
+163,Produkte nicht heimischer Herkunft wären möglicherweise günstiger; heimische Produkte könnten nicht mehr konkurenzfähig sein,Products of non-domestic origin might be cheaper; domestic products could no longer be competitive,97(+),user146
+164,Fördermittel kein Argument für quantitativen Ertrag,Subsidies are not an argument for quantitative returns,96(-),user146
+166,Man kann es auch so aussehen lassen als ob man ökologisch ist,You can also make it look like you're ecological,99(+),user158
+167,"Die ökologische Vielfalt, entgegen der Monokultur der konventionellen Landwirtschaft erhält die Lebensgrundlage der gesamten Menschheit. (Siehe Insekten, Feuchtigkeit, Schädlinge etc.)","The ecological diversity, contrary to the monoculture of conventional agriculture, preserves the livelihood of all humanity. (See insects, moisture, pests, etc.)",91(+),user1074
+168,Mehr Förderung würde die Preise senken,More promotion would lower prices,83(+),user1124
+169,Es sind Lebewesen die an die Luft gehören,They are living beings that belong in the air,90(+),user1124
+170,Bilder zeigen wie Tiere gehalten werden,Pictures show how animals are kept,102(-),user1124
+171,"Das ist in der Regel so, dass wenn Dinge unterstützt und gefördert werden, sie auch häufiger genutzt und umgesetzt werden","As a rule, when things are supported and promoted, they are also used and implemented more frequently",85(+),user1177
+172,"Der Ansatz mag gut sein, aber die Aussführung basiert nur auf dem Weglassen von effizienten Mitteln. Das kann kein Ziel sein","The approach may be good, but the execution is based only on leaving out efficient means. That can't be a goal",99(+),user1148
+173,Ökologische Landwirtschaft belastet die Umwelt weniger stark,Organic farming has less of an impact on the environment,"83(+),185(+)",user174
+174,Ökologische Landwirtschaft reduziert Insektensterben,Organic farming reduces insect mortality,83(+),user174
+175,Ökologische Landwirtschaft ist gesundheitlich unbedenklicher (Allergien),Organic farming is less harmful to health (allergies),173(+),user174
+176,Verwendung weniger Pestizide,Use fewer pesticides,173(+),user174
+177,Ist teurer und sollte gefördert werden,Is more expensive and should be encouraged,100(-),user174
+178,"Ich bin nicht dafür, finde das Argument aber überzeugend weil durch den Import mehr Treibhausgase frei werden","I am not in favor, but I find the argument convincing because more greenhouse gases are released through imports","97(+),383(-)",user1189
+179,nachhaltiger,more sustainable,84(+),user1189
+180,ungenaue Angaben,inaccurate information,87(-),user1189
+181,ökologische Landwirtschaft versorgt die Menschen auch,Organic farming also provides for the people,94(-),user205
+324,Sollte der Anbau gentechnisch veränderter Pflanzen zur Produktion von Lebensmitteln in Deutschland erlaubt oder verboten sein,Should the cultivation of genetically modified plants for the production of food be allowed or prohibited in Germany?,,UPEKI
+325,"Gentechnik führt vermutlich dazu, dass noch mehr Tier- und Pflanzenarten aussterben",Genetic engineering is likely to lead to even more animal and plant species becoming extinct,324(+),UPEKI
+326,Gegen Gentechnik spricht: Gentechnische Veränderungen an Pflanzen sind nicht mehr rückgängig zu machen. Damit wird zu stark in die Natur eingegriffen,What speaks against genetic engineering is that genetic modifications to plants can no longer be reversed. This interferes too much with nature,324(+),UPEKI
+327,"Der Anbau von Genpflanzen macht womöglich den Boden unfruchtbar, auf dem die Pflanzen wachsen",The cultivation of genetic plants may render the soil on which the plants grow sterile,324(+),UPEKI
+328,"Gegen Gentechnik spricht, dass große Saatguthersteller durch Gentechnik noch mächtiger werden und die Preise für Saatgut in die Höhe treiben",What speaks against genetic engineering is the fact that large seed manufacturers are becoming even more powerful through genetic engineering and are driving up the prices for seeds,324(+),UPEKI
+329,"Gegen Gentechnik spricht: Man kann nicht verhindern, dass sich gentechnisch veränderter Pflanzen unkontrolliert ausbreiten",What speaks against genetic engineering is that you cannot prevent genetically modified plants from spreading in an uncontrolled manner,324(+),UPEKI
+330,Genpflanzen sind schädlich für die Gesundheit von Lebewesen. Das zeigen zumindest einige wissenschaftliche Studien mit Tieren,Gene plants are harmful to the health of living things. At least that is what some scientific studies with animals show,"324(+),332(+)",UPEKI
+331,"Im Kampf gegen den Hunger auf der Welt brauchen wir keine gentechnisch veränderten Lebensmittel, sondern eine gerechtere Verteilung von Lebensmitteln","In the fight against hunger in the world, we do not need genetically modified food, but a fairer distribution of food",324(+),UPEKI
+332,"Gentechnik trägt dazu bei, dass Bauern noch abhängiger von großen Konzernen werden",Genetic engineering helps farmers to become even more dependent on large corporations,324(+),UPEKI
+333,"Genetisch verändertes Saatgut ist viel zu teuer. Wenn sich das durchsetzt, könnten Kleinbauern massenhaft pleitegehen","Genetically modified seeds are far too expensive. If this catches on, small farmers could go bankrupt en masse","324(+),355(+)",UPEKI
+334,"Gegen Gentechnik spricht, dass Gen-Pflanzen das Erbgut von normalen Pflanzen verunreinigen können",What speaks against genetic engineering is that gene plants can contaminate the genome of normal plants,"324(+),338(+)",UPEKI
+335,Gentechnik ist schädlich für andere Lebensmittel. Bienen sammeln ja z. B. auch Pollen von gentechnisch veränderten Pflanzen. Irgendwann gibt es dann vielleicht nur noch Gen-Honig,Genetic engineering is harmful to other foods. Bees collect e.g. also pollen from genetically modified plants. At some point there may only be gene honey,324(+),UPEKI
+336,"Es kann schlimme Folgen haben, wenn sich gentechnisch veränderte Pflanzen in der Natur unkontrolliert ausbreiten",It can have dire consequences when genetically modified plants spread uncontrollably in nature,"324(+),334(+),335(+)",UPEKI
+337,Beim Anbau gentechnisch veränderter Pflanzen wird viel giftiges Pflanzenschutzmitteln eingesetzt,A lot of toxic pesticides are used in the cultivation of genetically modified plants,324(+),UPEKI
+338,"Wenn sich Gentechnik weiter ausbreitet, haben Verbraucher irgendwann keine Chance mehr, normale Lebensmittel zu kaufen","If genetic engineering continues to spread, at some point consumers will no longer have a chance to buy normal food",324(+),UPEKI
+339,"Gegen Gentechnik spricht: Arme Länder werden dadurch noch abhängiger von reichen Ländern, weil nur die reichen Länder über die entsprechende Technik verfügen",The argument against genetic engineering is that poor countries become even more dependent on rich countries because only the rich countries have the appropriate technology,324(+),UPEKI
+340,Durch Gentechnik gibt es vermutlich bald nur noch Einheitsbrei im Supermarkt und nicht mehr so viele Alternativen beim Einkauf,"Thanks to genetic engineering, there will probably soon only be uniformity in the supermarket and not so many alternatives when shopping","324(+),366(+)",UPEKI
+341,Die genetische Kreuzung von nicht artverwandten Pflanzen kann negative Folgen haben,Genetic crossing of non-related plants can have negative consequences,324(+),UPEKI
+342,"Die wirklichen Risiken von Gentechnik sind schon deshalb nicht bekannt, weil die Gentechnikkonzerne selbst die Tests durchführen und sich nicht ins eigene Fleisch schneiden",The real risks of genetic engineering are not known because the genetic engineering companies carry out the tests themselves and do not cut their own flesh,324(+),UPEKI
+343,"Wenn sich Gentechnik durchsetzt, vernichtet das Arbeitsplätze in der konventionellen und Bio-Landwirtschaft","If genetic engineering prevails, it will destroy jobs in conventional and organic agriculture",324(+),UPEKI
+344,"Gentechnik ist sehr wichtig, weil Deutschland ohne Gentechnik den Anschluss an eine Zukunftstechnologie von entscheidender Bedeutung verliert","Genetic engineering is very important because without genetic engineering, Germany will lose its connection to a future technology of crucial importance",324(-),UPEKI
+345,"Durch Gentechnik können mehr Lebensmittel hergestellt werden. Das ist wichtig, weil es zukünftig immer mehr Menschen auf der Welt gibt, die etwas zu essen brauchen",Genetic engineering can produce more food. This is important because in the future there will be more and more people in the world who need something to eat,324(-),UPEKI
+346,"Für Gentechnik spricht, dass dadurch Lebensmittel in größerer Vielfalt als bislang hergestellt werden können",What speaks in favor of genetic engineering is that it enables food to be produced in greater diversity than before,324(-),UPEKI
+347,"Für Gentechnik spricht: Es ist überhaupt nicht bewiesen, dass gentechnisch veränderte Pflanzen tatsächlich schädlich für Menschen sind",In favor of genetic engineering: It has not been proven at all that genetically modified plants are actually harmful to humans,"324(-),336(-)",UPEKI
+348,"Ein Vorteil von Gentechnik ist, dass damit Tierfutter in höherer Qualität und mit geringerem Energieeinsatz produziert werden kann",One advantage of genetic engineering is that animal feed can be produced in higher quality and with less energy,324(-),UPEKI
+349,"Für genetisch veränderte Pflanzen spricht, dass diese widerstandsfähiger gegen Schädlinge und Krankheiten sind",An argument in favor of genetically modified plants is that they are more resistant to pests and diseases,324(-),UPEKI
+350,"Gentechnik ist gut für die Natur, weil für den Anbau gentechnisch veränderten Pflanzen weniger Pflanzenschutzmittel benötigt werden",Genetic engineering is good for nature because fewer pesticides are required to grow genetically modified plants,324(-),UPEKI
+351,"Gentechnik hilft dabei, dass wir in Zukunft mehr pflanzliche Rohstoffe haben und damit schneller von Kohle und Öl auf erneuerbare Energien umsteigen können",Genetic engineering helps to ensure that we have more plant-based raw materials in the future and that we can therefore switch more quickly from coal and oil to renewable energies,324(-),UPEKI
+352,"Für Gentechnik spricht: Es können dadurch Pflanzen geschaffen werden, die besser schmecken und gesünder sind als normale Pflanzen",An argument in favor of genetic engineering is that plants can be created that taste better and are healthier than normal plants,324(-),UPEKI
+353,"Der Anbau von Gen-Pflanzen ist gar kein Problem, weil sie vor der Zulassung intensiv getestet werden",The cultivation of gene plants is not a problem at all because they are tested intensively before approval,324(-),UPEKI
+354,"Gentechnik hilft im Kampf gegen den Hunger auf der Welt, weil Pflanzen gentechnisch so verändert werden können, dass sie auch in trockenen Regionen wachsen",Genetic engineering helps in the fight against hunger in the world because plants can be genetically modified so that they can also grow in arid regions,"324(-),345(+)",UPEKI
+355,"Der Anbau von Gen-Pflanzen ist sinnvoll, da Kleinbauern durch Gentechnik mehr ernten können und dadurch mehr regional produziert wird",The cultivation of gene crops makes sense because smallholders can harvest more through genetic engineering and thus more regional produce is produced,324(-),UPEKI
+356,"Für Gentechnik spricht, dass es ganz natürlich ist, dass sich Pflanzen verändern. Mit Gentechnik geht diese Veränderung einfach etwas schneller","What speaks in favor of genetic engineering is that it is quite natural for plants to change. With genetic engineering, this change is simply a little faster",324(-),UPEKI
+357,"Mit Gentechnik werden Pflanzen verbessert genau wie bei der klassischen Züchtung, die ja auch nicht verboten ist","Plants are improved with genetic engineering, just like with traditional breeding, which is not prohibited either","324(-),328(-)",UPEKI
+358,"Gentechnik ist wichtig, um die steigende Nachfrage an Energie und Rohstoffen zu erfüllen",Genetic engineering is important to meet the increasing demand for energy and raw materials,"324(-),360(+)",UPEKI
+359,"Der Anbau von genetisch veränderten Pflanzen ist sinnvoll, da dadurch in Deutschland Arbeitsplätze geschaffen werden",The cultivation of genetically modified plants makes sense as it creates jobs in Germany,324(-),UPEKI
+360,Länder wie Kanada haben gute Erfahrungen mit dem Anbau gentechnisch veränderter Pflanzen gemacht,Countries like Canada have had good experiences with growing genetically modified crops,324(-),UPEKI
+361,"Deutschland lebt vom technologischen Fortschritt, deshalb sollte Gentechnik nicht behindert werden","Germany lives from technological progress, so genetic engineering should not be hindered",324(-),UPEKI
+362,Nur mit der Schlüsseltechnologie Gentechnik kann Deutschland weltweit wettbewerbsfähig bleiben,Germany can only remain competitive worldwide with the key technology of genetic engineering,324(-),UPEKI
+363,Sollten in Deutschland Plastikverpackungen für frische Lebensmittel wie Obst und Gemüse erlaubt oder verboten sein,Should plastic packaging for fresh food such as fruit and vegetables be allowed or prohibited in Germany?,,UPEKI
+364,Mikroplastik im Meeren ist heute schon ein Umweltproblem. Durch weggeworfene Plastikverpackungen wird das Problem immer größer,Microplastics in the oceans are already an environmental problem today. Discarded plastic packaging makes the problem worse,363(+),UPEKI
+365,"Für die Herstellung von Plastik braucht man giftige Stoffe wie Chlor, die gefährlich für die Gesundheit sein können","The manufacture of plastic requires toxic substances such as chlorine, which can be dangerous to health",363(+),UPEKI
+366,"In weggeworfenen Plastikverpackungen können sich Tiere verfangen, die dann qualvoll sterben",Animals can get caught in discarded plastic packaging and die in agony,"363(+),367(-)",UPEKI
+367,"Gegen Plastikverpackungen spricht, dass Tiere manchmal Plastikmüll fressen und daran sterben",What speaks against plastic packaging is that animals sometimes eat plastic waste and die from it,363(+),UPEKI
+368,"Plastikverpackungen sind ein Problem für die Umwelt, weil sie sich nur ganz langsam abbauen",Plastic packaging is a problem for the environment because it takes a long time to degrade,363(+),UPEKI
+369,"Plastikverpackungen werden oft einfach verbrannt, weil sie schwer zu recyceln sind. Das schadet der Umwelt",Plastic packaging is often simply burned because it is difficult to recycle. That harms the environment,363(+),UPEKI
+370,"Durch Plastikverpackungen gelangt Mikroplastik in Flüsse. Menschen, die dieses Wasser trinken, können krank werden",Microplastics get into rivers through plastic packaging. People who drink this water can get sick,363(+),UPEKI
+371,Deutschland verbraucht jetzt schon pro Kopf am meisten Plastik in Europa. Das muss sich ändern,Germany already consumes the most plastic per capita in Europe. That needs to change,363(+),UPEKI
+372,"Gegen Plastikverpackungen spricht, dass in Deutschland nur ein ganz kleiner Teil an Plastikverpackungen wiederverwertet wird",What speaks against plastic packaging is that only a very small part of plastic packaging is recycled in Germany,363(+),UPEKI
+373,"Plastikverpackungen schaden dem Klima, weil bei der Zersetzung von Plastik Treibhausgase freigesetzt werden",Plastic packaging harms the climate because greenhouse gases are released when plastic breaks down,363(+),UPEKI
+374,"Die Stoffe in Plastikverpackungen können unseren Hormonhaushalt negativ beeinflussen, da sie über die Lebensmittel auf den Menschen übergehen","The substances in plastic packaging can have a negative impact on our hormonal balance, as they pass through food to humans",363(+),UPEKI
+375,"Gegen Plastikverpackungen spricht, dass Plastikmüll oft in arme Länder gebracht wird und dort die Umwelt verschmutzt",What speaks against plastic packaging is that plastic waste is often brought to poor countries and pollutes the environment there,363(+),UPEKI
+376,"Gegen Plastikverpackungen spricht: Unverkaufte Lebensmittel werden mit der Verpackung geschreddert, kompostiert und als Dünger benutzt. So landet Plastikmüll auf den Äckern","What speaks against plastic packaging: Unsold food is shredded with the packaging, composted and used as fertilizer. This is how plastic waste ends up in the fields",363(+),UPEKI
+377,Weggeworfene Plastikverpackungen zerstören den Lebensraum vieler Kleintiere,Discarded plastic packaging destroys the habitat of many small animals,363(+),UPEKI
+378,"Plastikverpackungen sind für Menschen und Tiere gefährlich, weil diese Verpackungen giftige Inhaltsstoffe haben",Plastic packaging is dangerous for people and animals because the packaging contains toxic substances,"363(+),377(+)",UPEKI
+379,"Obst und Gemüse haben schon eine natürliche Verpackung, die brauchen keine aus Plastik","Fruit and vegetables already have natural packaging, they don't need plastic","363(+),381(-)",UPEKI
+380,"Plastikverpackungen sind unnötig, weil es Papiertüten auch tun und umweltfreundlicher sind",Plastic packaging is unnecessary because paper bags do too and are more environmentally friendly,363(+),UPEKI
+381,"Für Plastikverpackungen spricht, dass sie recycelt werden können",The advantage of plastic packaging is that it can be recycled,363(-),UPEKI
+382,"Ein Verbot bringt nichts, solange unklar ist, ob Plastikverpackungen wirklich schädlicher für die Umwelt sind als andere Verpackungen",A ban is useless as long as it is unclear whether plastic packaging is really more harmful to the environment than other packaging,363(-),UPEKI
+383,"Es ist nutzlos, Plastikverpackungen aus Deutschland zu verbieten, weil die nur zu einem sehr kleinen Teil für die Verschmutzung der Meere verantwortlich sind",It is useless to ban plastic packaging from Germany because it is only responsible for a very small part for the pollution of the seas,363(-),UPEKI
+384,"Ein Verbot von Plastikverpackungen ist eine Bestrafung der Deutschen für die Fehler anderer Länder bei der Müllentsorgung. Andere Länder sollte erst einmal unsere Standards einführen, bevor hier etwas verboten wird",A ban on plastic packaging is a punishment for Germans for the mistakes other countries make when it comes to garbage disposal. Other countries should first introduce our standards before something is banned here,363(-),UPEKI
+385,"Es ist unhygienisch, Obst und Gemüse nicht zu verpacken",It is unsanitary not to pack fruits and vegetables,363(-),UPEKI
+386,Für Plastikverpackungen spricht: An der Produktion und der Entsorgung von Plastikverpackungen hängen viele Arbeitsplätze. Ein Verbot würde die Arbeitsplätze gefährden,One of the arguments in favor of plastic packaging is that many jobs depend on the production and disposal of plastic packaging. A ban would endanger jobs,363(-),UPEKI
+387,"Ein Verbot bringt nichts für das Klima, weil Papierverpackungen in der Herstellung etwa genauso viele Ressourcen verbrauchen wie Plastikverpackungen","A ban will not do anything for the climate, because paper packaging consumes about as many resources as plastic packaging",363(-),UPEKI
+388,Umweltfreundliche Verpackungen taugen einfach nichts,Environmentally friendly packaging is simply no good,"363(-),373(+)",UPEKI
+389,Durch Plastikverpackungen bleiben Obst und Gemüse appetitlich und sauber,Plastic packaging keeps fruit and vegetables appetizing and clean,"363(-),392(+)",UPEKI
+390,"Um Lebensmittel nach Hause zu bringen, sind in Plastik eingepackte Lebensmittel einfach viel praktischer als unverpackte Lebensmittel","To bring groceries home, food wrapped in plastic is simply much more practical than unpackaged food",363(-),UPEKI
+391,"Ich finde Plastikverpackungen gut, da die Lebensmittel so leichter mit Etiketten gekennzeichnet werden können",I think plastic packaging is good because it makes it easier to identify food with labels,363(-),UPEKI
+392,Plastikverpackungen schützen Obst und Gemüse viel besser vor Nässe und Hitze als Verpackungen aus Papier,Plastic packaging protects fruit and vegetables much better from moisture and heat than packaging made of paper,363(-),UPEKI
+393,"Plastikverpackungen erhöhen die Haltbarkeit von Lebensmitteln, wodurch die Verschwendung von Lebensmitteln reduziert werden kann","Plastic packaging increases the shelf life of food, which can reduce food waste",363(-),UPEKI
+394,"Aktuell fehlt es an bezahlbaren umweltfreundlichen Alternativen zu Plastikverpackungen, weswegen man Plastikverpackungen nicht einfach verbieten kann","There is currently a lack of affordable, environmentally friendly alternatives to plastic packaging, which is why plastic packaging cannot simply be banned",363(-),UPEKI
+395,"Für Plastikverpackungen spricht, dass dadurch auch kleinere Portionen angeboten werden können, z.B. für Menschen, die alleine wohnen. So werden weniger Lebensmittel weggeschmissen","One of the advantages of plastic packaging is that smaller portions can be offered, e.g. for people who live alone. This means that less food is thrown away",363(-),UPEKI
+396,"Plastikverpackungen sind schön leicht, wodurch auch alte Menschen ihren Einkauf selber nach Hause tragen können","Plastic packaging is nice and light, which means that old people can also carry their shopping home themselves",363(-),UPEKI
+397,"Für Plastikverpackungen spricht, dass eine Umstellung auf andere Verpackungsarten sehr teuer wäre, wodurch wohl die Preise für Lebensmittel steigen würden","An argument in favor of plastic packaging is that switching to other types of packaging would be very expensive, which would probably increase the prices for food",363(-),UPEKI
+398,"Viel besser als ein Verbot von Plastik ist es, das Recycling zu verbessern",Much better than banning plastic is to improve recycling,363(-),UPEKI
+399,Plastikmüll ist eine Bedrohung für die Schöpfung,Plastic waste is a threat to creation,363(+),UPEKI
+466,wir müssen Plstik abschaffen sonst geht alles zugrunde,we have to do away with plst or else everything will perish,389(+),upekiuser_3273
+467,"Für die Herstellung von Plastik wird Erdöl verwendet, eine endliche Ressource","Petroleum, a finite resource, is used to make plastic","363(+),387(+)",upekiuser_4597
+468,"wenn sie gar nicht erst hergestellt werden, müssen sie auch nicht recycelt werden","if they are not made in the first place, they do not need to be recycled",381(-),upekiuser_87
+469,"es ein Kreislauf ist, wir trinken Wasser und dass kommt nun mal aus Flüssen oder Seen, somit trinken wir es auch","it is a cycle, we drink water and that comes from rivers or lakes, so we drink it too",370(+),upekiuser_3152
+470,"wenn wir weiter Plastik entsorgen, wird der Müll immer mehr","if we continue to dispose of plastic, the rubbish will increase",364(+),upekiuser_3152
+471,Es sterben schon beriets Fische wegen Mikroplastik das sie verschlucken,Fishes are already dying because of microplastics they swallow,364(+),upekiuser_879
+472,Der Energiebedarf bei der Herstellung wird in der Regel aus fossilen Energieträgern gedeckt,The energy required for production is usually covered by fossil fuels,363(+),upekiuser_298
+473,"Man muss immer bei sich selbst anfangen mit Veränderungen und nicht darauf schauen, was andere machen",You always have to start with yourself with changes and not look at what others are doing,"384(+),363(+),327(-)",upekiuser_3245
+474,"Obst und Gemüse haben bereits eine natürliche Schutzumantelung, z.B. Schale","Fruit and vegetables already have a natural protective coating, e.g. Bowl",363(+),upekiuser_2742
+475,Plastik hält die Produkte nur kurzfristig frisch,Plastic only keeps the products fresh for a short time,363(+),upekiuser_2742
+476,"Die Plastikverpackung schützt vor Verletzung von Obst und Gemüse, z.B. Schlangengurke","The plastic packaging protects against damage to fruit and vegetables, e.g. Snake cucumber",363(-),upekiuser_2742
+477,Obst und Gemüse werden vor &quot;Anfassern&quot; geschützt,Fruits and vegetables are protected from &quot;touching&quot;,363(-),upekiuser_2742
+478,Obst und Gemüse können nicht mehr sinnlich auf frische geprüft werden,Fruit and vegetables can no longer be sensually checked for freshness,363(+),upekiuser_2742
+479,"Das Wissen darum, daß das möglich ist, entspricht nicht dem Tierschutz und der Sorge für Mitgeschöpfe",The knowledge that this is possible does not correspond to animal welfare and the care for fellow creatures,366(-),upekiuser_2742
+480,Plastikverpackungen können oft nicht ausreichend recyclet werden und haben eine hohe Lebensdauer bis sie in der Natur zersetzt werden. Sie können nicht zeitnah abgebaut werden,Plastic packaging often cannot be sufficiently recycled and has a long lifespan until it is naturally decomposed. They cannot be dismantled in a timely manner,363(+),upekiuser_2712
+481,"Recycling ist sehr aufwendig, und daher oft nicht wirtschaftlich genug für die Unternehmen",Recycling is very costly and therefore often not economical enough for the company,"369(+),363(+)",upekiuser_2712
+482,"Der Verbraucher muss bestraft werden, wenn Plastik nicht korrekt entsorgt wird",The consumer must be punished if plastic is not disposed of correctly,363(-),upekiuser_4956
+483,Bestrafung für falsche Entsorgung von Plastik,Punishment for improper disposal of plastic,363(-),upekiuser_4956
+484,Energetisch gesehen sehr viel sinnvoller als eine Papierverpackung,"From an energetic point of view, much more sensible than paper packaging",363(-),upekiuser_2759
+485,Verpackungen werden teuerer,Packaging is becoming more expensive,363(-),upekiuser_2759
+486,"Man kann Obst und Gemüse waschen, eine Verpackung garantiert nicht dass das Obst und Gemüse sauber ist","You can wash fruits and vegetables, packaging does not guarantee that the fruits and vegetables are clean","385(-),363(+)",upekiuser_2455
+487,Plastikverpackungen sind energetisch günstiger als Papier oder Glas,Plastic packaging is energetically cheaper than paper or glass,387(-),upekiuser_2759
+488,"Soweit diese nicht verbrannt werden, stimmt das","As long as these are not burned, that's true",368(+),upekiuser_2759
+489,Ja wissenschaftlich bewiesen,Yes scientifically proven,"364(+),368(-)",upekiuser_2759
+490,Es gibt Plastikberge im Meer und sogenannte Müllstrudel,There are mountains of plastic in the sea and so-called garbage vortices,"383(-),363(+)",upekiuser_2759
+491,"Man kann zum Beispiel Tüten weiterverwenden, die Frage ist allerdings ob die Menschen das wirklich machen","For example, you can continue to use bags, but the question is whether people really do that","381(+),366(+)",upekiuser_2455
+492,"Man kann Obst und Gemüse säubern, eine Verpackung garantiert nicht dass das Obst/Gemüse sauber ist","You can clean fruits and vegetables, packaging does not guarantee that the fruits/vegetables are clean","385(-),387(+)",upekiuser_2455
+493,Es sterben ehr viele Tiere daran,Many animals die from it,364(+),upekiuser_1822
+494,"Man sieht viel im Fernsehen davon, es ist schrcklich","You see a lot of it on TV, it's horrible","364(+),366(+)",upekiuser_1464
+495,Plastik in der See,Plastic in the sea,"368(-),363(+)",upekiuser_3750
+496,"Es gibt keine sinnvolle Alternative. Die aktuell angebotenen Netze sind für matschiges Obst ungeeignet, da der Saft sich bei Verletzungen der Schale schnell in der Tasche ausbreitet","There is no sensible alternative. The nets currently on offer are unsuitable for mushy fruit, as the juice spreads quickly in the bag if the skin is damaged",363(-),upekiuser_3556
+497,man kann Obst und Gemüse nicht immer waschen,you can't always wash fruits and vegetables,385(+),upekiuser_3556
+498,"insbesondere in Corona und wenn man das Essen roh füttern möchte, bietet sich Verpackung an","Especially in Corona and if you want to feed the food raw, packaging is recommended",385(+),upekiuser_3556
+499,Es gibt mittlerweile gute Alternativen zu Plastikverpackungrn,There are now good alternatives to plastic packaging,363(+),upekiuser_3351
+500,es arbeitsplätze gefährdet,it endangers jobs,386(+),upekiuser_1099
+501,Viele Plastikverpackungen sind Großpackungen. Dadurch wird die Wahrscheinlichkeit der Lebensmittelverschwendung erhöht,Many plastic packaging is bulk packaging. This increases the likelihood of food waste,363(+),upekiuser_2844
+502,Plastikverpackungen sollten nicht 1:1 durch Papierverpackungen ersetzt werden. Weniger Verpackungen insgesamt sollte das Ziel sein,Plastic packaging should not be replaced 1: 1 by paper packaging. The goal should be less packaging overall,"387(+),363(+)",upekiuser_2844
+503,In bestimmten Fällen ist die Plastikverpackung derzeit noch die beste Wahl zum Schutz der Lebensmittel,"In certain cases, plastic packaging is currently the best choice for protecting food",392(+),upekiuser_2844
+504,"Es ist längst eindeutig, dass durch Plastikverpackungen Tiere sterben. Außerdem sind die langen Abbauzeiten der Materialien schädlich","It has long been clear that plastic packaging causes animals to die. In addition, the long degradation times of the materials are harmful",382(-),upekiuser_2844
+505,Auch deutscher Plastikmüll findet sich immer wieder in ausländischen Müllbergen wieder. Und dies nicht zu unerheblichen Anteilen,German plastic waste can also be found again and again in mountains of foreign garbage. And not to a negligible extent,383(-),upekiuser_2844
+506,"Plastik kann man auch verbrennen, sodass es am Ende gar nicht mehr umweltschädlich wäre, da die freigesetzten Chemikalien keinerlei Gefahren ausstrahlen","Plastic can also be burned, so that in the end it would no longer be harmful to the environment, as the chemicals released do not pose any danger",368(-),upekiuser_711
+507,"Solange Deutschland Müll exportiert sind wir in gleichen Maßen dafür verantwortlich, was mit dem Müll passiert","As long as Germany exports garbage, we are equally responsible for what happens to the garbage",384(-),upekiuser_2844
+508,"Das Argument, dass an einem Produkt oder einer Dienstleistung Arbeitsplätze hängen kann nicht wichtiger sein als alle (Spät-) Folgen der Nutzung dieses Produktes",The argument that jobs depend on a product or service cannot be more important than all the (late) consequences of using this product,386(-),upekiuser_2844
+509,leicht zu handhaben,easy to use,389(+),upekiuser_2103
+510,Weil es ganz einfach so ist,Because that's how it is,"364(-),370(-),368(-)",upekiuser_4663
+511,Das grosse Problem besteht aus vielen kleinen Sünden,The big problem consists of many small sins,383(-),upekiuser_4663
+512,Papierverpackungen lassen sich aus Altpapier herstellen. Sie verbrauchen damit weniger Ressourcen als Plastik,Paper packaging can be made from waste paper. They use fewer resources than plastic,387(-),upekiuser_4663
+513,"Nässe kommt durch Plastik nicht durch, durch Papier aber sehr gut","Plastic does not get through moisture, but paper does it very well",392(+),upekiuser_4649
+514,"Ich war Beruflich viel in Ländern, wo man sich überhaupt keine Gedanken macht, was Plastik für die Umwelt macht. Zum Beispiel Saudi Arabien","Professionally, I've been to a lot of countries where you don't even think about what plastic does for the environment. For example Saudi Arabia",363(+),upekiuser_908
+515,"Für die Produktion von Plastik wird Öl verwendet, wodurch die Umwelt erhebich geschädigt wird","Oil is used in the production of plastic, which is very damaging to the environment","363(+),368(+)",upekiuser_215
+516,"Sie sollten verboten sein, da sie nicht wieder verwendet werden können und leicht im Alltag zu substituieren sein",They should be banned because they cannot be reused and can be easily substituted in everyday life,"363(+),383(+)",upekiuser_3447
+517,Ich bin mir nicht sicher ob das so stimmt,I'm not sure if that's true,373(-),upekiuser_3447
+518,Es kommt immer auf die Beschaffenheit von Obst und Gemüse an,It always depends on the texture of fruits and vegetables,363(-),upekiuser_4363
+519,Passt zu meinem Wissensstand und ergibt Sinn,Fits my level of knowledge and makes sense,366(+),upekiuser_3447
+520,Das kann man so nicht sagen,You cant say it like that,388(-),upekiuser_4363
+521,Ich möchte das mein Obst heil zu Hause ankommt,I want my fruit to arrive home safely,390(+),upekiuser_4363
+522,es ist einfach Obstnetze zu benutzen,it is easy to use fruit nets,363(+),upekiuser_3583
+523,Die Ökobilanz von Papierverpackungen ist nicht besser als die von Plastikverpackungen,The ecological balance of paper packaging is no better than that of plastic packaging,387(+),upekiuser_3420
+525,Was zu beweisen wäre,What needs to be proven,"387(-),371(-)",upekiuser_4386
+526,wegen Infektionsgefahr,because of the risk of infection,385(+),upekiuser_1339
+527,Ist die Tatsache,Is the fact,364(+),upekiuser_2576
+528,"erwiesen ist und bekannt ist, wie langsam sie sich abbauen",has been proven and known how slowly they degrade,368(+),upekiuser_4865
+529,"Das ist doch völliger Quatsch...wir verbrennen den Plastikmüll und es sentsteht dadurch feinstaub den Keiner einatmen will. Die hersteller machen sich fast nie gedanken, wie Ihr hergestelltes Produkt entsorgt od. receycelt werden kann. das betrifft viele Wirtschaftszweige",That's complete nonsense... we burn the plastic waste and it creates fine dust that nobody wants to breathe. Manufacturers hardly ever think about how their manufactured product can be disposed of or recycled. this affects many branches of the economy,384(+),upekiuser_1996
+530,schont Ressoucren,conserves resources,363(+),upekiuser_2538
+531,Arbeitsplätze sollten keine hauptargument sein,Jobs shouldn't be a main argument,386(-),upekiuser_4361
+532,"Plastikverpackungen für frische Lebensmittel sollten nur dann erlaubt sein, wenn diese recycled werden können. Andernfalls müssen sei verboten werden",Plastic packaging for fresh food should only be allowed if it can be recycled. Otherwise it must be forbidden,363(-),upekiuser_3891
+533,Es gibt eine Müllinsel - dies allein zeigt schon dass definitiv zu viel Müll in den Meeren ist,There is a garbage island - this alone shows that there is definitely too much garbage in the oceans,"367(+),383(-)",upekiuser_2576
+534,das ist längst erwiesen,that has long been proven,382(-),upekiuser_4485
+535,"es ist eben so, dass sich Plastik nur sehr langwierig abbaut",the fact is that plastic only takes a long time to degrade,368(-),upekiuser_907
+536,Es geht nicht nur um Papier als Alternative,It's not just about paper as an alternative,387(-),upekiuser_4485
+537,Grenzkosten und Grenznutzen,Marginal costs and marginal benefits,384(-),upekiuser_5356
+538,"plastik nicht gesund ist, macht es den menschen dann krank, es bleibt kja schließlich im wasser","plastic is not healthy, it makes people sick, it ultimately stays in the water",370(+),upekiuser_951
+539,Plastikverpackungen schützen Obst und Gemüse am besten,Plastic packaging is the best way to protect fruits and vegetables,363(-),upekiuser_3678
+540,"Wird von vielen Personen berührt, die Keime/Bakterien an sich tragen",Is touched by many people who have germs/bacteria on them,385(+),upekiuser_3560
+541,die Tiere im Meer darunter leiden,the animals in the sea suffer,364(+),upekiuser_4452
+542,stimmt,Right,385(+),upekiuser_4407
+543,es ein Fakt ist,it is a fact,"368(+),364(+)",upekiuser_3557
+544,Eine Holzkiste ist weitaus stabiler als eine Plastiktüte,A wooden box is far more stable than a plastic bag,388(-),upekiuser_5202
+545,es gibt bereits viele Alternativen zu Plastik oder Papier,there are already many alternatives to plastic or paper,363(+),upekiuser_1094
+546,der Menschen und Tiere zu liebe,to love people and animals,363(+),upekiuser_1006
+547,Natürlich kompostierbare Alternativen zu Plastik schaffen,Create naturally compostable alternatives to plastic,363(+),upekiuser_3703
+548,es nachgewiesen so ist,it is proven so,370(+),upekiuser_3703
+549,Ist vor allem ein Problem in Drittländer wohin wir den Plastikmüll verkaufen,Is especially a problem in third countries where we sell the plastic waste,368(+),upekiuser_635
+550,Obst und Gemüse hält auch ohne plastik verpackung einige tagen .Ich kaufe nur offenes Obst und Gemüse,Fruit and vegetables last a few days even without plastic packaging. I only buy open fruit and vegetables,363(+),upekiuser_2253
+551,man muss auch unnötig weitere Ölquellen erschließen,one also has to develop additional oil wells unnecessarily,365(-),upekiuser_4265
+552,Vor allem in den Meeren verfangen sich viele Tiere,Many animals get caught in the oceans in particular,"366(+),351(+)",upekiuser_4265
+553,"aber nur, wenn Papiertüten aus recyceltem Papier bestehen",but only if paper bags are made from recycled paper,380(+),upekiuser_4265
+554,"Es entstehen unnötige Verpackungskosten, die an die Endverbraucher weitergegeben werden",There are unnecessary packaging costs that are passed on to the end user,363(+),upekiuser_3138
+555,Es ist wissenschaftlich bewiesen,It's scientifically proven,"378(+),368(+)",upekiuser_3138
+556,WEIL Plastikverpackungen nicht einfach verrotten,BECAUSE plastic packaging doesn't just rot,378(+),upekiuser_1397
+557,Die Herstellung von Plastikverpackungen kosten zu viel Geld,The production of plastic packaging costs too much money,363(+),upekiuser_40
+558,Da es eine Tatsache ist und genug wissenschaftliche Beweise für dieses Argument gibt,As it is a fact and there is enough scientific evidence to support this argument,"368(+),370(+),649(+)",upekiuser_4941
+559,"Tiere, die Plastik fressen, verenden auf qualvolle Weise.Dies muss aufhören",Animals that eat plastic perish in excruciating ways and this must stop,367(-),upekiuser_4816
+560,"es ist hygienischer, wird sauberer gelagert",it is more hygienic and is stored cleaner,"363(-),389(+)",upekiuser_4789
+561,"die lebsnemittel bleiben steriler, länger haltbar",the foodstuffs remain more sterile and have a longer shelf life,363(-),upekiuser_4789
+562,Die Verrottungsdauer. von Kunststoffen ist enorm lang,The period of rotting. of plastics is enormously long,363(-),upekiuser_4061
+563,Die meisten Plastikverpackungen können recycelt werden,Most plastic packaging can be recycled,363(-),upekiuser_3600
+564,"Da aber durch ein Verbot von Plastikverpackungen der Bedarf an Alternativen steigt, werden Arbeitsplätze geschaffen. Dies würde sich m. M. n. dann ausgleichen","But since the ban on plastic packaging increases the need for alternatives, jobs are created. This would be m. M. n. Then equalize",386(-),upekiuser_4941
+565,Weil es so ist,Because it is so,"366(+),375(+),379(+)",upekiuser_4061
+566,"Es gibt ausreichend Alternativen (z.B. Papiertüten, Gemüsenetze)","There are enough alternatives (e.g. paper bags, vegetable nets)",363(+),upekiuser_270
+567,die Menschen könnten Einnahmenquelle verlieren,people could lose source of income,386(+),upekiuser_3600
+568,Plastikverpackungen verbrauchen wenig Ressourcen,Plastic packaging uses few resources,363(-),upekiuser_1137
+569,es werden zu viele verpackungen nicht recyclet,too much packaging is not recycled,381(-),upekiuser_4809
+570,Plastikverpackungen brauchen einen zuverlässigen Kreislauf vom Gebrauch bis zum Recycling,Plastic packaging needs a reliable cycle from use to recycling,363(-),upekiuser_1137
+571,papier ist natürlich und belastet die umwelt nicht,paper is natural and does not harm the environment,"387(-),324(+)",upekiuser_4809
+572,"selbst das receyceln von plastik ist schwierig, oft wird es nur verbrannt, was wiederum schlecht für die co2-bilanz und die luft ist","Even the recycling of plastic is difficult, often it is only incinerated, which in turn is bad for the co2 balance and the air",363(+),upekiuser_1392
+573,Man muss alle Auswirkungen betrachten vom Ressourcenverbrauch bis zum Recycling,You have to consider all the effects from resource consumption to recycling,387(+),upekiuser_1137
+574,Eine Plastikfolie braucht in der Herstellung viel weniger Wasser als Einpackpapier,A plastic film needs much less water to manufacture than wrapping paper,568(+),upekiuser_1137
+575,Immer mehr Meeresbewohner sterben aus,More and more sea creatures are dying out,364(+),upekiuser_1143
+576,Arbeitsplatz gegen Umweltverschmutzung ist kein Argument,The workplace against pollution is not an argument,386(-),upekiuser_1137
+577,"Die Produktion von Plastikverpackungen kann man reduzieren, indem Kunden wiederverwendbare Kartons o.ä. verwenden",The production of plastic packaging can be reduced by giving customers reusable cardboard boxes or similar. use,363(+),upekiuser_2925
+578,Es ist genaurichtig. z.B. McDonald&#x27;s becher und Igel,It is exactly right. e.g. McDonald&#x27;s mug and hedgehog,366(+),upekiuser_2692
+579,Es schützt halt besser,It just protects better,392(+),upekiuser_1373
+580,Schlecht abbaubar,Badly degradable,382(+),upekiuser_1373
+581,Giftstoffe bleiben in der Umwelt bestehen,Toxins persist in the environment,378(-),upekiuser_988
+582,Macht Mensch und Tier krank,Makes people and animals sick,368(-),upekiuser_988
+583,die Verschmutzung der Meere,the pollution of the seas,363(+),upekiuser_802
+584,spricht mich am meisten an,speaks to me the most,370(+),upekiuser_3343
+585,sind sicherlich svhädlich,are certainly svhädlich,382(+),upekiuser_1327
+586,Die Herstellung von Plastik ist mit einem hohen Energieverbrauch verbunden,The production of plastic is associated with high energy consumption,363(+),upekiuser_3691
+587,Obst und Gemüse sowieso keine Verpackung benöigt,Fruit and vegetables don't need packaging anyway,363(+),upekiuser_3173
+588,Die Kleintiere sind das Futter für die Großen,The small animals are the food for the big ones,375(-),upekiuser_802
+589,"Obst und Gemüse sollten vor dem Verzehr sowieso gewaschen werden, weshalb eine Verpackung nicht nötig ist","Fruit and vegetables should be washed before consumption anyway, which is why packaging is not necessary",363(+),upekiuser_2876
+590,Wissenschaftlich bewiesen,Scientifically proven,"378(+),368(+)",upekiuser_4478
+591,Auch Verpackungen aus Nicht Plastik halte Obst und Gemüse sauber,Packaging made of non-plastic also keeps fruit and vegetables clean,363(+),upekiuser_1018
+592,Förderung kurzer Transportwege und damit Förderung/Unterstützung regionaler Produzenten,Promotion of short transport routes and thus promotion/support of regional producers,363(+),upekiuser_1457
+593,Es gibt recyclebare Papiertüten und somit bleibt die Umwelt sauber,"There are recyclable paper bags, so the environment stays clean",363(+),upekiuser_1844
+594,"Nur weil andere Länder in Umweltstandards zurückliegen, heisst das nicht das wir uns auch zurücklehnen dürfen",Just because other countries are lagging behind in environmental standards doesn't mean that we can sit back and relax,363(+),upekiuser_1018
+595,Plastikverpackungen und Tüten werden nur für einen sehr kleinen Zeitraum genutzt und dann weggeworfen,Plastic packaging and bags are only used for a very short period of time and then thrown away,363(+),upekiuser_3530
+596,Die Resourcen für Plastikverpackungen können für wichtigere Dinge verwendet werden,The resources for plastic packaging can be used for more important things,363(+),upekiuser_1602
+597,selbst schon erlebt,already experienced it myself,366(+),upekiuser_1602
+598,Auf dem Großmarkt schon gesehen,I've seen it at the wholesale market,376(+),upekiuser_1602
+599,Viele wichtige Medikamente werden auf Erdölbasis hergestellt,Many important drugs are made from petroleum,596(+),upekiuser_1602
+600,Wirtschaftskrise,Economic crisis,386(+),upekiuser_245
+601,Die Nutzung von Plastikverpackungen erhöht das Müllaufkommen,The use of plastic packaging increases the amount of waste,363(+),upekiuser_2665
+602,zu pauschal,too lump sum,388(-),upekiuser_245
+603,Tierschutz ist Teil des Umweltschutzes und sollte auch Berücksichtigung finden,Animal welfare is part of environmental protection and should also be taken into account,366(+),upekiuser_2665
+604,es leider stimmt,unfortunately it is true,392(+),upekiuser_4220
+605,Ist dies durch wissenschaftliche &amp; empirische Studien begründet,Is this through scientific &amp; justified empirical studies,374(-),upekiuser_2665
+606,"Verpackungen sind häufig mit Fremdstoffen verbunden, die eine Aufbereitung erschweren oder unmöglich machen",Packaging is often associated with foreign substances that make processing difficult or impossible,363(+),upekiuser_4547
+607,unverpacktes Obst und Gemüse wird oft angefasst vorm Kaufen,Unpackaged fruit and vegetables are often touched before buying,"382(-),385(+)",upekiuser_4547
+608,die Herstellung von Plastik ist enorm Ressourcenverbrauchend,the production of plastic is extremely resource consuming,382(+),upekiuser_4547
+609,Das lässt sich gut nachrechnen,That can be calculated well,387(+),upekiuser_1538
+610,"Hygiene!!!! Ich habe gesehen wie einige Käufer jede Kirsche und jede Tomate in (ihre) schmutzigen Häne nahmen, quetschen, dr+ckten drehten und dann zurücklegten.... EKELHAFT! Ja, ich will Plastikverpackung! Papier ist zu teuer und wir zahlen schon genug Steuern damit sich einige ihr Leben lang ausruhen können","Hygiene!!!! I've seen some buyers take every cherry and tomato in (their) dirty hands, squeeze, turn, press and then put them back ... DISGUSTING! Yes, I want plastic packaging! Paper is too expensive and we already pay enough taxes so that some can rest their lives",363(-),upekiuser_4257
+611,Stimmt. Aber es gibt Alternativen,Right. But there are alternatives,392(-),upekiuser_1538
+612,Es müssen zwar noch Daten gesammelt werden aber die vorhandenen sprechen gegen Plastik,"Data still has to be collected, but the existing ones speak against plastic",382(-),upekiuser_1538
+613,es so ist,it is so,"379(+),370(+)",upekiuser_68
+614,dann ist wnigstens unser Teil weg. Und angeblich sind wir ja Vorreiter,then at least our part is gone. And supposedly we're pioneers,383(-),upekiuser_1538
+615,Recyclig schafft auch Arbeitsplätze,Recyclig also creates jobs,386(-),upekiuser_1538
+616,Man kann einiges Recykeln,You can do a lot of recycling,363(+),upekiuser_98
+617,Ein guter teil der von anderen Ländern verursachten Verschmutzungen stammt aus unserem Müllexport und dem anderen Export,A good part of the pollution caused by other countries comes from our garbage exports and other exports,384(-),upekiuser_1538
+618,Es muss in Etappen Verboten werden,It must be banned in stages,"363(+),384(-)",upekiuser_98
+619,"Obst &amp; Gemüse hat schon eine natürliche Verpackung. Findet man es unhygienisch die Produkte so zu verzehren, kann man sie abwaschen oder die Schale entfernen","Fruit &amp; Vegetables already have natural packaging. If you find it unsanitary to consume the products in this way, you can wash them off or remove the shell",363(+),upekiuser_72
+620,Die Fische Sterben an Hunger trotz Plastik das sie essen,The fish die of hunger despite the plastic they eat,364(+),upekiuser_98
+621,wissentschaftlich belegt zuviele fische sterben,scientifically proven too many fish die,364(+),upekiuser_3459
+622,es genug beweise gibt,there is enough evidence,364(+),upekiuser_3459
+623,Durch sie Meeresströmung verteilt sich das Plastik bis zu uns in der Nord und Ostsee,The ocean currents distribute the plastic to us in the North and Baltic Seas,364(+),upekiuser_98
+624,Man hat nicht immer selbst eine Verpackung mit,You don't always have packaging with you,363(-),upekiuser_659
+625,es reicht vollkommen das obst oder gemüse zu waschen,it is sufficient to wash the fruit or vegetables,379(+),upekiuser_3301
+626,Plastik ist giftig,Plastic is toxic,"363(+),368(+)",upekiuser_1664
+627,obst zu waschen reicht vollkommen aus,Washing fruit is sufficient,379(+),upekiuser_3301
+628,fische essen plastik,fish eat plastic,370(+),upekiuser_1664
+629,der mensch lässt überall seinen müll liegen und dieser ist nun mal meistens aus plastik,people leave their rubbish everywhere and it is mostly made of plastic,370(+),upekiuser_4136
+630,Über Jahrzente braucht es bis zum Mikroplastik und nicht nur Fische sondern auch andere Tiere sterben,It takes decades for microplastics and not only fish but also other animals to die,368(+),upekiuser_98
+631,für die Arbeitsplätze die durch den Verbot wegfallen,for the jobs that will be eliminated by the ban,616(+),upekiuser_98
+632,Weil es anders nicht geht wegen den Arbeitsplätzen die daran hängen,Because there is no other way because of the jobs that are attached to it,618(+),upekiuser_98
+633,Das Plastik ist jetzt schon fast in allen Ozeanenvvorhanden es ist ei Kreislauf den man nicht stoppen kann ausser Plastik zu verbieten,The plastic is already present in almost all oceans - it is a cycle that cannot be stopped except to ban plastic,383(-),upekiuser_98
+634,es wird viel zu viel waser verschwendet beim herstellen von plastik,Far too much water is wasted in the manufacture of plastic,363(+),upekiuser_106
+635,Aber wir Deutsche sind ja so dumm und schicken unser Plastik nach Afrika und noch andere Länder die schaffen das garnicht es zu Verbrennen was sie nicht verbrennen schmeissen sie es Ins Meer,"But we Germans are so stupid and send our plastic to Africa and other countries that can't burn what they don't burn, they throw it into the sea",386(-),upekiuser_98
+636,Tierleben müssen ebenfalls geschützt werden,Animal life must also be protected,367(+),upekiuser_1008
+637,keine Artgerechte Fischhaltung mehr möglich,Appropriate fish keeping is no longer possible,364(+),upekiuser_1389
+638,die Verpackung kann wieder verwendet werden,the packaging can be used again,363(-),upekiuser_1600
+639,Manche weiche Obst wie Himbeeren oder Kirchen sind schnell beschädigt ohne Verpackung,Some soft fruits like raspberries or churches are easily damaged without packaging,385(+),upekiuser_2478
+640,sie werden zu wenig weiter verwendet,they are used too little,368(+),upekiuser_1600
+641,auch Papier ist nicht so Umweltfreundlich,paper is also not as environmentally friendly,"365(-),363(-)",upekiuser_1600
+642,Dummheit,stupidity,363(+),upekiuser_2733
+643,Die Welt erstickt schon jetzt im Plastikmüll und dies sollte nicht weiter gefördert werden. Der Schaden der dadurch entsteht betrifft uns alle,The world is already suffocating in plastic waste and this should not be encouraged any further. The damage it causes affects us all,363(+),upekiuser_3816
+644,kein Mensch auf der Welt braucht das,no one in the world needs that,363(+),upekiuser_4221
+645,die verpackung sollte als Transportmittel dienen,the packaging should serve as a means of transport,378(-),upekiuser_1600
+646,es ist viel besser wiederverwendbare &quot;Verpackungen&quot; zu verwenden. Die Lebensmittel sehen auch viel schöner aus,it is much better reusable &quot;packaging&quot; to use. The foods look a lot nicer too,363(+),upekiuser_1579
+647,"Es wurden schon frische Lebensmittel verkauft, lange bevor es überhaupt Plastikverpackungen gab. Insofern steht fest, es geht auch ohne","Fresh food was sold long before plastic packaging even existed. In this respect, it is clear that it works without it","363(+),368(+)",upekiuser_4337
+648,Es gibt weitere Möglichkeiten (wie wieder verwendbare Netze) um Obst und Gemüse zu verpacken,There are other options (such as reusable nets) for packing fruit and vegetables,363(+),upekiuser_3686
+649,"Es gibt bereits Studien die besagen, dass sich in Fischen Mikroplastik befindet und somit auch in unserer Nahrung",There are already studies that state that there is microplastic in fish and therefore also in our food,"364(+),370(+),363(+)",upekiuser_3686
+650,Der meiste Müll wird verbrannt und nicht wiederverwendet. Also verschwendete Recourcen,Most of the garbage is incinerated and not reused. So wasted resources,"372(+),379(+)",upekiuser_4839
+651,plastikmüll belastet die umwelt,plastic waste pollutes the environment,363(+),upekiuser_1626
+652,papiertüten kann man einfacher enrsorgen,Paper bags are easier to dispose of,380(+),upekiuser_1626
+653,Das Anfassenn unverpackter Ware ist schlecht,The handling of unpackaged goods is bad,389(+),upekiuser_449
+654,Eigene Beutel mitbringen,Bring your own bags,"363(+),364(+)",upekiuser_1989
+655,Falls es überhaupt recycelt wird,If it is recycled at all,"381(-),372(-)",upekiuser_1989
+656,Plastikverpackungen sind asozial,Plastic packaging is anti-social,363(+),upekiuser_1512
+657,Plastik verseucht die ganze Welt,Plastic pollutes the whole world,363(+),upekiuser_771
+658,wird aus rohöl hergestellt,is made from crude oil,377(+),upekiuser_1512
+659,"Als Verbraucher will man ja schließlich wissen, was drin ist bzw. wo es herkommt","After all, as a consumer, you want to know what is in it or where it comes from",385(+),upekiuser_1632
+660,Plastik vermüllt unsere Gewässer,Plastic litter our waters,363(+),upekiuser_1618
+661,"Nur Plastik bei Obst und Gemüse vermeiden hilft nicht viel, es müssen weitaus größere Dinge bewegt werden",Just avoiding plastic in fruit and vegetables doesn't help much; much larger things have to be moved,363(-),upekiuser_624
+662,Die Gesundheit von Menschen und Tieren ist sehr wichtig,Human and animal health is very important,370(+),upekiuser_738
+663,Richtig Recyclen vermeidet Plastikmüll,Proper recycling avoids plastic waste,363(-),upekiuser_624
+664,es werden wälder abgeholzt und der energieverbrauch zur herstellung ist auch sehr hoch,Forests are being cut down and the energy consumption for production is also very high,387(+),upekiuser_4293
+665,Wir sehen es jeden Tag und überall,We see it every day and everywhere,368(+),upekiuser_726
+666,"sehr schlüssig formuliert, nach meinem kenntnisstand richtig","formulated very coherently, correct to the best of my knowledge",370(+),upekiuser_3550
+667,Ist schlecht für die Umwelt,Is bad for the environment,364(-),upekiuser_4872
+668,es keinen grund dagegen gibt,there is no reason against it,380(+),upekiuser_1586
+669,"wenn die Umwelt in armen Ländern verschmutzt wird, werden diese noch ärmer","when the environment in poor countries becomes polluted, they become even poorer",375(+),upekiuser_403
+670,"Wenn man Bio Produzieren will, muss man diese Lebensmittel auch einfach verpacken. Sprich in Papier oder gar nicht","If you want to produce organically, you simply have to pack this food. Speak in paper or not at all",363(+),upekiuser_4437
+671,die weltmeere sind schon voll von Plasticmüll,the oceans are already full of plastic waste,364(-),upekiuser_1452
+672,vile rückstände,vile residues,381(-),upekiuser_227
+673,Die Verschmutzung der Meere durch Plastik ist inzwischen nicht mehr anzweifelbar,The pollution of the oceans by plastic can no longer be questioned,370(+),upekiuser_1478
+674,Plastik vergiftet Erde und Wasser,Plastic poisons the earth and water,363(+),upekiuser_1571
+675,Schadt dem Inhalt ,Harm the content,363(+),upekiuser_939
+676,Fische und Unterwasserpflanzen sterben ab,Fish and underwater plants die,364(+),upekiuser_1452
+677,stmmt,true,364(-),upekiuser_1452
+678,Plastikmüll auf dem acker? Darf nicht sein,Plastic waste in the field? Must not be,376(+),upekiuser_939
+679,Lebensmittelmärkte als auch technische Verbrauchermärkte müssten wieder Bedientheken einführen,Food markets as well as technical hypermarkets would have to reintroduce service counters,363(+),upekiuser_1367
+680,Weil der größte Teil im Meer landet und dort zu einem Artensterben führt,Because most of it ends up in the sea and leads to species extinction there,"368(+),324(+)",upekiuser_1908
+681,Plastikverpackungen müssen ja nicht ins Meer geschmissen werden,Plastic packaging doesn't have to be thrown into the sea,367(-),upekiuser_3303
+682,"Kaum, sonst wäre Plastik generell verboten","Hardly, otherwise plastic would be generally prohibited",378(-),upekiuser_3303
+683,Mancherlei Obst und Gemüse ist durch die eigene Schale ausreichend geschützt - eine zusätzliche Plastikverpackung ist unnötig,Many fruits and vegetables are adequately protected by their own peel - additional plastic packaging is unnecessary,363(+),upekiuser_3741
+684,es gibt auch Stoffbeutel oder Netze,there are also cloth bags or nets,386(+),upekiuser_1701
+685,"es einfach stimmt, dass es die Umwelt schädigt",it's just true that it harms the environment,"368(-),379(+)",upekiuser_2356
+686,Wir zerstören auch die Tierwelt,We are also destroying the wildlife,363(+),upekiuser_3665
+687,Wird nicht abgebaut sondern nur immer kleiner (Mikroplastik),Is not broken down but only smaller and smaller (microplastics),"368(+),363(+)",upekiuser_229
+688,"die meisten wissen nicht, wie lange der abbauprozess tatsächlich dauert",most do not know how long the degradation process actually takes,368(+),upekiuser_1890
+689,"Manchmal sind Plastikverpackungen einfach notwendig, weil es noch keine geeigneten Alternativen gibt",Sometimes plastic packaging is simply necessary because there are no suitable alternatives,363(-),upekiuser_3838
+690,Das Mikro-Plastik hat in der Natur nichts zu suchen,Micro-plastic has no place in nature,364(-),upekiuser_3838
+691,weniger verpakungsmüll,less packaging waste,363(+),upekiuser_2986
+692,Kosten für transport und umweltschäden sind die folge,The result is costs for transport and environmental damage,375(-),upekiuser_3619
+693,"Weil es so ist, man hört es immer in den Nachrichten","Because it is, you always hear it on the news",364(-),upekiuser_3824
+694,Die Welt ist voll damit bis in unbewohnte Regionen,"The world is full of it, even in uninhabited regions",364(+),upekiuser_32
+695,"es muss von politik und den unternehmen gesteuert werden, der verbraucher hat zu wenig einfluss","it has to be steered by politics and companies, the consumer has too little influence",363(+),upekiuser_2023
+696,es wissenschaftlich und umweltpolitisch festgestellt wurde,it has been established scientifically and environmentally,368(+),upekiuser_2023
+697,In Deutschland wird sehr gut getrennt,In Germany there is very good separation,"363(-),382(+)",upekiuser_4614
+698,Es ist wissenschaftlich bewiesen dass sie schädlich für die Umwelt sind,It is scientifically proven that they are harmful to the environment,382(+),upekiuser_1019
+699,das bleibe sie auch in Pappaufstellern,it stays that way even in cardboard displays,389(-),upekiuser_1019
+700,Ist nicht so,It is not like this,379(-),upekiuser_4614
+701,"die lange Zeit, bis zum Abbau bzw. Gefahr des Mikroplastik",the long time until the microplastic decomposes or is at risk,"368(+),364(-)",upekiuser_4595
+702,Preisschilder lassen sich auch gut am Regal anbringen,Price tags can also be easily attached to the shelf,391(-),upekiuser_1019
+703,auch im Einkaufkorb bleiben Obst und Gemüse sauber und appetitlich,"Even in the shopping basket, fruit and vegetables stay clean and appetizing",389(-),upekiuser_1019
+704,ist ein Fakt,is a fact,"368(+),370(+)",upekiuser_1261
+705,Es gibt alternativ die weniger schädlich sind bzw ökölogischer sind,There are alternatives that are less harmful or more ecological,"368(+),374(+)",upekiuser_1261
+706,Mikroplastik ist bereits im menschlichen organismus zu finden,Microplastics can already be found in the human organism,"370(-),378(+),363(+)",upekiuser_2091
+707,die plastikflut muss schnellstmöglich aufgehalten werden,the flood of plastic must be stopped as quickly as possible,368(-),upekiuser_2091
+708,"Ich habe es selbst gesehen, wie unverkaufte Lebensmittel so weggeworfen wurden",I've seen unsold groceries being thrown away myself,376(-),upekiuser_3431
+709,"Es gibt ja Alternativen, warum soll überhapt Plastik verwendet werden",There are alternatives as to why plastic should be used,363(+),upekiuser_5255
+710,Biologisch kaum abbaubar,Hardly biodegradable,366(+),upekiuser_3238
+711,es sind weichmacher drin die uns sehr schädigen,there are plasticizers in it that damage us very much,363(+),upekiuser_73
+712,es gehört nicht in unsere lenbensweise,it doesn't belong in our way of life,368(-),upekiuser_73
+713,"Soweit ich weiss,ist das Argument hinreichend durch wissenschaftliche Langzeitstudien belegt","As far as I know, the argument is adequately supported by long-term scientific studies",370(+),upekiuser_1980
+714,es meiner erfahrung entspricht,it corresponds to my experience,380(+),upekiuser_3279
+715,in den meisten ländern gibt es einfach keine vernünftige müllentsorgung,in most countries there is simply no proper waste disposal,363(-),upekiuser_2327
+716,"Im Obst und Gemüse sind Mirkroplastikteilchen, die wir dann mit verzehren",There are microplastic particles in fruit and vegetables that we then consume,363(+),upekiuser_2926
+717,für die Hygiene ist es sinnvoll,it makes sense for hygiene,363(-),upekiuser_3975
+718,"Mikroplastik wurde auch in vielen Böden, auch in Naturschutzgebieten gefunden","Microplastics have also been found in many soils, including nature reserves",363(+),upekiuser_2051
+719,Plastik gehört nicht in die Umwelt,Plastic does not belong in the environment,368(-),upekiuser_2051
+720,"ist zu abstrakt, für viele nicht greifbar","is too abstract, not tangible for many",374(-),upekiuser_5419
+721,ist bereits klar,is already clear,382(-),upekiuser_4834
+722,was ist wohl bei einem tier durch versehentlichen Konsum weniger gefährlich? plastik oder papier,what is less dangerous in an animal through accidental consumption? plastic or paper,382(-),upekiuser_4082
+723,"Das Klimaerwärmung ist bereits in vollem Gange, wenn wir jetzt nicht handeln und auf Rohstoffe zurückgreifen, die keine negativen Folgen für das Klima haben, dann kommt es zu einer Katastrophe","Global warming is already in full swing, if we do not act now and fall back on raw materials that have no negative impact on the climate, then there will be a catastrophe",363(+),upekiuser_509
+724,Über dieses Problem habe ich schon mehrmals gelesen. Gleichzeitig fressen auch viele Tiere das Plastik mit und sterben dadurch,"I've read about this problem several times. At the same time, many animals also eat the plastic and die as a result","366(+),383(-)",upekiuser_509
+725,Die Plastikteile finden wir zersetzt zunehmend in der Nahrungskette wieder,We find the plastic parts increasingly decomposed in the food chain,363(+),upekiuser_288
+726,Nicht regionale Lebensmittel sind bei Transport besser geschützt,Non-regional foods are better protected during transport,363(-),upekiuser_2597
+727,Plastik verschmutzt zunehmend die Meere,Plastic is increasingly polluting the oceans,375(+),upekiuser_288
+728,Die Herstellung von Plastik hat einen großen CO2 Fußabdruck,The production of plastic has a large carbon footprint,363(+),upekiuser_2597
+729,"Plastikverpackungen werden u. a. aus Erdöl hergestellt, welches bei der Zersetzung in die Umwelt abgegeben wird","Plastic packaging is made from, among other things, petroleum, which is released into the environment when it decomposes",373(+),upekiuser_2125
+730,"Hat man schon oft im TV gesehen wie qualvoll die Tiere sterben, muss ja nicht sein","If you have often seen on TV how painfully animals die, it doesn't have to be",366(+),upekiuser_670
+731,Plastik schütz das Obst und Gemüse vor Druckstellen und nicht jeder kann Sie mit seinen Händen Berühren,Plastic protects the fruit and vegetables from pressure points and not everyone can touch them with their hands,363(-),upekiuser_2358
+732,"Plastik ist nun mal der beste Schutz für Obst und Gemüse,alles andere ist Müll","Plastic is the best protection for fruit and vegetables, everything else is rubbish",363(-),upekiuser_2358
+733,"Ich muss und will nicht unbeding Obst oder Gemüse kaufen die vorher jeder in der Hand hatte und darauf rumgedrückt hat,was viele Kunden machen","I don't necessarily have to and don't want to buy fruit or vegetables that everyone had in their hands before and pressed on, which many customers do",731(+),upekiuser_2358
+734,Warum nicht Plastikverpackungen auf Rohrzuckerbasis,Why not plastic packaging made from cane sugar,363(-),upekiuser_3564
+735,"Grundsätzlich hat das allermeiste Obst und Gemüse eine natürliche Schutzbarriere, sodass keine Verpackung benötigt wird. Sie ist in den allermeisten Fällen nur unnötiger, umweltschädigender Abfall","Basically, most fruit and vegetables have a natural protective barrier so that no packaging is required. In the vast majority of cases it is just unnecessary, environmentally harmful waste",363(+),upekiuser_636
+736,"Die Konsumenten sollen nicht für etwas bezahlen, was die Wirtschaft verbockt hat",Consumers shouldn't pay for something that screwed up the economy,384(-),upekiuser_3564
+737,"Oft weiß man bei den Plastikverpackungen nicht wirklich, welche Inhaltsstoffe auf das Obst und Gemüse übergehen und welche eventuell giftigen Stoffe man nun mit dem Verzehr zu sich nimmt","In the case of plastic packaging, you often don't really know which ingredients are transferred to the fruit and vegetables and which possibly toxic substances you now ingest with the consumption","378(+),324(+)",upekiuser_636
+738,Wer recycelt schon Gemüse-Verpackungen,Who recycles vegetable packaging?,381(+),upekiuser_3564
+739,"Das sehe ich so, deshalb darf man Verpackungen nicht in die Umwelt werfen","That's how I see it, that's why you can't throw packaging into the environment",366(+),upekiuser_4647
+740,Es ist einfach Hygienischer,It's just more hygienic,363(-),upekiuser_3912
+741,"Die Ware wird im Supermarkt von zig Leuten angefasst, Ich finde das Ekelig","The goods are touched by umpteen people in the supermarket, I think that's disgusting",740(+),upekiuser_3912
+742,Deutschland ist nicht die Welt. Solange sich andere große Industrienationen vor diesen Aufgaben drücken wird nichts erreicht,"Germany is not the world. As long as other large industrial nations shirk these tasks, nothing will be achieved",385(+),upekiuser_2144
+743,Nur wenig kann tatsächlich wiederverwendet werden,Little can actually be reused,381(-),upekiuser_2597
+744,"Dies würde voraussetzen, dass die Leute den Müll richtig trennen. Und erfahrungsgemäß tun das sehr wenige",This would require people to sort the garbage properly. And experience shows that very few do that,"381(-),368(-)",upekiuser_2597
+745,Zumindest regionale Lebensmittel benötigen keinen besonderen Schutz vor Nässe,At least regional foods do not require any special protection against moisture,392(-),upekiuser_2597
+746,"Teilweise werden Plastikverpackungen eingesetzt, obwohl diese nicht immer notwendig sind","Plastic packaging is sometimes used, although this is not always necessary",363(+),upekiuser_2593
+747,Plastik schützt nicht gegen Hitze,Plastic does not protect against heat,"392(-),726(-)",upekiuser_2597
+748,Warum sollte es die Aufgabe anderer Länder sein unseren Müll zu entsorgen,Why should it be the job of other countries to dispose of our garbage,384(-),upekiuser_2597
+749,Deutschland kann als Vorbild voran gehen,Germany can lead the way as a role model,384(-),upekiuser_2597
+750,"Wie andere Länder damit umgehen spielt keine Rolle, wir haben trotzdem einen Beitrag zu leisten","How other countries deal with it does not matter, we still have a contribution to make",384(-),upekiuser_2597
+751,"Hier in Deutschland werden auch genug Fehler gemacht, unter anderem bei der Mülltrennung","Enough mistakes are made here in Germany, including when it comes to sorting waste",384(-),upekiuser_2597
+752,Vor Zerdrückung oder großer Beschädigung schützt auch ein wenig Plastik nicht,Even a little plastic does not protect against crushing or major damage,726(-),upekiuser_2597
+753,"Nicht nur Menschen, auch Tiere","Not just people, animals too",370(+),upekiuser_2597
+754,Es gelangt auch in unser Grundwasser und unsere Nahrung,It also gets into our groundwater and our food,370(+),upekiuser_2597
+755,"Plastik zersetzt sich zum Teil im Wasser in Mirkoplastik, welche nicht sichtbar ist, weshalb dies zu Erkrankungen führen kann","Plastic partially decomposes in the water in micoplasty, which is not visible, which is why this can lead to diseases",370(+),upekiuser_2593
+756,ich den anteil nicht kenne,I don't know the proportion,178(-),upekiuser_3480
+757,weill wir nicht genug darüber wissen,because we don't know enough about it,756(+),upekiuser_3480
+758,Ein Verbot von Plastikverpackungen verringert definitiv die Meng an Müll,A ban on plastic packaging will definitely reduce the amount of garbage,363(+),upekiuser_4691
+759,Plastik kann wiederverwendet werden und es belastet nicht den Kreislauf,Plastic can be reused and it does not burden the circulation,381(+),upekiuser_4691
+760,"Es gibt genug andere Alternativen, um Lebensmittel umweltfreundlich nach Hause zu bringen",There are enough other alternatives for bringing groceries home in an environmentally friendly way,390(-),upekiuser_4691
+761,Es ist ja bewiesen das Plastik viele Jahre braucht um abgebaut zu werden,It has been proven that plastic takes many years to break down,368(+),upekiuser_3711
+762,Die Bilder von quallvoll verendeten Tieren sollte jeder schon einmal gesehen haben,Everyone should have seen the pictures of jellyfish dead animals,366(+),upekiuser_3711
+763,Auch dies ist eine bekannte Tatsache auch in den größsten Tiefen konnte Plastik nachgewiesen werden,"This is also a well-known fact, even at the greatest depths plastic could be detected",370(+),upekiuser_3711
+764,Laut vieler Studien ist ein großer Teil von Plastik für viele gesundheitliche Probleme bei Menschen verantwortlich,"According to many studies, a large part of plastic is responsible for many health problems in humans","374(+),386(+)",upekiuser_3711
+765,Während der Pandemie sollte man das Verbot von Plastikverpackungen überdenken,The ban on plastic packaging should be reconsidered during the pandemic,389(+),upekiuser_4693
+766,für papiertuten baüme gefallt werden ,for paper bags trees to be felled,387(+),upekiuser_1781
+767,sinnlos Gurken zu folieren,senselessly wrapping cucumbers,363(+),upekiuser_959
+768,"Die giftigen Stoffe in Plastik schaden Leber und Nieren, stören biologische Funktionen und verursachen Krebs","The toxic substances in plastic damage the liver and kidneys, disrupt biological functions and cause cancer",363(+),upekiuser_3640
+769,Die Zerfallsrate von Plastik liegt bei 350-400 Jahren,The decay rate of plastic is 350-400 years,363(+),upekiuser_3640
+770,Ein Quadratkilometer Meerwasser beinhaltet bereits jetzt ca. 18.000 Plastikteile,"One square kilometer of sea water already contains around 18,000 plastic parts",363(+),upekiuser_3640
+771,Stimm! Bio Gurken in Plastik machen keinen Sinn. Obst und Gemüse kann man zu Hause abwaschen,Voice! Organic cucumbers in plastic don't make sense. You can wash fruits and vegetables at home,379(+),upekiuser_3407
+772,Wissenschaftlich nach gewiesen,Scientifically proven,368(-),upekiuser_1853
+773,Wei das Argument der Realität entspricht,Because the argument corresponds to reality,366(+),upekiuser_1709
+774,Tiere zu qäulen,To torment animals,363(+),upekiuser_1502
+775,Umweltschutz hört nicht hinter Deutschland auf. Es bringt nicht viel wenn nicht alle Länder mit machen,Environmental protection does not stop behind Germany. It doesn't do much if not all countries contribute,384(-),upekiuser_5039
+776,Plastiktüten reißen schnell,Plastic bags tear quickly,363(+),upekiuser_3437
+777,Plastiktaschen können nicht oft wiederverwendet werden,Plastic bags cannot be reused often,363(+),upekiuser_3437
+778,Vermutlich ist das so,Presumably it is,"373(+),374(+)",upekiuser_3437
+779,Ist bekannt (Meer),Is known (sea),367(+),upekiuser_3437
+780,Ist halt so,Is just the way,380(+),upekiuser_3437
+781,"Obst als lose Ware verkauft sollte um vieles günstiger sein als in Kunststoff verpacktes Obst, dann würde sich das vielleicht selbst regeln mit der Kunststoff-Abfallvermeidung","Fruit sold as loose goods should be a lot cheaper than fruit packed in plastic, then maybe that would take care of itself with plastic waste avoidance",392(-),upekiuser_3533
+782,War mir neu aber klingt logisch,Was new to me but sounds logical,"376(+),348(+)",upekiuser_3437
+783,Erfahrungswerte,Empirical values,"776(+),777(+)",upekiuser_3437
+784,Bin mir unsicher aufgrund der Entsorgung durch den grünen Punkt (gelber Sack),I'm unsure about the disposal through the green dot (yellow bag),372(+),upekiuser_3437
+785,"Papierverpackungen verbleiben weniger lang in der Umwelt bestehen und sind rückstandsfreier abbaubar, wenn umweltschonend produziert",Paper packaging does not stay in the environment as long and is more readily degradable if it is produced in an environmentally friendly manner,363(+),upekiuser_1112
+786,Andere Verpackungen können genauso gut gekennzeichnet werden,Other packaging can be labeled just as well,391(-),upekiuser_1112
+787,Das können alternative Verpackungen auch,Alternative packaging can do that too,"392(-),324(+)",upekiuser_1112
+788,Stellt man die Produktion auf alternative Verpackungsarten um können diese Arbeitsplätze erhalten werden,"If you switch production to alternative types of packaging, these jobs can be preserved",386(-),upekiuser_1112
+789,"Je mehr Plastik es gibt, desto mehr Müll, Verschmutzung, Tierleid und am Ende Menschenleid wird es geben","The more plastic there is, the more garbage, pollution, animal suffering and ultimately human suffering there will be",363(+),upekiuser_2459
+790,Weil das Argument der Realität entspricht,Because the argument corresponds to reality,368(-),upekiuser_860
+791,schadet der Gesundheit,bad for your health,706(-),upekiuser_2453
+792,lose waren in tüten verpacken,packing loose goods in bags,363(-),upekiuser_2337
+793,"was einmal als super gestartet ist, entpuppt sich nun als extrem gesundheitsgefährdend",What once started as great is now turning out to be extremely hazardous to health,368(-),upekiuser_1203
+794,"Es wird vermieden, dass jeder die Waren anfasst",It is avoided that everyone touches the goods,385(+),upekiuser_1497
+795,"jeder der seinen Abfall einfach in die Umwelt schmeißt sollte eine hohe Strafe bezahlen, Arbeitsplätze für Kontrolleure schaffen","anyone who simply throws their waste into the environment should pay a heavy fine, create jobs for inspectors",363(-),upekiuser_1076
+796,Obst und Gemüse sollte wegen des Transportes und Lagerung sowie der chemischen Behandlung generell gewaschen werden,"Fruit and vegetables should generally be washed because of their transport, storage and chemical treatment",589(+),upekiuser_1085
+797,"die Natur kann Plastik nicht zersetzen, Plastik bleibt fast ewig erhalten und gibt gleichzeitig schädigende Stoffe von sich ab, im Gegensatz z.B. zu Glas","Nature cannot decompose plastic, plastic is preserved almost forever and at the same time releases harmful substances, in contrast to e.g. to glass",373(-),upekiuser_1076
+798,"hält länger frisch, das Absetzen von Bakterien auf Obst wird minimiert","keeps fresher longer, bacteria settling on fruit is minimized",385(+),upekiuser_1076
+799,Tiere müssen oft qualvoll daran sterben,Animals often have to die in agony from it,367(+),upekiuser_3713
+800,Es gibt genug Alternativen,There are enough alternatives,363(+),upekiuser_4420
+801,"die Natur kann Plastik nicht zersetzen, Plastik bleibt fast ewig erhalten und gibt gleichzeitig schädigende Stoffe von sich ab","Nature cannot decompose plastic, plastic is preserved almost forever and at the same time gives off harmful substances",387(-),upekiuser_3387
+802,"Obst und Gemüse muss ich je nach Sorte sowieso gründlich waschen, schälen, kochen","Depending on the variety, I have to wash, peel, and cook fruit and vegetables anyway",379(+),upekiuser_891
+803,"Ich kaufe nur noch offenes Obst und Gemüse und konnte noch keinen Unterschied in Punkto Haltbarkeit feststellen, auf die richtige Lagerung kommt es an","I only buy open fruit and vegetables and have not yet been able to determine any difference in terms of shelf life, it depends on correct storage",802(+),upekiuser_891
+804,es ist egal wie schädlicher es ist wie andere verpackungen,It doesn't matter how harmful it is like other packaging,382(-),upekiuser_3538
+805,"Es gibt in jedem Haushalt Alternativen, wie einfache Stoffbeutel","There are alternatives in every household, such as simple cloth bags",363(+),upekiuser_4416
+806,Die Langzeiteffekte lassen sich nur erahnen,The long-term effects can only be guessed at,"368(+),324(+)",upekiuser_4416
+807,"Die Fakten zur Schädlichkeit liegen längst vor, diese ist Gravierend","The facts about harmfulness have long been available, this is serious",382(-),upekiuser_820
+808,Sicherer Transport,Safe transportation,390(+),upekiuser_5013
+809,Hersteller sollten aufgefordert werden andere Verpackungen zu benutzen,Manufacturers should be asked to use other packaging,363(+),upekiuser_1876
+810,zu oberflächlich und bequem,too superficial and convenient,382(-),upekiuser_1990
+811,"Gerade wenn Obst sehr reif ist, kann Saft durch Papier/Pappverpackungen austreten und den Einkaufsbeutel oder Obstschalen bzw. Kühlschrank verschmutzen","Especially when fruit is very ripe, juice can leak through paper/cardboard packaging and contaminate the shopping bag or fruit bowl or refrigerator",392(+),upekiuser_1447
+812,Wenn man Plastik richtig entsorg kann es recycelt werden,"If you dispose of plastic properly, it can be recycled",363(-),upekiuser_2804
+813,Plastikverpackungen sind nicht notwendig,Plastic packaging is not necessary,363(+),upekiuser_5365
+814,Da es meist nicht richtig getrennt und entsorgt wird und es sich nicht wirklich von alleine zersetzt,Since it is usually not properly separated and disposed of and it does not really decompose on its own,368(+),upekiuser_2804
+815,Das Obst/Gemüse wird ohnehin gewaschen,The fruit/vegetables are washed anyway,813(+),upekiuser_5365
+816,Doch und es gibt dazu schon mannigfache Studien über den schaden von Plastik in der Umwelt gegenüber anderen Verpackungsmaterial Materialien,But there are already numerous studies on the harm of plastic in the environment compared to other packaging materials,382(-),upekiuser_2804
+817,"Obst &amp;amp; Gemüse hat schon eine natürliche Verpackung. Findet man es unhygienisch die Produkte so zu verzehren, kann man sie abwaschen oder die Schale entfernen","Fruit &amp; Vegetables already have natural packaging. If you find it unsanitary to consume the products in this way, you can wash them off or remove the shell",379(+),upekiuser_2804
+818,"Der Gleichgültigkeit, Bequemlichkeit und Unbedarftheit der Konsumenten kann nur noch ein generelles Verbot entgegenwirken","The indifference, convenience and indifference of consumers can only be counteracted by a general ban",363(+),upekiuser_5367
+819,"Die Lebensmittel sind durch ihre Schale bereits natürlich &quot;verpackt&quot; und werden vor Verzehr ohnehin gewaschen (bzw. ggf. geschält, verarbeitet, gekocht usw.)","The food is already naturally &quot;packed&quot; and are washed (or, if necessary, peeled, processed, boiled, etc.) before consumption.",363(+),upekiuser_5367
+820,"die (Umwelt-)Schädlichkeit von Plastik + Nebenprodukten ist derweil alles andere als unklar – und selbst wenn, empfiehlt es sich vorsorglich z. B. keinen Abflussreiniger zu trinken, bis die Schädlichkeit erwiesen ist","The (environmental) harmfulness of plastic + by-products is now anything but unclear - and even if it is, it is recommended as a precaution, e.g. B. not to drink drain cleaner until it is proven to be harmful",382(-),upekiuser_5367
+821,"Auf den Punkt argumentiert, das Plastik die giftigen Inhaltsstoffe an den Inhalt abgibt und man somit unmittelbar betroffen ist",To the point argued that plastic releases the toxic ingredients into the content and one is thus directly affected,378(+),upekiuser_5367
+822,"Es ist dringend notwendig, dass in den Weltmeeren keine Plastikteile mehr gelangen",It is urgent that no more plastic parts get into the oceans,363(+),upekiuser_2086
+823,gibt genug beweise dass es so ist,there is enough evidence that it is so,366(+),upekiuser_2588
+824,"Auch in anderen Bereichen außerhalb von Plastikverpackungen von Obst und Gemüse fallen große Mengen Plastikmüll an, die die Arbeitsplätze erhalten können. Außerdem sollte die Recyclingrate erhöht werden, um die Umwelt zu schonen und Arbeitsplätze zu erhalten","In other areas as well, outside of the plastic packaging for fruit and vegetables, large amounts of plastic waste are generated, which can preserve jobs. In addition, the recycling rate should be increased in order to protect the environment and preserve jobs",386(-),upekiuser_1014
+825,Ziemlich weit hergeholt,Pretty far fetched,370(-),upekiuser_4896
+826,"Aus Plastik können sich Stoffe lösen, die in Grundwasser und Umwelt eindringen und Mensch und Tier schaden",Substances can be released from plastic that penetrate the groundwater and the environment and harm people and animals,"363(+),324(+)",upekiuser_5012
+827,"Weil dies Augenwischerei ist und unsere Probleme in andere Länder verlagert, um uns &quot;sauber&quot; zu halten","Because this is window dressing and our problems are shifting to other countries in order to keep us ""clean"". to keep",375(+),upekiuser_5012
+828,"Papiertüten sind leider nicht viel besser als Plastik, da sie auch aufwendig hergestellt werden müssen. Am besten sind wiederverwendbare Tüten, die man auf Dauer benutzt","Unfortunately, paper bags are not much better than plastic, as they also have to be manufactured in a complex manner. Reusable bags that you use over the long term are best",380(-),upekiuser_5012
+829,Man kann Obst auch in Papier verpacken,You can also wrap fruit in paper,379(+),upekiuser_1340
+830,"Es ist allgemein bekannt, dass Plasteverpackungen Mikroplastik absondern, dass wir dann aufnehmen",It is common knowledge that plastic packaging secrete microplastics that we then ingest,378(+),upekiuser_2475
+831,Die Herstellung von Plastik hat negative Auswirkungen auf die Umwelt,The production of plastic has a negative impact on the environment,363(+),upekiuser_4059
+832,"Plastik bleibt zig Jahre in der Natur, bevor es abgebaut ist und gibt umweltschädliche Stoffe dabei ab",Plastic stays in nature for tens of years before it is broken down and emits environmentally harmful substances in the process,368(-),upekiuser_4059
+833,Durch die Produktion von Papierverpackungen entstehen neue Arbeitsplätze,The production of paper packaging creates new jobs,386(+),upekiuser_2668
+834,Das sehe ich das so,I see it that way,813(-),upekiuser_1342
+835,Weggeworfene Plastikverpackungen verrotten nicht und verschmutzen die Umwelt,Discarded plastic packaging does not rot and pollute the environment,363(+),upekiuser_4646
+836,Lebensmittel können auch am Regal gekennzeichnet werden,Food can also be labeled on the shelf,391(-),upekiuser_4646
+837,"Plastickverpackungen sollten verboten werden da sie die umwelt verschmutzt, es gibt genug andere möglichkeiten sein obst und gemüse nach haus zu bringen","Plastic packaging should be banned as it pollutes the environment, there are plenty of other ways to bring your fruits and vegetables home",363(+),upekiuser_712
+838,Das ist wohl richtig aber der umwlt tut der viele plastikmüll nicht gut,That is probably correct but the environment is not good for the large amount of plastic waste,387(+),upekiuser_712
+839,Durch die Forschung an neuen Verpackungsmöglichkeiten und der Herstellung dieser können neue Arbeitsplätze geschaffen werden,"By researching new packaging options and manufacturing them, new jobs can be created",363(+),upekiuser_1116
+840,Es gibt inzwischen viele Alternativen zur Kennzeichnung von Lebensmitteln ohne diese auf der Plastikverpackung anzubringen,There are now many alternatives for labeling food without putting it on the plastic packaging,363(-),upekiuser_3181
+841,Viele Lebensmittel brauchen gar keine Extra Verpakung,Many foods do not need any extra packaging,363(-),upekiuser_3181
+842,Biphenol A ist nicht gut für den Körper und sondert sich mit jedem Plastikbeutel ab,Biphenol A is not good for the body and is secreted with any plastic bag,363(+),upekiuser_1801
+843,"Gegen Plastikverpackungen denn es gibt genügend Alternativen, man muss sie nur nutzen","Against plastic packaging because there are enough alternatives, you just have to use them",363(+),upekiuser_589
+844,es entspricht der Wahrheit und Realität,it corresponds to the truth and reality,367(-),upekiuser_589
+845,"Die natürliche Abbauzeit für Plastikverpackungen liegt in einem Bereich, sodass &quot;klassische&quot; Biozyklen in keiner Weise anpassungsfähig sind",The natural breakdown time for plastic packaging is in a range that &quot;classic&quot; Biocycles are in no way adaptable,363(+),upekiuser_219
+846,"Der Mensch ist faul. Und leider ist die Faulheit eine große, treibende Kraft. Entsprechend muss hier viel(!) Überzeugungsarbeit geleistet werden","Man is lazy. And unfortunately, laziness is a great driving force. Accordingly, a lot(!) Of persuasion has to be done here",390(+),upekiuser_219
+847,Es gibt genügend Mehrwegbeutel oder Papiertüten um Obst und Gemüse nach Hause zu bringen,There are enough reusable bags or paper bags to bring fruit and vegetables home,363(+),upekiuser_2078
+848,Tiermägen voller Plastik sodas die Tiere lebendig verhungern,Animal stomachs full of plastic so that the animals starve to death alive,367(+),upekiuser_2078
+849,"Ressourcen einsparen, Ware billiger","Saving resources, goods cheaper",363(+),upekiuser_1825
+850,sehr gut,very well,"386(+),324(-)",upekiuser_2585
+851,"Die meisten Obst- und Gemüsesorten benötigen keine zusätzliche Verpackung und super mit den wiederverwendbaren Beutel, die die Supermärkte mittlerweile anbieten, verkauft werden",Most fruits and vegetables do not require any additional packaging and can be sold with the reusable bags that supermarkets are now offering,363(+),upekiuser_4391
+852,Ist für Mensch und Tier eine Belastung und in vielen Sachen unnötig,Is a burden for humans and animals and unnecessary in many things,"368(-),324(+)",upekiuser_4718
+853,Viel Müll landet an Stränden und im Meer,A lot of rubbish ends up on beaches and in the sea,366(-),upekiuser_779
+854,Eindämmung der Plastikmüllberge,Containment of the mountains of plastic waste,363(+),upekiuser_4325
+855,Ich vermute es ohne es konkret zu wissen,I suspect it without actually knowing it,387(+),upekiuser_4325
+856,"Gerade bei weicheren Obst-/Gemüsesorten (Pfirsiche, Tomaten,...) ist es praktisch, diese einigermaßen geschützt zu haben. Auch bei Trauben, oder Erdbeeren, dient die Verpackung als Schutz, dass diese nicht einzeln durch die Einkaufstasche/Korb rollen","Especially with softer fruits and vegetables (peaches, tomatoes, ...) it is practical to have them protected to some extent. Even with grapes or strawberries, the packaging serves as protection that they do not roll individually through the shopping bag/basket",390(+),upekiuser_4833
+857,Es könnte die Plastikverpackung durch ein anderes Material ersetzt werden (Papier),The plastic packaging could be replaced by another material (paper),390(-),upekiuser_4833
+858,Abbau von Plastik ist nicht möglich und somit Plastik nicht sinnvoll,Degradation of plastic is not possible and therefore plastic does not make sense,368(+),upekiuser_2526
+859,Ein Großteil des Obst und Gemüse hat eine natürliche Schutzhülle (Schale) und braucht keine zusätzliche Verpackung,Most of the fruit and vegetables have a natural protective cover (peel) and do not need any additional packaging,363(+),upekiuser_3246
+860,Mikroplastik wurde in Gewässern und im Menchen nachgewiesen,Microplastics have been detected in bodies of water and in people,370(+),upekiuser_3246
+861,"Plastik kann man vermeiden, wenn man regionale Produkte kauft. Wir brauchen keine Äpfel aus Neu Zeeland oder Südafrika",Plastic can be avoided by buying regional products. We don't need apples from New Zeeland or South Africa,363(+),upekiuser_938
+862,Die Ware wird vor schäden usw. geschützt,"The goods are protected from damage, etc.",389(+),upekiuser_4184
+863,Papier wird aus Bäumen hergestellt und die brauchen wir dringend,Paper is made from trees and we urgently need them,387(-),upekiuser_2342
+864,ein Teil landet im Restmüll,some ends up in the residual waste,369(-),upekiuser_2150
+865,Können sortenrein erstellt und gesamment werden zum Recycling,Can be created sorted and collected for recycling,381(+),upekiuser_1988
+866,Zu Zeiten der Pandemie Schützt die Verpackung die frischen Produkte und Verbraucher,"In times of pandemic, packaging protects fresh produce and consumers",363(-),upekiuser_3105
+867,keine nähere begründung oder auflistung der gesundheitlichen folgen,no further explanation or listing of the health consequences,370(-),upekiuser_3105
+868,"wie geschrieben, der Plastikmüll versaut die Meere und die Umwelt","As written, the plastic waste messes up the oceans and the environment",363(+),upekiuser_557
+869,"viele Lebensmittel haben eine eigene Verpackung.(Banane,Gurke &amp; co.)","many foods have their own packaging (banana, cucumber &amp; co.)",363(+),upekiuser_736
+870,das Obst und Gemüse kann ich schliesslich putzen und säubern,I can finally clean and clean the fruit and vegetables,389(-),upekiuser_736
+871,Verpackungen unnötig da obst und Gemüse ihre Schalen als haben,Packaging unnecessary because fruits and vegetables have their shells,363(+),upekiuser_4862
+872,lebensdauer nicht da,lifetime not there,380(-),upekiuser_2504
+873,ist alles schädlich egal pappe oder plastik dann lieber mit eigenen gefässen einkaufen,"if everything is harmful, regardless of cardboard or plastic, you should shop with your own containers",363(-),upekiuser_943
+874,"unverpacktes Obst im Supermarkt ist unhygienisch und ekelhaft, weil jeder es mit ungewaschenen Fingern anfasst oder darauf husten kann",Unpackaged fruit in the supermarket is unsanitary and disgusting because anyone can touch it with unwashed fingers or cough on it,363(-),upekiuser_1042
+875,"einige Nahrungsmittel verderben unverpackt schneller (z.B. Salatgurke), es würde also mehr Gemüse in den Müll geraten","Some foods spoil faster if they are not packed (e.g. cucumber), so more vegetables would end up in the trash",363(-),upekiuser_1042
+876,SInd oft überflüssig,They are often superfluous,"363(+),387(-)",upekiuser_4036
+877,schädlich für Tiere,harmful to animals,363(+),upekiuser_1376
+878,simpler fakt,simple fact,365(+),upekiuser_1376
+879,"Selber schon häufig erlebt, dass unverpackte Tomaten o.ä. durch anderen Einkauf zerquetscht werde",I have often seen that unpackaged tomatoes or the like being crushed by other purchases,390(+),upekiuser_2415
+880,Ein Plastikverbot würde Mehrweggefäße fördern,A plastic ban would encourage reusable containers,363(+),upekiuser_521
+881,"Die Forschung sollte schnell mal was neues finden, um Lebensmittel umweltfreundlich zu verpacken",Research should quickly find something new to package food in an environmentally friendly way,363(+),upekiuser_3479
+882,"Es ist bereits bewiesen, dass Plastikverpackungen die Meere schädigen",It has already been proven that plastic packaging harms the oceans,382(-),upekiuser_5090
+883,Weil unsere Meere wirklich schon voll damit sind,Because our seas are really already full of it,364(+),upekiuser_3479
+884,------------------------------------------,------------------------------------------,365(+),upekiuser_4585
+885,Nicht wiederverwertetes Plastik ist ein großes Problem,Unrecycled plastic is a big problem,368(+),upekiuser_1196
+886,das auge ist mit,the eye is with,389(+),upekiuser_1895
+887,Ich habe kein Auto und muß meinen Einkauf zu Fuß transportieren,I don't have a car and have to transport my groceries on foot,392(+),upekiuser_1248
+888,In den Meeren kommt es heute schon vor dass Schildkröten und andere Meerestiere qualvoll verenden,In the oceans it already happens today that turtles and other marine animals perish in agony,"366(+),937(+)",upekiuser_3670
+889,es sind schon millionen tonnen auf dem meeresgrund,there are already millions of tons on the seabed,364(+),upekiuser_1613
+890,die Leute fassen alles an und so wir das Lbensmittel besser geschützt,people touch everything and so we better protect the food,363(-),upekiuser_5059
+891,durch das pastik halten sich die lebensmittel länger,the food lasts longer thanks to the pastik,363(-),upekiuser_2882
+892,Schädlichkeit der Verpackungen müüsen noch erforscht werden,The harmfulness of the packaging still needs to be researched,382(+),upekiuser_3759
+893,Weil Papier bei Regen schnell durch ist,Because paper gets through quickly in the rain,392(+),upekiuser_3857
+894,"gerade zu Corona Zeiten, ist es eklig, wenn jedermann das Obst/Gemüse angrabbelt","Especially in Corona times, it is disgusting when everyone grabs at the fruit/vegetables",385(+),upekiuser_3857
+895,"Plastikverpackungen sind unnötig, da man die Lebensmittel zu Hause sowieso meist gleich auspackt und die Verpackung wegwirft",Plastic packaging is unnecessary because you usually unpack the food at home and throw away the packaging,363(+),upekiuser_160
+896,Es interessiert mich einfach nicht,I just don't care,366(-),upekiuser_160
+897,es ist ungesund,it is unhealthy,374(+),upekiuser_160
+898,Habe schon Fotos gesehen,Have already seen photos,367(+),upekiuser_3297
+899,mit einer hohen recyclingquote für plastikverpackung kann deren umweeltbilanz verbessert werden,"With a high recycling rate for plastic packaging, its environmental balance can be improved",363(-),upekiuser_3809
+900,Es gibt mittlerweile gute Alternativen zu Plastikverpackungen,There are now good alternatives to plastic packaging,363(+),upekiuser_4143
+901,"In Zeiten von Corona sind verpackte Lebensmittel doch etwas Hygienischer , die Verpackung sollte aber richtig entsorgt werden ","In times of Corona, packaged food is a bit more hygienic, but the packaging should be disposed of properly",363(-),upekiuser_1955
+902,Mikroplastik kann auch von Kläranlagen nicht herausgefiltert werden,Microplastics cannot be filtered out by sewage treatment plants either,370(-),upekiuser_1955
+903,immer mehr Fische droht das aussterben und meine Enkel sollen doch auch wissen was ein Wal oder Delphin ist .Das sind Lebewesen und kei n Müll,More and more fish are threatened with extinction and my grandchildren should also know what a whale or dolphin is. They are living beings and not rubbish,"364(+),368(-)",upekiuser_1534
+904,ich liebe alle Tiere,i love all animals,377(+),upekiuser_2373
+905,es werden keine keime oder bakterien von anderen Kunden übertragen,no germs or bacteria are transmitted from other customers,389(+),upekiuser_4655
+906,man kann den Inhalt nicht gut sehen ,you can't see the content well,380(-),upekiuser_4655
+907,Fotos beweisen das,Photos prove that,366(-),upekiuser_3449
+908,Keine Fakten genannt,No facts mentioned,364(-),upekiuser_3449
+909,Biokunststoffe sollten gefördert und klassische Kunststoffe verboten werden,Bioplastics should be promoted and classic plastics should be banned,363(-),upekiuser_343
+910,Plastikverpackungen sollte man selber verarbeiten können z.B. mit einem 3D-Drucker,"You should be able to process plastic packaging yourself, e.g. with a 3D printer",363(-),upekiuser_343
+911,Plastik wird durch die Natur zum Mikroplastik und reichert sich in der Nahrungskette an,Nature turns plastic into microplastic and accumulates in the food chain,363(+),upekiuser_353
+912,"Plastik ist nicht gleich Plastik, da sollte man schon genauer differenzieren","Not all plastic is the same, so you should differentiate more precisely",387(+),upekiuser_343
+913,Damit wird unsere Gesundheit langfristig gestört,This disturbs our health in the long term,911(-),upekiuser_353
+914,"Es sollte absolut verboten werden, letzendlich schadet es dem Obst und Gemüse. Schnellerer verderb",It should be absolutely forbidden as it ultimately harms fruits and vegetables. Faster spoilage,363(+),upekiuser_3205
+915,Bestehen praktische Alternativen aus einem robusten und evtl. sogar wiederverwertbarem Material stehen sie Plastikverpackungen in Nichts nach und sind zudem noch umweltfreundlich,"If there are practical alternatives made of a robust and possibly even recyclable material, they are in no way inferior to plastic packaging and are also environmentally friendly",363(+),upekiuser_2992
+916,optisch ansprechender,visually appealing,389(+),upekiuser_909
+917,teilweise würde die Plastikverpackung durch eine andere ersetzt werden und dafür wären wieder Arbeitsplätze notwendig,"In some cases, the plastic packaging would be replaced by a different one and jobs would be necessary again",386(-),upekiuser_3910
+918,Einige Verpackungen verbergen Schäden des Inhalts,Some packaging hides damage to the contents,363(+),upekiuser_1873
+919,Bereits seit langer Zeit gibt es Biologisch abbaubaren Kunststoff,Biodegradable plastics have been around for a long time,363(+),upekiuser_4616
+920,Microplastik schadet unseren Erbgut/DNA/Zellfunktion da es sich in und an Körperzellen festsetzt und die Zellgesundheit schadet was die Funktion von Zellen einschränkt/verhindert bis hin zu kontraproduktiven Zellfunktionen erzeugt wodurch Mutationen und Prionische Defekte entstehen da schadhafte DNA auch Schadhafte Eiweiße hervorbringen die zu Krebs und Zellgiften führen was in unseren Organismus gespült wird und da im ungünstigsten Fall wohl weitreichende Körperschäden verursacht. Denn niemand kann im Vorfeld sagen wie der Zellschaden individuell aussehen wird und damit auch welche Folgen das hat,"Microplastics damage our genetic material/DNA/cell function because it sticks in and on body cells and damages cell health, which restricts/prevents the function of cells and even creates counterproductive cell functions whereby mutations and prionic defects arise as damaged DNA also produce harmful proteins that lead to cancer and cell toxins cause what is flushed into our organism and, in the worst case, it can cause extensive body damage. Because nobody can say in advance how the cell damage will look like and what the consequences will be",363(+),upekiuser_4616
+921,"Wenn es sich sehr langsam abbaut dann kann es auch einen sehr lang andauernden Schaden verursachen. Denn wenn wir darüber Diskutieren müßen dann sind wir offensichtlich nicht in der Lage, das Plastik das offenbar viel Schaden und Leid verursacht, was wir ebenfalls real wahrnehmen können, von uns fernzuhalten","If it degrades very slowly then it can also cause very long lasting damage. Because if we have to discuss it then we are obviously not able to keep away from us the plastic that apparently causes a lot of damage and suffering, which we can also perceive in real life",368(+),upekiuser_4616
+922,wenn ich Umweltschutz betreibe und dafür Bäume opfere für Plastik sehe ich keinen Sinn,"if I do environmental protection and sacrifice trees for plastic, I see no point",387(+),upekiuser_1159
+923,obst und gemüse sind von natur ausreichend verpackt,fruit and vegetables are naturally packed sufficiently,363(+),upekiuser_914
+924,"ich liebe alle Tiere und deshalb, sollte man auch die andere umweltbewusste Seite sehen",I love all animals and that's why you should also see the other environmentally conscious side,392(+),upekiuser_708
+925,Dies ist nur eine Ausrede,This is just an excuse,383(-),upekiuser_2236
+926,Unsere Großeltern haben es auch geschaft die lebensmittel nach hause zu bringen,Our grandparents also managed to bring the groceries home,390(-),upekiuser_2236
+927,"Deutschland muss als gutes Beispiel vorangehen, um andere Länder zu überzeugen. Sonst tut sich nie etwas",Germany has to set a good example to convince other countries. Otherwise nothing will ever happen,363(+),upekiuser_2251
+928,Plastikverpackungen werden oft oft achtlos weggeworfen und stellen somit ein Umweltproblem dar,Plastic packaging is often carelessly thrown away and thus represents an environmental problem,363(+),upekiuser_3148
+929,Sollte nicht Mehr Geben dieser Müll,Shouldn't give anymore this rubbish,363(+),upekiuser_2213
+930,Obst udn Gemüse können auch Plastikverpackung portioniert/in Stückzahlen im Supermarkt zum Verkauf angeboten werden,Fruit and vegetables can also be portioned / offered in plastic packaging in the supermarket for sale,363(+),upekiuser_864
+931,"Obst und Gemüse werden vor dem Verzehr ohnehin gewaschen, sodass auf eine Umverpackung aus vermeintlichen Hygienegründen aus Plastik verzichtet werden kann","Fruits and vegetables are washed before they are eaten anyway, so that there is no need for outer packaging made of plastic for alleged hygiene reasons",363(+),upekiuser_864
+932,"Die Verschmutzung der Umwelt durch Mikroplastik hat nicht vorhersehbare Konsequenzen nicht nur für die umwelt, sondern auch die Menschen",The pollution of the environment by microplastics has unpredictable consequences not only for the environment but also for people,363(+),upekiuser_4307
+933,Die Auswrkungen von plastik auf die Umwelt hat insbesondere durch Mikroplastik einen schädlicheren Einfluss als Papier,"The impact of plastic on the environment is more damaging than paper, especially due to microplastics",382(-),upekiuser_4307
+934,"In der Gesamtbetrachtung ist auch die Entsorgung zu betrachten, die durch Mikroplastik nicht bezigfferbar ist","In the overall view, disposal must also be considered, which cannot be labeled with microplastics","387(-),364(+)",upekiuser_4307
+935,schon oft gesehen,seen many times,366(+),upekiuser_4188
+936,die sind inzwischen viel besser geworden,they are much better now,388(-),upekiuser_2388
+937,"da der plastikmüll nicht ordentlich getrennt und wiederverwertet wird, landet er leider oft im meer wo er viel schaden anrichtet","Since the plastic waste is not properly separated and recycled, it unfortunately often ends up in the sea where it causes a lot of damage",363(+),upekiuser_829
+938,es wahr ist,it is true,378(+),upekiuser_829
+939,Es gibt zu viel Müll in den Meeren,There is too much rubbish in the seas,"364(+),324(+)",upekiuser_4685
+940,"sofortige Handlung muss passieren, nicht warten bis umweltschädlichere Alternative bewiesen ist. Und wer sagt, dass man das Obst überhaupt verpacken muss","Immediate action must be taken, not waiting for a more environmentally harmful alternative to be proven. And who says you have to pack the fruit at all?",382(-),upekiuser_2014
+941,wirklich viele tiere sterben müssen dadurch,a lot of animals have to die as a result,367(-),upekiuser_1608
+942,Tiere können daran ersticken,Animals can choke on it,366(-),upekiuser_269
+943,Plastik wird überall sorglos in der Natur entsorgt,Plastic is carelessly disposed of everywhere in nature,363(+),upekiuser_2161
+944,Gedankenlosigkeit der Plastikentsorgung wird an die Jugend weiter gegeben,The thoughtlessness of plastic disposal is passed on to the young,363(+),upekiuser_2161
+945,"In Flüssen werden weggeworfene Plastikflaschen und andere Plastikverpackungen direk über den Wasserwegt ins Meer weiter transportiert, wo sie für die Meerestiere als Ersten todbringend sein können","In rivers, discarded plastic bottles and other plastic packaging are transported directly by water into the sea, where they can be the first to kill the marine animals",368(+),upekiuser_2161
+946,kehr über den Kreislauf in die Nahrungskette zurück und vergiftet Organismen,return to the food chain via the cycle and poison organisms,363(+),upekiuser_2159
+947,Plastik gibt Schadstoffe an die damit verpackten Lebensittel ab,Plastic releases harmful substances into the food it contains,363(+),upekiuser_173
+948,"Eine Banane oder einen Apfel brauche ich gar nicht zu verpacken, DAS IST umweltfreundlicher","I don't even need to pack a banana or an apple, IT'S more environmentally friendly",382(-),upekiuser_173
+949,Na warum schon - schalten Sie mal Ihre Brine ein,Well why should you - turn on your brine,515(-),upekiuser_1166
+950,Gerade jetzt in der Corona Zeit ist eine Plastikverpackung viel hygienischer für Obst und Gemüse,"Especially now in the Corona era, plastic packaging is much more hygienic for fruit and vegetables",363(-),upekiuser_849
+951,Natürliche Produkte wie Lebensmittel sollte man nicht mit unnatürlichen Produkten verpacken,Natural products such as food should not be packed with unnatural products,363(+),upekiuser_5323
+952,"Recycling dauert viel zu lange, Tiere imMeer können daran ersticken",Recycling takes far too long and animals in the sea can suffocate,381(-),upekiuser_3515
+953,Weil das Mikroplastik nicht verottet,Because microplastics don't rot,364(+),upekiuser_3838
+954,"Einiges an Obst und Gemüse verdirbt in Plastikverpackungen schneller, was diese Verpackungen überflüssig macht","Some fruit and vegetables spoil faster in plastic packaging, which makes this packaging superfluous",363(+),upekiuser_2140
+955,Ist zu abstrakt und wenig greifbar,Is too abstract and not very tangible,374(+),upekiuser_5419
+956,Plastik aus dem Meer wird durch die Nahrungskette wieder zu uns gelangen. Aber dieses Mal in den Magen,Plastic from the ocean will come back to us through the food chain. But this time in the stomach,363(+),upekiuser_2981
+957,"Es gibt schon super Alternativen zu Plastik, die entweder billiger oder besser sind",There are great alternatives to plastic that are either cheaper or better,363(+),upekiuser_2981
+958,"Es gibt eine neue Technologie des Coatings, was unschädlich und ohne Plastik ist","There is a new technology of coating, which is harmless and without plastic",379(+),upekiuser_2981
+959,"Würde das jedes Land sagen, gäbe es niemanden, der etwas dagegen tut. Es gibt sowas, das nennt sich Vorbildfunktion. Jemand muss anfangen","If every country said that, there would be no one to do something about it. There is something called a role model. Somebody has to start",383(-),upekiuser_2981
+960,Stimmt nicht. Bei Hitze und ggf. auch bei Nässe können giftige Stoffe aus dem Plastik gelöst werden. Besonders bei Plastik aus z.B. China,That's not true. Toxic substances can be released from the plastic when it is hot or wet. Especially with plastic from e.g. China,392(-),upekiuser_2981
+961,Es gibt momentan keine gleichwertigen Alternativen zu Plastikverpackungen,There are currently no equivalent alternatives to plastic packaging,392(+),upekiuser_1457
+962,"Wenn Plastikverpackungen in der Ökoilanz besser sind als alle denkbaren Alternativen, sollte man diese nicht generell verbieten","If plastic packaging is better in the eco-balance than all conceivable alternatives, it should not be banned in general",363(-),upekiuser_4342
+963,"Mein Kenntnisstand reicht leider nicht aus, um genau sagen zu können, ob aus den Plastkverpackungen hormonverändernde Stoffe auf die Nahrungsmittel übergehen. Allerdings scheint mir das auch noch nicht ausreichend erforscht und somit als Argument untauglich","Unfortunately, my level of knowledge is insufficient to be able to say exactly whether hormone-changing substances are transferred from the plastic packaging to the food. However, it does not seem to me that this has been sufficiently researched and is therefore unsuitable as an argument",374(-),upekiuser_4342
+964,"Überzeugend, weil schon darüber berichtet wurde, dass dem so ist",Convincing because it has already been reported that this is the case,"366(+),368(+),370(+)",upekiuser_356
+965,"Die Frage, ob Plastikverpackungen schädlicher sind, ist bereits beantwortet und dementsprechend nicht unklar",The question of whether plastic packaging is more harmful has already been answered and therefore not unclear,382(-),upekiuser_356
+966,"Nur weil ein Verbot nichts für das Klima bringt, sollte man die anderen Vorteile eines Verbotes nicht unter den Tisch fallen lassen",Just because a ban is not good for the climate should not ignore the other benefits of a ban,"387(-),359(+)",upekiuser_356
+967,Arbeitsplätze hängen immer von irgendetwas ab. An der Produktion von Telefonzellen hingen auch viele Arbeitsplätze ab und trotzdem gibt es keine Telefonzellen mehr,"Jobs always depend on something. Many jobs also depended on the production of telephone booths, and yet there are no more telephone booths",386(-),upekiuser_356
+968,Plastikmüll verschmutzt die Weltmeere,Plastic waste pollutes the world's oceans,363(+),upekiuser_2605
+969,Plastiktüten sind ein unnötiger Zusatz die der Welt schaden,Plastic bags are an unnecessary addition that harm the world,380(+),upekiuser_3324
+970,in vepackungen faulen die früchte u gemüse eher,The fruits and vegetables tend to rot in packaging,363(+),upekiuser_832
+971,"Wenn es um die eigene Gesundheit unmittelbar geht, werden die Leute schneller hellhörig","When it comes to their own health, people are quick to prick up their ears",370(+),upekiuser_4345
+972,Wir haben zum vergleich europa den höchsten papierverbrauch,"Compared to europe, we have the highest paper consumption",387(+),upekiuser_3565
+973,Das Argument ist nachvollziehbar,The argument is understandable,380(+),upekiuser_5000
+974,"Kann man mit eigenen Augen, bei jedem Spaziergang sehen",You can see it with your own eyes every time you walk,368(+),upekiuser_3308
+975,"Transport ist sicherer, da Lebensmittel nicht loose sind",Transportation is safer because food is not loose,390(+),upekiuser_2082
+976,ich mussen kann mann machen,I have to be able to do that,"363(+),380(-)",upekiuser_3047
+977,"es ist bkannt, dass Plastik nicht verrottet und die Meere verseucht",it is known that plastic does not rot and pollute the seas,382(-),upekiuser_1444
+979,Durch Plastik werden andere Resourcen geschohnt,Plastic spares other resources,363(-),upekiuser_1529
+980,Langzeitfolgen der Gesundheit durch Mikroplastik sind nicht absehbar,Long-term health effects from microplastics cannot be foreseen,363(+),upekiuser_1529
+981,Plastikverpackungen machen Einkäufe hygienischer,Plastic packaging makes shopping more hygienic,363(-),upekiuser_4290
+982,Ist eine Tatsache,Is a fact,"373(-),372(-)",upekiuser_3084
+983,"Die Gesundheit ist wichtig, denn es geht um das eigene Leben",Health is important because it is about your own life,"365(-),336(+)",upekiuser_3084
+984,Die Gesundheit von Menschen und Tieren ist sehr wichtig und eine Tatsache,Human and animal health is very important and a fact,"375(-),366(-)",upekiuser_3084
+985,"Man sieht im TV immer wieder Meerestiere, die sich in Plastik verfangen und verletzt sind",You see marine animals on TV that get caught in plastic and are injured,366(+),upekiuser_4315
+986,"Es wurde schon MIkroplastik in Tieren gefunden, aber auch in Flüssen und auf Äckern","Microplastics have already been found in animals, but also in rivers and in fields",370(+),upekiuser_4315
+987,"Plastikverpackungen sind Gesundheitsgefärdend, Mikroplastik kann Menschen schaden und das muss berücksichtigt werden","Plastic packaging is dangerous to health, microplastics can harm people and that must be taken into account",370(+),upekiuser_2752
+988,Papierverpackungen sind aber nicht schädlich in der Benutzung und schneller abbaubar als Plastik,"However, paper packaging is not harmful to use and is more rapidly degradable than plastic",387(-),upekiuser_2752
+1483,"Gesundheitsrisiken noch immer zu wenig erforscht, vor allem die langfristigen Auswirkungen wenn jahrzehntelang gentechnisch veränderte Produkte gegessen werden","There is still too little research into health risks, especially the long-term effects of eating genetically modified products for decades",324(+),upekiuser_4865
+1484,eventuell negative Folgen für die einheimische Wildtierwelt durch gentechnisch veränderte Feldpflanzen,possible negative consequences for the indigenous wildlife from genetically modified crops,336(+),upekiuser_4865
+1485,Damit die Leute in Armen Regionen wie Afrika sich selber ernähren können,So that people in poor regions like Africa can feed themselves,354(+),upekiuser_4190
+1486,Insekten können mit genveränderten Planzen nichts/wenig anfangen und werden aussterben,Insects cannot do anything/little with genetically modified plants and will die out,324(+),upekiuser_3531
+1487,Wir sollten lieber weniger Kinder bekommen,We should rather have fewer children,345(-),upekiuser_871
+1488,arme Länder können sich wieder selbst ernähren,poor countries can feed themselves again,354(+),upekiuser_1576
+1489,Es ist ein Eingriff in die Natur,It is an encroachment on nature,324(+),upekiuser_767
+1490,Gesundheitliche Folgen nicht erforscht + und nicht kalkulierbar sind,Health consequences not researched + and cannot be calculated,324(+),upekiuser_5367
+1491,Welternährung sollte sich nicht auf Verantwortung einzelner Großkonzerne vertrauen,Food for the world should not rely on the responsibility of individual large corporations,324(+),upekiuser_5367
+1492,alles gut,all good,324(-),upekiuser_1256
+1493,Mutation,mutation,336(+),upekiuser_3548
+1494,Es sollten unabhängige Labore die Test überprüfen,Independent laboratories should review the tests,342(-),upekiuser_3548
+1495,"Samen werden über die Luft verbreitet,man kann das nicht eindemmen","Seeds are spread through the air, you can't contain that",329(-),upekiuser_3748
+1496,könnte in 3.Ländern helfen,could help in 3rd countries,354(+),upekiuser_3748
+1497,Mehr Nahrung,More food,349(+),upekiuser_4452
+1498,"Es ist nicht nachvollziehbar, was für Folgen diese Manipulationen der Natur haben",It is incomprehensible what the consequences of these manipulations of nature are,324(+),upekiuser_988
+1499,Die Anzahl der Menschen steigt und viele leiden an Hunger,The number of people is increasing and many are starving,324(-),upekiuser_439
+1500,"Man sollte durch die Klimaänderung versuchen Getreidesorten zu finden, die sich vielleicht jetzt besser unseren Breitengraden anpassen können","Due to climate change, one should try to find types of grain that may now better adapt to our latitudes",324(+),upekiuser_4434
+1501,"Vielzahl negativer Folgen für Mensch, Tier &amp; Umwelt","Variety of negative consequences for humans, animals &amp; environment",324(+),upekiuser_1512
+1502,es bereits so ist,it is already like that,338(+),upekiuser_1512
+1503,"Weil eine Vielzahl v. Wildtieren erlegt werden, jedoch nicht mehr zum Verzehr geeignet sind","Because a multitude of v. Wild animals are shot, but are no longer suitable for consumption",330(+),upekiuser_1512
+1504,"ist bereits so, durch manipuliertes Saatgut","is already like this, through manipulated seeds",332(+),upekiuser_1512
+1505,Konzerne wie Monsanto können Patente auf gentechnisch veränderte Lebensmittel anmelden und arme Bauern stark ausbeuten,Corporations like Monsanto can register patents on genetically modified food and exploit poor farmers heavily,339(-),upekiuser_2541
+1506,So etwas sollte nicht über Verbote geregelt werden,Such a thing should not be regulated by bans,324(-),upekiuser_5012
+1507,Bei manchen Lebensmittel ist es schwierig ohne Verpackung,With some foods it is difficult to do without packaging,324(-),upekiuser_5012
+1508,passt nicht gut,does not fit well,347(-),upekiuser_147
+1509,unglaubwürdig,implausible,350(+),upekiuser_147
+1510,Gentechnisch veränderte Lebensmittel sind gesundheitsschädlich,Genetically modified foods are harmful to health,338(+),upekiuser_40
+1511,Durch den Klimawandelwächst die Anzahl der Trockengebiete,"Due to climate change, the number of arid areas is growing",354(+),upekiuser_1538
+1512,Die Wechselwirkungen sind nicht vorhersehbar,The interactions are unpredictable,336(+),upekiuser_1478
+1513,"Genveränderte Pflanzen können andere Pflanzen verdrängen und die Pflanzenvielfalt gefährden, sodass das Gleichgewicht in der Natur nicht mehr gewahrt wird","Genetically modified plants can displace other plants and endanger plant diversity, so that the balance in nature is no longer maintained",336(+),upekiuser_738
+1514,"Es sollte verboten sein, da die gentechnisch veränderten Pflanzen geundheits-schädlich sein können",It should be forbidden because the genetically modified plants can be harmful to health,324(+),upekiuser_160
+1515,"Die Bio-Landwirtsch ist ja natürlich und ohne Chemische Zusätze, deshalb fällt da Gentechnik schon mal weg","Organic farming is natural and without chemical additives, which is why genetic engineering is not an option",343(+),upekiuser_93
+1516,Man sollte in die Natur einfach weniger eingreifen und nicht alles gentechnisch verändern,One should simply intervene less in nature and not genetically modify everything,326(+),upekiuser_160
+1517,es sind genügend Ressourcen vorhanden,there are enough resources available,324(+),upekiuser_2023
+1518,"Ich denke nicht, dass nur die Firmen, die Forschung an den Gentechnisch veränderten Lebensmitteln machen",I don't think that only the companies that do research on genetically modified foods,342(-),upekiuser_160
+1519,Es werden unter Umständen im Laufe der Zeit alle normalen Pflanzen vernichtet,All normal plants may be destroyed over time,334(-),upekiuser_93
+1520,Das der Boden grundsätzlich unfruchtbar wird glaube ich nicht. Vielleicht wächst nicht mehr alles,I do not believe that the soil is basically sterile. Maybe everything doesn't grow anymore,327(+),upekiuser_93
+1521,"niemand kann sagen,was gentechnische pflanzen nach dem verzehr für nebenwirkungen haben",no one can say what side effects genetically engineered plants have after consumption,341(+),upekiuser_1626
+1522,Wer weiß ob z.B. Bienen Genveränderte Pflanzen vertragen,Who knows if e.g. Bees tolerate genetically modified plants,325(-),upekiuser_93
+1523,Es ist sicher nicht gesund für die Umwelt wenn keine normalen Planzen mehr wachsen,It is certainly not healthy for the environment if normal plants no longer grow,336(-),upekiuser_93
+1524,Ich bin generell gegen Verbote in einer Demokratie,I am generally against bans in a democracy,324(-),upekiuser_3226
+1525,Überdünung und pflanzen verändern sich dies ist nicht ol,Over-fertilization and plants change this is not oil,337(+),upekiuser_3859
+1526,"Habe absolut nichts dagegen, wenn Gentechnik eingeschränkt wird, das muss aber anders kommen, nicht als Verbot","I have absolutely nothing against restricting genetic engineering, but that has to be different, not as a ban",1524(-),upekiuser_3226
+1527,Gentechnik hilft bei der Bekämpfung von Hunger,Genetic engineering helps fight hunger,354(+),upekiuser_569
+1528,"es ist fraglich ob dieses Produkt dann genauso nahrhaft ist wie ein natürliches, es gib t viele Dinge die wir einfach noch nicht wissen","It is questionable whether this product is as nutritious as a natural one, there are many things that we just don't know yet",324(+),upekiuser_802
+1529,durch die Bestäubung vermischen sich die pflanzen so das wir irgendwann keine rein natürliche Pflanze mehr haben,"Due to the pollination, the plants mix so that at some point we no longer have a purely natural plant",336(+),upekiuser_802
+1530,"Es ist nicht bekannt, wie sich die gentechnisch veränderten Pflanzen entwickeln und Einfluss auf andere Pflanzen nehmen",It is not known how the genetically modified plants develop and influence other plants,345(-),upekiuser_1137
+1531,langfristige Studien fehlen,long-term studies are lacking,324(+),upekiuser_1076
+1532,"Als Biologin weiß ich, dass gentechnisch veränderte Lebensmittel unvorhergesehene Eigenschaften entwickeln können, bzw. gute Eigenschaften verlieren können (wie Vitamine, Carotenoide...), ohne, dass das vorher bewusst war. Wechselwirkungen sind immer erst nachher bekannt","As a biologist, I know that genetically modified foods can develop unforeseen properties or lose good properties (such as vitamins, carotenoids ...) without being aware of this beforehand. Interactions are always only known afterwards",324(+),upekiuser_2981
+1533,"Unabhängigkeit von Missernten aufgrund von bestimmten Schädlingen, wenn die gentechnisch veränderten Pflanzen gegen diese immun sind","Independence from bad harvests due to certain pests, if the genetically modified plants are immune to them",324(-),upekiuser_2665
+1534,Die Auswirkung auf Umwelt und Mensch ist nicht erforscht,The impact on the environment and people has not been researched,324(+),upekiuser_624
+1535,Lebensmittelknappheit,Food shortages,358(+),upekiuser_2965
+1536,es sind die Wirkungen auf die Gesundheit nicht ausreichend erforscht,the effects on health have not been adequately researched,324(+),upekiuser_3842
+1537,"Gen-Pflanzen können das Erbgut von normalen Pflanzen verunreinigen, da sie ja unter freiem Himmel gezogen werden aber auch so sich vermischen können durch Wind, Insekten, Boden etc","Genetic plants can contaminate the genetic make-up of normal plants, as they are grown in the open air, but can also mix in this way through wind, insects, soil, etc.",334(-),upekiuser_1076
+1538,noch nicht ausreichend erforscht,not yet adequately researched,341(+),upekiuser_3842
+1539,Ich denke das mann damit auch Preissgüntigere angebote liefern kann,I think that you can also deliver cheaper offers with it,324(+),upekiuser_227
+1540,unnötige forschungskosten,unnecessary research costs,324(+),upekiuser_3169
+1541,Dadurch kann Ernteausfällen entgegen gewirkt werden,This can counteract crop failures,349(+),upekiuser_3246
+1542,Wichtig um Ernteausfälle zu vermeiden,Important to avoid crop failures,349(+),upekiuser_3246
+1543,Nicht Gut,Not good,324(+),upekiuser_2213
+1544,In Zukunft werden mehr Menschen auf der Erde leben,More people will live on earth in the future,345(+),upekiuser_3246
+1545,Wichtig aufgrund von Wasserknappheit,Important due to water scarcity,354(+),upekiuser_3246
+1546,Es ist noch nicht ausreichend erforscht,It has not yet been adequately researched,336(+),upekiuser_931
+1547,"einzelne unternehmen, die mächtiger werden, sind gefährlich",Individual companies that become more powerful are dangerous,328(-),upekiuser_1586
+1548,bei den vielen weggeworfenen lebensmitteln spricht alles für eine gerechtere verteilung,"With so many food thrown away, everything speaks for a fairer distribution",331(-),upekiuser_1586
+1549,durch solche pflenzen könnten pestizide eingespart werden,Such plants could save pesticides,349(+),upekiuser_532
+1550,Eingriff in die Natur,intervention in the nature,324(+),upekiuser_4360
+1551,"ÜBERBEVÖLKERUNG ist unser aller Untergang! Wir sind einfach zu viele, die essen und trinken wollen",OVERPOPULATION is the downfall of all of us! There are just too many of us who want to eat and drink,324(-),upekiuser_4257
+1552,es sichert den weltfrieden,it ensures world peace,354(+),upekiuser_1622
+1553,"Wie schon gesagt,ÜBERBEVÖLKERUNG ist unser Problem! Und das unseres Planeten","As I said before, OVERPOPULATION is our problem! And that of our planet",354(+),upekiuser_4257
+1554,gegen Natur,against nature,324(+),upekiuser_67
+1555,das &quot;survival of the fittest&quot; ist,the &quot;survival of the fittest&quot; is,325(+),upekiuser_3593
+1556,Ursprüngliche Pflanzen könnten verdrängt und ausgerottet werden,Original plants could be displaced and exterminated,336(+),upekiuser_3975
+1557,In der Massenproduktion wird das genetisch veränderte Saatgut nicht viel teurer sein,"In mass production, the genetically modified seeds will not be much more expensive",333(-),upekiuser_3975
+1558,Überfluss und Verschwendung von Lebensmittel in viele Länder. Resourcenverschwendung für Billigfleischproduktion. Kriminalität gegen Tiere,Abundance and waste of food in many countries. Waste of resources for cheap meat production. Crime against animals,331(+),upekiuser_1579
+1559,Die Preise für die Nahrungsmittel würden wg. Gewinnmaximierung zu hoch ausfallen,The prices for the food would be wg. Profit maximization is too high,354(-),upekiuser_3689
+1560,"Weil es stimmt, bald leben 8 Milliarden Menschen auf dem Planeten, der Klimawandel kommt noch dazu, wir brauchen robuste Pflanzen die in der lage sind die Menscheit zu ernähren","Because it is true, there will soon be 8 billion people on the planet, climate change is also coming, we need robust plants that are able to feed humanity",345(+),upekiuser_3543
+1561,"Weil es so viele Menschen gibt und Gentechnik die Ernährung pflanzlicher Produkte sichern kann. Und auch Fleischersatzprodikte herstellen, damit die Massentierhaltung aufhört, die Umweltbelastend ist","Because there are so many people and genetic engineering can secure the nutrition of plant products. And also produce meat substitutes so that factory farming stops, which is environmentally harmful",345(+),upekiuser_1697
+1562,Weil durch Lobbyarbeit in der EU immer mehr der Anbau von &quot;alten&quot; Saatgut verboten wird,Because lobbying in the EU is increasingly causing the cultivation of &quot;old &quot; seed is banned,332(+),upekiuser_3912
+1563,"Es hat sich gezeigt, dass gentechnisch veränderte Produkte krank machen. (Beispiel Morgellons)",It has been shown that genetically modified products make you sick. (Example Morgellons),324(+),upekiuser_3431
+1564,Krankheiten,Diseases,336(+),upekiuser_1452
+1565,wir haben schon eine Nahrungsmittelüberschuss - das mehr an Nahrungsmitteln kommt nicht dort an wo es benötigt wird - es geht nur um Gewinnmaximierung,we already have a food surplus - the more food does not get where it is needed - it's all about profit maximization,324(+),upekiuser_4361
+1566,Weil dadurch Ernteerträge optimiert werden,Because this optimizes crop yields,349(+),upekiuser_1705
+1567,Pflanzen passen sich wie alle anderen Lebewesen ihrer natürlichen Umgebung an dass sollte nicht durch Menschenhand geschehen,"Plants, like all other living things, adapt to their natural environment. That shouldn't be done by human hands",356(-),upekiuser_1705
+1568,"wenn sie gesünder sind, dann ist doch alles gut",if they are healthier then everything is fine,352(+),upekiuser_4363
+1569,Durch manipulation wird der natürliche schutz zerstört,The natural protection is destroyed by manipulation,337(+),upekiuser_4361
+1570,Es wäre leichter weniger umweltschädliche Produkte zu produzieren,It would be easier to produce less environmentally harmful products,324(-),upekiuser_3030
+1571,"Ich finde, dass konventionelle Bio Landwirte jetzt schon zu wenig Unterstützung erhalten",I think that conventional organic farmers are already receiving too little support,343(+),upekiuser_489
+1572,es umwelttechnisch gut ist,it is environmentally good,351(+),upekiuser_3708
+1573,pflanzen können selbst im Gewächshaus nicht auf einen fleck bleiben durch Tiere und wind und Wasser werden auch manipulierte Pflanzen oder samen überall verteilt,"Plants cannot remain in one place even in the greenhouse. Animals, wind and water, manipulated plants or seeds are distributed everywhere",324(+),upekiuser_2330
+1574,Negative Auswirkungen auf Biodiversität,Negative impact on biodiversity,324(+),upekiuser_4829
+1575,Man sollte weniger Konsumieren,One should consume less,350(+),upekiuser_3872
+1576,es werden dann bei den Pflanzen nicht mehr alle Sorten angebaut,then not all varieties of the plants are grown,325(-),upekiuser_1568
+1577,its a proof,its a proof,360(+),upekiuser_3320
+1578,"Bauern müssen gentechnisch veränderte Pflanzen anbauen, um mit den anderen mithalten zu können",Farmers have to grow genetically modified crops to keep up with the others,332(+),upekiuser_866
+1579,Biologisch erklärbar,Can be explained biologically,356(+),upekiuser_3572
+1580,gentechnik ist nicht richtig erforscht,genetic engineering has not been properly researched,324(+),upekiuser_97
+1581,Günstige Lebensmittel bei geringerem PSM Einsatz,Inexpensive food with less use of PPPs,324(-),upekiuser_229
+1582,es wird überall so viel entsorgt,so much is disposed of everywhere,331(+),upekiuser_1604
+1583,das sollte der allerletzte schritt sein,that should be the very last step,336(+),upekiuser_2910
+1584,Einflüsse durch Verbreitung von Insekten. Verdrängung natürlicher Lebensmittel. Vitamingehalt,Influences from the spread of insects. Displacement of natural foods. Vitamin content,324(+),upekiuser_1018
+1585,Stimmt Grundsätzlich....nur mit einem grossen ABER. Siehe Gegenargumente,Basically true .... only with a big BUT. See counter arguments,352(+),upekiuser_1018
+1586,"Agrar Konzerne wie Monsanto überschwemmen mit ihrem Saatgut die Bauern der 3. Welt.Können dann wenn sie eine Zusammenarbeit mit Monsanto ablehnen,mit Ihren alten Pflanzungsmethoden nicht mithalte","Agricultural corporations like Monsanto flood the farmers of the 3rd world with their seeds. If they refuse to work with Monsanto, they cannot keep up with their old planting methods",333(+),upekiuser_1980
+1587,es kann unter Umständen zu Wildwuchs und Verdrängung anderer Pflanzen kommen,under certain circumstances this can lead to wild growth and displacement of other plants,336(+),upekiuser_3303
+1588,Ich halte es für unnatürlich,I think it's unnatural,324(+),upekiuser_1067
+1589,Wenn eine Firma selbst entscheidet kann es nur dazu führen das der Test immer Posuitiv für die Firma verläuft,"If a company decides for itself, it can only lead to the test always being positive for the company",342(-),upekiuser_2066
+1590,Schlecht,Bad,324(+),upekiuser_2474
+1591,Menschen könnten lieber nachhaltiger essen,People would prefer to eat more sustainably,345(-),upekiuser_615
+1592,es ist schon das wort &quot;Verändert&quot;,it is already the word &quot;changed&quot;,324(+),upekiuser_1371
+1593,für die wettbewerbsfähigkeit braucht es keine Gentechnik,Genetic engineering is not required to be competitive,362(-),upekiuser_4183
+1594,n kann nicht wissen wie sich das auswi,n can't know how this will turn out,324(+),upekiuser_1397
+1595,da kreuzungen nicht konntrolierbar sind,because crossings are not controllable,336(+),upekiuser_1600
+1596,das Saatgut kann durch gentechnik negative Eigenschaften verlieren,The seeds can lose negative properties through genetic engineering,333(-),upekiuser_1600
+1597,da die bauern dann noch mehr leiden was die preise angeht,because the farmers then suffer even more in terms of prices,332(-),upekiuser_2882
+1598,Pflanzenschutzmittel sind das größere Übel,Pesticides are the bigger evil,350(+),upekiuser_503
+1599,Die natürlichen Veränderungen und Veränderungen durch Gentechnik kann man nicht vergleichen,The natural changes and changes caused by genetic engineering cannot be compared,356(-),upekiuser_503
+1600,die Folgen der veränderten Pflanzen sind noch nicht ausreichend erforscht,the consequences of the modified plants have not yet been adequately researched,324(+),upekiuser_4265
+1601,"Man soll die Natur so lassen wie sie ist, war immer noch das beste","One should leave nature as it is, it was still the best",336(+),upekiuser_1547
+1602,es gibt dann vielleicht kein zurück mehr,then maybe there is no turning back,326(-),upekiuser_4265
+1603,Ich habe es irgendwo gehört,I heard it somewhere,325(+),upekiuser_613
+1604,Es ist unbekannt bzw nicht vorhersehbar welche Auswirkungen genetisch veränderte Lebensmittel auf Menchen / Tiere und deren DNA haben,It is unknown or not predictable what effects genetically modified foods have on humans/animals and their DNA,324(+),upekiuser_1261
+1605,Der Eingriff in die Natur hat direkte Folgen und indirekte Folgen die nicht vorhersagbar sind,The intervention in nature has direct and indirect consequences that cannot be predicted,336(+),upekiuser_1261
+1606,Es zählt nur der Profit und die Macht,Only profit and power count,342(+),upekiuser_1261
+1607,hunger wird vermindert,hunger is reduced,354(+),upekiuser_4834
+1608,Die Landwirtschaft wird schon heute völlig reglementiert und die Vielfallt damit verhindert,Agriculture is already fully regulated today and this prevents diversity,332(+),upekiuser_1261
+1609,Es gibt niemanden ( außer Gott ) der den Verlauf der Manipulationen verraussehen / vorraussagen kann,There is nobody (except God) who can foresee/predict the course of the manipulations,341(+),upekiuser_1261
+1610,Der Mensch ist kein Gott,Man is not a god,1604(+),upekiuser_1261
+1611,Gentechnik ist nicht die Zukunft oder zumindest keine Gesunde,"Genetic engineering is not the future, or at least not healthy",339(-),upekiuser_1261
+1612,Dies sind vollkommen unterschiedliche Aspekte. Die klassische Zucht verändert das Produkt nicht so,These are completely different aspects. Classic breeding doesn't change the product like that,357(-),upekiuser_4578
+1613,Natürliche Pflanzenformen werden verdrängt,Natural plant forms are being displaced,336(+),upekiuser_4807
+1614,ho,ho,324(+),upekiuser_4807
+1615,man weiss halt nicht wie ungesund es wirklich ist,you just don't know how unhealthy it really is,342(+),upekiuser_2110
+1616,Effektive Bekämpfung des Hungers auf der Welt,Effective fight against hunger in the world,"354(+),345(+)",upekiuser_3313
+1617,Pflanzen halten sich besser- ergo: es kann mehr geerntet werden- der Hunger auf der Welt kann besser bekämpft werden,Plants keep better - ergo: more can be harvested - hunger in the world can be combated better,349(+),upekiuser_3313
+1618,Primat der wirtschaflichkeit,Primacy of economy,349(+),upekiuser_4595
+1619,Zu starke Abhängigkeit von Konzernen,Too much dependence on corporations,324(+),upekiuser_2759
+1620,"Verlust von genetischer Vielfalt, Erhöhung der Anälligkeit auf Krankheiten etc","Loss of genetic diversity, increased susceptibility to disease, etc.",324(+),upekiuser_2759
+1621,man weiß nie was man genau isst,you never know what exactly you are eating,342(-),upekiuser_670
+1622,"Stimmt in erster Linie, ist aber zeitlich begrenzt","Primarily correct, but is limited in time",349(+),upekiuser_2759
+1623,Ackerunkräuter können durch horizontalen Gentransfer davon profitieren und widerstandsfähiger gegenüber Pestiziden etc. sein,Arable weeds can benefit from horizontal gene transfer and be more resistant to pesticides etc.,336(+),upekiuser_2759
+1624,Hunger in der Welt,Hunger in the world,354(+),upekiuser_285
+1625,Thema Klimawandel und Erdölkonzerne als Beispiel,The subject of climate change and oil companies as an example,342(+),upekiuser_2759
+1626,Man kann gezielt neue und verbesserte Produkte herstellen,You can specifically manufacture new and improved products,324(-),upekiuser_5389
+1627,Sicherung der Welternärung,Securing world nutrition,324(-),upekiuser_1602
+1628,Ohne eigene Forschung sind sie abhängig und müssen dementsprechend zahlen,"Without their own research, they are dependent and have to pay accordingly",339(+),upekiuser_2759
+1629,Die Menschheit wächst stetig,Humanity is growing steadily,345(+),upekiuser_2759
+1630,es bedarf noch mehr Forschung um eventuelle Schaeden festzustellen,more research is needed to determine any damage,336(+),upekiuser_5389
+1631,nur wer mitmacht kann steuern und mitbestimmen,only those who take part can control and have a say,344(+),upekiuser_1602
+1632,könnte durch den Klimawandel immens wichtig werden,could become immensely important due to climate change,354(+),upekiuser_2759
+1633,nahrungsmittelknappheit bekaempfen,fight food shortages,354(+),upekiuser_5389
+1634,Studien hierzu fehlen,There are no studies on this,347(+),upekiuser_5389
+1635,man sollte Gentechnik nur gezielt einsetzen,genetic engineering should only be used in a targeted manner,362(-),upekiuser_5389
+1636,nur die natur uns pflanzen gibt und dabeisollte es bleiben man sollte nicht in die natur rein pfuschen,only nature gives us plants and should stay that way you shouldn't mess with nature,334(+),upekiuser_3459
+1637,Man kann die Langzeitfolgen nicht abschätzen,One cannot estimate the long-term consequences,336(+),upekiuser_2982
+1638,wg. rasantms Wachstum der Bevölkerung &amp; Klimawandel,due to rapid population growth &amp; Climate change,354(+),upekiuser_2982
+1639,Es können aber auch neue Krankheiten entstehen,But new diseases can also arise,349(-),upekiuser_2982
+1640,Langzeitfolgen sind noch nicht bekannt,Long-term consequences are not yet known,342(-),upekiuser_2982
+1641,sehe ich genauso,I see it the same way,339(+),upekiuser_2982
+1642,Intoleranz ggenüber diesen pflanzen-sowie Allergien,Intolerance to these plant and allergies,324(+),upekiuser_1908
+1643,in der Blütezeit regelt das die Natur(Wind ),in the heyday this is regulated by nature (wind),334(+),upekiuser_1908
+1644,wegen den Studien,because of the studies,330(+),upekiuser_3600
+1645,Es ist wichtig das die pflanzen besser gegen Fäulnis und fraß geschützt werden gentechnisch macht das wir müssen die Weld auch ernähren,It is important that the plants are better protected against rot and being eaten by genetic engineering that we also have to feed the world,324(-),upekiuser_407
+1646,Die firmen müssten Ofen sein und besser beeisen,The companies should be ovens and iron better,342(+),upekiuser_407
+1647,"habe mich gerade belesen und viel von gift gelesen , welches von den pflanzen abgegeben wird",I have just read a lot and read a lot about poison given off by plants,324(+),upekiuser_1794
+1648,Ist bewiesen ungesund/schädlich für den Organismus,Has been proven to be unhealthy / harmful to the organism,324(+),upekiuser_4478
+1649,Kapitalismus,capitalism,342(+),upekiuser_4478
+1650,Zu allgemein,Too general,336(-),upekiuser_4478
+1651,Der vorhandene Ackerboden wird täglich kleiner und die Bevölkerung wächst enorm,The existing arable land is getting smaller every day and the population is growing enormously,345(+),upekiuser_2144
+1652,Es ist nicht erwiesen das der mensch davon Krank wird,It has not been proven that people get sick from it,324(-),upekiuser_4649
+1653,Es wird doch immer gejammer das viele hungern,It will always complain that so many are starving,345(+),upekiuser_4649
+1654,Ich bin nicht davon überzeugt,I am not convinced of it,345(+),upekiuser_1644
+1655,Mehr Ertrag,More profit,324(-),upekiuser_638
+1656,Gentechnisch veränderte Pflanzen Werden über das Maß hinaus verändert. Z.B das der Bauer aus den Samen keine neuen Pflanzen gewinnen kann. Oder auch das die Pflanzen an Giften oder Krankheiten nicht eingehen. So das wir diese Gifte und Krankheiten zwangsläufig mit konsumieren. Bzw das Gifte zur Zucht bewußt eingesetzt werden (denken wir doch mal an das Entlaubungsmittel &quot;Glyphosat&quot; Das nur von Herstellerkonsern als ungiftig bezeichnet wird,Genetically modified plants are being modified beyond measure. E.g. that the farmer cannot obtain new plants from the seeds. Or that the plants do not die of poisons or diseases. So that we inevitably consume these poisons and diseases. Or the poisons are consciously used for breeding (let's think of the defoliant &quot;glyphosate&quot; which is only described as non-toxic by manufacturer consumers,333(+),upekiuser_4616
+1657,man kann so ein Feld nicht abschotten,such a field cannot be sealed off,329(-),upekiuser_1088
+1658,"Solange wir noch Unmengen an Lebensmitteln wegwerfen, bedarf es keine gentechnische Produktion","As long as we are throwing away huge amounts of food, there is no need for genetic engineering",324(+),upekiuser_3345
+1659,gentechnisch veränderte Pflanzen verändern den biologischen Lebensraum an sich und haben Einfluss auf die natürliche Flora und Fauna,Genetically modified plants change the biological habitat itself and have an impact on the natural flora and fauna,324(+),upekiuser_4675
+1660,"es ist nicht möglich, die Verbreitung von gentechnisch veränderten Pflanzen in die Natur zu kontrollieren",it is not possible to control the spread of genetically modified plants into nature,324(+),upekiuser_4675
+1661,Welche Auswirkungen hat das auf auf den Menschen,What effects does this have on people?,324(+),upekiuser_2078
+1662,Monopolstellung,Monopoly position,328(+),upekiuser_2078
+1663,Da es Sinn ergibt,Because it makes sense,339(+),upekiuser_4941
+1664,"Ich kann mir nicht vorstellen, dass nur Gentechnik-Labore Tests durchführen. Denn wäre dies der Fall würde nie ein Konzern eine Genehmigung für seine Produkte erhalten, da nicht jeder jedem Alles glaubt. So leichtgläubig ist nun wirklich niemand","I can't imagine only genetic engineering labs doing tests. Because if this were the case, a corporation would never receive approval for its products, since not everyone believes everything. Nobody is really that gullible",342(-),upekiuser_4941
+1665,Auch der Anbau gentechnisch veränderter Lebensmittel braucht Platz. Also würde auch hier irgendwann der Platz zur Neige gehen um alle Menschen in Zukunft ernähren zu können,The cultivation of genetically modified food also needs space. So here too the space would run out at some point to be able to feed all people in the future,345(-),upekiuser_4941
+1666,Gentechnische veränderte Pflanzen können gesundheitsschädigend sein,Genetically modified plants can be harmful to health,324(+),upekiuser_4691
+1667,kann rückgängig gemacht werden,can be reversed,326(+),upekiuser_135
+1668,Langfristige Untersuchungen für die Gesundheit der Menschen beim Verzehr von Genpflanzen sind immer noch selten oder nicht aussagekräftig genug,Long-term studies on the health of people when consuming genetically engineered plants are still rare or not conclusive enough,324(+),upekiuser_4844
+1669,Unkontrolliert ist hier das Schlüsselwort,The key word here is uncontrolled,336(+),upekiuser_4844
+1670,Man kennt die Spätfolgen für den Menschen nicht wenn wir Genetisch veränderte Lebensmittel zu uns nehmen,The long-term consequences for humans are not known when we consume genetically modified foods,324(+),upekiuser_1968
+1671,Ich kenne Gentechnik nicht so gut. Bin dagegen,I don't know genetic engineering very well. I'm against it,324(+),upekiuser_4876
+1672,"da ich einfach nicht glaube, das in deutschland etwas erlaubt wird, was schädlich wäre",because i just don't believe that something is allowed in germany that would be harmful,353(+),upekiuser_1349
+1673,Durch genetisch veränderte Pflanzen lässt sich die Verschiebung und Ungleichgewicht in der Welt etwas korrigieren,The shift and imbalance in the world can be corrected somewhat through genetically modified plants,324(-),upekiuser_714
+1674,es trifft meine Sicht,it hits my point of view,345(+),upekiuser_714
+1675,"macht die Pflanzen Wiederstandsfähiger gegen Schädlinge, wenn die Schädlingen die Nahrung fehlt Leiden das ganze Ökosystem da diese auch eine Nahrungsquelle für andere Tierarten sind","makes the plants more resistant to pests, if the pests lack food, the whole ecosystem suffers as they are also a food source for other animal species",324(+),upekiuser_1159
+1676,es könnten die Felder von Biobauern durch Samenflug kontaminiert werden,the fields of organic farmers could be contaminated by flying seeds,324(+),upekiuser_1042
+1677,"Die Beeinflussung, von gentechnischen Anbau, auf Insekten, wild lebende Tiere ist unabsehbar",The influence of genetic engineering on insects and wild animals is incalculable,324(+),upekiuser_1843
+1678,Natürliche Planzen entwickeln sich ebenfalls gut,Natural plants also do well,357(-),upekiuser_4208
+1679,Deutschland sollte sich auf ökologischen Anbau konzentrieren,Germany should concentrate on organic farming,362(-),upekiuser_4208
+1680,Vernichtung der notwendigen Vielfalt von Pflanzen,Destruction of the necessary diversity of plants,324(+),upekiuser_3437
+1681,Verunreinigung der Ackerböden und des Grundwassers,Contamination of the arable land and groundwater,324(+),upekiuser_3437
+1682,Fehlende echte Prüfung durch Unabhängige,Lack of real independent scrutiny,342(+),upekiuser_3437
+1683,"Schwund natürlicher notwendiger Pflanzen, dadurch Schwund von Tierbeständen, etc","Shrinkage of necessary natural plants, resulting in a loss of animal populations, etc.",1680(+),upekiuser_3437
+1684,Wird sowas geprüft,Is something checked,1681(+),upekiuser_3437
+1685,Vergiftung und Vernichtung üblicher Pflanzen,Poisoning and destruction of common plants,336(+),upekiuser_3437
+1686,Kleinbauern können sich das Saatgut nicht leisten und können nicht &quot;produzieren&quot;,Small farmers cannot afford the seeds and cannot &quot;produce&quot;,333(+),upekiuser_3437
+1687,Vermutlich,Probably,343(+),upekiuser_3437
+1688,kann auch durch mischkultur erreicht werden,can also be achieved through mixed culture,349(-),upekiuser_736
+1689,"Führt dazu, dass natürliche Produkte verfälscht werden",Leads to natural products being adulterated,324(+),upekiuser_4396
+1690,Die Schere zwischen Arm und Reich wird größer,The gap between rich and poor is growing,339(-),upekiuser_270
+1691,Arme Länder sollen nicht noch abhängiger von reichen Ländern werden,Poor countries should not become even more dependent on rich countries,339(+),upekiuser_3449
+1692,"Es ist nicht ausreichend aufgeführt, was die negativen Folgen sind, daher kein überzeugendes Argument","It is not sufficiently detailed what the negative consequences are, so it is not a convincing argument",341(-),upekiuser_3449
+1693,Ist dem wirklich so? Woher weiß man das,Is that really the case? How do you know that,342(-),upekiuser_3449
+1694,"Weil es bei den stetig wachsenden Einwohnerzahlen auf der Welt immer schwieriger wird, alle Menschen angemessen bzw. ausreichend ernähren zu können",Because with the steadily growing population of the world it is becoming more and more difficult to be able to feed all people adequately or adequately,354(+),upekiuser_2068
+1695,"Wenn man Pflanzen durch Gentechnik so verändern kann, damit sie auch in wärmeren und trockneren Gegenden wachsen können, dann gibt es automatisch mehr zu essen","If you can use genetic engineering to modify plants so that they can also grow in warmer and drier areas, then there will automatically be more to eat",354(+),upekiuser_2068
+1696,Der Mensch greift in ein Ökosystem ein,Humans intervene in an ecosystem,336(+),upekiuser_2966
+1697,Nicht überzeugend früher hat auch alles ohne Gentechnik funktioniert,Everything didn't work convincingly before without genetic engineering,352(-),upekiuser_849
+1698,"Jeder schimpft über Glyphosat, sind die Pflanzen widerstandsfähiger, kann auf Spritzmittel verzichtet werden","Everyone complains about glyphosate, if the plants are more resilient, there is no need for pesticides",349(+),upekiuser_4840
+1699,Langfristige Folgen des Konsums gentechnisch veränderter Pflanzen sind nicht erforscht,Long-term consequences of consuming genetically modified plants have not been researched,324(+),upekiuser_288
+1700,Reiche Staaten bekommen ein Monopol auf entsprechendes Saatgut,Rich states get a monopoly on such seeds,339(+),upekiuser_288
+1701,Sie könnten natürlich gewachsene Pflanzenarten verdrängen,They could displace naturally grown plant species,336(+),upekiuser_288
+1702,"Wenn wir Vorreiter bei Zukunftstechnologie sind, sichern wir den Wohlstand des Landes für die nächsten Jahrzehnte","If we are pioneers in future technology, we will secure the country's prosperity for the next few decades",361(+),upekiuser_3564
+1703,Objektive Tests über einen langen Zeitraum sind wichtig um mögliche Folgeschäden zu erkennen,Objective tests over a long period of time are important in order to detect possible consequential damage,342(+),upekiuser_3530
+1704,Langzeitfolgen bei den Verbrauchern ist nicht ausreichend erforscht,Long-term effects on consumers have not been adequately researched,324(+),upekiuser_1335
+1705,Eingriff in die Schöpfung,Intervention in creation,324(+),upekiuser_3487
+1706,Weil man Monsanto und Co .grundsätzliche mißtrauen muss,Because you have to distrust Monsanto and Co. in principle,342(+),upekiuser_3487
+1707,weniger pflanzenschutzmittel ist schon mal sehr wichtig,less pesticides is very important,350(+),upekiuser_4233
+1708,Man kann nicht wissen wie es sich auf den Menschlichen Körper auswirkt,One cannot know how it will affect the human body,324(+),upekiuser_214
+1709,so gesehen ist es schon sinnvoll,from that point of view it makes sense,354(+),upekiuser_214
+1710,Neue Kreuzungen die noch nicht bekannt sind,New crossings that are not yet known,336(+),upekiuser_2482
+1711,Die Abhängigkeit der Bauern von Großkonzernen ist ein großes Problem,The dependence of the farmers on large corporations is a big problem,332(+),upekiuser_2925
+1712,Weil wirtschaftliche Aspekte auch berücksichtgt werden sollten,Because economic aspects should also be taken into account,333(+),upekiuser_3498
+1713,Ich finde das da der Mensch nicht Gott spielen sollte und der Natur freien lauf lassen sollte,I think that because humans shouldn't play God and should let nature run free,336(-),upekiuser_1301
+1714,weniger Anbaufläche nötig,less cultivation area required,324(-),upekiuser_154
+1715,"die Erde erwärmt sich immer mehr, mehr Trockenperioden, Pflanzen müssen darauf abgestimmt werden","the earth warms up more and more, more dry periods, plants have to be adapted to them",354(+),upekiuser_1898
+1716,Man möchte ja gerade dein Einsatz vermeiden,One would like to avoid your involvement,337(-),upekiuser_4420
+1717,Ich möchte meine Gesundheit ja schützen,I want to protect my health,330(-),upekiuser_4420
+1718,Das würde das Gleichgewicht der Natur durcheinander bringen,That would upset the balance of nature,336(-),upekiuser_4420
+1719,Gen Honig...für mich das überzeugendste Argument,Gen honey ... for me the most convincing argument,335(-),upekiuser_4420
+1720,Kann auch bei falscher bepflanzung mit normalen Pflanzen passieren,Can also happen with incorrect planting with normal plants,327(-),upekiuser_4420
+1721,Muss man ja nicht verwenden,You don't have to use it,333(-),upekiuser_4420
+1722,Der bereits eingetretene Klimawandel erfordert künftig auch den Anbau von gentechnisch veränderten Pflanzen,The climate change that has already occurred will also require the cultivation of genetically modified plants in the future,324(-),upekiuser_2086
+1723,Der Klimawandel macht dies notwendig,Climate change makes this necessary,354(+),upekiuser_2086
+1724,es landet zuviel im müll anstatt zu spenden zb,"too much ends up in the garbage instead of donating, for example",331(+),upekiuser_4571
+1725,"Durch Gentechnik wird man nur noch irgendwann nur noch wenige genoptimierte Arten haben und zwar die, die den meisten Profit abwerfen","Thanks to genetic engineering, at some point there will only be a few genetically optimized species, namely those that make the most profit",340(+),upekiuser_4294
+1726,Weil es für mich ein massiver Eingriff in die Natur ist. Und das geht nie gut,Because for me it is a massive interference with nature. And that never goes well,336(+),upekiuser_3322
+1727,"Es steht nicht fest, dass sie gefährlich sind",It is not certain that they are dangerous,347(+),upekiuser_3857
+1728,Die Auswirkungen auf den menschlichen Organismus sind nicht ausreichend erforscht,The effects on the human organism have not been adequately researched,324(+),upekiuser_1116
+1729,"Schädlinge können auch gegen gentechnisch veränderte Pflanzen resistent werden, so startet nur ein neuer Teufelskreis","Pests can also become resistant to genetically modified plants, which only starts a new vicious circle",324(+),upekiuser_1116
+1730,Die Aufnahme dieser Lebensmittel kann unerforschte negative Nebenwirkungen haben,Ingesting these foods can have unexplored negative side effects,1728(+),upekiuser_1116
+1731,Auch Schädlinge und Krankheiten können sich anpassen,Pests and diseases can also adapt,349(-),upekiuser_1116
+1732,"Wenn sich alle Menschen vegan ernähren würden, müsste niemand hunger leiden und Gentechnik bräcute dann auch keiner mehr","If everyone were to follow a vegan diet, nobody would have to go hungry and genetic engineering would no longer fry",345(+),upekiuser_4744
+1733,Ich halte gentechnik generell für schädlich. Aus diesem grund bin ich gegen gentechnik,I think genetic engineering is generally harmful. For this reason I am against genetic engineering,330(-),upekiuser_1791
+1734,"Es ist nicht absehbar, wie sich Genveränderungen in der Zukunft auswirken",It is not foreseeable how genetic changes will affect the future,335(+),upekiuser_4646
+1735,Die Verbreitung veränderter Gene ist nicht steuerbar,The spread of altered genes cannot be controlled,335(+),upekiuser_4646
+1736,"das sieht man an den tieren, dei sich unkntrolliert ausbreiten, wie zb der Ochsenfrosch","You can see this in animals that spread uncontrollably, such as the bullfrog",336(+),upekiuser_4109
+1737,Pflanzen aus anderen Gegenden könnten sich ausbreiten und nicht-gentechnisch veränderte dominieren,Plants from other areas could spread and dominate non-genetically modified ones,354(-),upekiuser_1988
+1738,Unabsehbare Gesundheitsfolgen,Unpredictable health consequences,324(+),upekiuser_1998
+1739,"Keiner weiß, welchen Schaden wir dadurch anrichten. Schließlich hat die Natur sich selbst entwickelt und es ist nicht richtig daran Einfluß zu nehmen. Es ist alles in der Natur komplex und wir dürfen uns nichts anmaßen. Besser sollten wir die negativen Ursachen beseitigen","Nobody knows what harm we are doing as a result. After all, nature has developed itself and it is not right to influence it. Everything in nature is complex and we cannot presume anything. Better to eliminate the negative causes",324(+),upekiuser_3838
+1740,Besser den Klimawandel und die Umweltverschmutzung stoppen,Better stop climate change and pollution,354(-),upekiuser_3838
+1741,"Der Klimawandel schafft immer mehr trockene Regionen, es ist daher wichtig, dass wir das anpassen","Climate change is creating more and more dry regions, so it is important that we adapt",354(+),upekiuser_2597
+1742,"Die Frage ist, ob in trockenen Regionen der Lebensstandard die Nutzung von Gentechnik zulässt",The question is whether the standard of living in arid regions allows the use of genetic engineering,354(-),upekiuser_2597
+1743,"Es stimmt, dass Gentechnik auch positive Seiten hat",It is true that genetic engineering also has positive sides,349(+),upekiuser_2764
+1744,Es ist noch nicht vollständig erforscht was passieren kann,It has not yet been fully explored what can happen,336(+),upekiuser_1593
+1745,Man kann kontrollierte Tiernarung anbauen,You can grow controlled animal sanitation,348(+),upekiuser_1196
+1746,Mann kann schnellwachsende Pflanzen anbauen um sie zur Energieproduktion zu nutzen,You can grow fast growing plants to use them for energy production,358(+),upekiuser_1196
+1747,Dass die Artenvielfalt durch gentechnische pflanzen gefährdet ist,That biodiversity is endangered by genetic engineering,336(+),upekiuser_2804
+1748,das sich Pflanzenkrankheitem ausbreiten und die komplette Ernte vernichtet werden muss und diese übertragbar ist,that plant diseases spread and the entire harvest must be destroyed and this is transferable,336(+),upekiuser_2356
+1749,Ablehung erfolgt nur aus Ideologie,Rejection is only based on ideology,324(-),upekiuser_566
+1750,"Ich befürchte einen Zauberlehrling-Effekr: Die Geister, die wir rufen",I fear a sorcerer's apprentice effect: the spirits we call,324(+),upekiuser_4337
+1751,Weil das so ist,Because it is like that,339(+),upekiuser_378
+1752,die risiken oft erst nach einer langen zeit zum tragen kommen und am anfang nicht oder noch nicht zum tragen kommen,the risks often only come to fruition after a long period of time and do not or not yet come to fruition at the beginning,326(-),upekiuser_829
+1753,es schneller ist eine genügsame pflanze zu bauen als zuzüchten,it is faster to build a frugal plant than to grow it,354(+),upekiuser_4082
+1754,geburtenkontrolle hilft,birth control helps,345(-),upekiuser_4082
+1755,"Es würde genügend Nahrung für alle geben, wenn diese gerecht verteilt würde und nicht durch Wegwerfmentalität und Überproduktion in einigen Teilen der Welt verschwendet würde",There would be enough food for everyone if it were fairly distributed and not wasted in some parts of the world due to the throwaway mentality and overproduction,345(-),upekiuser_5046
+1756,Genetisch veränderte Pflanzen brauchen leider nicht weniger Pflanzenschutzmittel,"Unfortunately, genetically modified plants do not need fewer pesticides",324(+),upekiuser_5392
+1757,"Die Studien werden so gefälscht, wie deer Auftraggeber das Ergebnis wünscht",The studies are falsified in the way the client wants the result,342(+),upekiuser_226
+1758,"Es macht mir Angst, dass Menschen sehr skrupellos sein können, so dass es in dieser Beziehung von meiner Seite kein Vertrauen aufgebaut werden kann","It scares me that people can be very unscrupulous, so that no trust can be built on my part in this relationship",324(+),upekiuser_4326
+1759,Geld regiert die Welt,Money makes the world go round,332(+),upekiuser_4326
+1760,wissenschaftlich erwiesen,scientifically proven,330(-),upekiuser_120
+1761,MAN WEIS WENN DIE BIENE STRIBT DR MENSCH,YOU KNOW WHEN THE BEE DIES DR MAN,335(+),upekiuser_2001
+1762,Die Folgen für den Mensch und die Natur zu wenig erforscht,Too little researched into the consequences for humans and nature,324(+),upekiuser_2237
+1763,Man weiß nicht welche Auswirkungen sich die Gen Technik wirklich auf den Menschen zeigt,It is not known what effects gene technology really has on humans,324(+),upekiuser_1098
+1764,Sicher wäre es gut für die wachsende Weltbevölkerung(keine Hungersnöte),Sure it would be good for the growing world population (no famines),324(-),upekiuser_1098
+1765,"Erträge werden gesteigert, weniger Spritzmittel werden benötigt, die Masse senkt den Preis des Saatguts","Yields are increased, fewer pesticides are required, the mass lowers the price of the seeds",333(+),upekiuser_2237
+1766,"Es sieht für unser Klima immer schlechter aus (Dürre,Unwetter)von daher ist die Gentechnik vielleicht nicht verkehrt","It looks increasingly worse for our climate (drought, storms), so genetic engineering is perhaps not wrong",349(+),upekiuser_1098
+1767,Es ist bisher nicht nachgewiesen wie sich genveränderte Nahrung auf die Gesundheit auswirkt,It has not yet been proven how genetically modified food affects health,324(+),upekiuser_2008
+1768,"Vielleicht schaffen wir es endlich den Hunger in der Welt zu stoppen, dafür müsste die derzeitige Hilfe auch besser eingesetzt werden","Maybe we will finally be able to stop hunger in the world, and the current aid should be better used for this",324(-),upekiuser_3479
+1769,"Der Mensch hält den Planeten für ein Versuchslabor.Schäden durch Gentechnik (Atommüll,Antibiotika im Trinkwasser,Mikroplastik,Klimawandel-immer schön in Urlaub fliegen/Kreuzfahrten,KI Überwachungsstaat)können kaum noch rückgängig gemacht werden","Humans consider the planet to be an experimental laboratory. Damage caused by genetic engineering (nuclear waste, antibiotics in drinking water, microplastics, climate change - always nice to go on vacation / cruises, AI surveillance state) can hardly be undone",324(+),upekiuser_1716
+1770,"Weil derSamen immer wieder neu gekauft werden muß, erdarf nicht selber gezüchtet werden","Because the seed has to be bought again and again, it is not allowed to breed it yourself",339(+),upekiuser_2008
+1771,Es ist halt unsere Zukunft. Wir entwickeln uns weiter und können sowas nicht mehr aufhalten,It's just our future. We continue to develop and can no longer stop that,324(-),upekiuser_3479
+1772,"Wenn wir den armen Ländern helfen solche Pflanzen anzubauen, haben die mehr zu Essen","If we help poor countries to grow such crops, they will have more to eat",1768(+),upekiuser_3479
+1773,"Wer kauft denn noch auf dem Wochenmarkt,Hofladen,Bäckereien,Metzgereien (Backwaren vom Discountern werden bevorzugt und das Backhandwerk stirbt aus).Der Mensch kauft billig Lebensmittel ein.Der Status (Auto,Klamotten,Smartphone,Reisen .....sind wichtiger","Who still buys at the weekly market, farm shop, bakeries, butchers (baked goods from discounters are preferred and the bakery trade is dying out). People buy cheap food. Status (car, clothes, smartphone, travel ..... are more important",333(-),upekiuser_1716
+1774,"Das würde ja nicht bedeuten, das die normale Saatgut dann verschwindet. Und wer sagt das das Genetisch veränderte Saatgut teurer ist ",That would not mean that the normal seeds will then disappear. And who says that genetically modified seeds are more expensive?,333(-),upekiuser_3479
+1775,Gesundheitsschädlich es entspricht nicht der normalität der mensch machts und wird es wieder richten müssen,Harmful to health it does not correspond to the normality of human power and will have to fix it again,324(+),upekiuser_2611
+1776,"Argument überzeugt mich, damit wir Erbährungsprobleme sinnvoll und umweltbewusst geregelt bekommen",Argument convinces me so that we can get hereditary problems regulated in a sensible and environmentally conscious way,344(+),upekiuser_4462
+1777,"Es ist möglich, natürliche &quot;Schwächen&quot;/&quot;Anfälligkeiten&quot; zu reduzieren/eliminieren",It is possible to identify natural &quot;weaknesses&quot;/&quot; vulnerabilities &quot;to reduce/eliminate,349(+),upekiuser_219
+1778,GV werden unter Laborbedingungen herbeigeführt und zerstören nicht automatisch eine Pflanzenart,GV are induced under laboratory conditions and do not automatically destroy a plant species,326(-),upekiuser_219
+1779,&quot;genau wie bei&quot;-Argumente sind schwach. Argumente müssen individuell sein. Ein Vergleich ist zu billig/einfach,&quot;just like with&quot; arguments are weak. Arguments have to be individual. A comparison is too cheap/easy,357(-),upekiuser_219
+1780,Biodiversität geht verloren -&gt;nur noch 2-3 Tomaten- oder Kartoffelsorten,Biodiversity is lost -&gt; only 2-3 varieties of tomatoes or potatoes,324(+),upekiuser_4378
+1781,Dadurch wird die Erntemenge und Versorgung gesichert,This ensures the harvest volume and supply,349(+),upekiuser_4378
+1782,"Weil auch mit Blick auf veränderte Wetterbedingungen, die Versorgung aus heimischer Produktion nicht selbstverständlich ist","Because even with changing weather conditions, domestic production cannot be taken for granted",349(+),upekiuser_4378
+1783,Gentechnik führt zu mehr Gift auf dem Acker,Genetic engineering leads to more poison in the field,324(+),upekiuser_5162
+1784,Gentechnik vermindert Artenvielfalt,Genetic engineering reduces biodiversity,324(+),upekiuser_5162
+1785,"Gentechnik führt zu Hohen Kosten für Gesellschaft, da es zu Verunreinigungen von Rohstoffen und gentechnikfreien Ernten kommt. Das verursacht Probleme für Bauern, die Hersteller und Verarbeiter von Lebensmitteln und Saatgutzüchter, da diese einen erheblichen Aufwand betreiben müssen um ihre Produkte gentechnik frei zu halten","Genetic engineering leads to high costs for society, as it comes to contamination of raw materials and gene-free harvests. This causes problems for farmers, the manufacturers and processors of food and seed breeders, since they have to make a considerable effort to keep their products free from genetic engineering",324(+),upekiuser_5162
+1786,Genttechnik-Risiken nicht ausreichend erforscht,Genetic engineering risks are not adequately researched,324(+),upekiuser_5162
+1787,"Es gibt genügend Essen auf der Welt, würden nicht z.B. Großmächte einen Teil der erwirtschafteten Produkte diese nicht vernichten um künstlich den Preis hoch zu halten","There is enough food in the world, would not e.g. Great powers do not destroy some of the products they generate in order to artificially keep the price high",345(-),upekiuser_5162
+1788,vermindert die Artenvielfalt,reduces biodiversity,349(-),upekiuser_5162
+1789,Bauern werden abhängiger von Konzern und diese werden Knebelverträge aufgezwungen,Farmers are becoming more dependent on corporations and these are being forced to contract,355(-),upekiuser_5162
+1790,Weil es immer mehr Schädlinge gibt,Because there are more and more pests,349(+),upekiuser_4386
+1791,Die gesundheitlichen Folgen für den Konsumenten sind nicht erforscht,The health consequences for the consumer have not been researched,324(+),upekiuser_3741
+1792,Das Problem besteht bereits und würde verstärkt werden: Bauern in Entwicklungsländern könnten sich kein Saatgut mehr leisten,The problem already exists and would be compounded: farmers in developing countries could no longer afford seeds,328(+),upekiuser_3741
+1793,Manche Ernten werden durch Plagen vollständig vernichtet,Some crops are completely destroyed by plagues,349(+),upekiuser_3741
+1794,Gentechnik-Risiken sind nicht ausreichend erforscht,Genetic engineering risks have not been adequately researched,324(+),upekiuser_3324
+1795,"Es stellt eine Gefahr für Pflanzen, Tiere und Menschen dar","It poses a danger to plants, animals and people",1783(+),upekiuser_3324
+1796,Die Risiken sind bis jetzt nicht absehbar und zu wenig erforscht worden,The risks have not yet been foreseen and have not been researched enough,324(+),upekiuser_2051
+1797,ist schon passiert,has already happened,336(+),upekiuser_2051
+1798,ist bekannt dass das so ist,is known that this is so,339(+),upekiuser_2051
+1799,Kanada ist ein Land mit extremen Wetterverhältnisse und darum haben sie in der Gentechnik gute fortschritte gemacht um Pflanzen sich besser anzupassen,Canada is a country with extreme weather conditions and that is why they have made good progress in genetic engineering so that plants can adapt better,360(+),upekiuser_1669
+1800,auch das ist bekannt,this is also known,332(+),upekiuser_2051
+1801,begründung eingefügt,justification inserted,354(+),upekiuser_3105
+1802,weniger schädlinge und wiederstandsfähige pflanzen bringen mehr profit da mehr geerntet werden kann,fewer pests and resistant plants bring more profit because more can be harvested,349(+),upekiuser_712
+1803,Ich denke es ist noch nicht ausgeforscht (Genverändete Pflanzen),I think it's not explored yet (genetically modified plants),324(+),upekiuser_4061
+1804,"Es gibt keine übergeordente Behörde dafür, die zuverlässig prüfen würde",There is no higher authority for this that would reliably check,342(+),upekiuser_4061
+1805,"Weil es einen gehörigen Unsicherheitsfaktor gibt, aufgrund von etwaigen Langzeitfolgen (?)",Because there is a certain element of uncertainty due to possible long-term consequences(?),1803(+),upekiuser_4061
+1806,Was genau heisst Gentechnich verändert und welche Nachteile beinhaltet das ? wem schadet diese veränderung ,What exactly does genetic engineering mean and what are the disadvantages? who does this change harm?,324(+),upekiuser_1996
+1807,verbraucher möchten so etwas nicht essen,consumers don't want to eat something like this,355(-),upekiuser_1996
+1808,"Eine Person hat kein Recht, etwas in der Natur zu ändern",A person has no right to change anything in nature,324(+),upekiuser_5251
+1809,Wenn es Tiere schadet dann schadet es auch den Menschen,If it harms animals then it also harms people,330(+),upekiuser_2404
+1810,so sind Ernterträge nicht gefährdet und stabiler,this way harvest yields are not endangered and are more stable,349(+),upekiuser_2077
+1811,Es geht vor allem um Profit,It's all about profit,342(-),upekiuser_4121
+1812,"Es ist auch nicht bewiesen, dass sie nicht schädlich sind",Nor has it been proven that they are not harmful,336(-),upekiuser_4121
+1813,"Es gibt andere Möglichkeiten Erträge zu steigern durch Züchtung, Düngung, verbessertes Saatgut","There are other ways to increase yields through breeding, fertilization, improved seeds",339(-),upekiuser_4121
+1814,Gesundheit ist unser höchstes Gut,Health is our greatest asset,330(+),upekiuser_3686
+1815,"Die Natur hat immer eine Überraschung bereit, es wird neue Schädlinge und Krankheiten geben","Nature always has a surprise in store, new pests and diseases will appear",349(-),upekiuser_4121
+1816,Überproduktion und somit viel Abfall,Overproduction and therefore a lot of waste,346(-),upekiuser_4518
+1817,"Umweltschutz ist ja superwichtig, insofern kann es nur gut sein, wenn man in dieser Richtung etwas tut","Environmental protection is very important, so it can only be good if you do something in this direction",350(+),upekiuser_3931
+1818,langjährige Folgen sind auch nach intensiven Tests nicht absehbar,Long-term consequences are not foreseeable even after intensive tests,353(-),upekiuser_3931
+1819,Chemi bekämpft nicht den Hunger auf der Welt,Chemi does not fight hunger in the world,331(+),upekiuser_2140
+1820,DieNatur geht ihren Weg Das ist bei gentechnisch veränderten Pflanzen nicht anders ,Nature goes her way It is no different with genetically modified plants,329(-),upekiuser_1918
+1821,"Es gibt viele arme Länder auf der Welt, die eventuell durch den Einsatz von Gentechnik ernährt werden können",There are many poor countries in the world that could possibly be fed through the use of genetic engineering,346(+),upekiuser_2261
+1822,"Sofern man Pflanzen oder Nahrungsmittel so genetisch verändern kann, dass sie weniger anfällig werden für Schädlinge, mehr Ertrag bringen bin ich der Auffassung es zuzulassen. So könnte man etwas gegen Nahrungsmittelknappheit machen","If you can genetically modify plants or food in such a way that they are less susceptible to pests and bring more yield, I am of the opinion that it should be allowed. So you could do something about food shortages",324(-),upekiuser_4437
+1823,Man sollte unabhängige Instituitionen mit den Tests beauftragen,Independent institutions should be entrusted with the tests,342(+),upekiuser_4437
+1824,"Gentechnik macht die Erschließung von schwierigen Anbauflächen für Nahrungsanbau möglich, z.B. ziemlich trockenen Böden","Genetic engineering makes it possible to develop difficult cultivation areas for food cultivation, e.g. fairly dry soils",324(-),upekiuser_4647
+1825,Wir müssen mit weniger Anbauflächen mehr Menschen ernähren. Das wird durch gentechnisch verändertes Saatgut leichter,We need to feed more people with less acreage. This is made easier by genetically modified seeds,324(-),upekiuser_4647
+1826,Der Einsatz von Gentechnik muss Regelungen und Kontrollen unterliegen,The use of genetic engineering must be subject to regulations and controls,336(+),upekiuser_4647
+1827,"Gentechnisch verändertes Saatgut liefert bessere Erträge. Das gilt vor allem für schwierige Böden. Der Mehrpreis lohnt sich für den Bauern durch bessere Ernte, sonst kauft er es nicht. Gerade für Kleinbauern ist das lukrativ","Genetically modified seeds deliver better yields. This is especially true for difficult soils. The extra price is worth it for the farmer due to a better harvest, otherwise he will not buy it. This is particularly lucrative for smallholders",333(-),upekiuser_4647
+1828,Weil die Forschungskonzerne von Forschungsgeldern abhängig sind und dazu ein gewisses staatliches Monopol darstellen,Because the research groups are dependent on research funds and represent a certain state monopoly,342(+),upekiuser_4862
+1829,Gentechnik ist neben Pestiziden für ein großes Artensterben in der Natur mit verantwortlich,"In addition to pesticides, genetic engineering is also responsible for the large-scale extinction of species in nature",324(+),upekiuser_2320
+1830,Ökobauern erhöhen den Lebensstandart für die ländliche Bevölkerung und verhindern Stadtflucht,Organic farmers raise the standard of living for the rural population and prevent urban evacuation,324(+),upekiuser_2320
+1831,Diese Entwicklung findet bereits statt und hat viele Landwirte zur Aufgabe gezwungen,This development is already happening and has forced many farmers to give up,328(+),upekiuser_2320
+1832,"Oft sind gentechnisch veränderte Pflanzen nicht fortpfölanzungsfähig, also hybrid","Often, genetically modified plants cannot reproduce, i.e. they are hybrid",329(-),upekiuser_2320
+1833,Aussage ist zu allgemein,Statement is too general,352(-),upekiuser_1964
