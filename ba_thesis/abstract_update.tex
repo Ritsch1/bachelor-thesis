@@ -1,0 +1,71 @@
+\documentclass{article}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage[sorting=none]
+{biblatex}
+\usepackage{geometry}
+\addbibresource{reference.bib}
+\geometry{a4paper, top=2cm, left=25mm, right=25mm, bottom=2cm}
+
+\title{\textbf{Transformer Powered Two Level Matrix Factorization for Recommender Systems}} 
+
+\author{Ricardo Plesz}
+\date{August 18, 2021}
+
+\begin{document}
+\pagenumbering{arabic}
+    
+\maketitle
+
+In the era of Big Data it becomes increasingly difficult to find information that is relevant to oneself. 
+Recommender systems are used to cope with this flood of information: 
+they do this by providing personalized subsets of information to the user. 
+Today, they are used in a wide variety of domains with great success. For instance, $80\%$ of the
+streaming time on Netflix is influenced by the recommender system Netflix operates \cite{gomez2015netflix}. 
+\\
+
+Online-argumentation is a domain where the user's opinion is influenced strongly by the
+specific arguments he faces. Problems such as filter bubbles or arguments that
+are not relevant to a specific user can be mitigated by using a recommender system
+which provides suitable arguments to the user, depending on the objective of the recommender system.\\
+In the original paper, data from over 600 individuals on 900 arguments at different points in time was collected \cite{HowIArgue}.
+The goal was to provide a dataset that can be used to evaluate algorithms that predict how persuasive 
+an argument is to a specific user.\\
+Three tasks that use the known user-argument interaction data were presented to predict ratings of arguments 
+by users that were collected at later points in time:
+\begin{itemize}
+    \item Predicting a user's conviction by an argument (binary classification)
+    \item Predicting the strength of the conviction for an argument (multiclass classification in the range $[0,6]$)
+    \item Predicting three convincing statements for a specific user
+\end{itemize}
+In this thesis I will focus on the first two tasks.
+In order to obtain reference performances for such an algorithm, two baseline algorithms
+were presented: a simple majority voter and a more sophisticated nearest-neighbor-algorithm.
+The goal of this thesis is to implement an algorithm that exceeds the performance of these two 
+baseline algorithms on the provided dataset.
+\\
+
+In the original paper the linguistic properties of the arguments were not exploited to make predictions \cite{HowIArgue}. 
+The arguments were used to build an argumentation tree to eventually obtain numerical similarity
+values for the argumentation behaviour of users \cite{brenneis2020much}. Hence, there were no content-based elements involved
+in the predictions.\\ 
+In this bachelor thesis I will implement a Two-level Matrix Factorization (TLMF) algorithm to improve upon the presented baseline algorithms.\cite{li2016two}
+In the first step of the TLMF, semantic similarities of arguments are computed by applying a weighted textual matrix factorization (WTMF) that utilizes a term-document matrix.
+In the following step this information is integrated into another matrix factorization to calculate the
+user and item latent factors from which the original user-item matrix can be approximated.
+To extend the TLMF algorithm I will make use of the Augmented Sentence-BERT (AugSBERT) transformer architecture to incorporate
+in-domain knowledge of the arguments' topic into the semantic similarity prediction of argument pairs \cite{thakur2020augmented}.
+The AugSBERT-architecture applies both, a pre-trained, cross-encoder BERT model as well as a siamese, bi-encoder Sentence-Bert (Sbert)-model \cite{reimers2019sentence}.
+In a first step the BERT model will be pre-trained on different datasets and tasks to build a language model capable of applying word-level-knowledge 
+as well as sentence-level-knowledge. To further strengthen the latter, I will apply a symmetric sentence prediction pre-training task where also Previous-Sentence-Prediction (PSP) is applied
+instead of only applying the usual Next-Sentence-Prediction (NSP) \cite{xu2020symmetric}.
+This pre-training task will tackle the problem of order-sensitivity of the BERT-architecture as well as forcing the model to learn deep contextual, semantic relations instead
+of relying on high-level semantic concepts such as topics to distinguish between different documents.
+Afterwards the pre-trained Bert model will soft-label the argument data, such that the siamese Sbert-architecture can be fine-tuned
+on this synthetic data to boost performance on predicting the similarity of arguments of the known domain.
+In this context, new sampling algorithms will be evaluated to create a balanced, augmented and soft-labeled dataset to fine-tune the
+bi-encoder Sbert-model on. 
+
+\printbibliography
+
+\end{document}
