@@ -132,7 +132,8 @@ class WTMF():
                 # Iterate over all sentences
                 for j in range(self.X.shape[1]):
                     # Compute error
-                    error_cur += ((W[i][j] * ((np.dot(self.A.transpose()[i], self.B[:,j]) - self.X[i][j])**2)) + ((gamma/2) * (frobenius_norm(self.A.reshape(-1)) + frobenius_norm(self.B.reshape(-1)))))
+                    A_T = self.A.transpose()
+                    error_cur += ((W[i][j] * ((np.dot(A_T[i], self.B[:,j]) - self.X[i][j])**2)) + ((gamma/2) * (frobenius_norm(self.A.reshape(-1)) + frobenius_norm(self.B.reshape(-1)))))
                     # Update latent factor matrices
                     W_diag_i = np.diag(W[i])
                     W_diag_j = np.diag(W[:,j])
@@ -140,7 +141,7 @@ class WTMF():
                     temp_mat2 = np.dot(self.A, W_diag_j)
                     
                     self.A[:,i] = np.dot(inverse(np.dot(temp_mat1, self.B.transpose()) + (I_scaled)) , np.dot(temp_mat1, self.X[i].transpose()))            
-                    self.B[:,j] = np.dot(inverse(np.dot(temp_mat2, self.A.transpose()) + (I_scaled)) , np.dot(temp_mat2, self.X[:,j].transpose()))
+                    self.B[:,j] = np.dot(inverse(np.dot(temp_mat2, A_T) + (I_scaled)) , np.dot(temp_mat2, self.X[:,j].transpose()))
                     
             error.append(error_cur)
             # Print out error w.r.t print-frequency
