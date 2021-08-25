@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+
 # imports
 import pandas as pd
-import os
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
-import scipy
 from IPython.core.debugger import set_trace
-import multiprocessing as mp
+import torch
 
 
 get_ipython().system('jupyter nbconvert --output-dir="../python-code" --to python WTMF.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True')
@@ -18,6 +17,7 @@ get_ipython().system('jupyter nbconvert --output-dir="../python-code" --to pytho
 args = pd.read_csv("../../data/arguments.csv", sep=",", usecols=["statement_id", "text_en"])
 # Convert to list of tuples for processing it further
 args = list(zip(args["text_en"], args["statement_id"]))
+
 
 
 class WTMF():
@@ -47,7 +47,7 @@ class WTMF():
             vectorizer = TfidfVectorizer()
         self.X = vectorizer.fit_transform(self.args)
         # Transform the sparse matrix into a dense matrix and transpose the matrix to represent the words as rows and sentences as columns
-        self.X = self.X.toarray().transpose()
+        self.X = torch.from_numpy(self.X.toarray().transpose()).float()
     
     def show_training_process(self, error:float, cur_iteration_num:int, num_all_iterations:int):
         """
@@ -102,27 +102,36 @@ class WTMF():
             random_seed (int, optional): Random seed that is used to intialize the latent factor matrices. Defaults to 1.
             print_frequency (int, optional): The epoch-frequency with which the error is printed to the console. Default to 1.
         """
+        if torch.cuda.is_available():
+            machine = "cuda:0"
+        else:
+            machine = "cpu"
+            
+        device = torch.device(machine)
+        
         # Set random seed for reproducability
         np.random.seed = random_seed
         # Randomly initialize the latent factor matrices
-        self.A = np.random.rand(k, self.X.shape[0])
-        self.B = np.random.rand(k, self.X.shape[1])
+        self.A = torch.rand([k, self.X.shape[0]]).to(device)
+        self.B = torch.rand([k, self.X.shape[1]]).to(device)
+        self.X = self.X.to(device)
 
         # Identity matrix
-        I = np.identity(k)
+        I = torch.eye(k).to(device)
         
         # Create the weight matrix. Set value to one if value of X is != 0, else set it to the weights' value
-        W = np.ones_like(self.X)
+        W = torch.ones_like(self.X).to(device)
         W[self.X == 0] = weight
         
         # Matrix for updating the latent matrices in optimization
-        I_scaled = gamma * I
+        I_scaled = (gamma * I).to(device)
+        gamma_half = torch.tensor(gamma / 2).to(device)
         
         # Error - variable keep track of it for later visualization 
         error = []
         error_cur = 0.0
-        frobenius_norm = np.linalg.norm
-        inverse = np.linalg.inv
+        frobenius_norm = torch.linalg.matrix_norm
+        inverse = torch.inverse
         
         for iteration in range(training_iterations):
             
@@ -132,16 +141,15 @@ class WTMF():
                 # Iterate over all sentences
                 for j in range(self.X.shape[1]):
                     # Compute error
-                    A_T = self.A.transpose()
-                    error_cur += ((W[i][j] * ((np.dot(A_T[i], self.B[:,j]) - self.X[i][j])**2)) + ((gamma/2) * (frobenius_norm(self.A.reshape(-1)) + frobenius_norm(self.B.reshape(-1)))))
+                    A_T = torch.transpose(self.A, 0, 1).to(device)
+                    error_cur += ((W[i][j] * ((torch.matmul(A_T[i], self.B[:,j]) - self.X[i][j])**2)) + (gamma_half * ((frobenius_norm(self.A)) + frobenius_norm(self.B))))
                     # Update latent factor matrices
-                    W_diag_i = np.diag(W[i])
-                    W_diag_j = np.diag(W[:,j])
-                    temp_mat1 = np.dot(self.B, W_diag_i)
-                    temp_mat2 = np.dot(self.A, W_diag_j)
-                    
-                    self.A[:,i] = np.dot(inverse(np.dot(temp_mat1, self.B.transpose()) + (I_scaled)) , np.dot(temp_mat1, self.X[i].transpose()))            
-                    self.B[:,j] = np.dot(inverse(np.dot(temp_mat2, A_T) + (I_scaled)) , np.dot(temp_mat2, self.X[:,j].transpose()))
+                    W_diag_i = torch.diag(W[i]).to(device)
+                    W_diag_j = torch.diag(W[:,j]).to(device)
+                    temp_mat1 = torch.matmul(self.B, W_diag_i).to(device)
+                    temp_mat2 = torch.matmul(self.A, W_diag_j).to(device)
+                    self.A[:,i] = torch.matmul(inverse(torch.mm(temp_mat1, torch.transpose(self.B, 0, 1)) + (I_scaled)) , torch.matmul(temp_mat1, torch.transpose(self.X[i], 0, 0))).to(device)            
+                    self.B[:,j] = torch.matmul(inverse(torch.mm(temp_mat2, A_T) + (I_scaled)) , torch.matmul(temp_mat2, torch.transpose(self.X[:,j], 0, 0))).to(device)
                     
             error.append(error_cur)
             # Print out error w.r.t print-frequency
