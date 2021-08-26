@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
 # imports
 import pandas as pd
 import numpy as np
@@ -37,7 +36,7 @@ class WTMF():
         machine = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.device = torch.device(machine)
     
-    def create_tfidf_matrix(self, exclude_stopwords:bool=True):
+    def create_tfidf_matrix(self, exclude_stopwords:bool=True) -> None:
         """
         Create a tfidf - matrix out of the arguments where the rows are words and the columns are sentences.
         
@@ -53,7 +52,7 @@ class WTMF():
         # Transform the sparse matrix into a dense matrix and transpose the matrix to represent the words as rows and sentences as columns
         self.X = torch.from_numpy(self.X.toarray().transpose()).float().to(self.device)
         
-    def train(self, k:int=10, gamma:float=0.05, weight:float=0.05, training_iterations:int=0, random_seed:int=1, print_frequency:int=1):
+    def train(self, k:int=10, gamma:float=0.05, weight:float=0.05, training_iterations:int=0, random_seed:int=1, print_frequency:int=1) -> None:
         """
         Use stochastic gradient descent to find the two latent factor matrices A (words), B (sentences) 
         that minimize the error of the objective function. 
@@ -114,9 +113,9 @@ class WTMF():
             if iteration % print_frequency == 0:
                 print(f"Error:{error[iteration]:.2f}\tCurrent Iteration{iteration}\\{training_iterations}")
     
-    def compute_argument_similarity_matrix(self):
+    def compute_argument_similarity_matrix(self) -> None:
         """
-        Compute the semantic argument similarity between the latent argument - vectors that were optimized within the matrix B in the WTMF algorithm.
+        Compute the semantic argument similarity between the latent argument - vectors that were optimized within the argument(sentence) matrix B in the WTMF algorithm.
         """
         # Normalize all column - vectors in matrix B, so we can use the dot-product on normalized vectors which is equivalent to the cosine-similarity
         self.B /= torch.norm(self.B, dim=0).to(self.device)
