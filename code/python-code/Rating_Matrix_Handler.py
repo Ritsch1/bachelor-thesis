@@ -32,16 +32,13 @@ class Rating_Matrix_Handler():
         machine = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.device = torch.device(machine)
         
-    def merge_rating_matrices(self, *rating_matrices:pd.DataFrame, dim:int=1) -> torch.tensor:
+    def merge_rating_matrices(self, *rating_matrices:pd.DataFrame, dim:int=1) -> None:
         """
         Merges different rating-matrices together e.g. a training and a test rating - matrix.
         
         Params:
             *rating_matrices: An arbitrary number of rating_matrices to be combined along the given dimension.
             dim (int): The dimension along which rating matrices are merged. Defaults to 1, as the set of user present in both rating matrices are evaluated. 
-            
-        Returns:
-            A torch tensor that combines all rating-matrices to one final rating-matrix.
         """
         # Assertions
         assert len(rating_matrices) > 0, "No rating-matrix was provided."
@@ -60,7 +57,7 @@ class Rating_Matrix_Handler():
             final_rating_matrix = pd.merge(rating_matrices, on="username")
             # Drop the username column as it is non-numeric and can't be converted to a tensor.
             final_rating_matrix.drop(labels=["username"], axis=1, inplace=True)
-            return torch.from_numpy(final_rating_matrix.values)
+            self.final_rating_matrix =  torch.from_numpy(final_rating_matrix.values)
     
     @staticmethod
     def get_masking_indices(df:pd.DataFrame) -> torch.tensor:
@@ -76,6 +73,8 @@ class Rating_Matrix_Handler():
         # Get all not-null indices from the dataframe
         mask_idxs =  np.argwhere(~np.isnan(df.values))
         return torch.from_numpy(mask_idxs).float()
+    
+    
 
 
 df = pd.DataFrame([[1,2,np.NaN], [np.NaN, np.NaN, 5]])
