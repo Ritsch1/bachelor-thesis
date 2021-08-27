@@ -12,6 +12,7 @@ get_ipython().system('jupyter nbconvert --output-dir="../python-code" --to pytho
 
 
 
+
 class Rating_Matrix_Handler():
     """
     A class that deals with all Rating-Matrix related issues like merging and masking rating-matrices.
@@ -46,12 +47,13 @@ class Rating_Matrix_Handler():
 
     def merge_rating_matrices(self, *rating_matrices:pd.DataFrame, dim:int=1) -> None:
         """
-        Merges different rating-matrices together e.g. a training and a test rating - matrix.
+        Merges different rating-matrices together on identical users e.g. a training and a test rating - matrix.
         
         Params:
             *rating_matrices: An arbitrary number of rating_matrices to be combined along the given dimension.
             dim (int): The dimension along which rating matrices are merged. Defaults to 1, as the set of user present in both rating matrices are evaluated. 
         """
+        
         # Assertions
         assert len(rating_matrices) > 0, "No rating-matrix was provided."
         assert dim >= 0, "Dimension must be non-negative."
@@ -66,11 +68,14 @@ class Rating_Matrix_Handler():
             return rating_matrices[0]
         else:
             # Only keep data for users that are present in both rating matrices.
-            final_rating_matrix = pd.merge(rating_matrices, on="username")
+            final_rating_matrix = rating_matrices[0]
+            for r in (rating_matrices[1:]):
+                final_rating_matrix = final_rating_matrix.merge(right=r, how="inner", on="username")
+            
             # Drop the username column as it is non-numeric and can't be converted to a tensor.
             final_rating_matrix.drop(labels=["username"], axis=1, inplace=True)
             # Set the datatypes of the rating matrix to uint8 (unsigned 8-bit integer) to save memory and speed up computation. The numerical values in the rating matrices are in the range of [0,6]
-            self.final_rating_matrix =  torch.from_numpy(final_rating_matrix.values).uint8().to(self.device)
+            self.final_rating_matrix =  torch.from_numpy(final_rating_matrix.values).to(torch.uint8).to(self.device)
     
     @staticmethod
     def get_masking_indices(df:pd.DataFrame) -> torch.tensor:
@@ -88,9 +93,11 @@ class Rating_Matrix_Handler():
         return torch.from_numpy(mask_idxs).float()
 
 
+
 train = pd.read_csv("../../data/T1_T2/train.csv")
 test = pd.read_csv("../../data/T1_T2/test.csv")
 rmh = Rating_Matrix_Handler(train_rating_matrix=train, test_rating_matrix=test)
 rmh.suffixing_rating_matrices()
-rmh.test_rating_matrix
+rmh.merge_rating_matrices(rmh.train_rating_matrix, rmh.test_rating_matrix)
+rmh.final_rating_matrix.shape
 
