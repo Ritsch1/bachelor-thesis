@@ -11,17 +11,18 @@ import torch
 get_ipython().system('jupyter nbconvert --output-dir="../python-code" --to python Rating_Matrix_Handler.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True')
 
 
+
 class Rating_Matrix_Handler():
     """
     A class that deals with all Rating-Matrix related issues like merging and masking rating-matrices.
     """
     
-    def __init__(self, train_rating_matrix:torch.tensor, test_rating_matrix:torch.tensor, validation_rating_matrix:torch.tensor=None):
+    def __init__(self, train_rating_matrix:pd.DataFrame, test_rating_matrix:pd.DataFrame, validation_rating_matrix:pd.DataFrame=None):
         """
         Params:
-            train_rating_matrix (torch.tensor): The training rating_matrix on which the TLMF algorithm will be trained upon.
-            validation_rating_matrix (torch.tensor): The validation rating_matrix on which the TLMF algorithm can be validated on.
-            test_rating_matrix (torch.tensor): The test rating_matrix on which the TLMF algorithm will be tested upon.
+            train_rating_matrix (pd.DataFrame): The training rating_matrix on which the TLMF algorithm will be trained upon.
+            validation_rating_matrix (pd.DataFrame): The validation rating_matrix on which the TLMF algorithm can be validated on.
+            test_rating_matrix (pd.DataFrame): The test rating_matrix on which the TLMF algorithm will be tested upon.
         """
         self.train_rating_matrix = train_rating_matrix
         self.validation_rating_matrix = validation_rating_matrix
@@ -32,6 +33,17 @@ class Rating_Matrix_Handler():
         machine = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.device = torch.device(machine)
         
+    def suffixing_rating_matrices(self) -> None:
+        """
+        Suffixing the columns of test and validation rating matrices with "_test" and "_validation", respectively to differentiate between different identical arguments but at different timesteps.
+        
+        """
+        # Suffixing columns
+        self.test_rating_matrix.columns = [c + "_test" if c != "username" else c for c in self.test_rating_matrix.columns]
+        # Check if validation rating matrix is available
+        if self.validation_rating_matrix is not None:
+            self.validation_rating_matrix = [c + "_validation" if c != "username" else c for c in self.validation_rating_matrix]     
+
     def merge_rating_matrices(self, *rating_matrices:pd.DataFrame, dim:int=1) -> None:
         """
         Merges different rating-matrices together e.g. a training and a test rating - matrix.
@@ -57,7 +69,8 @@ class Rating_Matrix_Handler():
             final_rating_matrix = pd.merge(rating_matrices, on="username")
             # Drop the username column as it is non-numeric and can't be converted to a tensor.
             final_rating_matrix.drop(labels=["username"], axis=1, inplace=True)
-            self.final_rating_matrix =  torch.from_numpy(final_rating_matrix.values)
+            # Set the datatypes of the rating matrix to uint8 (unsigned 8-bit integer) to save memory and speed up computation. The numerical values in the rating matrices are in the range of [0,6]
+            self.final_rating_matrix =  torch.from_numpy(final_rating_matrix.values).uint8().to(self.device)
     
     @staticmethod
     def get_masking_indices(df:pd.DataFrame) -> torch.tensor:
@@ -73,10 +86,11 @@ class Rating_Matrix_Handler():
         # Get all not-null indices from the dataframe
         mask_idxs =  np.argwhere(~np.isnan(df.values))
         return torch.from_numpy(mask_idxs).float()
-    
-    
 
 
-df = pd.DataFrame([[1,2,np.NaN], [np.NaN, np.NaN, 5]])
-Rating_Matrix_Handler.get_masking_indices(df=df)
+train = pd.read_csv("../../data/T1_T2/train.csv")
+test = pd.read_csv("../../data/T1_T2/test.csv")
+rmh = Rating_Matrix_Handler(train_rating_matrix=train, test_rating_matrix=test)
+rmh.suffixing_rating_matrices()
+rmh.test_rating_matrix
 
