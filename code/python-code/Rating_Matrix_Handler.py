@@ -23,7 +23,7 @@ class Rating_Matrix_Handler():
             validation_rating_matrix (torch.tensor): The validation rating_matrix on which the TLMF algorithm can be validated on.
             test_rating_matrix (torch.tensor): The test rating_matrix on which the TLMF algorithm will be tested upon.
         """
-        self.training_rating_matrix = training_rating_matrix
+        self.train_rating_matrix = train_rating_matrix
         self.validation_rating_matrix = validation_rating_matrix
         self.test_rating_matrix = test_rating_matrix
         self.validation_mask_indices = None
@@ -32,13 +32,13 @@ class Rating_Matrix_Handler():
         machine = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.device = torch.device(machine)
         
-    def merge_rating_matrices(self, *rating_matrices:pd.DataFrame, dim:int=0) -> torch.tensor:
+    def merge_rating_matrices(self, *rating_matrices:pd.DataFrame, dim:int=1) -> torch.tensor:
         """
         Merges different rating-matrices together e.g. a training and a test rating - matrix.
         
         Params:
             *rating_matrices: An arbitrary number of rating_matrices to be combined along the given dimension.
-            dim (int): The dimension along which rating matrices are merged.
+            dim (int): The dimension along which rating matrices are merged. Defaults to 1, as the set of user present in both rating matrices are evaluated. 
             
         Returns:
             A torch tensor that combines all rating-matrices to one final rating-matrix.
@@ -53,12 +53,17 @@ class Rating_Matrix_Handler():
         assert len(set(dims)) == 1, "All rating matrices need to have the same number of dimensions."
         
         if len(rating_matrices) == 1:
+            print("Only one rating matrix provided, returning it without change.")
             return rating_matrices[0]
         else:
-            return torch.cat(rating_matrices, dim)
+            # Only keep data for users that are present in both rating matrices.
+            final_rating_matrix = pd.merge(rating_matrices, on="username")
+            # Drop the username column as it is non-numeric and can't be converted to a tensor.
+            final_rating_matrix.drop(labels=["username"], axis=1, inplace=True)
+            return torch.from_numpy(final_rating_matrix.values)
     
     @staticmethod
-    def get_masking_indices(self, df:pd.DataFrame) -> torch.tensor:
+    def get_masking_indices(df:pd.DataFrame) -> torch.tensor:
         """
         Get all indices that are not_null of the provided dataframe.
 
@@ -68,7 +73,11 @@ class Rating_Matrix_Handler():
         Returns:
             torch.tensor: A torch tensor containing all non-null indices of the dataframe df.
         """
-        mask_idxs =  np.where(pd.notna())
-        return torch.from_numpy(mask_idxs).float().to(self.device)
-        
+        # Get all not-null indices from the dataframe
+        mask_idxs =  np.argwhere(~np.isnan(df.values))
+        return torch.from_numpy(mask_idxs).float()
+
+
+df = pd.DataFrame([[1,2,np.NaN], [np.NaN, np.NaN, 5]])
+Rating_Matrix_Handler.get_masking_indices(df=df)
 
