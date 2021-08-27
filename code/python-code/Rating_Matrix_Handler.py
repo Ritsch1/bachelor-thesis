@@ -11,8 +11,6 @@ import torch
 get_ipython().system('jupyter nbconvert --output-dir="../python-code" --to python Rating_Matrix_Handler.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True')
 
 
-
-
 class Rating_Matrix_Handler():
     """
     A class that deals with all Rating-Matrix related issues like merging and masking rating-matrices.
@@ -77,6 +75,12 @@ class Rating_Matrix_Handler():
             # Set the datatypes of the rating matrix to uint8 (unsigned 8-bit integer) to save memory and speed up computation. The numerical values in the rating matrices are in the range of [0,6]
             self.final_rating_matrix =  torch.from_numpy(final_rating_matrix.values).to(torch.uint8).to(self.device)
     
+    def get_distinct_arguments(self):
+        """
+        TODO: Have to remove arguments from the test or validation rating matrix that are already included in the training set. Otherwise I would be making predictions
+        for arguments that a user has already rated.
+        """       
+    
     @staticmethod
     def get_masking_indices(df:pd.DataFrame) -> torch.tensor:
         """
@@ -90,8 +94,7 @@ class Rating_Matrix_Handler():
         """
         # Get all not-null indices from the dataframe
         mask_idxs =  np.argwhere(~np.isnan(df.values))
-        return torch.from_numpy(mask_idxs).float()
-
+        return torch.from_numpy(mask_idxs).int()
 
 
 train = pd.read_csv("../../data/T1_T2/train.csv")
@@ -99,5 +102,5 @@ test = pd.read_csv("../../data/T1_T2/test.csv")
 rmh = Rating_Matrix_Handler(train_rating_matrix=train, test_rating_matrix=test)
 rmh.suffixing_rating_matrices()
 rmh.merge_rating_matrices(rmh.train_rating_matrix, rmh.test_rating_matrix)
-rmh.final_rating_matrix.shape
+rmh.final_rating_matrix.dtype
 
