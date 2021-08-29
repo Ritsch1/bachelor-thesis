@@ -6,9 +6,12 @@ import pandas as pd
 import numpy as np
 from IPython.core.debugger import set_trace
 import torch
+from collections import namedtuple
 
 
 get_ipython().system('jupyter nbconvert --output-dir="../python-code" --to python Rating_Matrix_Handler.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True')
+
+
 
 
 class Rating_Matrix_Handler():
@@ -25,6 +28,7 @@ class Rating_Matrix_Handler():
         """
         self.train_rating_matrix = train_rating_matrix
         self.validation_rating_matrix = validation_rating_matrix
+        self.is_validation_set_available = self.validation_rating_matrix is not None 
         self.test_rating_matrix = test_rating_matrix
         self.validation_mask_indices = None
         self.test_mask_indices = None
@@ -32,16 +36,33 @@ class Rating_Matrix_Handler():
         machine = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.device = torch.device(machine)
         
-    def suffixing_rating_matrices(self) -> None:
+    def get_distinct_args(self) -> None:
         """
-        Suffixing the columns of test and validation rating matrices with "_test" and "_validation", respectively to differentiate between different identical arguments but at different timesteps.
-        
+        Get all arguments from the validation (if available) and test-set, such that only arguments are added to the final rating matrix that were not already in the training - set.
         """
-        # Suffixing columns
-        self.test_rating_matrix.columns = [c + "_test" if c != "username" else c for c in self.test_rating_matrix.columns]
-        # Check if validation rating matrix is available
-        if self.validation_rating_matrix is not None:
-            self.validation_rating_matrix = [c + "_validation" if c != "username" else c for c in self.validation_rating_matrix]     
+        # Get all training arguments and exclude the username as the first column of the dataframe
+        train_args = set([arg for arg in self.train_rating_matrix.columns][1:])
+        # Check if validation set is available
+        if self.is_validation_set_available:
+            # Get all validation arguments and exclude the username as the first column of the dataframe
+            validation_args = set([arg for arg in self.validation_rating_matrix.columns][1:])
+            validation_args = list(validation_args.difference(train_args))
+        else:
+            validation_args = None
+        # Get all test arguments and exclude the username as the first column of the dataframe
+        test_args = set([arg for arg in self.test_rating_matrix.columns][1:])
+        test_args = list(test_args.difference(train_args))
+        Args = namedtuple("Args", ["train", "validation", "test"])
+        self.distinct_args = Args(train=train_args, validation=validation_args, test=test_args)
+    
+    def select_distinct_args(self) -> None:
+        """
+        Prune the validation and test rating matrix to their distinct arguments.
+        """
+        username_col = ["username"]
+        self.test_rating_matrix = self.test_rating_matrix[username_col + self.distinct_args.test]
+        if self.is_validation_set_available:
+            self.validation_rating_matrix = self.validation_rating_matrix[username_col + self.distinct_args.validation]
 
     def merge_rating_matrices(self, *rating_matrices:pd.DataFrame, dim:int=1) -> None:
         """
@@ -71,20 +92,15 @@ class Rating_Matrix_Handler():
                 final_rating_matrix = final_rating_matrix.merge(right=r, how="inner", on="username")
             
             # Drop the username column as it is non-numeric and can't be converted to a tensor.
+            # set_trace()
             final_rating_matrix.drop(labels=["username"], axis=1, inplace=True)
-            # Set the datatypes of the rating matrix to uint8 (unsigned 8-bit integer) to save memory and speed up computation. The numerical values in the rating matrices are in the range of [0,6]
-            self.final_rating_matrix =  torch.from_numpy(final_rating_matrix.values).to(torch.uint8).to(self.device)
-    
-    def get_distinct_arguments(self):
+            # set_trace()
+            # Set the datatypes of the rating matrix to float16 to save memory and speed up computation while keeping the nan-values (not possible for integer datatype). 
+            self.final_rating_matrix =  torch.from_numpy(final_rating_matrix.values).to(torch.float16).to(self.device)
+          
+    def get_masking_indices(self, df:pd.DataFrame) -> torch.tensor:
         """
-        TODO: Have to remove arguments from the test or validation rating matrix that are already included in the training set. Otherwise I would be making predictions
-        for arguments that a user has already rated.
-        """       
-    
-    @staticmethod
-    def get_masking_indices(df:pd.DataFrame) -> torch.tensor:
-        """
-        Get all indices that are not_null of the provided dataframe.
+        Get all indices that are not NaN of the provided dataframe.
 
         Args:
             df (pd.DataFrame): Dataframe whose non-null indices have to be found.
@@ -93,14 +109,17 @@ class Rating_Matrix_Handler():
             torch.tensor: A torch tensor containing all non-null indices of the dataframe df.
         """
         # Get all not-null indices from the dataframe
-        mask_idxs =  np.argwhere(~np.isnan(df.values))
-        return torch.from_numpy(mask_idxs).int()
+        mask_idxs =  np.argwhere(~pd.isna(df.values))
+        return torch.from_numpy(mask_idxs).int().to(self.device)
+
+
 
 
 train = pd.read_csv("../../data/T1_T2/train.csv")
 test = pd.read_csv("../../data/T1_T2/test.csv")
 rmh = Rating_Matrix_Handler(train_rating_matrix=train, test_rating_matrix=test)
-rmh.suffixing_rating_matrices()
+rmh.get_distinct_args()
+rmh.select_distinct_args()
 rmh.merge_rating_matrices(rmh.train_rating_matrix, rmh.test_rating_matrix)
 rmh.final_rating_matrix.dtype
 
