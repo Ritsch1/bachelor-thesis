@@ -14,10 +14,11 @@ get_ipython().system('jupyter nbconvert --output-dir="../python-code" --to pytho
 
 # Read in argument-data
 args = pd.read_csv("../../data/arguments.csv", sep=",", usecols=["statement_id", "text_en"])
+# Only filter for relevant arguments
+relevant_args = set([i for i in range(324, 400)])
+args = args[args.statement_id.isin(relevant_args)]
 # Convert to list of tuples for processing it further
 args = list(zip(args["text_en"], args["statement_id"]))
-
-
 
 
 class WTMF():
@@ -128,5 +129,5 @@ class WTMF():
 wtmf = WTMF(args)
 wtmf.create_tfidf_matrix()
 wtmf.train()
-wtmf.compute_argument_similarity_matrix()
+#wtmf.compute_argument_similarity_matrix()
 
