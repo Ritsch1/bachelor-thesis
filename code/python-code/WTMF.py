@@ -3,10 +3,10 @@
 
 # imports
 import pandas as pd
-import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from IPython.core.debugger import set_trace
 import torch
+import spacy
 
 
 get_ipython().system('jupyter nbconvert --output-dir="../python-code" --to python WTMF.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True')
@@ -25,7 +25,6 @@ class WTMF():
     """
     A class that represents the Weighted Textual Matrix Factorization.
     """
-
     def __init__(self, args:list):
         """
         Params:
@@ -44,12 +43,18 @@ class WTMF():
         Params:
             exclude_stopwords (bool): A boolean flag that indicates whether stopwords are kept in the vocabulary or not. Default value is True.
         """
+        # Convert all words to lowercase
+        self.args = list(map(lambda s : s.lower(), self.args))        
+        # Lemmatize the sentences
+        nlp = spacy.load("en_core_web_sm")
+        self.args = list(map(lambda s : " ".join(token.lemma_ for token in nlp(s)), self.args))
         # Exclude stop words while vectorizing the sentences
         if exclude_stopwords:
             vectorizer = TfidfVectorizer(stop_words="english")
         else:
             vectorizer = TfidfVectorizer()
         self.X = vectorizer.fit_transform(self.args)
+        set_trace()
         # Transform the sparse matrix into a dense matrix and transpose the matrix to represent the words as rows and sentences as columns
         self.X = torch.from_numpy(self.X.toarray().transpose()).float().to(self.device)
         
@@ -68,11 +73,10 @@ class WTMF():
         """
         
         # Set random seed for reproducability
-        torch.random.seed(random_seed)
+        torch.manual_seed(random_seed)
         # Randomly initialize the latent factor matrices
         self.A = torch.rand([k, self.X.shape[0]]).to(self.device)
         self.B = torch.rand([k, self.X.shape[1]]).to(self.device)
-        self.X = self.X.to(self.device)
 
         # Identity matrix
         I = torch.eye(k).to(self.device)
@@ -90,12 +94,10 @@ class WTMF():
         error_cur = 0.0
         frobenius_norm = torch.linalg.matrix_norm
         inverse = torch.inverse
-        
         for iteration in range(training_iterations):
             
             # Iterate over all words
             for i in range(self.X.shape[0]):
-                print(f"Row:{i}\{self.X.shape[0]}")
                 # Iterate over all sentences
                 for j in range(self.X.shape[1]):
                     # Compute error
@@ -106,7 +108,9 @@ class WTMF():
                     W_diag_j = torch.diag(W[:,j]).to(self.device)
                     temp_mat1 = torch.matmul(self.B, W_diag_i).to(self.device)
                     temp_mat2 = torch.matmul(self.A, W_diag_j).to(self.device)
+                    # Update latent word vector
                     self.A[:,i] = torch.matmul(inverse(torch.mm(temp_mat1, torch.transpose(self.B, 0, 1)) + (I_scaled)) , torch.matmul(temp_mat1, torch.transpose(self.X[i], 0, 0))).to(self.device)            
+                    # Update latent sentence vector
                     self.B[:,j] = torch.matmul(inverse(torch.mm(temp_mat2, A_T) + (I_scaled)) , torch.matmul(temp_mat2, torch.transpose(self.X[:,j], 0, 0))).to(self.device)
                     
             error.append(error_cur)
@@ -130,5 +134,5 @@ class WTMF():
 wtmf = WTMF(args)
 wtmf.create_tfidf_matrix()
 wtmf.train()
-#wtmf.compute_argument_similarity_matrix()
+wtmf.compute_argument_similarity_matrix()
 
