@@ -60,7 +60,7 @@ class WTMF():
         # Transform the sparse matrix into a dense matrix and transpose the matrix to represent the words as rows and sentences as columns
         self.X = torch.from_numpy(self.X.toarray().transpose()).float().to(self.device)
         
-    def train(self, k:int=50, gamma:float=0.05, weight:float=0.05, training_iterations:int=50, random_seed:int=1, print_frequency:int=1) -> list:
+    def train(self, k:int=50, gamma:float=0.05, weight:float=0.05, training_iterations:int=50, random_seed:int=1, print_frequency:int=1) -> [float]:
         """
         Use stochastic gradient descent to find the two latent factor matrices A (words), B (sentences) 
         that minimize the error of the objective function. 
@@ -74,7 +74,7 @@ class WTMF():
             print_frequency (int, optional): The epoch-frequency with which the error is printed to the console. Default to 1.
         
         Returns:
-            list: A list containing the error values for every iteration.
+            [float]: A list containing the error values for every iteration.
         """
         
         # Set random seed for reproducability
@@ -133,13 +133,13 @@ class WTMF():
         self.B /= torch.norm(self.B, dim=0).to(self.device)
         # Compute pairwise dot-product of all column vectors
         self.similarity_matrix = self.B.T.matmul(self.B).to(self.device)
-        # The diagonal will keep the value zero, as the similarity of the argument with itself should not be taken into account as it will always be 1.
-        self.similarity_matrix = self.similarity_matrix.fill_diagonal_(0).to(self.device)
         # Perform min-max scaling to map the dot-product results from the range [-1,1] to [0,1]
         min_value = torch.min(self.similarity_matrix)
         max_value = torch.max(self.similarity_matrix)
         self.similarity_matrix -= min_value
         self.similarity_matrix /= (max_value - min_value)
+        # The diagonal will have the value zero, as the similarity of the argument with itself should not be taken into account as it will always be 1.
+        self.similarity_matrix = self.similarity_matrix.fill_diagonal_(0).to(self.device)
     
     def plot_training_error(self, error:[float], **kwargs) -> None:
         """
