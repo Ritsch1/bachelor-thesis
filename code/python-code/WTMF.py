@@ -7,6 +7,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from IPython.core.debugger import set_trace
 import torch
 import spacy
+import matplotlib.pyplot as plt
 
 
 get_ipython().system('jupyter nbconvert --output-dir="../python-code" --to python WTMF.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True')
@@ -15,10 +16,11 @@ get_ipython().system('jupyter nbconvert --output-dir="../python-code" --to pytho
 # Read in argument-data
 args = pd.read_csv("../../data/arguments.csv", sep=",", usecols=["statement_id", "text_en"])
 # Only filter for relevant arguments
-relevant_args = set([i for i in range(324, 400)])
+relevant_args = set([i for i in range(325, 400)])
 args = args[args.statement_id.isin(relevant_args)]
 # Convert to list of tuples for processing it further
 args = list(zip(args["text_en"], args["statement_id"]))
+
 
 
 class WTMF():
@@ -57,7 +59,7 @@ class WTMF():
         # Transform the sparse matrix into a dense matrix and transpose the matrix to represent the words as rows and sentences as columns
         self.X = torch.from_numpy(self.X.toarray().transpose()).float().to(self.device)
         
-    def train(self, k:int=20, gamma:float=0.05, weight:float=0.05, training_iterations:int=100, random_seed:int=1, print_frequency:int=1) -> list:
+    def train(self, k:int=50, gamma:float=0.05, weight:float=0.05, training_iterations:int=50, random_seed:int=1, print_frequency:int=1) -> list:
         """
         Use stochastic gradient descent to find the two latent factor matrices A (words), B (sentences) 
         that minimize the error of the objective function. 
@@ -66,7 +68,7 @@ class WTMF():
             vector_dimension(int, optional): Dimension of the latent vector space the users and items are mapped to. Defaults to 20.
             gamma (float, optional): Regularization factor to control the overfitting. Defaults to 0.05.
             weight (float, optional): Weight to control the influence of non-present words in a sentence. Defaults to 0.05.
-            training_iterations (int, optional): Number of training iterations to take. Defaults to 100.
+            training_iterations (int, optional): Number of training iterations to take. Defaults to 50.
             random_seed (int, optional): Random seed that is used to intialize the latent factor matrices. Defaults to 1.
             print_frequency (int, optional): The epoch-frequency with which the error is printed to the console. Default to 1.
         
@@ -133,10 +135,27 @@ class WTMF():
         self.similarity_matrix = torch.matmul(self.B.T, self.B).to(self.device)
         # The diagonal will keep the value zero, as the similarity of the argument with itself should not be taken into account as it will always be 1.
         self.similarity_matrix = self.similarity_matrix.fill_diagonal_(0).to(self.device)
+    
+    def plot_training_error(self, error:[float], **kwargs) -> None:
+        """
+        Plots the training error for every training iteration.
+        
+        Params:
+            error (list): A list of error - values that correspond to each training iteration of the WTMF - algorithm.    
+            **kwargs: Arbitrary many keyword arguments to customize the plot. E.g. color, linewidth or title.
+        """
+        # Check for essential keyword arguments
+        if "xlabel" not in kwargs:
+            kwargs["xlabel"] = "Iteration"
+        if "ylabel" not in kwargs:
+            kwargs["ylabel"] = "Training Error"
+        
+        plt.plot(x=[i for i in range(1, len(error)+1)], y=error, **kwargs)
 
 
 wtmf = WTMF(args)
 wtmf.create_tfidf_matrix()
-wtmf.train()
+error = wtmf.train()
 wtmf.compute_argument_similarity_matrix()
+wtmf.plot_training_error(error)
 
