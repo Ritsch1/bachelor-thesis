@@ -148,19 +148,18 @@ class WTMF():
         Params:
             error (list): A list of error - values that correspond to each training iteration of the WTMF - algorithm.    
             **kwargs: Arbitrary many keyword arguments to customize the plot. E.g. color, linewidth or title.
-        """
-        # Check for essential keyword arguments
-        if "xlabel" not in kwargs:
-            kwargs["xlabel"] = "Iteration"
-        if "ylabel" not in kwargs:
-            kwargs["ylabel"] = "Training Error"
+        """        
+        plt.plot([i for i in range(1, len(error)+1)], error)
+        for k in kwargs.keys():
+            # Invoke the function k of the plt - module to customize the plot
+            getattr(plt, k) (kwargs[k])
         
-        plt.plot(x=[i for i in range(1, len(error)+1)], y=error, **kwargs)
+        plt.show()
 
 
 wtmf = WTMF(args)
 wtmf.create_tfidf_matrix()
 error = wtmf.train(k=1, training_iterations=1)
 wtmf.compute_argument_similarity_matrix()
-wtmf.plot_training_error(error)
+wtmf.plot_training_error(error, title="WTMF Objective function error", xlabel="Iterations", ylabel="Error")
 
