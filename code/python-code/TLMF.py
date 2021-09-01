@@ -63,7 +63,9 @@ class TLMF():
 
         for iteration in range(1, training_iterations+1):
             for idx in training_indices:
-                # Get the index of the current argument in the argument within the argument similarity matrix
+                # Get the index of the current user
+                user = idx[0]
+                # Get the index of the current argument within the argument similarity matrix
                 arg = idx[1]
                 # Get indices of the n items that are most similar to the current item in the argument similarity matrix
                 most_sim_indices = torch.topk(self.rmh.final_rating_matrix[arg], dim=0, sorted=False)[1]
@@ -73,10 +75,24 @@ class TLMF():
                     sim_sum += self.wtmf.similarity_matrix[arg][sim_idx] * self.I[sim_idx]
                     
                 sim_sum = self.I[arg] - sim_sum
-                sim_sum = 
-                    
-                error_cur = (self.rmh.final_rating_matrix[idx] - (self.U.matmul(self.I.T)))**2 + (r/2 * (frobenius_norm(self.U) + frobenius_norm(self.I))) +                             alpha/2 
+                sim_sum = alpha/2 * (sim_sum.matmul(sim_sum.T))
+                
+                prediction = self.U[user].matmul(self.I.T[:,arg])
+                true_value = self.rmh.final_rating_matrix[user][arg]
+                difference = true_value - prediction
+                error_cur = (difference)**2 + (r/2 * (frobenius_norm(self.U) + frobenius_norm(self.I))) + sim_sum
 
+                # Save old value of the user - vector for updating the item - vector (TODO: Not sure if I should already use the updated user-vector for updating the item vector)
+                old_user_vector = self.U[user]
+
+                # Update the user-vector
+                self.U[user] += l * ((difference) * self.I[arg] - r * self.U[user])
+                # Update the item-vector
+                # Calculate the 
+                self.I[arg] += l * ((difference) * self.U[user] - l * self.I[arg] - alpha * sim_sum + alpha * ) 
+
+            error.append(error_cur)
+            error_cur = 0.0
     
     def evaluate(self) -> float:
         pass
