@@ -54,11 +54,10 @@ class WTMF():
         else:
             vectorizer = TfidfVectorizer()
         self.X = vectorizer.fit_transform(self.args)
-        set_trace()
         # Transform the sparse matrix into a dense matrix and transpose the matrix to represent the words as rows and sentences as columns
         self.X = torch.from_numpy(self.X.toarray().transpose()).float().to(self.device)
         
-    def train(self, k:int=20, gamma:float=0.05, weight:float=0.05, training_iterations:int=100, random_seed:int=1, print_frequency:int=1) -> None:
+    def train(self, k:int=20, gamma:float=0.05, weight:float=0.05, training_iterations:int=100, random_seed:int=1, print_frequency:int=1) -> list:
         """
         Use stochastic gradient descent to find the two latent factor matrices A (words), B (sentences) 
         that minimize the error of the objective function. 
@@ -70,6 +69,9 @@ class WTMF():
             training_iterations (int, optional): Number of training iterations to take. Defaults to 100.
             random_seed (int, optional): Random seed that is used to intialize the latent factor matrices. Defaults to 1.
             print_frequency (int, optional): The epoch-frequency with which the error is printed to the console. Default to 1.
+        
+        Returns:
+            list: A list containing the error values for every iteration.
         """
         
         # Set random seed for reproducability
@@ -118,6 +120,8 @@ class WTMF():
             # Print out error w.r.t print-frequency
             if iteration % print_frequency == 0:
                 print(f"Error:{error[iteration]:.2f}\tCurrent Iteration: {iteration+1}\\{training_iterations}")
+
+        return error
     
     def compute_argument_similarity_matrix(self) -> None:
         """
