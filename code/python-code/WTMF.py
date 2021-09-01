@@ -50,6 +50,8 @@ class WTMF():
         # Lemmatize the sentences
         nlp = spacy.load("en_core_web_sm")
         self.args = list(map(lambda s : " ".join(token.lemma_ for token in nlp(s)), self.args))
+        # Filter out the "-PRON-" - insertion from spacy 
+        self.args = list(map(lambda s: s.replace("-PRON-",""), self.args))
         # Exclude stop words while vectorizing the sentences
         if exclude_stopwords:
             vectorizer = TfidfVectorizer(stop_words="english")
@@ -81,7 +83,6 @@ class WTMF():
         # Randomly initialize the latent factor matrices
         self.A = torch.rand([k, self.X.shape[0]]).to(self.device)
         self.B = torch.rand([k, self.X.shape[1]]).to(self.device)
-
         # Identity matrix
         I = torch.eye(k).to(self.device)
         
@@ -132,7 +133,7 @@ class WTMF():
         # Normalize all column - vectors in matrix B, so we can use the dot-product on normalized vectors which is equivalent to the cosine-similarity
         self.B /= torch.norm(self.B, dim=0).to(self.device)
         # Compute pairwise dot-product of all column vectors
-        self.similarity_matrix = torch.matmul(self.B.T, self.B).to(self.device)
+        self.similarity_matrix = self.B.T.matmul(self.B).to(self.device)
         # The diagonal will keep the value zero, as the similarity of the argument with itself should not be taken into account as it will always be 1.
         self.similarity_matrix = self.similarity_matrix.fill_diagonal_(0).to(self.device)
     
@@ -155,7 +156,7 @@ class WTMF():
 
 wtmf = WTMF(args)
 wtmf.create_tfidf_matrix()
-error = wtmf.train()
+error = wtmf.train(k=1, training_iterations=1)
 wtmf.compute_argument_similarity_matrix()
 wtmf.plot_training_error(error)
 
