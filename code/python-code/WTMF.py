@@ -22,7 +22,6 @@ args = args[args.statement_id.isin(relevant_args)]
 args = list(zip(args["text_en"], args["statement_id"]))
 
 
-
 class WTMF():
     """
     A class that represents the Weighted Textual Matrix Factorization.
@@ -136,6 +135,11 @@ class WTMF():
         self.similarity_matrix = self.B.T.matmul(self.B).to(self.device)
         # The diagonal will keep the value zero, as the similarity of the argument with itself should not be taken into account as it will always be 1.
         self.similarity_matrix = self.similarity_matrix.fill_diagonal_(0).to(self.device)
+        # Perform min-max scaling to map the dot-product results from the range [-1,1] to [0,1]
+        min_value = torch.min(self.similarity_matrix)
+        max_value = torch.max(self.similarity_matrix)
+        self.similarity_matrix -= min_value
+        self.similarity_matrix /= (max_value - min_value)
     
     def plot_training_error(self, error:[float], **kwargs) -> None:
         """
