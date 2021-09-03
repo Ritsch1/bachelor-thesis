@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 from IPython.core.debugger import set_trace
 import torch
+import matplotlib.pyplot as plt
 
 
 get_ipython().system('jupyter nbconvert --output-dir="../python-code" --to python TLMF.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True')
@@ -68,7 +69,7 @@ class TLMF():
                 # Get the index of the current argument within the argument similarity matrix
                 arg = idx[1]
                 # Get indices of the n items that are most similar to the current item in the argument similarity matrix
-                most_sim_indices = torch.topk(self.rmh.final_rating_matrix[arg], dim=0, sorted=False)[1]
+                most_sim_indices = torch.topk(self.rmh.final_rating_matrix[arg], n, dim=0, sorted=False)[1]
                 # Calculate the sum of similarities over all n most-similar args
                 sim_sum_scaled = 0.0
                 for sim_idx in most_sim_indices:
@@ -76,8 +77,7 @@ class TLMF():
                     
                 sim_sum = self.I[arg] - sim_sum
                 sim_sum = alpha/2 * (sim_sum.matmul(sim_sum.T))
-                
-                
+                     
                 prediction = self.U[user].matmul(self.I.T[:,arg])
                 true_value = self.rmh.final_rating_matrix[user][arg]
                 difference = true_value - prediction
@@ -90,16 +90,50 @@ class TLMF():
                 self.U[user] += l * ((difference) * self.I[arg] - r * self.U[user])
                 # Update the item-vector
                 # Calculate the similarity sum summand
-                arg_sim_influence = 0.0
+                arg_sim_influence_loop1, arg_sim_influence_loop2, arg_sim_influence_loop3 = 0.0, 0.0, 0.0
+                 
                 for sim_idx in most_sim_indices: 
-                    arg_sim_influence += self.wtmf.similarity_matrix[arg][sim_idx] * self.I[sim_idx]
-                    for self.wtmf.similarity_matrix[sim_idx[0]]
+                    arg_sim_influence_loop1 += self.wtmf.similarity_matrix[arg][sim_idx] * self.I[sim_idx]
+                    for sim_idx2 in most_sim_indices:
+                        arg_sim_influence_loop2 += self.wtmf.similarity_matrix[arg][sim_idx2]        
+                    # Get the n most similar items for every item in the neighborhood of the current item  
+                        most_sim_indices_of_neighborhood = torch.topk(self.rmh.final_rating_matrix[sim_idx2], n, dim=0, sorted=False)[1]
+                        for sim_idx3 in most_sim_indices_of_neighborhood:
+                            arg_sim_influence_loop3 += self.wtmf.similarity_matrix[arg]
+                    
                 self.I[arg] += l * ((difference) * self.U[user] - l * self.I[arg] - alpha * arg_sim_influence)
 
 
             error.append(error_cur)
             error_cur = 0.0
+            
+            # Print out error w.r.t print-frequency
+            if iteration % print_frequency == 0:
+                print(f"Training - Error:{error[iteration]:.2f}\tCurrent Iteration: {iteration}\\{training_iterations}")
+
+            
     
     def evaluate(self) -> float:
         pass
+    
+    def plot_training_error(self, error:[float], **kwargs) -> None:
+        """
+        Plots the training error for every training iteration.
+        
+        Params:
+            error (list): A list of error - values that correspond to each training iteration of the WTMF - algorithm.    
+            **kwargs: Arbitrary many keyword arguments to customize the plot. E.g. color, linewidth or title.
+        """        
+        plt.plot([i for i in range(1, len(error)+1)], error)
+        for k in kwargs.keys():
+            # Invoke the function k of the plt - module to customize the plot
+            getattr(plt, k) (kwargs[k])
+        
+        plt.show()
+
+
+tlmf = TLMF(wtmf, rmh)
+train_error = tlmf.train(d=20, training_iterations=50, random_seed=1, print_frequency=1, r=0.05, l=0.01, alpha=0.2, n=10)
+tlmf.plot_training_error(train_error, title="TLMF Objective function error", xlabel="Iterations", ylabel="Training error")
+tlmf.evaluate()
 
