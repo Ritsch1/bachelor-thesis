@@ -42,7 +42,7 @@ class TLMF():
             r (float, optional): The regularization factor that controls the overfitting of the model. Defaults to 0.05.
             l (float, optional): The learning rate, a parameter that determines how heavily the vectors of the latent factor matrices are updated in every iteration. Defaults to 0.01.
             alpha (float, optional): The parameter that controls the influence of the semantic relations of the items in the prediction. Defaults to 0.02.
-            n (int, optional): The n most similar items to item i that are considered that are influencing any prediction in which item i is involved.
+            n (int, optional): The n most similar items to item i that are considered for any prediction in which item i is involved.
             
         Returns:
             [float]: A list containing the error values for every iteration.
@@ -70,17 +70,18 @@ class TLMF():
                 # Get indices of the n items that are most similar to the current item in the argument similarity matrix
                 most_sim_indices = torch.topk(self.rmh.final_rating_matrix[arg], dim=0, sorted=False)[1]
                 # Calculate the sum of similarities over all n most-similar args
-                sim_sum = 0.0
+                sim_sum_scaled = 0.0
                 for sim_idx in most_sim_indices:
-                    sim_sum += self.wtmf.similarity_matrix[arg][sim_idx] * self.I[sim_idx]
+                    sim_sum_scaled += self.wtmf.similarity_matrix[arg][sim_idx] * self.I[sim_idx]
                     
                 sim_sum = self.I[arg] - sim_sum
                 sim_sum = alpha/2 * (sim_sum.matmul(sim_sum.T))
                 
+                
                 prediction = self.U[user].matmul(self.I.T[:,arg])
                 true_value = self.rmh.final_rating_matrix[user][arg]
                 difference = true_value - prediction
-                error_cur = (difference)**2 + (r/2 * (frobenius_norm(self.U) + frobenius_norm(self.I))) + sim_sum
+                error_cur = (difference)**2 + (r/2 * (frobenius_norm(self.U) + frobenius_norm(self.I))) + sim_sum_scaled
 
                 # Save old value of the user - vector for updating the item - vector (TODO: Not sure if I should already use the updated user-vector for updating the item vector)
                 old_user_vector = self.U[user]
@@ -88,8 +89,13 @@ class TLMF():
                 # Update the user-vector
                 self.U[user] += l * ((difference) * self.I[arg] - r * self.U[user])
                 # Update the item-vector
-                # Calculate the 
-                self.I[arg] += l * ((difference) * self.U[user] - l * self.I[arg] - alpha * sim_sum + alpha * ) 
+                # Calculate the similarity sum summand
+                arg_sim_influence = 0.0
+                for sim_idx in most_sim_indices: 
+                    arg_sim_influence += self.wtmf.similarity_matrix[arg][sim_idx] * self.I[sim_idx]
+                    for self.wtmf.similarity_matrix[sim_idx[0]]
+                self.I[arg] += l * ((difference) * self.U[user] - l * self.I[arg] - alpha * arg_sim_influence)
+
 
             error.append(error_cur)
             error_cur = 0.0
