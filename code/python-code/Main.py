@@ -20,3 +20,6 @@ params = {"train_path": "C:\\Users\\Rico\\Desktop\\Diverses\\bachelorarbeit\\bac
 # Execute a parametrized version of the Rating-Matrix-Handler notebook
 pm.execute_notebook("Rating_Matrix_Handler.ipynb", "Rating_Matrix_Handler.ipynb", params)
 
+
+
+
