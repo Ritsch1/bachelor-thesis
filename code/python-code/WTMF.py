@@ -159,7 +159,7 @@ class WTMF():
 
 wtmf = WTMF(args)
 wtmf.create_tfidf_matrix()
-error = wtmf.train()
+error = wtmf.train(k=50, gamma=0.05, weight=0.05, training_iterations=50, random_seed=1, print_frequency=1)
 wtmf.compute_argument_similarity_matrix()
 wtmf.plot_training_error(error, title="WTMF Objective function error", xlabel="Iterations", ylabel="Error")
 
