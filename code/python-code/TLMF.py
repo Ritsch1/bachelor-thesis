@@ -17,7 +17,7 @@ class TLMF():
     A class that represents the Two-Level-Matrix-Factorization (TLMF).
     """
     
-    def __init__(self, wtmf:WTMF, rmh:Rating_Matrix_Handler):
+    def __init__(self, wtmf, rmh):
         """
         Params:
             wtmf (WTMF): A wtmf (Weighted Text Matrix Factorization) - object. This object represents the first level of the TLMF. It contains the argument similarity matrix which is used in TLMF.
@@ -75,8 +75,8 @@ class TLMF():
                 for sim_idx in most_sim_indices:
                     sim_sum_scaled += self.wtmf.similarity_matrix[arg][sim_idx] * self.I[sim_idx]
                     
-                sim_sum = self.I[arg] - sim_sum
-                sim_sum = alpha/2 * (sim_sum.matmul(sim_sum.T))
+                sim_sum_scaled = self.I[arg] - sim_sum_scaled
+                sim_sum_scaled = alpha/2 * (sim_sum_scaled.matmul(sim_sum_scaled.T))
                      
                 prediction = self.U[user].matmul(self.I.T[:,arg])
                 true_value = self.rmh.final_rating_matrix[user][arg]
@@ -88,20 +88,25 @@ class TLMF():
 
                 # Update the user-vector
                 self.U[user] += l * ((difference) * self.I[arg] - r * self.U[user])
-                # Update the item-vector
-                # Calculate the similarity sum summand
-                arg_sim_influence_loop1, arg_sim_influence_loop2, arg_sim_influence_loop3 = 0.0, 0.0, 0.0
-                 
-                for sim_idx in most_sim_indices: 
-                    arg_sim_influence_loop1 += self.wtmf.similarity_matrix[arg][sim_idx] * self.I[sim_idx]
-                    for sim_idx2 in most_sim_indices:
-                        arg_sim_influence_loop2 += self.wtmf.similarity_matrix[arg][sim_idx2]        
-                    # Get the n most similar items for every item in the neighborhood of the current item  
-                        most_sim_indices_of_neighborhood = torch.topk(self.rmh.final_rating_matrix[sim_idx2], n, dim=0, sorted=False)[1]
-                        for sim_idx3 in most_sim_indices_of_neighborhood:
-                            arg_sim_influence_loop3 += self.wtmf.similarity_matrix[arg]
-                    
-                self.I[arg] += l * ((difference) * self.U[user] - l * self.I[arg] - alpha * arg_sim_influence)
+                
+                # Calculate the similarity sum components to update the item latent vector
+                sim_sum = 2 * sim_sum_scaled
+                sim_sum2 = []
+                sim_sum3 = 0.0
+                for neighbor_item in most_sim_indices:
+                    similarity_neighbor_to_orig_item = self.wtmf.similarity_matrix[neighbor_item]
+                    for neighbor_neighbor_item in torch.topk(self.rmh.final_rating_matrix[neighbor_item], n, dim=0, sorted=False)[1]:
+                        sim_sum3 += self.wtmf.similarity_matrix[neighbor_item][neighbor_neighbor_item] * self.I[neighbor_neighbor_item]
+                        
+                    sim_sum3 = self.I[neighbor_item] - sim_sum3
+                    similarity_neighbor_to_orig_item * sim_sum3
+                    similarity_neighbor_to_orig_item *= alpha
+                    sim_sum2.append(sim_sum + similarity_neighbor_to_orig_item)
+                
+                sim_sum = sum(sim_sum2)
+                
+                # Update the item-vector        
+                self.I[arg] += l * ((difference) * self.U[user] - l * self.I[arg] - alpha * sim_sum)
 
 
             error.append(error_cur)
@@ -111,8 +116,6 @@ class TLMF():
             if iteration % print_frequency == 0:
                 print(f"Training - Error:{error[iteration]:.2f}\tCurrent Iteration: {iteration}\\{training_iterations}")
 
-            
-    
     def evaluate(self) -> float:
         pass
     
