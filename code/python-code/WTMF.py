@@ -8,9 +8,10 @@ from IPython.core.debugger import set_trace
 import torch
 import spacy
 import matplotlib.pyplot as plt
+import subprocess
 
 
-get_ipython().system('jupyter nbconvert --output-dir="../python-code" --to python WTMF.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True')
+subprocess.run("jupyter nbconvert --output-dir='../python-code' --to python WTMF.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True")
 
 
 # Read in argument-data

@@ -1,17 +1,16 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
 # imports
 import pandas as pd
 import numpy as np
 from IPython.core.debugger import set_trace
 import torch
 from collections import namedtuple
+import subprocess
 
 
-get_ipython().system('jupyter nbconvert --output-dir="../python-code" --to python Rating_Matrix_Handler.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True')
-
+subprocess.run("jupyter nbconvert --output-dir='../python-code' --to python Rating_Matrix_Handler.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True")
 
 
 class Rating_Matrix_Handler():
@@ -89,10 +88,13 @@ class Rating_Matrix_Handler():
         return username_column_agg
 
 
+# Parameters
+train_path = "C:\\Users\\Rico\\Desktop\\Diverses\\bachelorarbeit\\bachelor-thesis\\data\\T1_T2\\train.csv"
+test_path = "C:\\Users\\Rico\\Desktop\\Diverses\\bachelorarbeit\\bachelor-thesis\\data\\T1_T2\\test.csv"
 
-train = pd.read_csv("../../data/T1_T2/train.csv")
-test = pd.read_csv("../../data/T1_T2/test.csv")
+
+train = pd.read_csv(train_path)
+test = pd.read_csv(test_path)
 rmh = Rating_Matrix_Handler(train_rating_matrix=train, test_rating_matrix=test)
 rmh.merge_rating_matrices()
-rmh.final_rating_matrix
 
