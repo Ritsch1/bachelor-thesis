@@ -131,9 +131,47 @@ class TLMF():
         # Assertions
         assert(task != "conviction" and task != "weight"), f"Unkown task - description {task} was passed."
         
-        num_test_samples = len(self.rmh.test_eval_indices)
+        # Filter the evaluation indices based on the task
+        if task == "conviction":        
+            self.rmh.test_eval_indices = {user:items[items % 2 == 1] for user,items in self.rmh.test_eval_indices.items()}
+            # Calculate the mean-accuracy test-error for the Prediction of Conviction (PoC) - task 
+            mean_acc_error = 0.0
+            # Variable for counting the correct 0/1 prediction
+            count_equality = 0
+            for username, test_samples  in self.rmh.test_eval_indices.keys():
+                user_idx = self.rmh.final_rating_matrix_w_usernames.loc[self.rmh.final_rating_matrix_w_usernames["username"] == username]
+                for arg_idx in test_samples:
+                    # If the prediction is correct, increment the counter
+                    count_equality += 1 if self.rmh.test_rating_matrix.loc[user_idx, arg_idx] == round(self.U[user_idx].matmul(self.I[arg_idx].T), 0) else count_equality
+                # Normalize by the number of test samples for this user
+                mean_acc_error += count_equality / len(test_samples)
+                # Set the count equality to 0 for the next user
+                count_equality = 0
+            # Normalize the error by the number of users in the test-set
+            mean_acc_error /= len(self.rmh.test_eval_indices)
         
-    
+            return mean_acc_error
+        
+        else:
+            self.rmh.test_eval_indices = {user:items[items % 2 == 0] for user,items in self.rmh.test_eval_indices.items()}
+            # Calculate the averaged root mean squared error for the Prediction of Weight (PoW) - task
+            rmse_error = 0.0
+            # Variable for measuring the distance of the true value and the prediction
+            prediction_distance = 0.0
+            for username, test_samples  in self.rmh.test_eval_indices.keys():
+                user_idx = self.rmh.final_rating_matrix_w_usernames.loc[self.rmh.final_rating_matrix_w_usernames["username"] == username]
+                for arg_idx in test_samples:
+                    # If the prediction is correct, increment the counter
+                    prediction_distance += (self.rmh.test_rating_matrix.loc[user_idx, arg_idx] - round(self.U[user_idx].matmul(self.I[arg_idx].T), 0))**2 
+                    # Normalize by the number of test samples for this user
+                rmse_error += prediction_distance / len(test_samples)
+                # Set the prediction distance to 0 for the next user
+                prediction_distance = 0
+            # Normalize the prediction_distance by the number of users in the test-set
+            rmse_error /= len(self.rmh.test_eval_indices)
+            
+            return rmse_error
+        
     def plot_training_error(self, error:[float], **kwargs) -> None:
         """
         Plots the training error for every training iteration.
