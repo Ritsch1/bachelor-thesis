@@ -120,13 +120,13 @@ class TLMF():
             if iteration % print_frequency == 0:
                 print(f"Training - Error:{error[iteration]:.2f}\tCurrent Iteration: {iteration}\\{training_iterations}")
 
-    def evaluate(self, task:str="conviction") -> float:
+    def evaluate(self, task:str="conviction") -> tuple:
         """
         Params:
             task (str): The task on which the TLMF-model will be evaluated on. Can either be "conviction" or "weight". Defaults to "conviction".
         
         Returns:
-            float: The error of the TLMF-model on the test set. 
+            tuple: A tuple consisting of he error of the TLMF-model on the test set on index 0 and the specific task on index 1. 
         """
         # Assertions
         assert(task != "conviction" and task != "weight"), f"Unkown task - description {task} was passed."
@@ -170,7 +170,7 @@ class TLMF():
             # Normalize the prediction_distance by the number of users in the test-set
             rmse_error /= len(self.rmh.test_eval_indices)
             
-            return rmse_error
+            return rmse_error, task
         
     def plot_training_error(self, error:[float], **kwargs) -> None:
         """
@@ -191,5 +191,6 @@ class TLMF():
 tlmf = TLMF(wtmf, rmh)
 train_error = tlmf.train(d=20, training_iterations=50, random_seed=1, print_frequency=1, r=0.05, l=0.01, alpha=0.2, n=10)
 tlmf.plot_training_error(train_error, title="TLMF Objective function error", xlabel="Iterations", ylabel="Training error")
-tlmf.evaluate()
+test_result = tlmf.evaluate()
+print(f"Error for task {test_result[1]} : {test_result[0]}")
 
