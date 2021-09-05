@@ -10,6 +10,7 @@ from collections import namedtuple
 import subprocess
 
 
+# Export notebook as python script to the ../python-code folder
 subprocess.run("jupyter nbconvert --output-dir='../python-code' --to python Rating_Matrix_Handler.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True")
 
 
@@ -55,11 +56,11 @@ class Rating_Matrix_Handler():
             
         # Get all non-na column indices for each username.
         eval_indices = self.get_eval_indices(df)
-        # Join the matrices on the username column, keep all usernames that were already in the training matrix. Replace all values of the joined table with NaN as they have to be predicted later.
-        df_nan = df.copy()
-        df_nan.loc[:, df_nan.columns != "username"] = np.nan
+        # Join the matrices on the username column, keep all usernames that were already in the training matrix.
+        df = df[["username"]]
         self.final_rating_matrix = self.train_rating_matrix.copy() 
-        self.final_rating_matrix = self.final_rating_matrix.merge(right=df_nan, how="left", on="username")
+        self.final_rating_matrix = self.final_rating_matrix.merge(right=df, how="inner", on="username")
+        self.final_rating_matrix_w_usernames = self.final_rating_matrix.copy()
         # Drop the username column as it is non-numeric and can't be converted to a tensor.
         self.final_rating_matrix.drop(labels=["username"], axis=1, inplace=True)
         # The same for the joined matrix as the username column contains non-na values but will not be evaluated.
@@ -86,11 +87,6 @@ class Rating_Matrix_Handler():
         # Exclude the username column from the non - na values, which is the first one
         username_column_agg = {a[0]: a[1][1:]-1 for a in username_column_agg}
         return username_column_agg
-
-
-# Parameters
-train_path = "C:\\Users\\Rico\\Desktop\\Diverses\\bachelorarbeit\\bachelor-thesis\\data\\T1_T2\\train.csv"
-test_path = "C:\\Users\\Rico\\Desktop\\Diverses\\bachelorarbeit\\bachelor-thesis\\data\\T1_T2\\test.csv"
 
 
 train = pd.read_csv(train_path)
