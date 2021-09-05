@@ -69,12 +69,15 @@ class TLMF():
                 user = idx[0]
                 # Get the index of the current argument within the argument similarity matrix
                 arg = idx[1]
-                # Get indices of the n items that are most similar to the current item in the argument similarity matrix
-                most_sim_indices = torch.topk(self.rmh.final_rating_matrix[arg], n, dim=0, sorted=False)[1]
+                # Map the column index to the corresponding argument - similarity - matrix column index, as an argument in the rating matrix has two columns (one for Conviction and one for Weight)
+                lookup_arg_idx = arg/2 if arg % 2 == 0 else arg//2  
+                # Get the column- indices of the n items that are most similar to the current item in the argument similarity matrix
+                most_sim_indices = torch.topk(self.wtmf.similarity_matrix[lookup_arg_idx], n, dim=0, sorted=False)[1]
+                
                 # Calculate the sum of similarities over all n most-similar args
                 sim_sum_scaled = 0.0
                 for sim_idx in most_sim_indices:
-                    sim_sum_scaled += self.wtmf.similarity_matrix[arg][sim_idx] * self.I[sim_idx]
+                    sim_sum_scaled += self.wtmf.similarity_matrix[lookup_arg_idx][sim_idx] * self.I[sim_idx]
                     
                 sim_sum_scaled = self.I[arg] - sim_sum_scaled
                 sim_sum_scaled = alpha/2 * (sim_sum_scaled.matmul(sim_sum_scaled.T))
@@ -117,8 +120,19 @@ class TLMF():
             if iteration % print_frequency == 0:
                 print(f"Training - Error:{error[iteration]:.2f}\tCurrent Iteration: {iteration}\\{training_iterations}")
 
-    def evaluate(self) -> float:
-        pass
+    def evaluate(self, task:str="conviction") -> float:
+        """
+        Params:
+            task (str): The task on which the TLMF-model will be evaluated on. Can either be "conviction" or "weight". Defaults to "conviction".
+        
+        Returns:
+            float: The error of the TLMF-model on the test set. 
+        """
+        # Assertions
+        assert(task != "conviction" and task != "weight"), f"Unkown task - description {task} was passed."
+        
+        num_test_samples = len(self.rmh.test_eval_indices)
+        
     
     def plot_training_error(self, error:[float], **kwargs) -> None:
         """
