@@ -2,7 +2,6 @@
 # coding: utf-8
 
 # imports
-import papermill as pm
 import ipywidgets as widgets
 from ipywidgets.widgets import interact
 import subprocess
@@ -28,21 +27,35 @@ prediction_goal = set_prediction_dataset()
 subprocess.run("jupyter nbconvert --output-dir='../python-code' --to python Main.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True")
 
 
-# Parameters for executing the WTMF algorithm
-params = {"k":50, "gamma":0.05, "weight":0.05, "training_iterations":50, "random_seed":1, "print_frequency":1}
-# Execute a parametrized version of the WTMF notebook
-pm.execute_notebook("WTMF.ipynb", "WTMF.ipynb", params)
+k=1
+training_iterations=2
+weight=0.05
+gamma=0.05
+random_seed=1
+print_frequency=1
+get_ipython().run_line_magic('run', 'WTMF.ipynb')
 
 
 # Parameters for executing the Rating-Matrix-Handler notebook
-params = {"train_path": "C:\\Users\\Rico\\Desktop\\Diverses\\bachelorarbeit\\bachelor-thesis\\data\\T1_T2\\train.csv",
-          "test_path" : "C:\\Users\\Rico\\Desktop\\Diverses\\bachelorarbeit\\bachelor-thesis\\data\\T1_T2\\test.csv"}
-# Execute a parametrized version of the Rating-Matrix-Handler notebook
-pm.execute_notebook("Rating_Matrix_Handler.ipynb", "Rating_Matrix_Handler.ipynb", params, log_output=False, report_mode=False)
+train_path = f"C:\\Users\\Rico\\Desktop\\Diverses\\bachelorarbeit\\bachelor-thesis\\data\\{prediction_goal}\\train.csv",
+test_path  = f"C:\\Users\\Rico\\Desktop\\Diverses\\bachelorarbeit\\bachelor-thesis\\data\\{prediction_goal}\\test.csv"
+get_ipython().run_line_magic('run', 'Rating_Matrix_Handler.ipynb')
+
+
+get_ipython().run_line_magic('run', 'Rating_Matrix_Handler.ipynb')
 
 
 # Parameters for executing the Rating-Matrix-Handler notebook
-params = {"wtmf":wtmf, "rmh":rmh, "d":10, "training_iterations":50, "random_seed":1, "print_frequency":1, "r":0.05, "l":0.01, "alpha":0.2, "n":10}
+wtmf=wtmf
+rmh=rmh
+d=10 
+training_iterations=50 
+random_seed=1 
+print_frequency=1
+r=0.05 
+l=0.01 
+alpha=0.2
+n=10
 # Execute a parametrized version of the Rating-Matrix-Handler notebook
-pm.execute_notebook("TLMF.ipynb", "TLMF.ipynb", params)
+get_ipython().run_line_magic('run', 'TLMF.ipynb')
 
