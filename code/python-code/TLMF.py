@@ -99,7 +99,7 @@ class TLMF():
                 sim_sum3 = 0.0
                 for neighbor_item in most_sim_indices:
                     similarity_neighbor_to_orig_item = self.wtmf.similarity_matrix[neighbor_item]
-                    for neighbor_neighbor_item in torch.topk(self.rmh.final_rating_matrix[neighbor_item], n, dim=0, sorted=False)[1]:
+                    for neighbor_neighbor_item in torch.topk(self.wtmf.similarity_matrix[neighbor_item], n, dim=0, sorted=False)[1]:
                         sim_sum3 += self.wtmf.similarity_matrix[neighbor_item][neighbor_neighbor_item] * self.I[neighbor_neighbor_item]
                         
                     sim_sum3 = self.I[neighbor_item] - sim_sum3
