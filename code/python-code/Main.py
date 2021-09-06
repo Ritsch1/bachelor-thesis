@@ -24,7 +24,7 @@ def set_prediction_dataset(dataset:str="T1_T2") -> str:
 prediction_goal = set_prediction_dataset()
 
 
-subprocess.run("jupyter nbconvert --output-dir='../python-code' --to python Main.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True")
+subprocess.run("jupyter nbconvert --output-dir='../python-code' --to python Main.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True", shell=True)
 
 
 k=1
@@ -37,25 +37,22 @@ get_ipython().run_line_magic('run', 'WTMF.ipynb')
 
 
 # Parameters for executing the Rating-Matrix-Handler notebook
-train_path = f"C:\\Users\\Rico\\Desktop\\Diverses\\bachelorarbeit\\bachelor-thesis\\data\\{prediction_goal}\\train.csv",
+train_path = f"C:\\Users\\Rico\\Desktop\\Diverses\\bachelorarbeit\\bachelor-thesis\\data\\{prediction_goal}\\train.csv"
 test_path  = f"C:\\Users\\Rico\\Desktop\\Diverses\\bachelorarbeit\\bachelor-thesis\\data\\{prediction_goal}\\test.csv"
-get_ipython().run_line_magic('run', 'Rating_Matrix_Handler.ipynb')
-
-
 get_ipython().run_line_magic('run', 'Rating_Matrix_Handler.ipynb')
 
 
 # Parameters for executing the Rating-Matrix-Handler notebook
 wtmf=wtmf
 rmh=rmh
-d=10 
-training_iterations=50 
+d=1
+training_iterations=1
 random_seed=1 
 print_frequency=1
 r=0.05 
 l=0.01 
 alpha=0.2
-n=10
+n=1
 # Execute a parametrized version of the Rating-Matrix-Handler notebook
 get_ipython().run_line_magic('run', 'TLMF.ipynb')
 

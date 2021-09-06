@@ -11,7 +11,7 @@ import subprocess
 
 
 # Export notebook as python script to the ../python-code folder
-subprocess.run("jupyter nbconvert --output-dir='../python-code' --to python Rating_Matrix_Handler.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True")
+subprocess.run("jupyter nbconvert --output-dir='../python-code' --to python Rating_Matrix_Handler.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True", shell=True)
 
 
 class Rating_Matrix_Handler():
