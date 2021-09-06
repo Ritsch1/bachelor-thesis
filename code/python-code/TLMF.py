@@ -103,7 +103,7 @@ class TLMF():
                         sim_sum3 += self.wtmf.similarity_matrix[neighbor_item][neighbor_neighbor_item] * self.I[neighbor_neighbor_item]
                         
                     sim_sum3 = self.I[neighbor_item] - sim_sum3
-                    similarity_neighbor_to_orig_item * sim_sum3
+                    similarity_neighbor_to_orig_item *= sim_sum3
                     similarity_neighbor_to_orig_item *= alpha
                     sim_sum2.append(sim_sum + similarity_neighbor_to_orig_item)
                 
