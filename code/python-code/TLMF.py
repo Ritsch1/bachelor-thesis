@@ -189,7 +189,7 @@ class TLMF():
 
 
 tlmf = TLMF(wtmf, rmh)
-train_error = tlmf.train(d=20, training_iterations=50, random_seed=1, print_frequency=1, r=0.05, l=0.01, alpha=0.2, n=10)
+train_error = tlmf.train(d, training_iterations, random_seed, print_frequency, r, l, alpha, n)
 tlmf.plot_training_error(train_error, title="TLMF Objective function error", xlabel="Iterations", ylabel="Training error")
 test_result = tlmf.evaluate()
 print(f"Error for task {test_result[1]} : {test_result[0]}")
