@@ -47,7 +47,7 @@ class Rating_Matrix_Handler():
         # Assertions
         assert dim >= 0, "Dimension must be non-negative."
         
-        if mode=="Test":    
+        if mode=="Test":  
             df = self.test_rating_matrix
             self.test_eval_indices = self.get_eval_indices(df)
         elif mode=="Validation":
@@ -75,22 +75,39 @@ class Rating_Matrix_Handler():
         Params:
             df (pd.DataFrame): Dataframe whose non-null indices have to be found.
         Returns:
-            dict: A dictionary containg a username as key associated with a numpy-array containing all the indices of the non-na columns for that username.
+            dict: A dictionary containg a tuple of (username, row_id) as key associated with a numpy-array containing all the indices of the non-na columns for that username.
         """        
         # Get all not-null indices from the dataframe
         mask_idxs = np.argwhere(~pd.isna(df.values))
-        # Perform a group by on the username - row - index.
-        unique_username_rows = np.unique(mask_idxs[:,0], return_index=True)[1][1:]
-        mask_idxs_grouped = np.split(mask_idxs[:,1], unique_username_rows)
-        # Combine the row indices with all the non - na column - indices for this row
-        username_column_agg = np.array(list(zip(list(df["username"]), mask_idxs_grouped)), dtype=object)
-        # Exclude the username column from the non - na values, which is the first one
-        username_column_agg = {a[0]: a[1][1:]-1 for a in username_column_agg}
-        return username_column_agg
+        # Build dictionary of unique row-ids associated with sets that will contain the non-na column-ids
+        userid_ratings = {id:set() for id in np.unique(mask_idxs[:,0])}
+        # Add all non-na column indices to the corresponding row-ids
+        for entry in mask_idxs:
+            # Exclude the username column-index from the non - na values, which is the index 0. It is not part of the evaluation
+            if entry[1] == 0:
+                continue
+            # All added column - indices have to be decremented by 1, as the username-column is deleted and they are shifted one index to the left
+            userid_ratings[entry[0]].add(entry[1]-1)
+        # Use a tuples consisting of (username, row_id) as keys for cross-referencing later on
+        username_ratings = {(df.loc[username]["username"], username):ratings for username, ratings in userid_ratings.items()}
+        # Cast the set-values to numpy-arrays for later filtering the column-indices depending on the task
+        username_ratings = {username:np.array(list(ratings)) for username,ratings in username_ratings.items()}
+
+        return username_ratings
 
 
 train = pd.read_csv(train_path)
 test = pd.read_csv(test_path)
 rmh = Rating_Matrix_Handler(train_rating_matrix=train, test_rating_matrix=test)
 rmh.merge_rating_matrices()
+
+
+# idxs = rmh.get_eval_indices(rmh.test_rating_matrix)
+# rmh.test_rating_matrix.drop(["username"], axis=1, inplace=True)
+# for username,ratings in idxs.items():
+#     for rating in ratings:
+#         print(rmh.test_rating_matrix.iloc[username, rating])
+
+
+idxs
 
