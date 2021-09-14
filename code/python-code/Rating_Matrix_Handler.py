@@ -6,7 +6,6 @@ import pandas as pd
 import numpy as np
 from IPython.core.debugger import set_trace
 import torch
-from collections import namedtuple
 import subprocess
 
 
@@ -36,35 +35,25 @@ class Rating_Matrix_Handler():
         machine = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.device = torch.device(machine)
         
-    def merge_rating_matrices(self, dim:int=1, mode:str="Test") -> None:
+    def create_torch_rating_matrix(self, df:pd.DataFrame, mode:str="Test") -> None:
         """
-        Left-joins the training rating-matrix together on identical users with either the test-matrix or the validation-matrix(depending on the value of mode).
-
+        Creates the final rating matrix as torch tensor that is to be trained on.
+        
         Params:
-            dim (int, optional): The dimension along which rating matrices are merged. Defaults to 1.
-            mode (str, optional): The mode of df2. It can either be "Test" or "Validation". Defaults to "Test".
+            df (pd.DataFrame): Either the test or validation dataframe for which the evaluation indices are calculated.
+            mode (str, optional): The mode for which the evaluation indices of the test or validation matrix are calculated. 
+            It can either be "Test" or "Validation". Defaults to "Test".
         """
-        # Assertions
-        assert dim >= 0, "Dimension must be non-negative."
         
         if mode=="Test":  
-            df = self.test_rating_matrix
             self.test_eval_indices = self.get_eval_indices(df)
         elif mode=="Validation":
-            df = self.validation_rating_matrix
             self.validation_eval_indices = self.get_eval_indices(df)
             
-        # Get all non-na column indices for each username.
-        eval_indices = self.get_eval_indices(df)
-        # Join the matrices on the username column, keep all usernames that were already in the training matrix.
-        df = df[["username"]]
         self.final_rating_matrix = self.train_rating_matrix.copy() 
-        self.final_rating_matrix = self.final_rating_matrix.merge(right=df, how="inner", on="username")
         self.final_rating_matrix_w_usernames = self.final_rating_matrix.copy()
         # Drop the username column as it is non-numeric and can't be converted to a tensor.
         self.final_rating_matrix.drop(labels=["username"], axis=1, inplace=True)
-        # The same for the joined matrix as the username column contains non-na values but will not be evaluated.
-        df.drop(labels=["username"], axis=1, inplace=True)
         # Set the datatypes of the rating matrix to float16 to save memory and speed up computation while keeping the nan-values (not possible for integer datatype). 
         self.final_rating_matrix = torch.from_numpy(self.final_rating_matrix.values).to(torch.float16).to(self.device)
         
@@ -100,14 +89,4 @@ train = pd.read_csv(train_path)
 test = pd.read_csv(test_path)
 rmh = Rating_Matrix_Handler(train_rating_matrix=train, test_rating_matrix=test)
 rmh.merge_rating_matrices()
-
-
-# idxs = rmh.get_eval_indices(rmh.test_rating_matrix)
-# rmh.test_rating_matrix.drop(["username"], axis=1, inplace=True)
-# for username,ratings in idxs.items():
-#     for rating in ratings:
-#         print(rmh.test_rating_matrix.iloc[username, rating])
-
-
-idxs
 
