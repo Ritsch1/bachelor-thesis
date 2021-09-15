@@ -282,7 +282,9 @@ def random_search(tlmf:TLMF, num_experiments:int=10, **param_values) -> dict:
 
 
 tlmf = TLMF(wtmf, rmh)
-params = {"d":np.array([15,20,25,30,22]), 
+params = {"d":np.array([15,20,25,30,22]),
+          "alpha":np.array([0.2, 0.1, 0.01, 0.05, 0.001]),
+          "n":np.array([1,2,3]),
           "training_iterations":np.array([100]), 
           "random_seed":np.arange(1,20,1), 
           "print_frequency":np.array([10]), 
