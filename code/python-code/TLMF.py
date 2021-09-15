@@ -83,20 +83,24 @@ class TLMF():
         for iteration in range(training_iterations):
             for idx in training_indices:
                 sample_counter +=1
-                # Get the index of the current user
+                # Get the index of the current user within the training matrix
                 user = idx[0]
                 # Get the index of the current argument within the training matrix
                 arg = idx[1]
                 # Get the column- indices of the n items that are most similar to the current item in the argument similarity matrix
                 most_sim_indices = torch.topk(self.wtmf.similarity_matrix[arg], n, dim=0, sorted=False)[1]
                 
+                ######## 
                 # Calculate the sum of similarities over the n most similar args
-                sim_sum_scaled = 0.0    
-                # for index, sim_value in enumerate(most_sim_indices):
-                #     sim_sum_scaled += sim_value * self.I[index]
+                ########
+                sim_sum_scaled = torch.zeros(self.I[arg].shape)
                     
-                # sim_sum_scaled = self.I[arg] - sim_sum_scaled
-                # sim_sum_scaled = alpha/2 * (sim_sum_scaled.matmul(sim_sum_scaled.T))
+                for arg_neighbor_index, sim_value in enumerate(most_sim_indices):
+                    sim_sum_scaled = torch.add(sim_sum_scaled, torch.mul(self.I[arg_neighbor_index], self.wtmf.similarity_matrix[arg][arg_neighbor_index]))
+                    
+                sim_sum_scaled = torch.sub(self.I[arg], sim_sum_scaled)
+                sim_sum_scaled = torch.matmul(sim_sum_scaled, sim_sum_scaled.T)
+                sim_sum_scaled = torch.mul(sim_sum_scaled, alpha)
                     
                 prediction = self.U[user].matmul(self.I.T[:,arg])
                 true_value = trimmed_rating_matrix[user][arg]
@@ -108,31 +112,35 @@ class TLMF():
                 old_user_vector = self.U[user]
 
                 # Update the user-vector
-                self.U[user] = self.U[user] + (lambda_ * (torch.mul(self.I[arg], difference) - torch.mul(self.U[user], r)))
+                self.U[user] = torch.add(self.U[user], torch.mul((torch.sub((torch.mul(self.I[arg], difference) - torch.mul(self.U[user], r)))), lambda_))
                                         
-                # Calculate the first similarity sum component to update the item latent vector (equation 16)
-                sim_sum = 0.0
-                #for arg_neighbor_idx in most_sim_indices:
-                #    sim_sum += (self.wtmf.similarity_matrix[arg][arg_neighbor_idx] * self.I[arg_neighbor_idx]) 
-                #sim_sum = torch.mul(sim_sum, alpha)
+                ########
+                # Calculate the similarity sum components to update the item latent vector (equation 16)
+                ########
+                # First component
+                sim_sum = torch.zeros(self.I[arg].shape)
+                for arg_neighbor_idx in most_sim_indices:
+                   sim_sum = torch.add(sim_sum, torch.mul(self.I[arg_neighbor_idx], self.wtmf.similarity_matrix[arg][arg_neighbor_idx])) 
+                sim_sum = torch.sub(self.I[arg], sim_sum)
+                sim_sum = torch.mul(sim_sum, alpha)
                 
-                # sim_sum = 2 * sim_sum_scaled
-                # sim_sum2 = []
-                # sim_sum3 = 0.0
-                # for neighbor_item in most_sim_indices:
-                #     similarity_neighbor_to_orig_item = self.wtmf.similarity_matrix[lookup_arg_idx][neighbor_item]
-                #     for neighbor_neighbor_item in torch.topk(self.wtmf.similarity_matrix[neighbor_item], n, dim=0, sorted=False)[1]:
-                #        sim_sum3 += self.wtmf.similarity_matrix[neighbor_item][neighbor_neighbor_item] * self.I[neighbor_neighbor_item]
-                        
-                #     sim_sum3 = self.I[neighbor_item] - sim_sum3
-                #     sim_sum3 *= similarity_neighbor_to_orig_item                    
-                #     sim_sum3 *= alpha
-                #     sim_sum2.append(sim_sum + sim_sum3)
+                # Second component
+                sim_sum2 = torch.zeros(self.I[arg].shape)
+                # Calculate the most similar arg-indices to the neighbor args
+                # Create a list to hold a tuple of (neighour_arg_idx, list_of_similar_args_to_neighbor) of the args for every neighbor arg
+                most_sim_args_of_neighbors = [] 
+                for idx, sim_arg in enumerate(most_sim_indices):
+                    most_sim_args_of_neighbors.append(torch.topk(self.wtmf.similarity_matrix[sim_arg], n, dim=0, sorted=False)[1])
+                    
+                for neighbor in most_sim_indices:
+                    for neighbor_of_neighbor in most_sim_args_of_neighbors:
+                        sim_sum2 = torch.add(sim_sum2, torch.matmul(self.I[neighbor_of_neighbor], self.wtmf.similarity_matrix[neighbor][neighbor_of_neighbor]))
+                    sim_sum2 = torch.sub(self.I[neighbor], sim_sum2)
+                    sim_sum2 = torch.mul(sim_sum2, self.wtmf.similarity_matrix[neighbor][arg])
                 
-                # sim_sum = sum(sim_sum2)
-                
-                # Update the item-vector
-                self.I[arg] = self.I[arg] + (lambda_ * (torch.mul( self.U[user], difference) - torch.mul(self.I[arg], r)))
+                sim_sum2 = torch.mul(sim_sum2, alpha)
+                sim_sum = torch.add(sim_sum, sim_sum2)
+                self.I[arg] = torch.add(self.I[arg], (torch.mul( torch.sub(torch.sub((torch.mul( self.U[user], difference) - torch.mul(self.I[arg], r))), sim_sum), lambda_)))
                         
             error.append(error_cur)
             error_cur = 0.0
@@ -276,10 +284,13 @@ def random_search(tlmf:TLMF, num_experiments:int=10, **param_values) -> dict:
 tlmf = TLMF(wtmf, rmh)
 params = {"d":np.array([15,20,25,30,22]), 
           "training_iterations":np.array([100]), 
-          "random_seed":np.array([1,5,10,15,20, 25]), 
+          "random_seed":np.arange(1,20,1), 
           "print_frequency":np.array([10]), 
-          "r":np.array([0.01, 0.001, 0.005, 0.003]), 
-          "lambda_":np.array([0.01, 0.02, 0.001, 0.005])
+          "r":np.array([0.001, 0.005, 0.003, 0.007, 0.008]), 
+          "lambda_":np.array([0.01, 0.02, 0.001, 0.005, 0.007, 0.008])
           }
-results = random_search(tlmf, num_experiments=30, **params)
+results = random_search(tlmf, num_experiments=50, **params)
+
+
+results
 
