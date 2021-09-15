@@ -55,12 +55,12 @@ class TLMF():
             [float]: A list containing the error values for every iteration.
         """
         if mode=="Conviction":
-            # Select every second column to only contain the conviction columns with values in the range [0,1]
+            # Select all conviction columns with values in the range [0,1]
             # Get all relevant column-indices
             idxs = torch.arange(1, self.rmh.final_rating_matrix.shape[1], 2)
             trimmed_rating_matrix = torch.index_select(self.rmh.final_rating_matrix, 1, idxs)
         elif mode=="Weight":
-            # Select every second column to only contain the conviction columns with values in the range [0,1]
+            # Select all weight columns with values in the range [0,6]
             # Get all relevant column-indices
             idxs = torch.arange(0, self.rmh.final_rating_matrix.shape[1], 2)           
             trimmed_rating_matrix = torch.index_select(self.rmh.final_rating_matrix, 1, idxs)
@@ -218,7 +218,7 @@ class TLMF():
         Plots the training error for every training iteration.
         
         Params:
-            error (list): A list of error - values that correspond to each training iteration of the WTMF - algorithm.    
+            error (list): A list of error - values that correspond to each training iteration of the TLMF - algorithm.    
             **kwargs: Arbitrary many keyword arguments to customize the plot. E.g. color, linewidth or title.
         """ 
         plt.plot([i for i in range(1, len(error)+1)], error)
