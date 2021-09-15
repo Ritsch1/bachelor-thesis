@@ -88,5 +88,5 @@ class Rating_Matrix_Handler():
 train = pd.read_csv(train_path)
 test = pd.read_csv(test_path)
 rmh = Rating_Matrix_Handler(train_rating_matrix=train, test_rating_matrix=test)
-rmh.merge_rating_matrices()
+rmh.create_torch_rating_matrix(test)
 

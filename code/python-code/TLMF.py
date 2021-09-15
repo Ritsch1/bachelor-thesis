@@ -67,6 +67,7 @@ class TLMF():
         
         # Set random seed for reproducability
         torch.manual_seed(random_seed)
+        
         # Randomly initialize the latent factor matrices U(ser) and I(tems)
         self.U = torch.rand([trimmed_rating_matrix.shape[0], d]).to(self.device)
         self.I = torch.rand([trimmed_rating_matrix.shape[1], d]).to(self.device)
@@ -78,36 +79,43 @@ class TLMF():
 
         # Get non-na indices of rating - matrix to train TLMF on
         training_indices = (~torch.isnan(trimmed_rating_matrix)).nonzero().to(torch.int).to(self.device)
-
+        sample_counter = 0
         for iteration in range(training_iterations):
             for idx in training_indices:
+                sample_counter +=1
                 # Get the index of the current user
                 user = idx[0]
-                # Get the index of the current argument within the argument similarity matrix
+                # Get the index of the current argument within the training matrix
                 arg = idx[1]
                 # Get the column- indices of the n items that are most similar to the current item in the argument similarity matrix
                 most_sim_indices = torch.topk(self.wtmf.similarity_matrix[arg], n, dim=0, sorted=False)[1]
                 
-                # Calculate the sum of similarities over all n most-similar args
+                # Calculate the sum of similarities over the n most similar args
                 sim_sum_scaled = 0.0    
-                for index, sim_value in enumerate(self.wtmf.similarity_matrix[arg]):
-                    sim_sum_scaled += sim_value * self.I[index]
+                # for index, sim_value in enumerate(most_sim_indices):
+                #     sim_sum_scaled += sim_value * self.I[index]
                     
-                sim_sum_scaled = self.I[arg] - sim_sum_scaled
-                sim_sum_scaled = alpha/2 * (sim_sum_scaled.matmul(sim_sum_scaled.T))
-                     
+                # sim_sum_scaled = self.I[arg] - sim_sum_scaled
+                # sim_sum_scaled = alpha/2 * (sim_sum_scaled.matmul(sim_sum_scaled.T))
+                    
                 prediction = self.U[user].matmul(self.I.T[:,arg])
                 true_value = trimmed_rating_matrix[user][arg]
-                difference = abs(true_value - prediction)
-                error_cur += (difference)**2 + (r/2 * (frobenius_norm(self.U) + frobenius_norm(self.I))) + sim_sum_scaled
+                
+                difference = true_value - prediction
+                error_cur += torch.pow(difference,2) + (r/2 * (frobenius_norm(self.U) + frobenius_norm(self.I))) + sim_sum_scaled
 
                 # Save old value of the user - vector for updating the item - vector (TODO: Not sure if I should already use the updated user-vector for updating the item vector)
                 old_user_vector = self.U[user]
 
                 # Update the user-vector
-                self.U[user] += lambda_ * ((difference) * self.I[arg] - r * self.U[user])
+                self.U[user] = self.U[user] + (lambda_ * (torch.mul(self.I[arg], difference) - torch.mul(self.U[user], r)))
+                                        
+                # Calculate the first similarity sum component to update the item latent vector (equation 16)
+                sim_sum = 0.0
+                #for arg_neighbor_idx in most_sim_indices:
+                #    sim_sum += (self.wtmf.similarity_matrix[arg][arg_neighbor_idx] * self.I[arg_neighbor_idx]) 
+                #sim_sum = torch.mul(sim_sum, alpha)
                 
-                # Calculate the similarity sum components to update the item latent vector
                 # sim_sum = 2 * sim_sum_scaled
                 # sim_sum2 = []
                 # sim_sum3 = 0.0
@@ -123,16 +131,16 @@ class TLMF():
                 
                 # sim_sum = sum(sim_sum2)
                 
-                # Update the item-vector        
-                #self.I[arg] += lambda_ * ((difference) * self.U[user] - r * self.I[arg] - alpha * sim_sum)   
-                
+                # Update the item-vector
+                self.I[arg] = self.I[arg] + (lambda_ * (torch.mul( self.U[user], difference) - torch.mul(self.I[arg], r)))
+                        
             error.append(error_cur)
             error_cur = 0.0
-            
+                 
             # Print out error w.r.t print-frequency
-            if iteration % print_frequency == 0:
+            if (iteration + 1) % print_frequency == 0:
                 print(f"Training - Error:{error[iteration]:.2f}\tCurrent Iteration: {iteration+1}\\{training_iterations}")
-                
+       
         return error
 
     def evaluate(self) -> float:
@@ -142,35 +150,41 @@ class TLMF():
         """
         
         # Filter the evaluation indices based on the task
-        if self.mode_ == "Conviction":        
+        if self.mode_ == "Conviction":
+            #Get odd-indexed arguments that correspond to conviction arguments in the range [0,1]        
             self.rmh.test_eval_indices = {user:items[items % 2 == 1] for user,items in self.rmh.test_eval_indices.items()}
             # To match the indices of the training, integer divide all odd indices by 2 to map them to the correct index
             for key, value in self.rmh.test_eval_indices.items():
                 self.rmh.test_eval_indices[key] = value // 2 
-            # Get rid of the username column in the test-rating -matrix for proper indexing
-            self.rmh.test_rating_matrix.drop(["username"], axis=1, inplace=True)
+            # Get rid of the username column in the test-rating -matrix for converting only numerical values into a pytorch tensor
+            test_rating_matrix_copy = self.rmh.test_rating_matrix.drop(["username"], axis=1)
             # Trim the original test_rating_matrix to the conviction columns only
-            trimmed_test_rating_matrix = torch.index_select(torch.from_numpy(self.rmh.test_rating_matrix.values).to(torch.float16), 1, torch.arange(1, self.rmh.test_rating_matrix.shape[1], 2))
-            # Calculate the mean-accuracy test-error for the Prediction of Conviction (PoC) - task 
-            mean_acc_error = 0.0
+            trimmed_test_rating_matrix = torch.index_select(torch.from_numpy(test_rating_matrix_copy.values).to(torch.float16), 1, torch.arange(1, test_rating_matrix_copy.shape[1], 2))
+            # Calculate the mean-accuracy for the Prediction of Conviction (PoC) - task 
+            mean_acc = 0.0
             # Variable for counting the correct 0/1 prediction
             count_equality = 0
-            for username, test_samples  in self.rmh.test_eval_indices.items():
-                user_idx = username[1]
+            for username, test_samples in self.rmh.test_eval_indices.items():
+                # The actual username of the user
+                username_str = username[0]
+                # The row-index in the test set of that user
+                user_idx_test = username[1]
+                # Get the row-index for the user in the latent user-vector
+                user_idx_pred = self.rmh.final_rating_matrix_w_usernames[self.rmh.final_rating_matrix_w_usernames["username"]==username_str].index[0]
                 for arg_idx in test_samples:
                     # If the prediction is correct, increment the counter
-                    true_value = trimmed_test_rating_matrix[user_idx][arg_idx]
-                    prediction = torch.round(self.U[user_idx].matmul(self.I[arg_idx].T))
-                    print(f"True value: {true_value}, Prediction: {prediction}")
-                    count_equality += 1 if  true_value == prediction  else count_equality
+                    true_value = trimmed_test_rating_matrix[user_idx_test][arg_idx]
+                    prediction = torch.round(self.U[user_idx_pred].matmul(self.I[arg_idx].T))
+                    if  true_value == prediction:
+                        count_equality += 1
                 # Normalize by the number of test samples for this user
-                mean_acc_error += count_equality / len(test_samples)
+                mean_acc += count_equality / len(test_samples)
                 # Set the count equality to 0 for the next user
                 count_equality = 0
             # Normalize the error by the number of users in the test-set
-            mean_acc_error /= len(self.rmh.test_eval_indices)
+            mean_acc /= len(self.rmh.test_eval_indices)
         
-            return mean_acc_error
+            return mean_acc
         
         elif self.mode_=="Weight":
             self.rmh.test_eval_indices = {user:items[items % 2 == 0] for user,items in self.rmh.test_eval_indices.items()}
@@ -178,9 +192,9 @@ class TLMF():
             for key, value in self.rmh.test_eval_indices.items():
                 self.rmh.test_eval_indices[key] = value // 2
             # Get rid of the username column in the test-rating -matrix for proper indexing
-            self.rmh.test_rating_matrix.drop(["username"], axis=1, inplace=True) 
+            test_rating_matrix_copy = self.rmh.test_rating_matrix.drop(["username"], axis=1) 
             # Trim the original test_rating_matrix to the weight columns only
-            trimmed_test_rating_matrix = torch.index_select(torch.from_numpy(self.rmh.test_rating_matrix.values).to(torch.float16), 1, torch.arange(0, self.rmh.test_rating_matrix.shape[1], 2))
+            trimmed_test_rating_matrix = torch.index_select(torch.from_numpy(test_rating_matrix_copy.values).to(torch.float16), 1, torch.arange(0, test_rating_matrix_copy.shape[1], 2))
             # Calculate the averaged root mean squared error for the Prediction of Weight (PoW) - task
             rmse_error = 0.0
             # Variable for measuring the distance of the true value and the prediction
@@ -215,8 +229,8 @@ class TLMF():
         plt.show()
 
 
-k=10
-training_iterations=2
+k=15
+training_iterations=10
 weight=0.05
 gamma=0.01
 random_seed=11
@@ -225,26 +239,47 @@ get_ipython().run_line_magic('run', 'WTMF.ipynb')
 
 
 # Parameters for executing the Rating-Matrix-Handler notebook
-train_path = f"C:\\Users\\Rico\\Desktop\\Diverses\\bachelorarbeit\\bachelor-thesis\\data\\T1_T2\\train.csv"
-test_path  = f"C:\\Users\\Rico\\Desktop\\Diverses\\bachelorarbeit\\bachelor-thesis\\data\\T1_T2\\test.csv"
+train_path = f"C:/Users/Rico/Desktop/bachelor-thesis/data/T1_T2/train.csv"
+test_path  = f"C:/Users/Rico/Desktop/bachelor-thesis/data/T1_T2/test.csv"
 get_ipython().run_line_magic('run', 'Rating_Matrix_Handler.ipynb')
 
 
-wtmf=wtmf
-rmh=rmh
-d=20
-training_iterations=10
-random_seed=12
-print_frequency=1
-r=0.02
-l=0.01
-alpha=0.01
-n=3
+def random_search(tlmf:TLMF, num_experiments:int=10, **param_values) -> dict:
+    """
+    Perform a random search for the best parameter-values for the tlmf algorithm.
+    
+    Params:
+        tlmf (TLMF): A TLMF-object containing that is used to predict the unknown ratings.
+        num_experiments: The number of optimization experiments with random parameter values that should be carried out.
+        **param_values (kwargs): A dictionary of keys(parameter_name) and values (list of values to try out for that parameter).
+        
+    Returns: A list of tuples containing the prediction - score on index 0 and the parameter-values on index 1. 
+    """
+    # List containing tuples of (score, parameter-values) 
+    results = []
+    for i in range(num_experiments):
+        print(f"Experiment {i+1}:\n")
+        # Parameters for executing the Rating-Matrix-Handler notebook
+        train_path = f"C:/Users/Rico/Desktop/bachelor-thesis/data/T1_T2/train.csv"
+        test_path  = f"C:/Users/Rico/Desktop/bachelor-thesis/data/T1_T2/test.csv"
+        get_ipython().run_line_magic('run', 'Rating_Matrix_Handler.ipynb')
+        tlmf = TLMF(tlmf.wtmf, rmh)
+        # Set parameters to random values
+        execution_dict = {param:np.random.choice(values) for param, values in param_values.items()}
+        # Run training    
+        train_error = tlmf.train(**execution_dict)
+        test_result = tlmf.evaluate()
+        results.append((test_result, execution_dict))
+    return results
 
 
-tlmf = TLMF(wtmf, rmh, mode="Conviction")
-train_error = tlmf.train(d, training_iterations, random_seed    , print_frequency, r, l, alpha, n, tlmf.mode_)
-tlmf.plot_training_error(train_error, title="TLMF Objective function error", xlabel="Iterations", ylabel="Training error")
-test_result = tlmf.evaluate()
-print(f"Error for the {tlmf.mode_} task: {test_result}")
+tlmf = TLMF(wtmf, rmh)
+params = {"d":np.array([15,20,25,30,22]), 
+          "training_iterations":np.array([100]), 
+          "random_seed":np.array([1,5,10,15,20, 25]), 
+          "print_frequency":np.array([10]), 
+          "r":np.array([0.01, 0.001, 0.005, 0.003]), 
+          "lambda_":np.array([0.01, 0.02, 0.001, 0.005])
+          }
+results = random_search(tlmf, num_experiments=30, **params)
 
