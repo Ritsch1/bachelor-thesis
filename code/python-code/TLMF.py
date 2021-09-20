@@ -158,6 +158,28 @@ class TLMF():
        
         return error
 
+    def calculate_mode_values(self, n:int=2) -> tuple:
+      """
+      Calculates two dictionaries.
+      The first dictionary contains an argument index as key and the indices
+      of the n most similar arguments as a torch.tensor as value.
+      The second dictionary contains an argument index as key and the modal
+      value of this argument as a value.  
+      
+      Params:
+        n (int, optional): The number of similar arguments to consider.
+
+      Returns:
+        A tuple of two dictionaries, where the first dictionary is at index 0
+        and the second dictionary is at index 1.
+      """
+      # First dictionary
+      sim_args_dict = {arg_idx: torch.topk(self.wtmf.similarity_matrix[arg_idx], n, dim=0, sorted=False)[1] for arg_idx in self.wtmf.similarity_matrix.shape[1]}
+      # Second dictionary
+      args_mode_dict = {arg_idx: torch.mode(self.trimmed_rating_matrix[:,arg_idx])[0] for arg_idx in sim_args_dict.keys()}
+
+      return (sim_args_dict, args_mode_dict)
+    
     def evaluate(self) -> float:
         """
         Returns:
@@ -298,8 +320,5 @@ params = {"d":np.array([12, 13, 14, 15, 16, 17]),
           "r":np.array([0.01, 0.001, 0.005, 0.008, 0.0001, 0.00001]), 
           "lambda_":np.array([0.1, 0.01, 0.02, 0.001, 0.005, 0.008, 0.0001, 0.00001])
           }
-results = random_search(tlmf, num_experiments=10, **params)
-
-
-results
+results = random_search(tlmf, num_experiments=1, **params)
 
