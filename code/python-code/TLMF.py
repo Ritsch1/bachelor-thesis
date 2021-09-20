@@ -36,7 +36,7 @@ class TLMF():
         assert(mode == "Conviction" or mode == "Weight"), f"Unkown task - description {mode} was passed."
         self.mode_ = mode
 
-    def train(self, d:int=20, training_iterations:int=50, random_seed:int=1, print_frequency:int=1, r:float=0.05, lambda_:float=0.01, alpha:float=0.2, n:int=10, mode="Conviction") -> [float]:
+    def train(self, d:int=20, training_iterations:int=50, random_seed:int=1, print_frequency:int=1, r:float=0.05, lambda_:float=0.01, alpha:float=0.2, n:int=10) -> [float]:
         """
         Use stochastic gradient descent to find the two optimal latent factor matrices U (Users), I (Items) 
         that minimizes the difference between the predicted values of the dot product of user-vectors and item-vectors compared to the known ratings in the user-item matrix.
@@ -54,12 +54,12 @@ class TLMF():
         Returns:
             [float]: A list containing the error values for every iteration.
         """
-        if mode=="Conviction":
+        if self.mode_=="Conviction":
             # Select all conviction columns with values in the range [0,1]
             # Get all relevant column-indices
             idxs = torch.arange(1, self.rmh.final_rating_matrix.shape[1], 2)
             trimmed_rating_matrix = torch.index_select(self.rmh.final_rating_matrix, 1, idxs)
-        elif mode=="Weight":
+        elif self.mode_=="Weight":
             # Select all weight columns with values in the range [0,6]
             # Get all relevant column-indices
             idxs = torch.arange(0, self.rmh.final_rating_matrix.shape[1], 2)           
@@ -112,7 +112,7 @@ class TLMF():
                 old_user_vector = self.U[user]
 
                 # Update the user-vector
-                self.U[user] = torch.add(self.U[user], torch.mul((torch.sub((torch.mul(self.I[arg], difference) - torch.mul(self.U[user], r)))), lambda_))
+                self.U[user] = torch.add(self.U[user], torch.mul((torch.sub(torch.mul(self.I[arg], difference), torch.mul(self.U[user], r))), lambda_))
                                         
                 ########
                 # Calculate the similarity sum components to update the item latent vector (equation 16)
@@ -133,15 +133,22 @@ class TLMF():
                     most_sim_args_of_neighbors.append(torch.topk(self.wtmf.similarity_matrix[sim_arg], n, dim=0, sorted=False)[1])
                     
                 for neighbor in most_sim_indices:
-                    for neighbor_of_neighbor in most_sim_args_of_neighbors:
-                        sim_sum2 = torch.add(sim_sum2, torch.matmul(self.I[neighbor_of_neighbor], self.wtmf.similarity_matrix[neighbor][neighbor_of_neighbor]))
-                    sim_sum2 = torch.sub(self.I[neighbor], sim_sum2)
-                    sim_sum2 = torch.mul(sim_sum2, self.wtmf.similarity_matrix[neighbor][arg])
-                
+                    for idxs in most_sim_args_of_neighbors:
+                        for neighbor_of_neighbor in idxs:
+                            #set_trace()
+                            sim_sum2 = torch.add(sim_sum2, torch.mul(self.I[neighbor_of_neighbor], self.wtmf.similarity_matrix[neighbor][neighbor_of_neighbor]))
+                        sim_sum2 = torch.sub(self.I[neighbor], sim_sum2)
+                        sim_sum2 = torch.mul(sim_sum2, self.wtmf.similarity_matrix[neighbor][arg])
+                    
                 sim_sum2 = torch.mul(sim_sum2, alpha)
                 sim_sum = torch.add(sim_sum, sim_sum2)
-                self.I[arg] = torch.add(self.I[arg], (torch.mul( torch.sub(torch.sub((torch.mul( self.U[user], difference) - torch.mul(self.I[arg], r))), sim_sum), lambda_)))
-                        
+                self.I[arg] = torch.add(self.I[arg], (torch.mul( torch.sub(torch.sub(torch.mul( self.U[user], difference), torch.mul(self.I[arg], r)), sim_sum), lambda_)))
+            try:
+                if error_cur > error[-1]:
+                    break
+            except:
+                pass
+                            
             error.append(error_cur)
             error_cur = 0.0
                  
@@ -237,11 +244,11 @@ class TLMF():
         plt.show()
 
 
-k=15
-training_iterations=10
+k=20
+training_iterations=20
 weight=0.05
-gamma=0.01
-random_seed=11
+gamma=0.001
+random_seed=8
 print_frequency=1
 get_ipython().run_line_magic('run', 'WTMF.ipynb')
 
@@ -282,16 +289,16 @@ def random_search(tlmf:TLMF, num_experiments:int=10, **param_values) -> dict:
 
 
 tlmf = TLMF(wtmf, rmh)
-params = {"d":np.array([15,20,25,30,22]),
-          "alpha":np.array([0.2, 0.1, 0.01, 0.05, 0.001]),
+params = {"d":np.array([12, 13, 14, 15, 16, 17]),
+          "alpha":np.array([0.00001, 0.001]),
           "n":np.array([1,2,3]),
-          "training_iterations":np.array([100]), 
-          "random_seed":np.arange(1,20,1), 
+          "training_iterations":np.array([10, 20, 50, 100]), 
+          "random_seed":np.array([8, 9, 11]), 
           "print_frequency":np.array([10]), 
-          "r":np.array([0.001, 0.005, 0.003, 0.007, 0.008]), 
-          "lambda_":np.array([0.01, 0.02, 0.001, 0.005, 0.007, 0.008])
+          "r":np.array([0.01, 0.001, 0.005, 0.008, 0.0001, 0.00001]), 
+          "lambda_":np.array([0.1, 0.01, 0.02, 0.001, 0.005, 0.008, 0.0001, 0.00001])
           }
-results = random_search(tlmf, num_experiments=50, **params)
+results = random_search(tlmf, num_experiments=10, **params)
 
 
 results
