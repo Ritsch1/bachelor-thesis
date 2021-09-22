@@ -8,6 +8,7 @@ import torch
 import pandas as pd
 import numpy as np
 import spacy
+import subprocess
 
 
 subprocess.run("jupyter nbconvert --output-dir='../python-code' --to python BERT.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True", shell=True)
@@ -55,4 +56,8 @@ class BERT():
             self.similarity_matrix =  torch.from_numpy(similarity_matrix).float().to(self.device)
         else:
             self.similarity_matrix = similarity_matrix
+
+
+bert = BERT(args)
+bert.calculate_similarity_matrix()
 
