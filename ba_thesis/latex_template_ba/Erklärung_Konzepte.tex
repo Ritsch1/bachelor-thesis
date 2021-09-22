@@ -19,7 +19,8 @@ Content-based recommender systems exploit the attributes of items to make their 
 This means that items are interpreted as similar if their attribute - values are similar. 
 In content - based recommender systems the item - similarity is combined with the historical user - data to produce recommendations.
 For this purpose a similarity - matrix \boldmath${A} \in \mathbf{R}^{nxn}$ (with $n$ being the number of items) is calculalated to find
-similar items. 
+similar items. The assumption that a content-based recommender system makes is that the ratings of one specific user strongly
+correlate for similar items.
 
 Collaborative filterting recommender systems expoits the similarity of users to make their recommendations. Only
 implicit or explicit feedback provided by the users is used in this case. The goal is to find clusters of similar users i.e.
