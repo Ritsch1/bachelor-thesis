@@ -7,6 +7,8 @@ import numpy as np
 from IPython.core.debugger import set_trace
 import torch
 import subprocess
+import warnings
+warnings.filterwarnings('ignore')
 
 
 # Export notebook as python script to the ../python-code folder
@@ -27,7 +29,6 @@ class Rating_Matrix_Handler():
         """
         self.train_rating_matrix = train_rating_matrix
         self.validation_rating_matrix = validation_rating_matrix
-        self.is_validation_set_available = self.validation_rating_matrix is not None 
         self.test_rating_matrix = test_rating_matrix
         self.validation_eval_indices = None
         self.test_eval_indices = None
@@ -35,7 +36,21 @@ class Rating_Matrix_Handler():
         machine = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.device = torch.device(machine)
         
-    def create_torch_rating_matrix(self, df:pd.DataFrame, mode:str="Test") -> None:
+    def create_test_user_mapping(self, train:pd.DataFrame, test:pd.DataFrame) -> dict:
+        """
+        Create a mapping of a test users name to his position in the train rating matrix.
+
+        Params:
+            train (pd.DataFrame): The train rating matrix.
+            test (pd.DataFrame): The test rating matrix.
+
+        Returns:
+            dict: Mapping of test user name to position index in the train rating matrix.
+        """
+        mapping = {user:int(np.argwhere((train["username"]==user).values)) for user in test["username"]}
+        return mapping
+        
+    def create_torch_rating_matrix(self) -> None:
         """
         Creates the final rating matrix as torch tensor that is to be trained on.
         
@@ -43,13 +58,7 @@ class Rating_Matrix_Handler():
             df (pd.DataFrame): Either the test or validation dataframe for which the evaluation indices are calculated.
             mode (str, optional): The mode for which the evaluation indices of the test or validation matrix are calculated. 
             It can either be "Test" or "Validation". Defaults to "Test".
-        """
-        
-        if mode=="Test":  
-            self.test_eval_indices = self.get_eval_indices(df)
-        elif mode=="Validation":
-            self.validation_eval_indices = self.get_eval_indices(df)
-            
+        """    
         self.final_rating_matrix = self.train_rating_matrix.copy() 
         self.final_rating_matrix_w_usernames = self.final_rating_matrix.copy()
         # Drop the username column as it is non-numeric and can't be converted to a tensor.
@@ -57,14 +66,13 @@ class Rating_Matrix_Handler():
         # Set the datatypes of the rating matrix to float16 to save memory and speed up computation while keeping the nan-values (not possible for integer datatype). 
         self.final_rating_matrix = torch.from_numpy(self.final_rating_matrix.values).to(torch.float16).to(self.device)
         
-    def get_eval_indices(self, df:pd.DataFrame, mode:str="Test") -> dict:
+    def get_eval_indices(self, df:pd.DataFrame, mode:str="test") -> None:
         """
-        Get all indices that are not NaN of the provided dataframe. These indices are later used to evaluate recommender systems on.
+        Get all indices that are not NaN of the provided dataframe. These indices are later used to evaluate the recommender systems on,
+        either during training on the validation set or during testing on the test dataset.
 
         Params:
             df (pd.DataFrame): Dataframe whose non-null indices have to be found.
-        Returns:
-            dict: A dictionary containg a tuple of (username, row_id) as key associated with a numpy-array containing all the indices of the non-na columns for that username.
         """        
         # Get all not-null indices from the dataframe
         mask_idxs = np.argwhere(~pd.isna(df.values))
@@ -81,12 +89,17 @@ class Rating_Matrix_Handler():
         username_ratings = {(df.loc[username]["username"], username):ratings for username, ratings in userid_ratings.items()}
         # Cast the set-values to numpy-arrays for later filtering the column-indices depending on the task
         username_ratings = {username:np.array(list(ratings)) for username,ratings in username_ratings.items()}
-
-        return username_ratings
+        if mode == "test":
+            self.test_eval_indices = username_ratings
+        else:
+            self.validation_eval_indices = username_ratings
 
 
 train = pd.read_csv(train_path)
 test = pd.read_csv(test_path)
-rmh = Rating_Matrix_Handler(train_rating_matrix=train, test_rating_matrix=test)
-rmh.create_torch_rating_matrix(test)
+validation = pd.read_csv(validation_path)
+rmh = Rating_Matrix_Handler(train_rating_matrix=train, test_rating_matrix=test, validation_rating_matrix=validation)
+rmh.create_torch_rating_matrix()
+rmh.get_eval_indices(test)
+rmh.get_eval_indices(validation, "validation")
 
