@@ -1,32 +1,12 @@
 {
     "hyperparameters" : {
         "WTMF" : {
-            "T1_T2": {
-                "Conviction": {
-                    "k": 20,
-                    "gamma": 0.01,
-                    "weight": 0.01,
-                    "training_iterations": 30,
-                    "random_seed": 8,
-                    "print_frequency": 1
-                },
-                "Weight": {
-                    
-                }
-            },
-            "T2_T3": {
-                "Conviction": {
-                    "k": 20,
-                    "gamma": 0.01,
-                    "weight": 0.01,
-                    "training_iterations": 30,
-                    "random_seed": 8,
-                    "print_frequency": 1
-                },
-                "Weight": {
-
-                }
-            }
+            "k": 20,    
+            "gamma": 0.01,
+            "weight": 0.01,
+            "training_iterations": 30,
+            "random_seed": 8,
+            "print_frequency": 1
         },
         "TLMF": {
             "T1_T2": {
@@ -40,7 +20,13 @@
                     "n": 74
                 },
                 "Weight": {
-
+                    "d": 20,
+                    "training_iterations": 201,
+                    "r": 0.1,
+                    "alpha": 0.0001,
+                    "random_seed": 262,
+                    "lambda_": 0.005,
+                    "n": 3
                 }
             },
             "T2_T3": {
@@ -67,10 +53,22 @@
         "AutoRec": {
             "T1_T2": {
                 "Conviction": {
-
+                    "input_dim": 672,
+                    "hidden_layer_dim": 6,
+                    "mask_value": -1,
+                    "learning_rate": 0.001,
+                    "epochs": 358,
+                    "task": "Conviction",
+                    "random_seed": 7
                 },
                 "Weight": {
-
+                    "input_dim": 672,
+                    "hidden_layer_dim": 200,
+                    "mask_value": -1,
+                    "learning_rate": 0.0001,
+                    "epochs": 200,
+                    "task": "Weight",
+                    "random_seed": 7
                 }
             },
             "T2_T3": {
