@@ -7,6 +7,12 @@ import torch
 import matplotlib.pyplot as plt
 import random
 import numpy as np
+import subprocess
+from IPython.core.debugger import set_trace
+
+
+# Export notebook as python script to the ../python-code folder
+subprocess.run("jupyter nbconvert --output-dir='../python-code' --to python AutoRec.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True", shell=True)
 
 
 class AutoRec(torch.nn.Module):
@@ -35,6 +41,7 @@ class AutoRec(torch.nn.Module):
         machine = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.device = torch.device(machine)
         
+        # Setting all configurable random seeds for reproducability
         self.random_seed = random_seed
         torch.manual_seed(self.random_seed)
         random.seed(self.random_seed)
@@ -48,7 +55,7 @@ class AutoRec(torch.nn.Module):
         self.input_dim = input_dim
         
         # Creating linear layers
-        self.inputLayer = torch.nn.Linear(input_dim, hidden_layer_dim, bias=True, device=self.device,)
+        self.inputLayer = torch.nn.Linear(input_dim, hidden_layer_dim, bias=True, device=self.device)
         # input dimension equals output dimensions in autoencoders
         self.outputLayer = torch.nn.Linear(hidden_layer_dim, input_dim, bias=True, device=self.device)
         
@@ -56,12 +63,14 @@ class AutoRec(torch.nn.Module):
         self.epochs = epochs 
         self.rmh = rmh
         self.task = task
-        
+       
+        # Prepare the rating matrix
         self.X = torch.nan_to_num(self.rmh.final_rating_matrix, nan=self.mask_value)
+        print(self.rmh.final_rating_matrix.shape[0])
         # Slice the rating matrix based on the task
         self.X = self.X[:,1::2].to(self.device) if self.task == "Conviction" else self.X[:,::2].to(self.device)
         self.X = self.X.type(torch.FloatTensor)
-        
+       
     def forward(self, x:torch.Tensor) -> torch.Tensor:
         """
         Calculate a reconstruction of the input tensor.
@@ -74,6 +83,7 @@ class AutoRec(torch.nn.Module):
         """
         sigmoid = torch.nn.Sigmoid()
         identity = torch.nn.Identity()
+        
         hidden_layer_result = sigmoid(self.inputLayer(x))
         x_reconstruction = self.outputLayer(hidden_layer_result)
         # Mask the gradient during training
@@ -98,6 +108,7 @@ class AutoRec(torch.nn.Module):
         error = 0.0
         errors = []
         optimizer = torch.optim.Adam(self.parameters(), self.learning_rate)
+        
         i = 0
         while i < self.epochs:
             i += 1
@@ -106,29 +117,36 @@ class AutoRec(torch.nn.Module):
                 
                 idx_non_masked_entries = torch.where(~(x == self.mask_value))[0]
                 num_non_masked_entries = len(idx_non_masked_entries)
-                loss = torch.div(torch.sum(torch.pow((x[idx_non_masked_entries] - x_reconstruction[idx_non_masked_entries]), 2)), num_non_masked_entries) 
-                error += loss
-                optimizer.zero_grad()
-                loss.backward()
-                optimizer.step()
-                # Unmask the masked gradients after backpropagation
-                torch.set_grad_enabled(True)
+                # If all entries of a column are null 
+                if num_non_masked_entries == 0:
+                    continue
+                else:
+                  loss = torch.div(torch.sum(torch.pow((x[idx_non_masked_entries] - x_reconstruction[idx_non_masked_entries]), 2)), num_non_masked_entries) 
+                  error += loss
+                  optimizer.zero_grad()
+                  loss.backward()
+                  optimizer.step()
+                  # Unmask the masked gradients after backpropagation
+                  torch.set_grad_enabled(True)
             
-            print(f"Validation error: {self.evaluate()}")
-            self.train = True
-            print(f"Iteration {i}/{self.epochs} - Error: {error:.2f}")
+            print(f"Training Error: {error:.2f}\tCurrent Iteration {i}/{self.epochs}")
             errors.append(float(error))
             error = 0.0
         return errors
-
+       
     def evaluate(self, mode:str="validation") -> float:
         """
         Evaluate the AutoRec - model.
-
+        
+        Params:
+            mode (str, optional): A string representing the dataset (validation, test) on which to evaluate on.
+        
         Returns:
-        float: A number that represents the test - error of the AutoRec-model on the test set. In the case of the
-        'Conviction' task it is the mean - accuracy error. In the case of the 'Weight' task it is the RMSE.
+            float: A number that represents the test - error of the AutoRec-model on the test set. In the case of the
+            'Conviction' task it is the mean - accuracy error. In the case of the 'Weight' task it is the RMSE.
         """
+        
+        trues, preds = [], []
         # Set model into evaluation mode
         self.eval = True
 
@@ -185,6 +203,8 @@ class AutoRec(torch.nn.Module):
                     true_value = int(trimmed_test_rating_matrix[username[1]][arg_idx])
                     # Get prediction for the row in which the test user is located in the training set
                     prediction = int(torch.round(self.forward(self.X[:,arg_idx])[test_user_mapping[username[0]]]))
+                    trues.append(true_value)
+                    preds.append(prediction)
                     # If the prediction is correct, increment the counter
                     if  true_value == prediction:
                         count_equality += 1
@@ -194,8 +214,8 @@ class AutoRec(torch.nn.Module):
                 count_equality = 0
             # Normalize the error by the number of users in the test-set
             mean_acc /= len(test_eval_indices_conviction)
-        
-            return mean_acc
+            print(f"Accuracy: {mean_acc:.3f}")
+            return np.array(trues), np.array(preds)
         
         else: 
             # Calculate the averaged root mean squared error for the Prediction of Weight (PoW) - task
@@ -206,8 +226,9 @@ class AutoRec(torch.nn.Module):
                 for arg_idx in test_samples:
                     # Look up the true value
                     true_value = trimmed_test_rating_matrix[username[1]][arg_idx]
-                    prediction = torch.round(self.forward(self.X[:,arg_idx])[test_user_mapping[username[0]]])
-                    print(true_value, prediction)
+                    prediction = torch.round((self.forward(self.X[:,arg_idx])[test_user_mapping[username[0]]]))
+                    trues.append(true_value)
+                    preds.append(prediction)
                     prediction_distance += float(torch.pow(true_value - prediction, 2))
                 # Normalize by the number of test samples for this user     
                 rmse_error += (prediction_distance / len(test_samples))
@@ -215,8 +236,9 @@ class AutoRec(torch.nn.Module):
                 prediction_distance = 0
             # Normalize the prediction_distance by the number of users in the test-set
             rmse_error /= len(test_eval_indices_weight)
+            print(f"RMSE: {rmse_error:.3f}")
             
-            return rmse_error
+            return np.array(trues), np.array(preds)
                     
     def plot_training_error(self, error:[float], **kwargs) -> None:
         """
@@ -234,14 +256,11 @@ class AutoRec(torch.nn.Module):
         plt.show()                           
 
 
-# Parameters for executing the Rating-Matrix-Handler notebook
-timepoint = "T1_T2"
-train_path = f"../../data/{timepoint}/train.csv"
-test_path  = f"../../data/{timepoint}/test.csv"
-validation_path = f"../../data/{timepoint}/validation.csv"
-get_ipython().run_line_magic('run', 'Rating_Matrix_Handler.ipynb')
-
-
-autorec = AutoRec(rmh.train_rating_matrix.shape[0], 100, -1, 0.0001, 20, rmh, task="Conviction", random_seed=7)
+autorec = AutoRec(**i_autorec_config)
 errors = autorec.train()
+autorec.plot_training_error(errors, title="AutoRec Objective function error", xlabel="Iterations", ylabel="Error")
+preds, trues = autorec.evaluate("test")
+
+get_ipython().run_line_magic('run', 'MetricHelper.ipynb')
+print(mh.compute_average_metrics())
 
