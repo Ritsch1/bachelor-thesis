@@ -7,6 +7,7 @@ import pandas as pd
 import subprocess
 import torch
 from IPython.core.debugger import set_trace
+import pickle
 
 
 # Export notebook as python script to the ../python-code folder
@@ -37,7 +38,11 @@ class MajorityVoter():
             num_cols = rating_matrix.shape[1]
             self.item_means = {i: np.nanmean(rating_matrix[:,i]) for i in range(num_cols)}
             
-    def evaluate(self) -> float:
+    def evaluate(self, *metrics:str) -> float:
+        
+        # Values for Metric Helper class
+        trues, preds = [],[]
+        task = self.task_
         
         if self.task_ == "Conviction":
             # Get odd-indexed arguments that correspond to conviction arguments in the range [0,1]        
@@ -58,12 +63,12 @@ class MajorityVoter():
                 username_str = username[0]
                 # The row-index in the test set of that user
                 user_idx_test = username[1]
-                # Get the row-index for the user in the latent user-vector
-                user_idx_pred = self.rmh_.final_rating_matrix_w_usernames[self.rmh_.final_rating_matrix_w_usernames["username"]==username_str].index[0]
                 for arg_idx in test_samples:
                     # Look up the true value
                     true_value = trimmed_test_rating_matrix[user_idx_test][arg_idx]
                     prediction = round(self.item_means[arg_idx])
+                    trues.append(true_value)
+                    preds.append(prediction)
                     # If the prediction is correct, increment the counter
                     if  true_value == prediction:
                         count_equality += 1
@@ -73,9 +78,12 @@ class MajorityVoter():
                 count_equality = 0
             # Normalize the error by the number of users in the test-set
             mean_acc /= len(test_eval_indices_copy)
-        
-            return mean_acc
-        
+            print(f"Accuracy: {mean_acc:.3f}")
+
+            trues = np.array(trues)
+            preds = np.array(preds)
+            return trues, preds
+            
         else:
             #Get even-indexed arguments that correspond to weight arguments in the range [0,6]  
             test_eval_indices_copy = {user:items[items % 2 == 0] for user,items in self.rmh_.test_eval_indices.items()}
@@ -95,12 +103,12 @@ class MajorityVoter():
                 username_str = username[0]
                 # The row-index in the test set of that user
                 user_idx_test = username[1]
-                # Get the row-index for the user in the latent user-vector
-                user_idx_pred = self.rmh_.final_rating_matrix_w_usernames[self.rmh_.final_rating_matrix_w_usernames["username"]==username_str].index[0]
                 for arg_idx in test_samples:
                     # Look up the true value
                     true_value = trimmed_test_rating_matrix[user_idx_test][arg_idx]
                     prediction = round(self.item_means[arg_idx])
+                    trues.append(int(true_value))
+                    preds.append(prediction)
                     prediction_distance += (true_value - prediction)**2
                 # Normalize by the number of test samples for this user     
                 rmse_error += (prediction_distance / len(test_samples))
@@ -108,20 +116,18 @@ class MajorityVoter():
                 prediction_distance = 0
             # Normalize the prediction_distance by the number of users in the test-set
             rmse_error /= len(test_eval_indices_copy)
-            
-            return rmse_error
+            print(f"RMSE: {rmse_error:.3f}")
+            trues = np.array(trues)
+            preds = np.array(preds)
+            return trues,preds
         
 
 
-# Parameters for executing the Rating-Matrix-Handler notebook
-timepoint = "T1_T2"
-train_path = f"../../data/{timepoint}/train.csv"
-test_path  = f"../../data/{timepoint}/test.csv"
-validation_path = f"../../data/{timepoint}/validation.csv"
-get_ipython().run_line_magic('run', 'Rating_Matrix_Handler.ipynb')
-
-
-mv = MajorityVoter(rmh, task="Weight")
+mv = MajorityVoter(rmh, task)
 mv.calculate_predictions()
-mv.evaluate()
+trues, preds = mv.evaluate()
+
+
+get_ipython().run_line_magic('run', 'MetricHelper.ipynb')
+print(mh.compute_average_metrics())
 
