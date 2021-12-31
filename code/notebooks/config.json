@@ -53,7 +53,7 @@
         "AutoRec": {
             "T1_T2": {
                 "Conviction": {
-                    "input_dim": 672,
+                    "input_dim": 674,
                     "hidden_layer_dim": 6,
                     "mask_value": -1,
                     "learning_rate": 0.001,
@@ -62,7 +62,7 @@
                     "random_seed": 7
                 },
                 "Weight": {
-                    "input_dim": 672,
+                    "input_dim": 674,
                     "hidden_layer_dim": 200,
                     "mask_value": -1,
                     "learning_rate": 0.0001,
@@ -91,6 +91,32 @@
                     "random_seed": 7
                 }
             }
+        },
+        "User_Neighborhood": {
+            "T1_T2": {
+                "Conviction": {
+                    "k": 36,
+                    "similarity_threshold":0.87,
+                    "threshold_decrease_rate":1.0
+                },
+                "Weight": {
+                    "k": 12,
+                    "similarity_threshold": 0.4,
+                    "threshold_decrease_rate":1.0
+                }
+            },
+            "T2_T3": {
+                "Conviction": {
+                    "k":1,
+                    "similarity_threshold":0.7,
+                    "threshold_decrease_rate":1.0
+                },
+                "Weight": {
+                    "k":38,
+                    "similarity_threshold":0.63,
+                    "threshold_decrease_rate":1.0
+                }
+            }  
         }
     }
 }
