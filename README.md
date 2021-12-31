@@ -18,9 +18,9 @@ an argument is to a specific user.
 Three tasks that use the known user-argument interaction data were presented to predict ratings of arguments 
 by users that were collected at later points in time:
 
-    * Predicting the users' conviction by an argument (binary classification)
-    * Predicting the strength of the conviction for an argument (multiclass classification in the range [0,6])
-    * Predicting three convincing statements for a specific user
+* Predicting the users' conviction by an argument (binary classification)
+* Predicting the strength of the conviction for an argument (multiclass classification in the range [0,6])
+* Predicting three convincing statements for a specific user
 
 In this thesis I will focus on the first two tasks.
 In order to obtain reference performances for such an algorithm, two baseline algorithms
