@@ -117,6 +117,44 @@
                     "threshold_decrease_rate":1.0
                 }
             }  
-        }
+        },
+        "NN_Baseline": {
+            "T1_T2": {
+                "Conviction" : {
+                    "data_parameters" : ["conviction", "deliberate", "../../data/arguments.csv", "../../data/T1_T2/train.csv", "../../data/T1_T2/test.csv", 324, 399],
+                    "model_parameters": {
+                        "top_n" : [20],
+                        "alpha": [0.5],
+                        "max_depth": [2]
+                    }
+                },
+                "Weight": {
+                    "data_parameters" : ["strength", "deliberate", "../../data/arguments.csv", "../../data/T1_T2/train.csv", "../../data/T1_T2/test.csv", 324, 399],
+                    "model_parameters": {
+                        "top_n": [100],
+                        "alpha": [0.5],
+                        "max_depth": [1]
+                    }
+                }
+            },
+            "T2_T3": {
+                "Conviction" : {
+                    "data_parameters" : ["conviction", "deliberate", "../../data/arguments.csv", "../../data/T1_T2/train.csv", "../../data/T1_T2/test.csv", 324, 399],
+                    "model_parameters" : {
+                        "top_n" : [20],
+                        "alpha": [0.5],
+                        "max_depth": [2]
+                    }
+                },
+                "Weight": {
+                    "data_parameters" : ["strength", "deliberate", "../../data/arguments.csv", "../../data/T2_T3/train.csv", "../../data/T2_T3/test.csv", 324, 399],
+                    "model_parameters" : {
+                        "top_n": [100],
+                        "alpha": [0.5],
+                        "max_depth": [1]
+                    }
+                }   
+            }
+        }   
     }
 }
