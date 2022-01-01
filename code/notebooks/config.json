@@ -121,7 +121,15 @@
         "NN_Baseline": {
             "T1_T2": {
                 "Conviction" : {
-                    "data_parameters" : ["conviction", "deliberate", "../../data/arguments.csv", "../../data/T1_T2/train.csv", "../../data/T1_T2/test.csv", 324, 399],
+                    "data_parameters" : {
+                        "task":"conviction",
+                        "algorithm":"deliberate",
+                        "arguments_filename":"../../data/arguments.csv",
+                        "training_profiles_filename":"../../data/T1_T2/train.csv",
+                        "test_profiles_filename":"../../data/T1_T2/test.csv",
+                        "target_id_start":324,
+                        "target_id_end":399
+                    },
                     "model_parameters": {
                         "top_n" : [20],
                         "alpha": [0.5],
@@ -129,7 +137,15 @@
                     }
                 },
                 "Weight": {
-                    "data_parameters" : ["strength", "deliberate", "../../data/arguments.csv", "../../data/T1_T2/train.csv", "../../data/T1_T2/test.csv", 324, 399],
+                    "data_parameters" : {
+                        "task":"strength",
+                        "algorithm":"deliberate",
+                        "arguments_filename":"../../data/arguments.csv",
+                        "training_profiles_filename":"../../data/T1_T2/train.csv",
+                        "test_profiles_filename":"../../data/T1_T2/test.csv",
+                        "target_id_start":324,
+                        "target_id_end":399
+                    },
                     "model_parameters": {
                         "top_n": [100],
                         "alpha": [0.5],
@@ -139,7 +155,15 @@
             },
             "T2_T3": {
                 "Conviction" : {
-                    "data_parameters" : ["conviction", "deliberate", "../../data/arguments.csv", "../../data/T1_T2/train.csv", "../../data/T1_T2/test.csv", 324, 399],
+                    "data_parameters" : {
+                        "task":"conviction",
+                        "algorithm":"deliberate",
+                        "arguments_filename":"../../data/arguments.csv",
+                        "training_profiles_filename":"../../data/T2_T3/train.csv",
+                        "test_profiles_filename":"../../data/T2_T3/test.csv",
+                        "target_id_start":324,
+                        "target_id_end":399
+                    },
                     "model_parameters" : {
                         "top_n" : [20],
                         "alpha": [0.5],
@@ -147,7 +171,15 @@
                     }
                 },
                 "Weight": {
-                    "data_parameters" : ["strength", "deliberate", "../../data/arguments.csv", "../../data/T2_T3/train.csv", "../../data/T2_T3/test.csv", 324, 399],
+                    "data_parameters" : {
+                        "task":"strength",
+                        "algorithm":"deliberate",
+                        "arguments_filename":"../../data/arguments.csv",
+                        "training_profiles_filename":"../../data/T2_T3/train.csv",
+                        "test_profiles_filename":"../../data/T2_T3/test.csv",
+                        "target_id_start":324,
+                        "target_id_end":399
+                    },
                     "model_parameters" : {
                         "top_n": [100],
                         "alpha": [0.5],
