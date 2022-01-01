@@ -131,9 +131,9 @@
                         "target_id_end":399
                     },
                     "model_parameters": {
-                        "top_n" : [20],
-                        "alpha": [0.5],
-                        "max_depth": [2]
+                        "top_n" : 20,
+                        "alpha": 0.5,
+                        "max_depth": 2
                     }
                 },
                 "Weight": {
@@ -147,9 +147,9 @@
                         "target_id_end":399
                     },
                     "model_parameters": {
-                        "top_n": [100],
-                        "alpha": [0.5],
-                        "max_depth": [1]
+                        "top_n": 100,
+                        "alpha": 0.5,
+                        "max_depth": 1
                     }
                 }
             },
@@ -165,9 +165,9 @@
                         "target_id_end":399
                     },
                     "model_parameters" : {
-                        "top_n" : [20],
-                        "alpha": [0.5],
-                        "max_depth": [2]
+                        "top_n" : 20,
+                        "alpha": 0.5,
+                        "max_depth": 2
                     }
                 },
                 "Weight": {
@@ -181,9 +181,9 @@
                         "target_id_end":399
                     },
                     "model_parameters" : {
-                        "top_n": [100],
-                        "alpha": [0.5],
-                        "max_depth": [1]
+                        "top_n": 100,
+                        "alpha": 0.5,
+                        "max_depth": 1
                     }
                 }   
             }
