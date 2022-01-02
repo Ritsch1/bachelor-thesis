@@ -18,16 +18,16 @@ class TLMF():
     A class that represents the Two-Level-Matrix-Factorization (TLMF).
     """
     
-    def __init__(self, wtmf, rmh, mode:str="Conviction"):
+    def __init__(self, arg_similarity_matrix:torch.tensor, rmh, mode:str="Conviction"):
         """
         Params:
-            wtmf (WTMF): A wtmf (Weighted Text Matrix Factorization) - object. This object represents the first level of the TLMF. It contains the argument similarity matrix which is used in TLMF.
+            arg_similarity_matrix (torch.tensor): The argument similarity matrix which is used in TLMF.
             rmh (Rating_Matrix_Handler): A Rating_Matrix_Handler object that contains the final rating matrix that consists of the training data - entires as well as the masked test data - entries and which
             is used for optimizing the TLMF on. It also contains the indices of the original test-set in order to perform evaluation.
             mode (str, optional): The task on which the tlmf-model is trained. Depending on the task it is trained on other subsets of data. Can take values ['Conviction','Weight']
             Defaults to 'Conviction'.
         """
-        self.wtmf = wtmf
+        self.arg_similarity_matrix = arg_similarity_matrix
         self.rmh = rmh
         # Initialize GPU for computation if available            
         machine = "cuda:0" if torch.cuda.is_available() else "cpu"
@@ -58,19 +58,19 @@ class TLMF():
             # Select all conviction columns with values in the range [0,1]
             # Get all relevant column-indices
             idxs = torch.arange(1, self.rmh.final_rating_matrix.shape[1], 2)
-            trimmed_rating_matrix = torch.index_select(self.rmh.final_rating_matrix, 1, idxs)
+            self.trimmed_rating_matrix = torch.index_select(self.rmh.final_rating_matrix, 1, idxs)
         elif self.mode_=="Weight":
             # Select all weight columns with values in the range [0,6]
             # Get all relevant column-indices
             idxs = torch.arange(0, self.rmh.final_rating_matrix.shape[1], 2)           
-            trimmed_rating_matrix = torch.index_select(self.rmh.final_rating_matrix, 1, idxs)
+            self.trimmed_rating_matrix = torch.index_select(self.rmh.final_rating_matrix, 1, idxs)
         
         # Set random seed for reproducability
         torch.manual_seed(random_seed)
         
         # Randomly initialize the latent factor matrices U(ser) and I(tems)
-        self.U = torch.rand([trimmed_rating_matrix.shape[0], d]).to(self.device)
-        self.I = torch.rand([trimmed_rating_matrix.shape[1], d]).to(self.device)
+        self.U = torch.rand([self.trimmed_rating_matrix.shape[0], d]).to(self.device)
+        self.I = torch.rand([self.trimmed_rating_matrix.shape[1], d]).to(self.device)
         
         # Error - variable: keep track of each error in every iteration for later visualization 
         error = []
@@ -78,32 +78,32 @@ class TLMF():
         frobenius_norm = torch.linalg.matrix_norm
 
         # Get non-na indices of rating - matrix to train TLMF on
-        training_indices = (~torch.isnan(trimmed_rating_matrix)).nonzero().to(torch.int).to(self.device)
-        sample_counter = 0
+        training_indices = (~torch.isnan(self.trimmed_rating_matrix)).nonzero().to(torch.int).to(self.device)
+        
         for iteration in range(training_iterations):
+            
             for idx in training_indices:
-                sample_counter +=1
                 # Get the index of the current user within the training matrix
                 user = idx[0]
                 # Get the index of the current argument within the training matrix
                 arg = idx[1]
                 # Get the column- indices of the n items that are most similar to the current item in the argument similarity matrix
-                most_sim_indices = torch.topk(self.wtmf.similarity_matrix[arg], n, dim=0, sorted=False)[1]
+                most_sim_indices = torch.topk(self.arg_similarity_matrix[arg], n, dim=0, sorted=False)[1]
                 
                 ######## 
                 # Calculate the sum of similarities over the n most similar args
                 ########
                 sim_sum_scaled = torch.zeros(self.I[arg].shape)
                     
-                for arg_neighbor_index, sim_value in enumerate(most_sim_indices):
-                    sim_sum_scaled = torch.add(sim_sum_scaled, torch.mul(self.I[arg_neighbor_index], self.wtmf.similarity_matrix[arg][arg_neighbor_index]))
+                for arg_neighbor_index in range(len(self.arg_similarity_matrix)):
+                    sim_sum_scaled = torch.add(sim_sum_scaled, torch.mul(self.I[arg_neighbor_index], self.arg_similarity_matrix[arg][arg_neighbor_index]))
                     
                 sim_sum_scaled = torch.sub(self.I[arg], sim_sum_scaled)
                 sim_sum_scaled = torch.matmul(sim_sum_scaled, sim_sum_scaled.T)
                 sim_sum_scaled = torch.mul(sim_sum_scaled, alpha)
                     
                 prediction = self.U[user].matmul(self.I.T[:,arg])
-                true_value = trimmed_rating_matrix[user][arg]
+                true_value = self.trimmed_rating_matrix[user][arg]
                 
                 difference = true_value - prediction
                 error_cur += torch.pow(difference,2) + (r/2 * (frobenius_norm(self.U) + frobenius_norm(self.I))) + sim_sum_scaled
@@ -120,35 +120,14 @@ class TLMF():
                 # First component
                 sim_sum = torch.zeros(self.I[arg].shape)
                 for arg_neighbor_idx in most_sim_indices:
-                   sim_sum = torch.add(sim_sum, torch.mul(self.I[arg_neighbor_idx], self.wtmf.similarity_matrix[arg][arg_neighbor_idx])) 
+                   sim_sum = torch.add(sim_sum, torch.mul(self.I[arg_neighbor_idx], self.arg_similarity_matrix[arg][arg_neighbor_idx])) 
                 sim_sum = torch.sub(self.I[arg], sim_sum)
                 sim_sum = torch.mul(sim_sum, alpha)
                 
-                # Second component
-                sim_sum2 = torch.zeros(self.I[arg].shape)
-                # Calculate the most similar arg-indices to the neighbor args
-                # Create a list to hold a tuple of (neighour_arg_idx, list_of_similar_args_to_neighbor) of the args for every neighbor arg
-                most_sim_args_of_neighbors = [] 
-                for idx, sim_arg in enumerate(most_sim_indices):
-                    most_sim_args_of_neighbors.append(torch.topk(self.wtmf.similarity_matrix[sim_arg], n, dim=0, sorted=False)[1])
-                    
-                for neighbor in most_sim_indices:
-                    for idxs in most_sim_args_of_neighbors:
-                        for neighbor_of_neighbor in idxs:
-                            #set_trace()
-                            sim_sum2 = torch.add(sim_sum2, torch.mul(self.I[neighbor_of_neighbor], self.wtmf.similarity_matrix[neighbor][neighbor_of_neighbor]))
-                        sim_sum2 = torch.sub(self.I[neighbor], sim_sum2)
-                        sim_sum2 = torch.mul(sim_sum2, self.wtmf.similarity_matrix[neighbor][arg])
-                    
-                sim_sum2 = torch.mul(sim_sum2, alpha)
-                sim_sum = torch.add(sim_sum, sim_sum2)
+                # Update the item - vector
                 self.I[arg] = torch.add(self.I[arg], (torch.mul( torch.sub(torch.sub(torch.mul( self.U[user], difference), torch.mul(self.I[arg], r)), sim_sum), lambda_)))
-            try:
-                if error_cur > error[-1]:
-                    break
-            except:
-                pass
-                            
+            
+                                      
             error.append(error_cur)
             error_cur = 0.0
                  
@@ -158,50 +137,29 @@ class TLMF():
        
         return error
 
-    def calculate_mode_values(self, n:int=2) -> tuple:
-      """
-      Calculates two dictionaries.
-      The first dictionary contains an argument index as key and the indices
-      of the n most similar arguments as a torch.tensor as value.
-      The second dictionary contains an argument index as key and the modal
-      value of this argument as a value.  
-      
-      Params:
-        n (int, optional): The number of similar arguments to consider.
-
-      Returns:
-        A tuple of two dictionaries, where the first dictionary is at index 0
-        and the second dictionary is at index 1.
-      """
-      # First dictionary
-      sim_args_dict = {arg_idx: torch.topk(self.wtmf.similarity_matrix[arg_idx], n, dim=0, sorted=False)[1] for arg_idx in self.wtmf.similarity_matrix.shape[1]}
-      # Second dictionary
-      args_mode_dict = {arg_idx: torch.mode(self.trimmed_rating_matrix[:,arg_idx])[0] for arg_idx in sim_args_dict.keys()}
-
-      return (sim_args_dict, args_mode_dict)
-    
     def evaluate(self) -> float:
         """
         Returns:
-            float: A float that represents the error of the TLMF-model on the test set. 
+            float: A number that represents the error of the TLMF-model on the test set. In the case of the
+            'Conviction' task it is the mean - accuracy error. In the case of the 'Weight' task it is the RMSE. 
         """
-        
+        trues, preds = [], []
         # Filter the evaluation indices based on the task
         if self.mode_ == "Conviction":
             #Get odd-indexed arguments that correspond to conviction arguments in the range [0,1]        
-            self.rmh.test_eval_indices = {user:items[items % 2 == 1] for user,items in self.rmh.test_eval_indices.items()}
+            test_eval_indices_copy = {user:items[items % 2 == 1] for user,items in self.rmh.test_eval_indices.items()}
             # To match the indices of the training, integer divide all odd indices by 2 to map them to the correct index
-            for key, value in self.rmh.test_eval_indices.items():
-                self.rmh.test_eval_indices[key] = value // 2 
+            for key, value in test_eval_indices_copy.items():
+                test_eval_indices_copy[key] = value // 2 
             # Get rid of the username column in the test-rating -matrix for converting only numerical values into a pytorch tensor
             test_rating_matrix_copy = self.rmh.test_rating_matrix.drop(["username"], axis=1)
             # Trim the original test_rating_matrix to the conviction columns only
             trimmed_test_rating_matrix = torch.index_select(torch.from_numpy(test_rating_matrix_copy.values).to(torch.float16), 1, torch.arange(1, test_rating_matrix_copy.shape[1], 2))
             # Calculate the mean-accuracy for the Prediction of Conviction (PoC) - task 
             mean_acc = 0.0
-            # Variable for counting the correct 0/1 prediction
+            # Variable for counting the correct predictions
             count_equality = 0
-            for username, test_samples in self.rmh.test_eval_indices.items():
+            for username, test_samples in test_eval_indices_copy.items():
                 # The actual username of the user
                 username_str = username[0]
                 # The row-index in the test set of that user
@@ -209,9 +167,12 @@ class TLMF():
                 # Get the row-index for the user in the latent user-vector
                 user_idx_pred = self.rmh.final_rating_matrix_w_usernames[self.rmh.final_rating_matrix_w_usernames["username"]==username_str].index[0]
                 for arg_idx in test_samples:
-                    # If the prediction is correct, increment the counter
+                    # Look up the true value
                     true_value = trimmed_test_rating_matrix[user_idx_test][arg_idx]
                     prediction = torch.round(self.U[user_idx_pred].matmul(self.I[arg_idx].T))
+                    trues.append(true_value)
+                    preds.append(prediction)
+                    # If the prediction is correct, increment the counter
                     if  true_value == prediction:
                         count_equality += 1
                 # Normalize by the number of test samples for this user
@@ -219,15 +180,17 @@ class TLMF():
                 # Set the count equality to 0 for the next user
                 count_equality = 0
             # Normalize the error by the number of users in the test-set
-            mean_acc /= len(self.rmh.test_eval_indices)
-        
-            return mean_acc
+            mean_acc /= len(test_eval_indices_copy)
+            print(f"Accuracy: {mean_acc:.3f}")
+            
+            return np.array(preds), np.array(trues)
         
         elif self.mode_=="Weight":
-            self.rmh.test_eval_indices = {user:items[items % 2 == 0] for user,items in self.rmh.test_eval_indices.items()}
+            #Get even-indexed arguments that correspond to weight arguments in the range [0,6]  
+            test_eval_indices_copy = {user:items[items % 2 == 0] for user,items in self.rmh.test_eval_indices.items()}
             # To match the indices of the training, integer divide all odd indices by 2 to map them to the correct index
-            for key, value in self.rmh.test_eval_indices.items():
-                self.rmh.test_eval_indices[key] = value // 2
+            for key, value in test_eval_indices_copy.items():
+                test_eval_indices_copy[key] = value // 2
             # Get rid of the username column in the test-rating -matrix for proper indexing
             test_rating_matrix_copy = self.rmh.test_rating_matrix.drop(["username"], axis=1) 
             # Trim the original test_rating_matrix to the weight columns only
@@ -236,89 +199,38 @@ class TLMF():
             rmse_error = 0.0
             # Variable for measuring the distance of the true value and the prediction
             prediction_distance = 0.0
-            for username, test_samples  in self.rmh.test_eval_indices.items():
-                user_idx = username[1]
+            for username, test_samples in test_eval_indices_copy.items():
+                # The actual username of the user
+                username_str = username[0]
+                # The row-index in the test set of that user
+                user_idx_test = username[1]
+                # Get the row-index for the user in the latent user-vector
+                user_idx_pred = self.rmh.final_rating_matrix_w_usernames[self.rmh.final_rating_matrix_w_usernames["username"]==username_str].index[0]
                 for arg_idx in test_samples:
-                    # If the prediction is correct, increment the counter
-                    prediction_distance += (trimmed_test_rating_matrix[user_idx][arg_idx] - torch.round(self.U[user_idx].matmul(self.I[arg_idx].T)))**2 
-                    # Normalize by the number of test samples for this user
-                rmse_error += prediction_distance / len(test_samples)
+                    # Look up the true value
+                    true_value = trimmed_test_rating_matrix[user_idx_test][arg_idx]
+                    prediction = torch.round(self.U[user_idx_pred].matmul(self.I[arg_idx].T))
+                    trues.append(true_value)
+                    preds.append(prediction)
+                    prediction_distance += (true_value - prediction)**2
+                # Normalize by the number of test samples for this user     
+                rmse_error += (prediction_distance / len(test_samples))
                 # Set the prediction distance to 0 for the next user
                 prediction_distance = 0
             # Normalize the prediction_distance by the number of users in the test-set
-            rmse_error /= len(self.rmh.test_eval_indices)
+            rmse_error /= len(test_eval_indices_copy)
+            print(f"RMSE: {rmse_error:.3f}")
             
-            return rmse_error
-        
-    def plot_training_error(self, error:[float], **kwargs) -> None:
-        """
-        Plots the training error for every training iteration.
-        
-        Params:
-            error (list): A list of error - values that correspond to each training iteration of the TLMF - algorithm.    
-            **kwargs: Arbitrary many keyword arguments to customize the plot. E.g. color, linewidth or title.
-        """ 
-        plt.plot([i for i in range(1, len(error)+1)], error)
-        for k in kwargs.keys():
-            # Invoke the function k of the plt - module to customize the plot
-            getattr(plt, k) (kwargs[k])
-        
-        plt.show()
+            return np.array(trues), np.array(preds)
 
 
-k=20
-training_iterations=20
-weight=0.05
-gamma=0.001
-random_seed=8
-print_frequency=1
-get_ipython().run_line_magic('run', 'WTMF.ipynb')
-
-
-# Parameters for executing the Rating-Matrix-Handler notebook
-train_path = f"C:/Users/Rico/Desktop/bachelor-thesis/data/T1_T2/train.csv"
-test_path  = f"C:/Users/Rico/Desktop/bachelor-thesis/data/T1_T2/test.csv"
-get_ipython().run_line_magic('run', 'Rating_Matrix_Handler.ipynb')
-
-
-def random_search(tlmf:TLMF, num_experiments:int=10, **param_values) -> dict:
-    """
-    Perform a random search for the best parameter-values for the tlmf algorithm.
-    
-    Params:
-        tlmf (TLMF): A TLMF-object containing that is used to predict the unknown ratings.
-        num_experiments: The number of optimization experiments with random parameter values that should be carried out.
-        **param_values (kwargs): A dictionary of keys(parameter_name) and values (list of values to try out for that parameter).
-        
-    Returns: A list of tuples containing the prediction - score on index 0 and the parameter-values on index 1. 
-    """
-    # List containing tuples of (score, parameter-values) 
-    results = []
-    for i in range(num_experiments):
-        print(f"Experiment {i+1}:\n")
-        # Parameters for executing the Rating-Matrix-Handler notebook
-        train_path = f"C:/Users/Rico/Desktop/bachelor-thesis/data/T1_T2/train.csv"
-        test_path  = f"C:/Users/Rico/Desktop/bachelor-thesis/data/T1_T2/test.csv"
-        get_ipython().run_line_magic('run', 'Rating_Matrix_Handler.ipynb')
-        tlmf = TLMF(tlmf.wtmf, rmh)
-        # Set parameters to random values
-        execution_dict = {param:np.random.choice(values) for param, values in param_values.items()}
-        # Run training    
-        train_error = tlmf.train(**execution_dict)
-        test_result = tlmf.evaluate()
-        results.append((test_result, execution_dict))
-    return results
-
-
-tlmf = TLMF(wtmf, rmh)
-params = {"d":np.array([12, 13, 14, 15, 16, 17]),
-          "alpha":np.array([0.00001, 0.001]),
-          "n":np.array([1,2,3]),
-          "training_iterations":np.array([10, 20, 50, 100]), 
-          "random_seed":np.array([8, 9, 11]), 
-          "print_frequency":np.array([10]), 
-          "r":np.array([0.01, 0.001, 0.005, 0.008, 0.0001, 0.00001]), 
-          "lambda_":np.array([0.1, 0.01, 0.02, 0.001, 0.005, 0.008, 0.0001, 0.00001])
-          }
-results = random_search(tlmf, num_experiments=1, **params)
+# Running the WTMF algorithm
+tlmf = TLMF(similarity_matrix, rmh, task)
+results = tlmf.train(**tlmf_config)
+graphics.plot_training_error(error=results, title="TLMF Objective function error", xlabel="Iterations", ylabel="Error")
+# Evaluation with baseline metrics
+trues, preds = tlmf.evaluate()
+# Evaluation with proposed, averaged metrics
+get_ipython().run_line_magic('run', 'MetricHelper.ipynb')
+print(mh.compute_average_metrics())
 
