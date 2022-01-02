@@ -15,8 +15,17 @@ subprocess.run("jupyter nbconvert --output-dir='../python-code' --to python Metr
 
 
 class MetricHelper():
-    
+    """
+    Class that takes care of the calculation of different metrics.
+    """
     def __init__(self, trues:np.array, preds:np.array, task:str="Conviction", *metrics:str):
+        """
+        Params:
+            trues (np.array): True values
+            preds (np.array): predictions.
+            task (str, optional): The task for which the metrics per class need to be computed. Defaults to "Conviction".
+            *metrics: Metrics to compute. Can be one of the following: 'precision', 'recall', 'f1', 'gmean'.
+        """
         self.trues_ = trues
         self.preds_ = preds
         self.task_ = task
@@ -46,12 +55,6 @@ class MetricHelper():
     def compute_metrics_per_class(self) -> dict:
         """
         Compute the metrics Recall, Precision, F1-Score, G-Mean per class. 
-
-        Params:
-            trues (np.array): True values
-            preds (np.array): predictions.
-            task (str, optional): The task for which the metrics per class need to be computed. Defaults to "Conviction".
-            *metrics: Metrics to compute. Can be one of the following: 'precision', 'recall', 'f1', 'gmean'.
 
         Returns:
             dict: Dictionary containing a class label as key and a dictionary with the metric name as key and its value as value.
