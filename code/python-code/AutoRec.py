@@ -66,7 +66,6 @@ class AutoRec(torch.nn.Module):
        
         # Prepare the rating matrix
         self.X = torch.nan_to_num(self.rmh.final_rating_matrix, nan=self.mask_value)
-        print(self.rmh.final_rating_matrix.shape[0])
         # Slice the rating matrix based on the task
         self.X = self.X[:,1::2].to(self.device) if self.task == "Conviction" else self.X[:,::2].to(self.device)
         self.X = self.X.type(torch.FloatTensor)
@@ -203,8 +202,8 @@ class AutoRec(torch.nn.Module):
                     true_value = int(trimmed_test_rating_matrix[username[1]][arg_idx])
                     # Get prediction for the row in which the test user is located in the training set
                     prediction = int(torch.round(self.forward(self.X[:,arg_idx])[test_user_mapping[username[0]]]))
-                    trues.append(true_value)
-                    preds.append(prediction)
+                    trues.append(int(true_value))
+                    preds.append(int(prediction))
                     # If the prediction is correct, increment the counter
                     if  true_value == prediction:
                         count_equality += 1
@@ -227,8 +226,8 @@ class AutoRec(torch.nn.Module):
                     # Look up the true value
                     true_value = trimmed_test_rating_matrix[username[1]][arg_idx]
                     prediction = torch.round((self.forward(self.X[:,arg_idx])[test_user_mapping[username[0]]]))
-                    trues.append(true_value)
-                    preds.append(prediction)
+                    trues.append(int(true_value))
+                    preds.append(int(prediction))
                     prediction_distance += float(torch.pow(true_value - prediction, 2))
                 # Normalize by the number of test samples for this user     
                 rmse_error += (prediction_distance / len(test_samples))
@@ -239,27 +238,12 @@ class AutoRec(torch.nn.Module):
             print(f"RMSE: {rmse_error:.3f}")
             
             return np.array(trues), np.array(preds)
-                    
-    def plot_training_error(self, error:[float], **kwargs) -> None:
-        """
-        Plots the training error for every training iteration.
-        
-        Params:
-            error (list): A list of error - values that correspond to each training iteration of the AutoRec - model.    
-            **kwargs: Arbitrary many keyword arguments to customize the plot. E.g. color, linewidth or title.
-        """ 
-        plt.plot([i for i in range(1, len(error)+1)], error)
-        for k in kwargs.keys():
-            # Invoke the function k of the plt - module to customize the plot
-            getattr(plt, k) (kwargs[k])
-        
-        plt.show()                           
 
 
 autorec = AutoRec(**i_autorec_config)
-errors = autorec.train()
-autorec.plot_training_error(errors, title="AutoRec Objective function error", xlabel="Iterations", ylabel="Error")
-preds, trues = autorec.evaluate("test")
+results = autorec.train()
+graphics.plot_training_error(error=results, title="AutoRec Objective function error", xlabel="Iterations", ylabel="Error")
+trues, preds = autorec.evaluate("test")
 
 get_ipython().run_line_magic('run', 'MetricHelper.ipynb')
 print(mh.compute_average_metrics())
