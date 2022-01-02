@@ -141,26 +141,11 @@ class WTMF():
         self.similarity_matrix /= (max_value - min_value)
         # The diagonal will have the value zero, as the similarity of the argument with itself should not be taken into account as it will always be 1.
         self.similarity_matrix = self.similarity_matrix.fill_diagonal_(0).to(self.device)
-    
-    def plot_training_error(self, error:[float], **kwargs) -> None:
-        """
-        Plots the training error for every training iteration.
-        
-        Params:
-            error (list): A list of error - values that correspond to each training iteration of the WTMF - algorithm.    
-            **kwargs: Arbitrary many keyword arguments to customize the plot. E.g. color, linewidth or title.
-        """        
-        plt.plot([i for i in range(1, len(error)+1)], error)
-        for k in kwargs.keys():
-            # Invoke the function k of the plt - module to customize the plot
-            getattr(plt, k) (kwargs[k])
-        
-        plt.show()
 
 
 wtmf = WTMF(args)
 wtmf.create_tfidf_matrix()
-error = wtmf.train(k, gamma, weight, training_iterations, random_seed, print_frequency)
+results = wtmf.train(**wtmf_config)
 wtmf.compute_argument_similarity_matrix()
-wtmf.plot_training_error(error, title="WTMF Objective function error", xlabel="Iterations", ylabel="Error")
+graphics.plot_training_error(error=results, title="WTMF Objective function error", xlabel="Iterations", ylabel="Error")
 
