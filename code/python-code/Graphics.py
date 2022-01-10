@@ -11,7 +11,7 @@ from IPython.core.debugger import set_trace
 from math import log
 
 
-subprocess.run("jupyter nbcbonvert --output-dir='../python-code' --to python Graphics.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True", shell=True)
+subprocess.run("jupyter nbconvert --output-dir='../python-code' --to python Graphics.ipynb --TemplateExporter.exclude_markdown=True --TemplateExporter.exclude_input_prompt=True", shell=True)
 
 
 plt.style.available
@@ -114,7 +114,7 @@ class Graphics():
             plt.xlabel("Argument Index")
             plt.ylabel("Percentage of Ratings")
             plt.rcParams["font.size"] = 20
-            plt.savefig(fname=f"../../ba_thesis/images/{timepoint}_{mode}_{task}.jpg")
+            plt.savefig(fname=f"../../thesis_document/images/{timepoint}_{mode}_{task}.jpg")
             return plt.figure()
     
     @staticmethod
@@ -172,6 +172,9 @@ class Graphics():
                 getattr(plt, k) (kwargs[k])
             
             plt.show()
+
+
+graphics.create_plot(timepoint="T2_T3", is_task_conviction=False, global_distribution=False, task="Weight")
 
 
 
