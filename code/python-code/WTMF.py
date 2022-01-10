@@ -23,6 +23,9 @@ args = args[args.statement_id.isin(relevant_args)]
 args = list(zip(args["text_en"], args["statement_id"]))
 
 
+subprocess.run("python -m spacy download en_core_web_sm")
+
+
 class WTMF():
     """
     A class that represents the Weighted Textual Matrix Factorization.
