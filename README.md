@@ -1,28 +1,25 @@
 # Bachelor Thesis
 ## Classification Models for Argument Recommender Systems
 
-In the era of Big Data it becomes increasingly difficult to find information that is relevant to oneself. 
-Recommender systems are used to cope with this flood of information: 
-they do this by providing personalized subsets of information to the user. 
-Today, they are used in a wide variety of domains with great success. For instance, 80% of the
-streaming time on Netflix is influenced by the recommender system Netflix operates. 
+Argumentation is essential to forming opinions and making decisions. Considering as many arguments as possible that are relevant to oneself is crucial to be able to make a rational decision. An argument recommender system provides arguments about a topic that are relevant for a specific user. In order to do that, it needs to be able to predict the rating of that user for unseen arguments. Thus, argument recommender systems could be a useful tool for decision making. By presenting arguments that run counter to one's own convictions, the widespread problem of confirmation bias could be addressed. 
 
+In this bachelor thesis several recommender algorithms are implemented and evaluated on an argument rating data set provided by Heinrich Heine Universities' deliberate application. These algorithms are:
+* Two - level matrix factorization that utilizes linguistic information of arguments
+* Matrix factorization using linguistic similarity scores produced by the \acrfull{bert} model
+* Autoencoder neural network
+* Probabilistic Naive Bayes approach
+* User - neighborhood model
 
-Online-argumentation is a domain where the user's opinion is influenced strongly by the
-specific arguments he faces. Problems such as filter bubbles or arguments that
-are not relevant to a specific user can be mitigated by using a recommender system
-which provides suitable arguments to the user, depending on the objective of the recommender system.\\
-In the original paper, data from over 600 individuals on 900 arguments at different points in time was collected.
-The goal was to provide a dataset that can be used to evaluate algorithms that predict how persuasive 
-an argument is to a specific user.
-Three tasks that use the known user-argument interaction data were presented to predict ratings of arguments 
-by users that were collected at later points in time:
+The models are evaluated on two tasks:
+* Predicting a users' conviction by an argument (binary classification) - Prediction of Conviction (PoC)
+* Predicting the strength of the conviction for an argument (multiclass classification in the range [0,6]) - Prediction of Weight (PoW)
 
-* Predicting the users' conviction by an argument (binary classification)
-* Predicting the strength of the conviction for an argument (multiclass classification in the range [0,6])
-* Predicting three convincing statements for a specific user
+The goal is to improve upon the performance of two baseline recommender algorithms that are provided along with the dataset.
+The provided baseline metrics accuracy and rmse are discussed in terms of suitability for measuring performance of classification models on imbalanced data sets.
+The implemented algorithms are trained on the provided training data set and optimized upon the validation data set. Both, the proposed algorithms as well as the baseline algorithms are evaluated on the baseline metrics as well as on four proposed metrics that take into account the class distribution within the rating data set. These four metrics are the F - Score, G - Mean, Precision \& Recall. 
 
-In this thesis I will focus on the first two tasks.
-In order to obtain reference performances for such an algorithm, two baseline algorithms
-were presented: a simple majority voter and a more sophisticated nearest-neighbor-algorithm.
-The goal of this thesis is to implement an algorithm that exceeds the performance of these two baseline algorithms on the provided dataset.
+While using the baseline metrics the baseline algorithms delivered the best performance for some data set / task combinations. This was no longer the case when any of the four proposed metrics were used, indicating that the baseline metrics are not reasonable to use for the provided data set as the ratings within single items are imbalanced. Although it can be observed that the proposed models outperform the baseline models in all evaluations, there is no model that outperforms every other model on the given data set / task combinations. Worth mentioning is that the probabilistic Naive Bayes model achieves the best performance in 62.5% of the evaluated data set / task combinations. 
+
+As the best performing model changes regarding the tasks, there is no silver bullet for choosing a model solely regarding its' performance. 
+Since the Naive Bayes model is the least computational complex model of all the models that are presented, it shows that complexity does not necessarily correlate positively with performance improvements.
+The results also show that the thorough assessment of a metric regarding its' capability to evaluate the performance of a model is crucial to producing meaningful results.
