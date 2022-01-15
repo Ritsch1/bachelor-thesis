@@ -32,7 +32,6 @@
 
 \documentclass[11pt,a4paper,\zweiseitig]{article}
 \usepackage{ifthen}
-
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \graphicspath{images/}
@@ -41,6 +40,7 @@
 \usepackage{amsmath}
 \usepackage{adjustbox}
 \usepackage[acronym]{glossaries}
+\renewcommand{\glsnamefont}[1]{\textbf{#1}}
 \usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
 
@@ -132,26 +132,32 @@
 \ifthenelse{\boolean{\biber}}{\addbibresource{references.bib}}{}
 
 %\makeindex
-
 \makeglossaries
+\newacronym{bert}{BERT}{Bidirectional Encoder Representations from Transformers}
+\newacronym{aps}{APS}{Automated Persuasion System}
+\newacronym{bpdt}{BDT}{Bi - Party Decision Theory}
+\newacronym{cf}{CF}{Collaborative Filtering}
+\newacronym{fn}{FN}{False Negative}
+\newacronym{fp}{FP}{False Positive}
+\newacronym{iautorec}{I - AutoRec}{Item - AutoRec}
 \newacronym{idc}{IDC}{International Data Corporation}
-\newacronym{wtmf}{WTMF}{Weighted Textual Matrix Factorization}
 \newacronym{mmse}{MMSE}{Masked Mean Squared Error}
+\newacronym{nlp}{NLP}{Natural Language Processing}
+\newacronym{nn}{NN}{Nearest Neighbor}
 \newacronym{poc}{PoC}{Prediction of Conviction}
 \newacronym{pow}{PoW}{Prediction of Weight}
 \newacronym{rmse}{RMSE}{Root Mean Squared Error} 
 \newacronym{tfidf}{TFIDF}{Term Frequency Inverse Document Frequency}
-\newacronym{cf}{CF}{Collaborative Filtering}
-\newacronym{iautorec}{I - AutoRec}{Item - AutoRec}
-\newacronym{uautorec}{U - AutoRec}{User - AutoRec}
-\newacronym{tp}{TP}{True Positive}
-\newacronym{fp}{FP}{False Positive}
-\newacronym{tn}{TN}{True Negative}
-\newacronym{fn}{FN}{False Negative}
 \newacronym{tlmf}{TLMF}{Two Level Matrix Factorization}
-\newacronym{nlp}{NLP}{Natural Language Processing}
-\newacronym{bert}{BERT}{Bidirectional Encoder Representations from Transformers}
-\newacronym{nn}{NN}{Nearest Neighbor}
+\newacronym{tn}{TN}{True Negative}
+\newacronym{tp}{TP}{True Positive}
+\newacronym{uautorec}{U - AutoRec}{User - AutoRec}
+\newacronym{wtmf}{WTMF}{Weighted Textual Matrix Factorization}
+\glssetwidest{  U - AutoRec}
+
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
 
 \begin{document}
 
