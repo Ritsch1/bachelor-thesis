@@ -14,16 +14,18 @@ of confirmation bias, as defined in [2], could be addressed.
 In this bachelor thesis several recommender algorithms are implemented and evaluated
 on an argument rating data set provided by Heinrich Heine Universities’ deliberate
 application [3]. These algorithms are:
-    • Two - level matrix factorization that utilizes linguistic information of arguments
-    • Matrix factorization using linguistic similarity scores produced by the Bidirectional Encoder Representations from Transformers (BERT) model
-    • Autoencoder neural network
-    • Probabilistic Naive Bayes approach
-    • User - neighborhood model
+
+* Two - level matrix factorization that utilizes linguistic information of arguments
+* Matrix factorization using linguistic similarity scores produced by the Bidirectional Encoder Representations from Transformers (BERT) model
+* Autoencoder neural network
+* Probabilistic Naive Bayes approach
+* User - neighborhood model
+
 The models are evaluated on two tasks:
-    • Predicting a users’ conviction by an argument (binary classification) - Prediction of
-    Conviction (PoC)
-    • Predicting the strength of the conviction for an argument (multiclass classification
-    in the range [0, 6]) - Prediction of Weight (PoW)
+* Predicting a users’ conviction by an argument (binary classification) - Prediction of
+  Conviction (PoC)
+* Predicting the strength of the conviction for an argument (multiclass classification 
+  in the range [0, 6]) - Prediction of Weight (PoW)
 
 The goal is to improve upon the performance of two baseline recommender algorithms
 that are provided along with the dataset. The provided baseline metrics accuracy and
