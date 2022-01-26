@@ -4,13 +4,14 @@
 \printglossary[type=\acronymtype, nonumberlist, style=alttree, nogroupskip=true]
 
 \section{Introduction}
+\label{chap:intro}
 We are living in a world of ever - increasing information growth. The annual global datasphere was estimated to be 33 Zetabytes in 2018 \cite{rydning2018digitization}. The \acrfull{idc} forecasts the global datasphere to grow to 175 Zetabytes by 2025. Figure \ref{fig:datasphere_growth} shows the forecasted development of the global datasphere size. A large part of this data can be retrieved by users. The problem that this data - growth causes is the following: finding relevant information for yourself in this increasing amount of data \cite{burke2011recommender}.\\Recommender systems help in solving exactly this problem. The goal is to filter the relevant information for a specific user, making the amount of the provided information manageable.
 Nowadays, recommender systems are used in a large number of areas, ranging from e - commerce to music \cite{kumar2021recommender}. Because of their widespread use, recommender systems have a major impact on polarization within a society \cite{stray2021designing}.
 An important factor that accelerated the widespread use of recommender systems is the ease with which users can give feedback on items in the form of ratings on web - applications \cite{aggarwal2016recommender}.\\
-One area in which recommender systems are less well established is online argumentation. Online argumentation is a domain where the users' opinion is influenced strongly by the specific arguments he faces. Problems such as filter bubbles, as introduced in \cite{pariser2011filter}, or the provision of irrelevant arguments can be mitigated by using a recommender system
+One area in which recommender systems are less well established is online argumentation. Online argumentation is a domain where the users opinion is influenced strongly by the specific arguments he faces. Problems such as filter bubbles, as introduced in \cite{pariser2011filter}, or the provision of irrelevant arguments can be mitigated by using a recommender system
 which provides suitable arguments to the user.
-In this thesis several recommendation algorithms are implemented: a two - level matrix factorization in two variants, a probabilistic Naive Bayes approach, a neural network autoencoder as well as a user neighborhood approach. The goal is to outperform two baseline algorithms on an argument rating dataset that was provided alongside with the baseline algorithms from Heinrich Heine Universities' deliberate application \cite{brenneis2020deliberate}.\\
-The first task is to predict a users' conviction by an argument, called \acrfull{poc}. The second task is to predict the strength of the conviction for an argument, called \acrfull{pow}.\\
+In this thesis several recommendation algorithms are implemented: a two - level matrix factorization in two variants, a probabilistic Naive Bayes approach, a neural network autoencoder as well as a user neighborhood approach. The goal is to outperform two baseline algorithms on an argument rating dataset that was provided alongside with the baseline algorithms from Heinrich Heine Universities deliberate application \cite{brenneis2020deliberate}.\\
+The first task is to predict a users conviction by an argument, called \acrfull{poc}. The second task is to predict the strength of the conviction for an argument, called \acrfull{pow}.\\
 The contributions of this thesis are summarized as follows:
 \begin{itemize}
     \item Discuss the use of accuracy and \acrshort{rmse} as metrics for classification models that make use of imbalanced data.
@@ -37,7 +38,7 @@ Hadoux et al. \cite{hadoux2021strategic} also developed an \acrshort{aps} that i
 
 \section{Background}
 \label{sec:background}
-In this chapter the terms and concepts that are necessary for understanding the thesis will be defined. 
+In this section the terms and concepts that are necessary for understanding the thesis will be defined. 
 
 \subsection{Recommender System}
 \label{subsec:rec_sys}
@@ -226,7 +227,7 @@ The data set consists of ratings of arguments on two different topics from Germa
 The data set is divided into two different time transitions. The first one is defined as $T_1 \xrightarrow[]{} T_2$ and the second one is defined as $T_2 \xrightarrow[]{} T_3$.\\
 The \acrshort{poc} and the \acrshort{pow} tasks are defined on both time transitions.
 Each of these time transitions is split into train, validation and test data sets with a share of $60\%, 20\%, 20\%$.\\
-The data sets can be further divided into the \acrshort{poc} and \acrshort{pow} task. The conviction columns are binary columns in $\{0,1\}$ and the weight columns take values from $\{0,1,2,3,4,5,6\}$. While the conviction columns indicate if a user is convinced by a given argument or not, the corresponding weight columns indicate how strong the user's conviction regarding the specific argument is.
+The data sets can be further divided into the \acrshort{poc} and \acrshort{pow} task. The conviction columns are binary columns in $\{0,1\}$ and the weight columns take values from $\{0,1,2,3,4,5,6\}$. While the conviction columns indicate if a user is convinced by a given argument or not, the corresponding weight columns indicate how strong the users conviction regarding the specific argument is.
 
 \subsection{Properties of the Data Set}
 Different properties of the data set regarding the subdivisions described in \autoref{chap:subdivison} are presented in \autoref{tab:my_label}.
@@ -276,7 +277,7 @@ Given a data set of $N$ instances, $C$ different columns and $M$ possible discre
 \noindent $M_i$ denotes the number of ratings that were rated with the discrete rating value $i$.\\
 \noindent $H=0$ indicates that the data set is completely unbalanced i.e. only one rating is given to each (user,item) pair. $H=1$ indicates that the rating - values are distributed uniformly in terms of occurrences.\\
 From \autoref{tab:my_label} it can be observed that the data sets overall are balanced.  Additional to the overall balance of the data set it is of great interest for the modelling as well as for the evaluation to know if the distribution of ratings within a single argument itself is also balanced. Subsection \ref{sec:plots} provides plots as an overview of the rating distribution within single arguments. The ratings for the \acrshort{pow} task are grouped for reasons of clarity.\\
-It can be seen from these plots that the distribution of the ratings within single items is highly skewed. As both baseline algorithms rely on the distribution of ratings within specific items, accuracy (\acrshort{poc}) as well as \acrfull{rmse} (\acrshort{pow}) is not a reasonable metric to use in this context. Both metrics do not provide a reliable information about the classifiers' performance with regard to the properties of the data set. Therefore, metrics that take into account the performance on each discrete rating class are more sensible in the context of imbalanced data.\\
+It can be seen from these plots that the distribution of the ratings within single items is highly skewed. As both baseline algorithms rely on the distribution of ratings within specific items, accuracy (\acrshort{poc}) as well as \acrfull{rmse} (\acrshort{pow}) is not a reasonable metric to use in this context. Both metrics do not provide a reliable information about the classifiers performance with regard to the properties of the data set. Therefore, metrics that take into account the performance on each discrete rating class are more sensible in the context of imbalanced data.\\
 In the literature, four of such proposed metrics are the \textit{F - Score}, \texit{G - Mean}, \texit{Precision} and \texit{Recall} \cite{he2009learning}. All metrics are defined in subsection \ref{sec:metrics} and will be used for evaluation of the different models on the different task - / data set - combinations additionally to the provided metrics.
 
 \section{Problem Statement}
@@ -737,11 +738,30 @@ It is noteworthy that the best performing Naive Bayes model does not need to be 
 It can be observed from Table \ref{tab:tlmf} and Table \ref{tab:autorec} that the embedding dimension that yields the best results for the \acrshort{tlmf} model and the \acrshort{iautorec} model is much smaller for the \acrshort{poc} task than for the \acrshort{pow} task, implying that the \acrshort{poc} task is less complex than the \acrshort{pow} task.\\ 
 The hyperparameter values that were used to obtain the claimed performances are presented in \ref{chap:pvo}.
 
-\subsection{Conclusion}
-In this thesis, several recommendation algorithms were implemented and evaluated on metrics that took into account the class distribution of the rating data, such as G - Mean and F - Score.\\
-The original evaluation metrics accuracy and rmse were not reasonable to use for assessing the performance of the proposed baseline algorithms as the class distribution within single items was imbalanced.\\
-Evaluating on the proposed metrics showed that the baseline algorithms were outperformed on every task -/data set - combination. Especially the Naive Bayes algorithm and the \acrshort{tlmf} algorithm performed well with the Naive Bayes algorithm being the more efficient one of them without the need to tune this algorithm.
- 
+\section{Conclusion}
+\label{chap:conclusion}
+In this thesis, several recommendation algorithms were implemented and compared to two baseline algorithms. All algorithms were evaluated on the two baseline metrics, accuracy and rmse, as well as four additional metrics, namely G - Mean, F - Score, Precision and Recall. The additional metrics treated every rating label within the data as equally important, forcing the models to not only rely on making correct predictions for the most frequent rating labels.\\
+The original evaluation metrics accuracy and rmse were not reasonable to use for assessing the performance of the proposed baseline algorithms as the class distribution within single items was imbalanced. Using those metrics, an implicit assumption of balance within the data was made. Therefore, by using the metrics presented, the suitability of the evaluation of the recommender algorithms becomes independent of the characteristics of the data set.\\
+Evaluating on the proposed metrics showed that the baseline algorithms were outperformed on every task -/data set - combination. Especially the Naive Bayes algorithm and the \acrshort{tlmf} algorithm performed well with the Naive Bayes algorithm being the more efficient one of them without the need to tune this algorithm.\\
+
+\subsection{Limitations}
+\label{chap:limits}
+The tasks and metrics defined in this thesis focus mainly on the performance of the models to predict the ratings in the test - set. However, the quality of the recommendations that the user finally gets to see are not taken into consideration. Since the final recommendations that the user sees depend heavily on the training test split on which the models are trained, the ability to predict a correct rating alone is not a solid measure for the satisfaction of the user with a recommendation. Thus, the metrics that were used in this thesis can only provide information about the ability to predict unseen ratings of arguments, they do not provide any information about the satisfaction or conviction of the user to whom the argument is presented.  
+
+\subsection{Further Research}
+It is worth looking at the ways in which this work could be taken forward. Ideas for further research are suggested below. 
+
+As pointed out in section \ref{chap:limits}, it seems to be reasonable to use other metrics to assess the quality of the recommendations. Thus, measuring the quality of the recommendations by metrics that are independent of the training test split could be a next research step.\\
+Kunaver et al. \cite{kunaver2017diversity} describe a diversity metric that is defined as the average dissimilarity between all pairs of items in the result set of a recommendation algorithm. In the context of argument recommender algorithms, item similarity could be measured as the semantic similarity of the textual content of the arguments, similar to the first step of the TLMF algorithm. A more diverse result set would include arguments that are different in content, but all arguments would still fit the specific user.\\ 
+Another metric, serendipity, is defined by Ge et al. in \cite{ge2010beyond}. 
+Serendipity, also referred to as novelty, is defined as the degree to which a user is positively surprised by a recommendation.
+
+Another interesting continuation would be to compare the implemented models in a real application like the \acrshort{aps} described in section \ref{chap:intro}. This would also offer the possibility to investigate the behavior of the models and the reaction of the users when non - performance related metrics like diversity are combined with performance related metrics like accuracy.
+
+\section{Acknowledgements}
+I am grateful for the opportunity to write this thesis in the Machine Learning working group. Above all, I was grateful for the opportunity to present an intermediate state of the thesis to the working group and to receive valuable feedback.\\
+In particular, I would like to thank Maike Behrendt for always sharing valuable advice and helpful guidance throughout the process. 
+
 \clearpage
 \section{Appendix}
 \label{sec:appendix}
