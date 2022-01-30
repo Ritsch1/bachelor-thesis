@@ -29,7 +29,10 @@ class MajorityVoter():
             self.item_means = {}
             for i in range(num_cols):
                 values, counts = np.unique(rating_matrix[:,i][~np.isnan(rating_matrix[:,i])], return_counts=True)
-                self.item_means[i] = values[np.argmax(counts)]
+                if len(counts) == 0:
+                    self.item_means[i] = -1
+                else:
+                    self.item_means[i] = values[np.argmax(counts)]
         else:
             # Drop username column and get columns corresponding to the task
             rating_matrix = self.rmh_.train_rating_matrix.drop("username", axis=1).values[:,::2]
@@ -121,7 +124,14 @@ class MajorityVoter():
         
 
 
-mv = MajorityVoter(rmh, task)
+# Parameters for executing the Rating-Matrix-Handler notebook
+train_path = f"../../data/T1_T2/train.csv"
+test_path  = f"../../data/T1_T2/test.csv"
+validation_path = f"../../data/T1_T2/validation.csv"
+get_ipython().run_line_magic('run', 'Rating_Matrix_Handler.ipynb')
+
+
+mv = MajorityVoter(rmh, task="Conviction")
 mv.calculate_predictions()
 trues, preds = mv.evaluate()
 
