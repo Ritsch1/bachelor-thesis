@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import subprocess
-from IPython.core.debugger import set_trace
 
 
 # Export notebook as python script to the ../python-code folder

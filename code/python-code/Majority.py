@@ -6,8 +6,6 @@ import numpy as np
 import pandas as pd
 import subprocess
 import torch
-from IPython.core.debugger import set_trace
-import pickle
 
 
 # Export notebook as python script to the ../python-code folder

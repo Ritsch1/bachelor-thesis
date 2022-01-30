@@ -4,7 +4,6 @@
 # imports
 import pandas as pd
 import numpy as np
-from IPython.core.debugger import set_trace
 import matplotlib.pyplot as plt
 import subprocess
 
@@ -209,13 +208,6 @@ class Naive_Bayes_CF():
             rmse_error /= len(self.test_eval_indices)
             print(f"RMSE: {rmse_error:.3f}")
             return np.array(trues), np.array(preds)
-
-
-timepoint = "T2_T3"
-train_path = f"../../data/{timepoint}/train.csv"
-test_path  = f"../../data/{timepoint}/test.csv"
-validation_path = f"../../data/{timepoint}/validation.csv"
-get_ipython().run_line_magic('run', 'Rating_Matrix_Handler.ipynb')
 
 
 

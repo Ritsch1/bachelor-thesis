@@ -4,7 +4,6 @@
 # imports
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
-from IPython.core.debugger import set_trace
 import torch
 import spacy
 import matplotlib.pyplot as plt

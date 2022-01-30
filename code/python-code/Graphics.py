@@ -174,9 +174,6 @@ class Graphics():
             plt.show()
 
 
-graphics.create_plot(timepoint="T2_T3", is_task_conviction=False, global_distribution=False, task="Weight")
-
-
 
 graphics = Graphics()
 
