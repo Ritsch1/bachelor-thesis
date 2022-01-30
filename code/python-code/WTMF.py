@@ -6,6 +6,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 import torch
 import spacy
+import en_core_web_sm
 import matplotlib.pyplot as plt
 import subprocess
 
@@ -20,9 +21,6 @@ relevant_args = set([i for i in range(324, 400)])
 args = args[args.statement_id.isin(relevant_args)]
 # Convert to list of tuples for processing it further
 args = list(zip(args["text_en"], args["statement_id"]))
-
-
-subprocess.run("python -m spacy download en_core_web_sm")
 
 
 class WTMF():
@@ -50,7 +48,7 @@ class WTMF():
         # Convert all words to lowercase
         self.args = list(map(lambda s : s.lower(), self.args))        
         # Lemmatize the sentences
-        nlp = spacy.load("en_core_web_sm")
+        nlp = en_core_web_sm.load()
         self.args = list(map(lambda s : " ".join(token.lemma_ for token in nlp(s)), self.args))
         # Filter out the "-PRON-" - insertion from spacy 
         self.args = list(map(lambda s: s.replace("-PRON-",""), self.args))
