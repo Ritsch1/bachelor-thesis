@@ -32,7 +32,7 @@ class Neighborhood_Model(ABC):
         if self.task_ == "Conviction":
             self.task_train_rating_matrix = self.rmh_.final_rating_matrix_w_usernames[["username"] + [f"statement_attitude_{i}" for i in arg_range]]
             self.task_test_rating_matrix = self.rmh_.test_rating_matrix[["username"] + [f"statement_attitude_{i}" for i in arg_range]]
-            self.test_eval_indices = {user:items[items % 2 == 1] for user,items in self.rmh_.test_eval_indices.items()}
+            self.test_eval_indices = {user:(items[items % 2 == 1] // 2) for user,items in self.rmh_.test_eval_indices.items()}
         else:
             self.task_train_rating_matrix = self.rmh_.final_rating_matrix_w_usernames[["username"] + [f"argument_rating_{i}" for i in arg_range]]
             self.task_test_rating_matrix = self.rmh_.test_rating_matrix[["username"] + [f"argument_rating_{i}" for i in arg_range]]
@@ -308,7 +308,7 @@ class User_Neighborhood_Pearson_Centered(Neighborhood_Model):
                 target_user_id = self.userid_lookup_[username[0]]
                 for item_id in test_samples:
                 # Look up the true value
-                    true_value = self.task_test_rating_matrix[self.task_test_rating_matrix["username"] == username[0]][self.itemname_lookup_[item_id]]
+                    true_value = self.task_test_rating_matrix[self.task_test_rating_matrix["username"] == username[0]][self.itemname_lookup_[item_id+1]]
                     prediction = round(self.predict(target_user_id, item_id, k, similarity_threshold, threshold_decrease_rate))
                     preds.append(prediction)
                     trues.append(true_value)
