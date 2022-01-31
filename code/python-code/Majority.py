@@ -124,16 +124,9 @@ class MajorityVoter():
         
 
 
-# Parameters for executing the Rating-Matrix-Handler notebook
-train_path = f"../../data/T1_T2/train.csv"
-test_path  = f"../../data/T1_T2/test.csv"
-validation_path = f"../../data/T1_T2/validation.csv"
-get_ipython().run_line_magic('run', 'Rating_Matrix_Handler.ipynb')
-
-
-mv = MajorityVoter(rmh, task="Conviction")
+mv = MajorityVoter(rmh, task)
 mv.calculate_predictions()
-trues, preds = mv.evaluate()
+trues, preds= mv.evaluate()
 
 
 get_ipython().run_line_magic('run', 'MetricHelper.ipynb')
