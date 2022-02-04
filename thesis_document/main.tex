@@ -278,7 +278,7 @@ Given a data set of $N$ instances, $C$ different columns and $M$ possible discre
 \noindent $H=0$ indicates that the data set is completely unbalanced i.e. only one rating is given to each (user,item) pair. $H=1$ indicates that the rating - values are distributed uniformly in terms of occurrences.\\
 From \autoref{tab:my_label} it can be observed that the data sets overall are balanced.  Additional to the overall balance of the data set it is of great interest for the modelling as well as for the evaluation to know if the distribution of ratings within a single argument itself is also balanced. Subsection \ref{sec:plots} provides plots as an overview of the rating distribution within single arguments. The ratings for the \acrshort{pow} task are grouped for reasons of clarity.\\
 It can be seen from these plots that the distribution of the ratings within single items is highly skewed. As both baseline algorithms rely on the distribution of ratings within specific items, accuracy (\acrshort{poc}) as well as \acrfull{rmse} (\acrshort{pow}) is not a reasonable metric to use in this context. Both metrics do not provide a reliable information about the classifiers performance with regard to the properties of the data set. Therefore, metrics that take into account the performance on each discrete rating class are more sensible in the context of imbalanced data.\\
-In the literature, four of such proposed metrics are the \textit{F - Score}, \texit{G - Mean}, \texit{Precision} and \texit{Recall} \cite{he2009learning}. All metrics are defined in subsection \ref{sec:metrics} and will be used for evaluation of the different models on the different task - / data set - combinations additionally to the provided metrics.
+In the literature, four of such proposed metrics are the F - Score, G - Mean, Precision and Recall \cite{he2009learning}. All metrics are defined in subsection \ref{sec:metrics} and will be used for evaluation of the different models on the different task - / data set - combinations additionally to the provided metrics.
 
 \section{Problem Statement}
 \label{sec:problem}
@@ -558,7 +558,7 @@ In the following the performance of the proposed models on all data set -/task -
 \label{chap:eval}
 In the following the margins of performance differences are computed as the difference between the best baseline performance and the best non - baseline performance.\\ 
 
-\noindent In Table \ref{tab:results} the performance results of the models using the provided metrics accuracy (\acrshort{poc}) and \acrshort{rmse} (\acrshort{pow}) are presented. It can be observed that for the tasks defined on $T_1 \to T_2$ the \acrfull{nn} - classifier achieves the best performance by a margin of 0.1\% (\acrshort{poc}) and 29.4\% (\acrshort{pow}). For the tasks defined on $T_2 \to T_3$ the \acrshort{iautorec} model achieves the best performance by a margin of 6.8\% (\acrshort{poc}) and 12.8\% (\acrshort{pow}) compared to the best baseline model. As discussed in \ref{chap:subdivison} accuracy as well as \acrshort{rmse} are not reasonable metrics to use on this data set as the distribution of ratings within single items is highly skewed.
+\noindent In Table \ref{tab:results} the performance results of the models using the provided metrics accuracy (\acrshort{poc}) and \acrshort{rmse} (\acrshort{pow}) are presented. It can be observed that for the tasks defined on $T_1 \to T_2$ the majority - classifier achieves the best performance by a margin of 0.1\% (\acrshort{poc}) and the \acrfull{nn} - classifier achieves the best performance by a margin of 22.4\% (\acrshort{pow}).\\ For the tasks defined on $T_2 \to T_3$ the \acrshort{iautorec} model achieves the best performance by a margin of 6.8\% (\acrshort{poc}) and 12.8\% (\acrshort{pow}) compared to the best baseline model. As discussed in \ref{chap:subdivison} accuracy as well as \acrshort{rmse} are not reasonable metrics to use on this data set as the distribution of ratings within single items is highly skewed.
 
 \begin{table}[h!]
     \centering
@@ -567,40 +567,42 @@ In the following the margins of performance differences are computed as the diff
      & \multicolumn{2}{|c|}{\acrshort{poc} (Accuracy)} & \multicolumn{2}{|c|}{\acrshort{pow} (\acrshort{rmse})} \\
      \hline
     Algorithms & $T_1 \to T_2$ & $T_2 \to T_3$ & $T_1 \to T_2$ & $T_2 \to T_3$\\
-    \hline  Majority (baseline) & \textbf{.783} & .737 & 3.26 & 3.52 \\
-    \acrshort{nn} (baseline) & \textbf{.783} & .738 & \textbf{2.86} & 2.57\\
-    \acrshort{tlmf} & .782 & .788 & 3.70 & 2.40 \\
-    \acrshort{tlmf} + Bert & .780 & .785 & 3.70 & 2.41\\
+    \hline  Majority (baseline) & \textbf{.783} & .738 & 3.26 & 3.52 \\
+    \acrshort{nn} (baseline) & .765 & .727 & \textbf{2.87} & 2.57\\
+    \acrshort{tlmf} & .782 & .790 & 3.70 & 2.40 \\
+    \acrshort{tlmf} + Bert & .781 & .785 & 3.71 & 2.41\\
     Naive Bayes & .782 & .802 & 5.96 & 2.99 \\
-    I - AutoRec & .730 & \textbf{.806} & 4.13 & \textbf{2.24}\\
-    User - Neighborhood (Pearson) & .593 & .617 & 7.53 & 4.71\\
+    I - AutoRec & .739 & \textbf{.806} & 3.86 & \textbf{2.24}\\
+    User - Neighborhood (Pearson) & .576 & .584 & 7.48 & 4.73\\
     \hline
     \end{tabular}
     \caption{Results of the Models, Evaluated With the Provided Metrics.}
     \label{tab:results}
 \end{table}
-\noindent In Table \ref{tab:results_f1_mean} the performance results of the models using the averaged F - score are presented. It can be seen that the \acrshort{tlmf} model performs best on the \acrshort{poc} task for the $T_1 \to T_2$ data set by a margin of 3.2\%. For the respective \acrshort{pow} task the Naive Bayes model performs best by a margin of 15\%. Likewise, the Naive Bayes model shows the best performance for tasks defined on $T_2 \to T_3$. It achieves the best performance by a margin of 7.8\% (\acrshort{poc}) and 43.4\%, respectively.
+\noindent In Table \ref{tab:results_f1_mean} the performance results of the models using the averaged F - score are presented. It can be seen that the \acrshort{tlmf} model performs best on the \acrshort{poc} task for the $T_1 \to T_2$ data set by a margin of 0.7\%. For the respective \acrshort{pow} task the Naive Bayes model performs best by a margin of 15\%. \\
+Likewise, the Naive Bayes model shows the best performance for the \acrshort{pow} task defined on $T_2 \to T_3$. It achieves the best performance by a margin 45.3\%. The best performance for the \acrshort{poc} task on $T_2 \to T_3$ is achieved by the \acrshort{iautorec} model by a margin of 7.5\%.
 
 \begin{table}[h!]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
     \hline
-     & \multicolumn{2}{|c|}{\acrshort{poc} (F1 - Score)} & \multicolumn{2}{|c|}{\acrshort{pow} (F1 - Score)} \\
+     & \multicolumn{2}{|c|}{\acrshort{poc} (F - Score)} & \multicolumn{2}{|c|}{\acrshort{pow} (F - Score)} \\
      \hline
     Algorithms & $T_1 \to T_2$ & $T_2 \to T_3$ & $T_1 \to T_2$ & $T_2 \to T_3$\\
-    \hline  Majority (baseline) & .411 & .387 & .115 & .108 \\ 
-    \acrshort{nn} (baseline) & .746 & .720 & .080 & .104\\
-    \acrshort{tlmf} & \textbf{.778} & .784 & .191 & .481\\
-    \acrshort{tlmf} + Bert & .777 & .780  & .191 & .481 \\
-    Naive Bayes & .770 & \textbf{.798} & \textbf{.265} & \textbf{.561} \\
-    I - AutoRec & .722 & .784 & .202 & .542\\
-    User - Neighborhood (Pearson) & .542 & .602 & .188 & .108\\
+    \hline  Majority (baseline) & .771 & .730 & .115 & .108 \\ 
+    \acrshort{nn} (baseline) & .747 & .720 & .080 & .104\\
+    \acrshort{tlmf} & \textbf{.778} & .785 & .191 & .481\\
+    \acrshort{tlmf} + Bert & .777 & .780  & .192 & .481 \\
+    Naive Bayes & .768 & .798 & \textbf{.265} & \textbf{.561} \\
+    I - AutoRec & .735 & \textbf{.805} & .197 & .530\\
+    User - Neighborhood (Pearson) & .531 & .575 & .180 & .125\\
     \hline
     \end{tabular}
-    \caption{Results of the Models, Evaluated With the Average F1 – Score.}
+    \caption{Results of the Models, Evaluated With the Average F – Score.}
     \label{tab:results_f1_mean}
 \end{table}
-\noindent In Table \ref{tab:results_precision_mean} the performance results of the models using the averaged precision score are presented. For data set $T_1 \to T_2$ the \acrshort{tlmf} model and the Naive Bayes model achieve the highest performance by a margin of 2.9\% (\acrshort{poc}) and 7.7\%, respectively. For data set $T_2 \to T_3$ the Naive Bayes model and the \acrshort{iautorec} model achieve the highest performance by a margin of 18.1\% and 48\%, respectively.
+\noindent In Table \ref{tab:results_precision_mean} the performance results of the models using the averaged precision score are presented. For data set $T_1 \to T_2$ the \acrshort{tlmf} model and the \acrshort{iautorec} model achieve the highest performance by a margin of 1.3\% (\acrshort{poc}) and 6.6\%, respectively.\\
+For data set $T_2 \to T_3$ the Naive Bayes model and the \acrshort{iautorec} model achieve the highest performance by a margin of 16.8\% (\acrshort{poc}) and 47.5\% (\acrshort{pow}), respectively.
 \begin{table}[h!]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
@@ -608,19 +610,21 @@ In the following the margins of performance differences are computed as the diff
      & \multicolumn{2}{|c|}{\acrshort{poc} (Precision)} & \multicolumn{2}{|c|}{\acrshort{pow} (Precision)} \\
      \hline
     Algorithms & $T_1 \to T_2$ & $T_2 \to T_3$ & $T_1 \to T_2$ & $T_2 \to T_3$\\
-    \hline  Majority (baseline) & .404 & .367 & .099 & .085 \\ 
+    \hline  Majority (baseline) & .775 & .739 & .099 & .085 \\ 
     \acrshort{nn} (baseline) & .759 & .725 & .085 & .103\\
-    \acrshort{tlmf} & \textbf{.788} & .778 & .236 & .531 \\
-    \acrshort{tlmf} + Bert & .787 & .774 & .236 & .481\\
-    Naive Bayes & .775 & \textbf{.802} & \textbf{.266} & .574 \\
-    I - AutoRec & .731 & .783 & .260 & \textbf{.583}\\
-    User - Neighborhood (Pearson) & .558 & .612 & .181 & .181\\
+    \acrshort{tlmf} & \textbf{.788} & .779 & .236 & .532 \\
+    \acrshort{tlmf} + Bert & .787 & .774 & .238 & .531\\
+    Naive Bayes & .776 & .803 & \textbf{.267} & .574 \\
+    I - AutoRec & .746 & \textbf{.805} & .251 & \textbf{.578}\\
+    User - Neighborhood (Pearson) & .540 & .577 & .195 & .195\\
     \hline
     \end{tabular}
     \caption{Results of the Models, Evaluated With the Average Precision – Score.}
     \label{tab:results_precision_mean}
 \end{table}\\
-\noindent In Table \ref{tab:results_recall_mean} the performance results of the models using the averaged recall score are presented. For data set $T_1 \to T_2$ the \acrshort{tlmf} model performs best by a margin of 3.6\% (\acrshort{poc}) and 8.1\% (\acrshort{pow}). For data set $T_2 \to T_3$ the naive bayes model performs best by a margin of 6.6\% (\acrshort{poc}) and 40.9\% (\acrshort{pow}).
+
+\noindent In Table \ref{tab:results_recall_mean} the performance results of the models using the averaged recall score are presented. For data set $T_1 \to T_2$ the \acrshort{tlmf} model performs best by a margin of 0.8\% for the (\acrshort{poc}) task. The Naive Bayes model performs best for the \acrshort{pow} task by a margin of 6.5\% (). \\
+For data set $T_2 \to T_3$ the naive bayes model performs best for the \acrshort{pow} task by a margin of 37.8\%. For the \acrshort{poc} task the \acrshort{iautorec} model performs best by a margin of 8.0\%.
 
 \begin{table}[h!]
     \centering
@@ -629,20 +633,21 @@ In the following the margins of performance differences are computed as the diff
      & \multicolumn{2}{|c|}{\acrshort{poc} (Recall)} & \multicolumn{2}{|c|}{\acrshort{pow} (Recall)} \\
      \hline
     Algorithms & $T_1 \to T_2$ & $T_2 \to T_3$ & $T_1 \to T_2$ & $T_2 \to T_3$\\
-    \hline  Majority (baseline) & .419 & .410 & .202 & .178 \\ 
-    \acrshort{nn} (baseline) & .741 & .718 & .145 & .147\\
-    \acrshort{tlmf} & \textbf{.777} & \textbf{.799} & .223 & .497 \\
-    \acrshort{tlmf} + Bert & .776 & \textbf{.799} & .223 & .497\\
-    Naive Bayes & .763 & .796 & \textbf{.268} & \textbf{.556} \\
-    I - AutoRec & .714 & .786 & .223 & .552\\
-    User - Neighborhood (Pearson) & .550 & .604 & .224 & .153\\
+    \hline  Majority (baseline) & .769 & .728 & .203 & .179 \\ 
+    \acrshort{nn} (baseline) & .741 & .718 & .124 & .147\\
+    \acrshort{tlmf} & \textbf{.777} & .802 & .223 & .498 \\
+    \acrshort{tlmf} + Bert & .776 & .799 & .224 & .497\\
+    Naive Bayes & .763 & .796 & \textbf{.268} & \textbf{.557} \\
+    I - AutoRec & .725 & \textbf{.808} & .214 & .542\\
+    User - Neighborhood (Pearson) & .535 & .575 & .210 & .162\\
     \hline
     \end{tabular}
     \caption{Results of the Models, Evaluated With the Average Recall – Score.}
     \label{tab:results_recall_mean}
 \end{table}\\
 
-\noindent In Table \ref{tab:results_g_mean} the performance results of the models using the averaged G - mean are presented. For data set $T_1 \to T_2$ the \acrshort{tlmf} model achieves the best performance with by a margin of 4.1\% (\acrshort{poc}) and 8.3\% (\acrshort{pow}). For data set $T_2 \to T_3$ the naive bayes model performs best by a margin of 16.4\% (\acrshort{poc}) and 44.7\%. 
+\noindent In Table \ref{tab:results_g_mean} the performance results of the models using the averaged G - mean are presented. For data set $T_1 \to T_2$ the \acrshort{tlmf} model achieves the best performance by a margin of 0.7\% for the  \acrshort{poc} task. The Naive Bayes model achieves the best performance for the respective \acrshort{pow} task by a margin of 16.6\% .\\
+For data set $T_2 \to T_3$ the \acrshort{iautorec} model performs best by a margin of 8.6\% for the  \acrshort{poc} task. The Naive Bayes model achieves the best performance for the respective \acrshort{pow} task by a margin of 43.2\%. 
 
 \begin{table}[h!]
     \centering
@@ -651,23 +656,31 @@ In the following the margins of performance differences are computed as the diff
      & \multicolumn{2}{|c|}{\acrshort{poc} (G - Mean)} & \multicolumn{2}{|c|}{\acrshort{pow} (G - Mean)} \\
      \hline
     Algorithms & $T_1 \to T_2$ & $T_2 \to T_3$ & $T_1 \to T_2$ & $T_2 \to T_3$\\
-    \hline  Majority (baseline) & .300 & .299 & .299 & .270 \\ 
-    \acrshort{nn} (baseline) & .731 & .714 & .255 & .285\\
-    \acrshort{tlmf} & \textbf{.772} & \textbf{.797} & .408 & .672 \\
-    \acrshort{tlmf} + Bert & .771 & .796 & .408 & .672\\
+    \hline  Majority (baseline) & .765 & .722 & .297 & .271 \\ 
+    \acrshort{nn} (baseline) & .732 & .714 & .255 & .285\\
+    \acrshort{tlmf} & \textbf{.772} & .800 & .408 & .672 \\
+    \acrshort{tlmf} + Bert & .771 & .796 & .409 & .672\\
     Naive Bayes & .758 & .794 & \textbf{.463} & \textbf{.717} \\
-    \acrshort{iautorec} - AutoRec & .724 & .786 & .431 & .715\\
-    User - Neighborhood (Pearson) & .501 & .590 & .342 & .270\\
+    I - AutoRec & .734 & \textbf{.808} & .420 & .706\\
+    User - Neighborhood (Pearson) & .497 & .569 & .345 & .299\\
     \hline
     \end{tabular}
     \caption{Results of the Models, Evaluated With the Average G - Mean.}
     \label{tab:results_g_mean}
 \end{table}
-\noindent It can be observed that the Naive Bayes model as well as the \acrshort{tlmf} model perform remarkably well. The Naive Bayes model achieves the best performance in 62.5\% cases of all task / data set combinations for the newly introduced metrics. The \acrshort{tlmf} model achieves the best performance in 31.25\% of the cases. It can also be seen that the User Neighborhood model is performing significantly worse than the other proposed models. This is likely caused by the fact that too little rating data is available for most users to compute reasonable user - similarity clusters.
+\noindent It can be observed that the Naive Bayes model performs remarkably well. The Naive Bayes model achieves the best performance in 43.75\% cases of all task / data set combinations for the newly introduced metrics. The \acrshort{iautorec} model achieves the best performance in 31.25\% of the cases and the \acrshort{tlmf} model achieves the best performance in 25\% of the cases.\\ It can also be seen that the User Neighborhood model is performing significantly worse than the other proposed models. This is likely caused by the fact that too little rating data is available for most users to compute reasonable user - similarity clusters.\\
 It can also be observed that the argument - similarity matrix computed by the \acrshort{bert} model does not seem to enhance the prediction power of the matrix factorization model in comparison to the similarity matrix computed by the less complex \acrshort{wtmf} model.\\
-As predicted, the baseline models are far off from the best performance in every evaluation instance. This supports the assumption that the choice of accuracy and \acrshort{rmse} as the evaluation metrics is not suitable for the data set at hand.\\
+As predicted, the baseline models are outperformed every evaluation instance. This supports the assumption that the choice of accuracy and \acrshort{rmse} as the evaluation metrics is not suitable for the data set at hand.\\
+While the performance gap between baseline models and proposed models is small for the \acrshort{poc} task, the performance gap is growing for the \acrshort{pow} task. This is illustrated for all proposed metrics in Figure \ref{fig:comparison}.\\
 In general, the performance difference of the baseline models and the proposed models is greater for the data set $T_2 \to T_3$. One explanation could be the fact that $T_2 \to T_3$ is less sparse and more balanced than $T1 \to T_2$. This can be observed from Table \ref{tab:my_label}.\\
-Overall the models perform generally worse in the \acrshort{poc} task than in the \acrshort{pow} task on the same data sets. This is likely due to the fact that the \acrshort{pow} task is more complex.
+Overall the models perform generally worse in the \acrshort{pow} task than in the \acrshort{poc} task on the same data sets. This is due to the fact that there are 7 different class labels in the \acrshort{pow} task whereas the \acrshort{poc} task is a binary classification task, making the \acrshort{pow} task more complex.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=1\textwidth]{images/comparison.jpg}
+    \caption{Comparison Between Best Baseline Model Performance and Best non - Baseline Model Performance.}
+    \label{fig:comparison}
+\end{figure}
 
 \subsection{Computational Efficiency}
 \label{chap:efficiency}
@@ -736,13 +749,13 @@ Regarding the online phase, the computational complexity of predicting a rating 
 The hyperparameters for the parameterizable models were chosen based on the best performance on the validation data set. It is important to note that for each model the same set of hyperparameter values are used for the different metrics.\\
 It is noteworthy that the best performing Naive Bayes model does not need to be tuned as it does not contain any tuneable parameters.\\
 It can be observed from Table \ref{tab:tlmf} and Table \ref{tab:autorec} that the embedding dimension that yields the best results for the \acrshort{tlmf} model and the \acrshort{iautorec} model is much smaller for the \acrshort{poc} task than for the \acrshort{pow} task, implying that the \acrshort{poc} task is less complex than the \acrshort{pow} task.\\ 
-The hyperparameter values that were used to obtain the claimed performances are presented in \ref{chap:pvo}.
+The hyperparameter values that were used to obtain the claimed performances are presented in \ref{chap:pvo}. The whole code base for all implemented models as well as for an evaluation pipeline is provided on GitHub.\footnote{https://github.com/Ritsch1/bachelor-thesis}  
 
 \section{Conclusion}
 \label{chap:conclusion}
 In this thesis, several recommendation algorithms were implemented and compared to two baseline algorithms. All algorithms were evaluated on the two baseline metrics, accuracy and rmse, as well as four additional metrics, namely G - Mean, F - Score, Precision and Recall. The additional metrics treated every rating label within the data as equally important, forcing the models to not only rely on making correct predictions for the most frequent rating labels.\\
 The original evaluation metrics accuracy and rmse were not reasonable to use for assessing the performance of the proposed baseline algorithms as the class distribution within single items was imbalanced. Using those metrics, an implicit assumption of balance within the data was made. Therefore, by using the metrics presented, the suitability of the evaluation of the recommender algorithms becomes independent of the characteristics of the data set.\\
-Evaluating on the proposed metrics showed that the baseline algorithms were outperformed on every task -/data set - combination. Especially the Naive Bayes algorithm and the \acrshort{tlmf} algorithm performed well with the Naive Bayes algorithm being the more efficient one of them without the need to tune this algorithm.\\
+Evaluating on the proposed metrics showed that the baseline algorithms were outperformed on every task -/data set - combination. Especially the Naive Bayes algorithm performed well, achieving the best performance on 43.75\% of the evaluation instances.
 
 \subsection{Limitations}
 \label{chap:limits}
