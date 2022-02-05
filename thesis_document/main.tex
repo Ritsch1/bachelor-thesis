@@ -18,7 +18,7 @@ The contributions of this thesis are summarized as follows:
     \item Propose use of metrics that take into account the class distribution.
     \item Implement recommender algorithms including matrix factorization, Naive Bayes, autoencoder and user neighborhood models that outperform the baseline models on all task - / dataset combinations using the proposed metrics.
  \end{itemize}
-The thesis is structured as follows: In section \ref{sec:background} terms and concepts that are necessary for understanding the thesis are presented and defined. In section \ref{sec:dataset} the provided data set is presented. In section \ref{sec:problem} the tasks of this thesis are defined. In section \ref{sec:models} the implemented classification models are presented. In the following section \ref{sec:results} the performance of the implemented models as well as the baseline models are presented and discussed. Finally, section \ref{sec:appendix} contains the hyperparameters that were used for parametrized models as well as plots regarding the distribution of ratings within single arguments.  
+The thesis is structured as follows: In section \ref{sec:background} terms and concepts that are necessary for understanding the thesis are presented and defined. In section \ref{sec:dataset} the provided data set is presented. In section \ref{sec:problem} the tasks of this thesis are defined. In section \ref{sec:models} the implemented classification models are presented. In the following section \ref{sec:results} the performance of the implemented models as well as the baseline models are presented and discussed. Section \ref{chap:conclusion} highlights the limitations of this work and provides an outlook for potential continuations. Finally, section \ref{sec:appendix} contains the hyperparameters that were used for parametrized models as well as plots regarding the distribution of ratings within single arguments.
 
 \begin{figure}[t]
     \centering
@@ -154,9 +154,9 @@ where tf is the term - frequency and idf the inverse document - frequency.\\
 t is a specific term, d is a specific document with $d \in D$ where $D$ is the set of all documents within the corpus.\\
 Let 
 \begin{equation}
-    \sum\limits_{t \in d}f_{t,_d} = \text{total}(d)
+    \sum\limits_{t \in d}f(t,d) = \text{total}(d)
 \end{equation} 
-$f_t,_d$ calculates the number of times the term $t$ occurs in $d$.\\
+$f(t,d)$ calculates the number of times the term $t$ occurs in $d$.\\
 The term - frequency is defined as 
 \begin{center}
 \begin{equation}
@@ -169,7 +169,7 @@ The term - frequency is defined as
     \text{idf}(t,D) = \text{log}(\frac{|D|}{\sum\limits_{d \in D}\mathbbm{1_{d}}(t)}}})
 \end{equation}
 \end{center}
-where $\mathbbm{1_{d}}(t)$ is the \textit{indicator function} of term $t$ being in document $d$. 
+where $\mathbbm{1_{d}}(t)$ is the indicator function of term $t$ being in document $d$. 
 \subsection{Classification Metrics for Imbalanced Data Sets}
 \label{sec:metrics}
 One of the most frequently used metrics when evaluating a binary classification problem is the accuracy metric \cite{tharwat2020classification}. It is defined as the ratio of correctly classified instances to the number of all instances. In binary classifications the two class labels are called majority class and minority class with the majority class being the more frequent class \cite{hossin2015review}. To define accuracy the following concepts are needed
@@ -186,7 +186,7 @@ The accuracy is defined as:
 \end{equation}\\
 The accuracy metric gives more weight to the more frequently represented labels in the data set and its score can therefore easily be misleading. A majority classifier evaluated on a data set with a label distribution of 5 percent minority class labels and 95 percent majority class labels will for example reach 95 percent accuracy.\\
 Thus, in the case of imbalanced data sets, it is not appropriate to use the accuracy metric as it does not provide information about the predictive power of the model in this context.\\
-Four metrics that do take the label distribution into account which are mentioned in the literature are the \texit{F - Score}, the \texit{G - Mean}, \texit{Recall} and \texit{Precision} \cite{he2009learning}.\\
+Four metrics that do take the label distribution into account which are mentioned in the literature are the \texit{F - Score}, \texit{G - Mean}, \texit{Recall} and \texit{Precision} \cite{he2009learning}.\\
 In the following the minority class will be the positive class and the majority class will be the negative class.\\ 
 Too define the F - Score and the G - Mean, Recall and Precision need to be defined:\\
 \begin{equation}
@@ -204,7 +204,7 @@ The G - Mean is defined as:\\
 \begin{equation}
     \text{G - Mean} = \sqrt{\frac{\acrshort{tp}}{\acrshort{tp} + \acrshort{fn}} \cdot \frac{\acrshort{tn}}{\acrshort{tn} + \acrshort{fp}}}
 \end{equation}
-These four metrics are designed for binary classification problems where there are only two labels. In order to map these metrics to classification problems where the number of labels is greater than two, the following two approached can be applied. They will be illustrated for the F - Score metric:
+These four metrics are designed for binary classification problems where there are only two labels. In order to map these metrics to classification problems where the number of labels is greater than two, the following two approaches can be applied. They will be illustrated for the F - Score metric:
 \begin{enumerate}
     \item Taking the average F - Score per class $c$, where $c$ is the minority class and all other classes are the majority class. The set of all classes is denoted as $C$. The advantage is that all labels are treated as equally important:
     \begin{equation}
@@ -284,12 +284,9 @@ In the literature, four of such proposed metrics are the F - Score, G - Mean, Pr
 \label{sec:problem}
 Two tasks are defined on the provided data set, the \acrshort{poc} - task and the \acrshort{pow} - task. Within both tasks the challenge is to predict a rating for a user - argument combination in timepoint $T_{a+1}$ with the knowledge of the ratings in timepoint $T_a$.\\ Let $x \in \{0,1,2,3,4,5,6\}^{n}$ denote a partially observed rating - vector of the rating matrix $R \in \mathbb{R}^{m \times n}$, with $m$ being the number of users and $n$ being the number of arguments.
 \subsection{Prediction of Conviction (\acrshort{poc})}
-The \acrshort{poc} task is defined as follows: given a user, argument pair $(u,i) \in R$, predict the unknown conviction of user $u$ for argument $i$. As this task is a binary classification task, the range of $x$ is limited to $\{0, 1\}$.\\
+The \acrshort{poc} task is defined as follows: given a user, argument pair $(u,i) \in R$, predict the unknown conviction of user $u$ for argument $i$. As this task is a binary classification task, the range of $x$ is limited to $\{0, 1\}$.
 \subsection{Prediction of Weight (\acrshort{pow})}
-The \acrshort{pow} task is defined as follows: given a user, argument pair $(u,i) \in R$, predict the unknown weight of the conviction of user $u$ for argument $i$. This task is a multi classification task, the range of $x$ is $\{0, 1, 2, 3, 4, 5, 6\}$.\\
-\subsection{Difficulty of the Tasks}
-\label{sec:difficulty}
-The difficulty of these tasks is given by the fact that for each user from the test data set in $T_{a+1}$  only two ratings are given in the training data set in $T_{a}$ for each of the respective tasks. Since very little data is available about the relevant users, the available rating information of other users needs to be used to impute the missing values. This setup is defined as a \acrshort{cf} task, as described in \ref{subsec:rec_sys}.\\
+The \acrshort{pow} task is defined as follows: given a user, argument pair $(u,i) \in R$, predict the unknown weight of the conviction of user $u$ for argument $i$. This task is a multiclass classification task, the range of $x$ is $\{0, 1, 2, 3, 4, 5, 6\}$.
 \subsection{Generalization of Classification}
 Aggarwal \cite{aggarwal2016recommender} interprets CF as a generalization of a classification or regression problem. Traditional classification and regression problems deal with observations $x \in \mathbb{R}^{m}$, where $m - 1$ variables are specified, the independent variables. However, one variable is unspecified, the dependent variable. The value of the dependent variable needs to be predicted. The independent and dependent variables stay the same throughout all observations. In CF, on the other hand, any variable can be the dependent variable. In addition, more than one of the independent variables may be unspecified. Furthermore, no row - wise split into training data set and test data set can be performed in most cases as any row is likely to contain missing values. The relationship between CF and traditional classification modelling is illustrated in Figure \ref{fig:CFvsClassification}.
 
@@ -351,7 +348,7 @@ The model is trained by first initializing the matrices $N$ and $M$ randomly and
     \end{equation}
 In the above equations:
 \begin{itemize}
-    \item $\mathbb{I} \in \mathbb{R}^{k \times k}$  is the \textit{Identity Matrix}
+    \item $\mathbb{I} \in \mathbb{R}^{k \times k}$  is the Identity Matrix
     \item $\tilde{W}^{(i)} \in \mathbb{R}^{n \times n} = \text{diag}(W.,i)$ is a diagonal matrix containing the i - th row of $W$.
     \item $\tilde{W}^{(j)} \in \mathbb{R}^{m \times m} = \text{diag}(W.,j)$ is a diagonal matrix containing the j - th column of $W$.
 \end{itemize}
@@ -377,7 +374,7 @@ $S$ is symmetric, i.e. $\forall{s_i_j} \in S: s_i_j = s_j_i$. Thus, only the ent
 \label{subsub:tlmf}
 The second level of the \acrshort{tlmf} model attempts to combine the rating matrix with the textual similarity matrix from the first level into a unified learning model that tries to approximate the given user - argument ratings in the provided data set by applying another matrix factorization.\\
 The given rating matrix $Z \in \mathbb{R}^{u \times i}$ is decomposed into two low - dimensional matrices
-$Q \in \mathbb{R}^{u\times d}$ and $P \in \mathbb{R}^{i \times d}$. $d$ is the embedding size of the model i.e. each user and each item is represented as an $d$ - dimensional vector.\\
+$Q \in \mathbb{R}^{u\times d}$ and $P \in \mathbb{R}^{i \times d}$. $d$ is the embedding size of the model i.e. each user and each item is represented as a $d$ - dimensional vector.\\
 To optimize the model parameters $P, Q$ the regularized squared error is minimized:
 \begin{equation}
 \begin{align*}
@@ -401,17 +398,17 @@ For each $z_u_i \in Z$, $P_u$ and $Q_i$ are updated by the following gradient de
 \end{equation}
 In the above equation:
 \begin{itemize}
-    \item $\eta$ is the \textit{learning rate}. 
-    \item $N(i)$ is the \textit{Neighborhood} of argument i. The parameter \textit{n} that is passed to the \acrshort{tlmf} training algorithm determines the number of neighbours (similar arguments) to consider.
+    \item $\eta$ is the learning rate. 
+    \item $N(i)$ is the neighborhood of argument i. The parameter $n$ that is passed to the \acrshort{tlmf} training algorithm determines the number of neighbours (similar arguments) to consider.
 \end{itemize}
-This training procedure is applied until convergence. Afterwards an unknown value $z_u_i$ can efficiently be predicted by calculating the dot - product P_uQ_i^\top.  
+This training procedure is applied until convergence. Afterwards an unknown value $z_u_i$ can be efficiently predicted by calculating the dot - product P_uQ_i^\top.  
 
 \subsection{\acrshort{bert} + Matrix Factorization}
 The similarity matrix of arguments was built by the \acrshort{wtmf} model in the \acrshort{tlmf} model. In this model the similarity matrix is computed by applying a pretrained \acrshort{bert} model to the arguments. Specifically, the \acrshort{bert} - Base model with 12 transformer blocks, 768 hidden layers and 12 self - attention heads is used \cite{devlin2018bert}. This \acrshort{bert} model maps an input sequence to a $768$ - dimensional, dense vector. This mapping is done in such a way that semantically similar sequences are close to each other in the embedding space. The pairwise argument similarity is then computed as the cosine similarity of the normalized argument embeddings.\\
 The second step of this model is equal to the second step in the \acrshort{tlmf} model i.e. the computed similarity matrix is incorporated into the matrix factorization model proposed in section \ref{subsub:tlmf}. 
 
 \subsection{AutoRec}
-Sedhain et al. \cite{sedhain2015autorec} introduced as an autoencoder framework specifically designed for \acrshort{cf} tasks.
+Sedhain et al. \cite{sedhain2015autorec} introduced an autoencoder framework specifically designed for \acrshort{cf} tasks.
 The before described matrix factorization model is a linear latent model, i.e. the complexity of the relationships it is able to model is limited to linear complexity. The goal of implementing the AutoRec model is to model possible non - linear relationships within the rating data and to improve upon the limited predicition power of the matrix factorization model.\\
 AutoRec follows the basic architecture of an autoencoder, which is described in section \ref{chap:autoencoder}. AutoRec can either be implemented as an \acrfull{iautorec} or as a \acrfull{uautorec}. In the experiments that were conducted in \cite{sedhain2015autorec}, the item - based AutoRec yielded better results compared to the user - based AutoRec. It is assumed that this performance difference is caused by the fact that item - vectors are likely to be less sparse than user - vectors in the recommender system scenario.\\
 In the following the implementation of \acrshort{iautorec} will be described.\\
@@ -432,7 +429,7 @@ where\\
     \item $\mu$ and $b$ are bias terms
 \end{itemize}
 $f, g, W$ and $V$ are the learnable parameters $\theta$.\\
-To avoid overfitting of the model on the training data, a regularisation term for the weighting matrices is added with $\lambda > 0$:\\
+To avoid overfitting of the model on the training data, a regularization term for the weighting matrices is added with $\lambda > 0$:\\
 \begin{equation}
    \min_{\theta}\sum_{x \in I} ||x - h(x; \theta)||^{2}_{O} + \frac{\lambda}{2} \cdot (||W||^{2}_{2} + ||V||^{2}_{F})
 \end{equation}
@@ -472,7 +469,7 @@ After learning the optimal values for the learnable parameters $\theta$, a predi
 \end{figure}
 
 \subsection{Naive Bayes \acrshort{cf}}
-The Naive Bayes classifier is a model family that utilizes \texit{Bayes Theorem} combined with an independence assumption of the features to produce a classification \cite{rish2001empirical}. A way of mapping This model to the \acrshort{cf} scenario is proposed in \cite{valdiviezo2019collaborative}. Bayes Theorem is defined in \cite{berrar2018bayes} as:\\
+The Naive Bayes classifier is a model family that utilizes \texit{Bayes Theorem} combined with an independence assumption of the features to produce a classification \cite{rish2001empirical}. One way of mapping this model to the \acrshort{cf} scenario is proposed in \cite{valdiviezo2019collaborative}. Bayes Theorem is defined in \cite{berrar2018bayes} as:\\
 \begin{equation}
     P(A|B) = \frac{P(A)\cdot P(B|A)}{P(B)}
 \end{equation}
@@ -508,8 +505,8 @@ The parts of the last expression of equation \eqref{eq:1} can be translated into
     \end{align*}
 \end{equation}
 The prior probability $P(r_{u_j} = c)$ is computed as the fraction of users who have specified the rating $c$ for item $j$ to all users that have specified any rating for item $j$.\\
-The likelihood $\prod\limits_{k \in I_u} P(r_{u_k}|r_{u_j}=c)$ is based on the conditional independence assumption of the ratings.%Refactor this freaking sentence 
-It is computed as the product of the fractions of users who have specified the rating $r_u_k$ for item $k$, given that they specified the rating for the $j$th item to $c$ to all users that have specified the rating for the $j$th item to c and have given a rating $c_k$ to item $k$ that is different from $r_{u_k}$ for every item $k \in I_u$. $I_u$ is the set of items the user $u$ has specified any rating for.\\
+The likelihood $\prod\limits_{k \in I_u} P(r_{u_k}|r_{u_j}=c)$ is based on the conditional independence assumption of the ratings. %Refactor this freaking sentence 
+It is computed as the product of the fractions of users who have specified the rating $r_u_k$ for item $k$, given that they specified the rating for the $j$th item to $c$, to all users that have specified the rating for the $j$th item to c and have given a rating $c_k$ to item $k$ that is different from $r_{u_k}$ for every item $k \in I_u$. $I_u$ is the set of items the user $u$ has specified any rating for.\\
 The final prediction will thus be:
 \begin{equation}
     \begin{align*}
@@ -517,9 +514,9 @@ The final prediction will thus be:
     \end{align*}
 \end{equation}
 
-\subsection{User - Based Neighborhood Models}
+\subsection{User - Based Neighborhood Model}
 The essence of user - based neighborhood models is to predict a rating for the target user - item pair $(u,i)$ based on a weighted rating of the $k$ most similar users $\tilde{u}_1, \dots ,\tilde{u}_k$ to the target user $u$ which made a prediction for item $i$ \cite{aggarwal2016recommender}. \\ 
-A general issue in user - based neighborhood models is the fact that different users differ in their scale of ratings due to rating - biases \cite{wherry1982control}. Some users in general might give higher ratings whereas other users tend to give lower ratings. Approaches to tackle this problem will be proposed in the following.\\
+A general issue in user - based neighborhood models is the fact that different users differ in their scale of ratings due to rating - biases \cite{wherry1982control}. Some users in general might give higher ratings whereas other users tend to give lower ratings.\\
 Some definitions that are important for the following user - based neighborhood model before proceeding are presented now.
 $I_u$ denotes the set of items rated by user $u$. Given a rating matrix $R \in \mathbb{R}^{m \times n}$ with $m$ users and $n$ items, $r_u_j$ denotes the rating of user $u$ for item $j$. $\mathbbm{1_{u_j}}$ indicates if user $u$ has rated item $j$ or not. The average rating of user $u$ is defined as folows:
     \begin{equation}
@@ -528,7 +525,6 @@ $I_u$ denotes the set of items rated by user $u$. Given a rating matrix $R \in \
 
 \subsubsection{Mean - Centered Pearson Correlation}
 The similarity of two users $u_1$ and $u_2$ is computed exclusively on the mutual observed ratings defined as $I_u_1 \cap I_u_2$.\\
-The training - data sets that are provided specify $4$ ratings ($2$ for \acrshort{poc}, $2$ for \acrshort{pow}) for users for which predictions need to be made in the test - data set. So in general for these users of interest $U$ it holds that $|I_u| = 4\: \forall{u \in U}$.\\
 A measure that can be applied to compute the similarity of two users $u_1, u_2$ is the Pearson Correlation Coefficient \cite{benesty2009pearson}:
 \begin{equation}
     \text{Pearson}(u_1, u_2) = \frac{\sum\limits_{i \in I_u_1 \cap I_u_2} (r_{u_1_i} - \mu_u_1) \cdot (r_{u_2_i} - \mu_u_2)}{\sqrt{\sum\limits_{i \in I_u_1 \cap I_u_2} (r_{u_1_i} - \mu_u_1)^2 \cdot \sum\limits_{i \in I_u_1 \cap I_u_2} (r_{u_2_i} - \mu_u_2)^2}}
@@ -541,14 +537,10 @@ Before actually producing predictions the problem of rating bias has to be tackl
 \begin{equation}
     c_{u_j} = r_{u_j} - \mu_u
 \end{equation}
-Using the mean centered rating data, we can produce mean centered predictions for user item pairs $(u,j)$. To account for the centering, we add the mean $\mu_u$ of a specific user $u$ back to the prediction to produce a \textit{raw prediction}. Let $P_u(j,t)$ be the set of k - closest users to target user $u$ that specified a rating for item $j$ and for which $Pearson(u, v) >= t\;: \forall{v} \in P_u(j)$ holds.\\ The prediction function is defined as: 
+Using the mean centered rating data, we can produce mean centered predictions for user item pairs $(u,j)$. To account for the centering, we add the mean $\mu_u$ of a specific user $u$ back to the prediction to produce a raw prediction. Let $P_u(j,t)$ be the set of k - closest users to target user $u$ that specified a rating for item $j$ and for which $Pearson(u, v) >= t\;: \forall{v} \in P_u(j)$ holds.\\ The prediction function is defined as: 
 \begin{equation}
     \hat{r}_{u_j} = \mu_u + \frac{\sum\limits_{v \in P_u(j)}\text{Pearson}(u, v) \cdot c_{v_j}}{\sum\limits_{v \in P_u(j)} |\text{Pearson}(u, v)|}
 \end{equation}
-
-\subsection{A Note on Item - Based Neighborhood Models}
-In Item - Based Neighborhood Models the predictions of a target user - item pair $(u, i)$ is based on the weighted average of the $k$ most similar items $i_1,\dots,i_k$ the user $u$ has provided a rating for. As described in \ref{sec:difficulty}, only two items per task have a rating for the users in the training set for which a prediction needs to be made in the test set.\\
-Therefore it is not feasible to apply an Item - Based Neighborhood Model in this scenario as there would only be two other ratings for which the corresponding items don't necessarily need to be similar.
 
 \section{Results \& Discussion}
 \label{sec:results}
@@ -580,13 +572,13 @@ In the following the margins of performance differences are computed as the diff
     \label{tab:results}
 \end{table}
 \noindent In Table \ref{tab:results_f1_mean} the performance results of the models using the averaged F - score are presented. It can be seen that the \acrshort{tlmf} model performs best on the \acrshort{poc} task for the $T_1 \to T_2$ data set by a margin of 0.7\%. For the respective \acrshort{pow} task the Naive Bayes model performs best by a margin of 15\%. \\
-Likewise, the Naive Bayes model shows the best performance for the \acrshort{pow} task defined on $T_2 \to T_3$. It achieves the best performance by a margin 45.3\%. The best performance for the \acrshort{poc} task on $T_2 \to T_3$ is achieved by the \acrshort{iautorec} model by a margin of 7.5\%.
+Likewise, the Naive Bayes model shows the best performance for the \acrshort{pow} task defined on $T_2 \to T_3$. It achieves the best performance by a margin of 45.3\%. The best performance for the \acrshort{poc} task on $T_2 \to T_3$ is achieved by the \acrshort{iautorec} model by a margin of 7.5\%.
 
 \begin{table}[h!]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
     \hline
-     & \multicolumn{2}{|c|}{\acrshort{poc} (F - Score)} & \multicolumn{2}{|c|}{\acrshort{pow} (F - Score)} \\
+     & \multicolumn{2}{|c|}{\acrshort{poc} (F - Score_A)} & \multicolumn{2}{|c|}{\acrshort{pow} (F - Score_A)} \\
      \hline
     Algorithms & $T_1 \to T_2$ & $T_2 \to T_3$ & $T_1 \to T_2$ & $T_2 \to T_3$\\
     \hline  Majority (baseline) & .771 & .730 & .115 & .108 \\ 
@@ -607,7 +599,7 @@ For data set $T_2 \to T_3$ the Naive Bayes model and the \acrshort{iautorec} mod
     \centering
     \begin{tabular}{|c|c|c|c|c|}
     \hline
-     & \multicolumn{2}{|c|}{\acrshort{poc} (Precision)} & \multicolumn{2}{|c|}{\acrshort{pow} (Precision)} \\
+     & \multicolumn{2}{|c|}{\acrshort{poc} (Precision_A)} & \multicolumn{2}{|c|}{\acrshort{pow} (Precision_A)} \\
      \hline
     Algorithms & $T_1 \to T_2$ & $T_2 \to T_3$ & $T_1 \to T_2$ & $T_2 \to T_3$\\
     \hline  Majority (baseline) & .775 & .739 & .099 & .085 \\ 
@@ -621,16 +613,16 @@ For data set $T_2 \to T_3$ the Naive Bayes model and the \acrshort{iautorec} mod
     \end{tabular}
     \caption{Results of the Models, Evaluated With the Average Precision – Score.}
     \label{tab:results_precision_mean}
-\end{table}\\
+\end{table}
 
-\noindent In Table \ref{tab:results_recall_mean} the performance results of the models using the averaged recall score are presented. For data set $T_1 \to T_2$ the \acrshort{tlmf} model performs best by a margin of 0.8\% for the (\acrshort{poc}) task. The Naive Bayes model performs best for the \acrshort{pow} task by a margin of 6.5\% (). \\
+\noindent In Table \ref{tab:results_recall_mean} the performance results of the models using the averaged recall score are presented. For data set $T_1 \to T_2$ the \acrshort{tlmf} model performs best by a margin of 0.8\% for the (\acrshort{poc}) task. The Naive Bayes model performs best for the \acrshort{pow} task by a margin of 6.5\%. \\
 For data set $T_2 \to T_3$ the naive bayes model performs best for the \acrshort{pow} task by a margin of 37.8\%. For the \acrshort{poc} task the \acrshort{iautorec} model performs best by a margin of 8.0\%.
 
 \begin{table}[h!]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
     \hline
-     & \multicolumn{2}{|c|}{\acrshort{poc} (Recall)} & \multicolumn{2}{|c|}{\acrshort{pow} (Recall)} \\
+     & \multicolumn{2}{|c|}{\acrshort{poc} (Recall_A)} & \multicolumn{2}{|c|}{\acrshort{pow} (Recall_A)} \\
      \hline
     Algorithms & $T_1 \to T_2$ & $T_2 \to T_3$ & $T_1 \to T_2$ & $T_2 \to T_3$\\
     \hline  Majority (baseline) & .769 & .728 & .203 & .179 \\ 
@@ -653,7 +645,7 @@ For data set $T_2 \to T_3$ the \acrshort{iautorec} model performs best by a marg
     \centering
     \begin{tabular}{|c|c|c|c|c|}
     \hline
-     & \multicolumn{2}{|c|}{\acrshort{poc} (G - Mean)} & \multicolumn{2}{|c|}{\acrshort{pow} (G - Mean)} \\
+     & \multicolumn{2}{|c|}{\acrshort{poc} (G - Mean_A)} & \multicolumn{2}{|c|}{\acrshort{pow} (G - Mean_A)} \\
      \hline
     Algorithms & $T_1 \to T_2$ & $T_2 \to T_3$ & $T_1 \to T_2$ & $T_2 \to T_3$\\
     \hline  Majority (baseline) & .765 & .722 & .297 & .271 \\ 
@@ -670,7 +662,7 @@ For data set $T_2 \to T_3$ the \acrshort{iautorec} model performs best by a marg
 \end{table}
 \noindent It can be observed that the Naive Bayes model performs remarkably well. The Naive Bayes model achieves the best performance in 43.75\% cases of all task / data set combinations for the newly introduced metrics. The \acrshort{iautorec} model achieves the best performance in 31.25\% of the cases and the \acrshort{tlmf} model achieves the best performance in 25\% of the cases.\\ It can also be seen that the User Neighborhood model is performing significantly worse than the other proposed models. This is likely caused by the fact that too little rating data is available for most users to compute reasonable user - similarity clusters.\\
 It can also be observed that the argument - similarity matrix computed by the \acrshort{bert} model does not seem to enhance the prediction power of the matrix factorization model in comparison to the similarity matrix computed by the less complex \acrshort{wtmf} model.\\
-As predicted, the baseline models are outperformed every evaluation instance. This supports the assumption that the choice of accuracy and \acrshort{rmse} as the evaluation metrics is not suitable for the data set at hand.\\
+As predicted, the baseline models are outperformed in every evaluation instance. This supports the assumption that the choice of accuracy and \acrshort{rmse} as the evaluation metrics is not suitable for the data set at hand.\\
 While the performance gap between baseline models and proposed models is small for the \acrshort{poc} task, the performance gap is growing for the \acrshort{pow} task. This is illustrated for all proposed metrics in Figure \ref{fig:comparison}.\\
 In general, the performance difference of the baseline models and the proposed models is greater for the data set $T_2 \to T_3$. One explanation could be the fact that $T_2 \to T_3$ is less sparse and more balanced than $T1 \to T_2$. This can be observed from Table \ref{tab:my_label}.\\
 Overall the models perform generally worse in the \acrshort{pow} task than in the \acrshort{poc} task on the same data sets. This is due to the fact that there are 7 different class labels in the \acrshort{pow} task whereas the \acrshort{poc} task is a binary classification task, making the \acrshort{pow} task more complex.
@@ -830,7 +822,7 @@ This section provides information about the parameter values that were used in t
           $\eta$ & .001 & .001 & .0001 & .0001\\
         \hline
     \end{tabular}
-    \caption{Parameter Values Used in the \acrshort{iautorec} Model for the Different Task/Data set Combinations.}
+    \caption{Parameter Values Used in the \acrshort{iautorec} Model for the Different Task/Data Set Combinations.}
     \label{tab:autorec}
 \end{table}
 
